@@ -7,10 +7,6 @@ public class Define
     public enum Scene
     {
         Unknown,
-        Login,
-        Lobby,
-        Village,
-        Boss,
     }
 
     public enum Sound
@@ -30,10 +26,14 @@ public class Define
         PointerExit,
         Drop,
     }
-    public enum InteractionType
+    public enum GameplayTag
     {
-        Shop,
-        Boss,
-        Village,
+        Player_Action_Jump,
+        Player_Action_Attack,
+        Player_Action_Parring,
+        Player_Action_Wave,
+        Player_Action_Drink,
+        Player_Action_UseItem,
+        
     }
 }
