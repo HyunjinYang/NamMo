@@ -6,53 +6,53 @@ using UnityEngine.EventSystems;
 
 public class UI_EventHandler : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IDropHandler
 {
-    public Action<PointerEventData> OnClickHandler = null;
-    public Action<PointerEventData> OnDragHandler = null;
-    public Action<PointerEventData> OnBeginDragHandler = null;
-    public Action<PointerEventData> OnEndDragHandler = null;
-    public Action<PointerEventData> OnPointerEnterHandler = null;
-    public Action<PointerEventData> OnPointerExitHandler = null;
-    public Action<PointerEventData> OnDropHandler = null;
+    public Action OnClickHandler = null;
+    public Action OnDragHandler = null;
+    public Action OnBeginDragHandler = null;
+    public Action OnEndDragHandler = null;
+    public Action OnPointerEnterHandler = null;
+    public Action OnPointerExitHandler = null;
+    public Action OnDropHandler = null;
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		if (OnClickHandler != null)
-			OnClickHandler.Invoke(eventData);
+			OnClickHandler.Invoke();
 	}
 
 	public void OnDrag(PointerEventData eventData)
     {
 		if (OnDragHandler != null)
-            OnDragHandler.Invoke(eventData);
+            OnDragHandler.Invoke();
 	}
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (OnBeginDragHandler != null)
-            OnBeginDragHandler.Invoke(eventData);
+            OnBeginDragHandler.Invoke();
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         if (OnEndDragHandler != null)
-            OnEndDragHandler.Invoke(eventData);
+            OnEndDragHandler.Invoke();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (OnPointerEnterHandler != null)
-            OnPointerEnterHandler.Invoke(eventData);
+            OnPointerEnterHandler.Invoke();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (OnPointerExitHandler != null)
-            OnPointerExitHandler.Invoke(eventData);
+            OnPointerExitHandler.Invoke();
     }
 
     public void OnDrop(PointerEventData eventData)
     {
         if (OnDropHandler != null)
-            OnDropHandler.Invoke(eventData);
+            OnDropHandler.Invoke();
     }
 }

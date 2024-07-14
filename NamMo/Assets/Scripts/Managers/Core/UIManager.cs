@@ -1,16 +1,17 @@
-﻿using System.CodeDom;
+﻿using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager
+public class UIManager: Managers
 {
     int _order = 10;
 
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>();
     public UI_Scene SceneUI { get { return _sceneUI; } }
     UI_Scene _sceneUI = null;
-
+    public Action InputEvent;
     public GameObject Root
     {
         get
