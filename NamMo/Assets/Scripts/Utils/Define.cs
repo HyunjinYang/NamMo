@@ -36,4 +36,9 @@ public class Define
         Player_Action_UseItem,
         
     }
+    public enum CameraMode
+    {
+        None,
+        FollowTarget,
+    }
 }

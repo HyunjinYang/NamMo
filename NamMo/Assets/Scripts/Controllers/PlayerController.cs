@@ -1,24 +1,57 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D _rigidBody;
-    float _speed = 10.0f;
-    private void Awake()
+    public Action<float> OnMoveInputChanged;
+    public Action OnJumpInputPerformed;
+    public Action OnJumpInputCanceled;
+    public Action OnAttackInputPerformed;
+    // SendMessage
+    private void OnMove(InputValue value)
     {
-        _rigidBody = GetComponent<Rigidbody2D>();
+        float moveVal = value.Get<float>();
+        OnMoveInputChanged.Invoke(moveVal);
     }
-    void Start()
+    // Invoke
+    public void HandleMoveInput(InputAction.CallbackContext context)
     {
-        
+        float value = context.ReadValue<float>();
+        if (context.started)
+        {
+        }
+        else if (context.performed)
+        {
+            OnMoveInputChanged.Invoke(value);
+        }
+        else if (context.canceled)
+        {
+            OnMoveInputChanged.Invoke(value);
+        }
     }
-    void Update()
+    public void HandleJumpInput(InputAction.CallbackContext context)
     {
-        float inputVal = Input.GetAxis("Horizontal");
-
-        Vector2 moveVec = new Vector2(inputVal, 0) * _speed * Time.deltaTime;
-        _rigidBody.MovePosition(_rigidBody.position + moveVec);
+        if (context.started)
+        {
+        }
+        else if (context.performed)
+        {
+            OnJumpInputPerformed.Invoke();
+        }
+        else if (context.canceled)
+        {
+            OnJumpInputCanceled.Invoke();
+        }
+    }
+    public void HandleAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OnAttackInputPerformed.Invoke();
+        }
     }
 }
