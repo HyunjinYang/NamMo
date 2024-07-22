@@ -15,15 +15,18 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D _rb;
 
     private float _horizontalMoveValue;
+    private float _originalGravity;
     private bool _isFacingRight = true;
-    // TODO : ASC
     [SerializeField] private bool _isDashing = false;
     [SerializeField] private bool _isJumping = false;
 
     private Action _reservedInputAction = null;
+    private Coroutine _dashCoroutine = null;
 
     public Action<bool> OnFlip;
     public Action OnLandGround;
+    public Action OnDashEnd;
+    public Action OnDashCanceled;
     // -------------------- Unity Method --------------------
     #region Unity Method
     private void Awake()
@@ -32,11 +35,8 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
 
         _pc.OnMoveInputChanged += RefreshHorizontalMoveValue;
-        _pc.OnJumpInputPerformed += StartJump;
-        _pc.OnJumpInputCanceled += EndJump;
 
-        // tmp
-        _pc.OnAttackInputPerformed += (() => Dash(10f, 0.1f));
+        _originalGravity = 4f;
     }
     private void FixedUpdate()
     {
@@ -52,28 +52,6 @@ public class PlayerMovement : MonoBehaviour
                 if (OnLandGround != null) OnLandGround.Invoke();
             }
         }
-    }
-    #endregion
-    // -------------------- Public Method --------------------
-    #region Public Method
-    public void StartJump()
-    {
-        _isJumping = true;
-        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
-    }
-    public void EndJump()
-    {
-        if (!_isJumping || _rb.velocity.y <= 0 || IsGround()) return;
-        _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
-    }
-    public void Dash(float dashForce, float dashTime)
-    {
-        if (_isDashing) return;
-        StartCoroutine(CoDash(dashForce, dashTime));
-    }
-    private bool IsGround()
-    {
-        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
     #endregion
     // -------------------- Private Method --------------------
@@ -112,21 +90,55 @@ public class PlayerMovement : MonoBehaviour
 
         OnFlip.Invoke(_isFacingRight);
     }
-    #endregion
-    // -------------------- Coroutine --------------------
-    IEnumerator CoDash(float dashForce, float dashTime)
+    private void EndDash()
     {
-        _isDashing = true;
-        float originalGravity = _rb.gravityScale;
-        _rb.gravityScale = 0f;
-        _rb.velocity = new Vector2(transform.localScale.x * dashForce, 0f);
-        yield return new WaitForSeconds(dashTime);
-        _rb.gravityScale = originalGravity;
+        _rb.gravityScale = _originalGravity;
         _isDashing = false;
         if (_reservedInputAction != null)
         {
             _reservedInputAction.Invoke();
             _reservedInputAction = null;
         }
+        OnDashEnd.Invoke();
+        _dashCoroutine = null;
+    }
+    #endregion
+    // -------------------- Public Method --------------------
+    #region Public Method
+    public void StartJump()
+    {
+        _isJumping = true;
+        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+    }
+    public void EndJump()
+    {
+        if (!_isJumping || _rb.velocity.y <= 0 || IsGround()) return;
+        _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
+    }
+    public void Dash(float dashForce, float dashTime)
+    {
+        if (_dashCoroutine != null) CancelDash();
+        _dashCoroutine = StartCoroutine(CoDash(dashForce, dashTime));
+    }
+    public void CancelDash()
+    {
+        if (_dashCoroutine == null) return;
+        StopCoroutine(_dashCoroutine);
+        EndDash();
+        if (OnDashCanceled != null) OnDashCanceled.Invoke();
+    }
+    public bool IsGround()
+    {
+        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
+    }
+    #endregion
+    // -------------------- Coroutine --------------------
+    IEnumerator CoDash(float dashForce, float dashTime)
+    {
+        _isDashing = true;
+        _rb.gravityScale = 0f;
+        _rb.velocity = new Vector2(transform.localScale.x * dashForce, 0f);
+        yield return new WaitForSeconds(dashTime);
+        EndDash();
     }
 }

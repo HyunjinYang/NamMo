@@ -11,16 +11,17 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     [Range(0, 1)] private float _followSpeed_Vertical;
     [SerializeField] private Vector2 _posOffset;
+    private PlayerMovement _pm;
     private float _flipOffset;
     private void Awake()
     {
         if (_camera == null) _camera = Camera.main;
-        _flipOffset = 3f;
+        _flipOffset = 2f;
 
-        PlayerMovement pm = _target.GetComponent<PlayerMovement>();
-        if (pm)
+        _pm = _target.GetComponent<PlayerMovement>();
+        if (_pm)
         {
-            pm.OnFlip += RefreshFlipOffset;
+            _pm.OnFlip += RefreshFlipOffset;
         }
     }
     private void FixedUpdate()
@@ -29,7 +30,8 @@ public class CameraController : MonoBehaviour
     }
     private void FollowTarget()
     {
-        Vector2 targetPos = new Vector2(_target.transform.position.x, _target.transform.position.y) + _posOffset + new Vector2(_flipOffset, 0);
+        Vector2 targetPos = new Vector2(_target.transform.position.x, _target.transform.position.y) 
+            + _posOffset + new Vector2(_flipOffset, 0);
         float currX = _camera.transform.position.x;
         float currY = _camera.transform.position.y;
         float targetX = targetPos.x;
@@ -42,7 +44,7 @@ public class CameraController : MonoBehaviour
     }
     private void RefreshFlipOffset(bool isFacingRight)
     {
-        if (isFacingRight) _flipOffset = 3f;
-        else _flipOffset = -3f;
+        if (isFacingRight) _flipOffset = 2f;
+        else _flipOffset = -2f;
     }
 }

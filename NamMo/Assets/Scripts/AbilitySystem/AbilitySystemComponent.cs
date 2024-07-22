@@ -1,61 +1,103 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AbilitySystemComponent : MonoBehaviour
 {
-    HashSet<Define.GameplayTag> _tagContainer = new HashSet<Define.GameplayTag>();
-    Dictionary<Define.GameplayTag, GameAbility> _abilities;
-    void Start()
+    Dictionary<Define.GameplayTag, int> _tagContainer = new Dictionary<Define.GameplayTag, int>();
+    Dictionary<Define.GameplayAbility, GameAbility> _abilities = new Dictionary<Define.GameplayAbility, GameAbility>();
+    public void GiveAbility(Define.GameplayAbility tag)
     {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-    public void GiveAbility(Define.GameplayTag tag)
-    {
-        if (!_tagContainer.Contains(tag))
+        GameAbility ga = null;
+        if(_abilities.TryGetValue(tag, out ga))
         {
-            Debug.Log("Already Exsist Tag");
+            Debug.Log("Already Exsist Ability");
             return;
         }
-        GameAbility ability = CreateAbility(tag);
-        _abilities.Add(tag, ability);
+        ga = CreateAbility(tag);
+        _abilities.Add(tag, ga);
     }
-    public void RemoveAbility(Define.GameplayTag tag)
+    public void RemoveAbility(Define.GameplayAbility tag)
     {
-        if (_tagContainer.Contains(tag) == false)
+        GameAbility ga = null;
+        if (_abilities.TryGetValue(tag, out ga))
         {
-            Debug.Log("Not Exsist Tag");
-            return;
+            _abilities.Remove(tag);
         }
-        _tagContainer.Remove(tag);
+        else
+        {
+            Debug.Log("Not Exsist Ability");
+        }
+    }
+    public void TryActivateAbilityByTag(Define.GameplayAbility tag)
+    {
+        GameAbility ga = null;
+        if(_abilities.TryGetValue(tag, out ga))
+        {
+            ga.TryActivateAbility();
+        }
+        else
+        {
+            Debug.Log("Not Exsist Ability");
+        }
+    }
+    public void TryCancelAbilityByTag(Define.GameplayAbility tag)
+    {
+        GameAbility ga = null;
+        if (_abilities.TryGetValue(tag, out ga))
+        {
+            if (ga.IsActivated) ga.CancelAbility();
+            else
+            {
+                Debug.Log("Not Activated Ability");
+            }
+        }
+        else
+        {
+            Debug.Log("Not Exsist Ability");
+        }
     }
     public bool IsExsistTag(Define.GameplayTag tag)
     {
-        if (_tagContainer.Contains(tag)) return true;
+        int cnt = 0;
+        if(_tagContainer.TryGetValue(tag,out cnt))
+        {
+            return true;
+        }
         return false;
     }
     public void AddTag(Define.GameplayTag tag)
     {
-        _tagContainer.Add(tag);
+        int cnt = 0;
+        if (_tagContainer.TryGetValue(tag, out cnt))
+        {
+            _tagContainer[tag] = cnt + 1;
+        }
+        else
+        {
+            _tagContainer.Add(tag, 1);
+        }
     }
     public void RemoveTag(Define.GameplayTag tag)
     {
-        _tagContainer.Remove(tag);
-    }
-    private GameAbility CreateAbility(Define.GameplayTag tag)
-    {
-        GameAbility ability = null;
-        switch (tag)
+        int cnt = 0;
+        if (_tagContainer.TryGetValue(tag, out cnt))
         {
-            case Define.GameplayTag.Player_Action_Jump:
-                ability = new GameAbility(this);
-                break;
+            if (cnt == 1) _tagContainer.Remove(tag);
+            else _tagContainer[tag] = cnt - 1;
         }
-        return ability;
+        else
+        {
+            Debug.Log("Not Exsist Tag");
+        }
+    }
+    private GameAbility CreateAbility(Define.GameplayAbility tag)
+    {
+        GameObject go = Managers.Resource.Instantiate("GameAbility/" + Enum.GetName(typeof(Define.GameplayAbility), tag));
+        GameAbility ga = go.GetComponent<GameAbility>();
+        go.transform.SetParent(transform);
+        ga.SetASC(this);
+        return ga;
     }
 }
