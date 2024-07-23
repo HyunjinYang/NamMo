@@ -77,6 +77,7 @@ half4 CombinedShapeLightShared(half4 color, half4 mask, half2 lightingUV)
 #endif
 
     half4 finalOutput;
+
 #if !USE_SHAPE_LIGHT_TYPE_0 && !USE_SHAPE_LIGHT_TYPE_1 && !USE_SHAPE_LIGHT_TYPE_2 && ! USE_SHAPE_LIGHT_TYPE_3
     finalOutput = color;
 #else
@@ -85,6 +86,7 @@ half4 CombinedShapeLightShared(half4 color, half4 mask, half2 lightingUV)
     finalOutput = _HDREmulationScale * (color * finalModulate + finalAdditve);
 
     half luminance = max(finalModulate.r, max(finalModulate.g, finalModulate.b));
+    if (luminance < 0.1) luminance = 0;
     finalOutput.a = min(luminance * 2, color.a);
 #endif
 
