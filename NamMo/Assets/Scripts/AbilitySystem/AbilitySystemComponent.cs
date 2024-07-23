@@ -7,6 +7,8 @@ public class AbilitySystemComponent : MonoBehaviour
 {
     Dictionary<Define.GameplayTag, int> _tagContainer = new Dictionary<Define.GameplayTag, int>();
     Dictionary<Define.GameplayAbility, GameAbility> _abilities = new Dictionary<Define.GameplayAbility, GameAbility>();
+    [SerializeField]
+    private int[] tagTest = new int[(int)Define.GameplayTag.MaxCount];
     public void GiveAbility(Define.GameplayAbility tag)
     {
         GameAbility ga = null;
@@ -73,10 +75,12 @@ public class AbilitySystemComponent : MonoBehaviour
         if (_tagContainer.TryGetValue(tag, out cnt))
         {
             _tagContainer[tag] = cnt + 1;
+            tagTest[(int)tag] = cnt + 1;
         }
         else
         {
             _tagContainer.Add(tag, 1);
+            tagTest[(int)tag] = 1;
         }
     }
     public void RemoveTag(Define.GameplayTag tag)
@@ -84,8 +88,16 @@ public class AbilitySystemComponent : MonoBehaviour
         int cnt = 0;
         if (_tagContainer.TryGetValue(tag, out cnt))
         {
-            if (cnt == 1) _tagContainer.Remove(tag);
-            else _tagContainer[tag] = cnt - 1;
+            if (cnt == 1)
+            {
+                _tagContainer.Remove(tag);
+                tagTest[(int)tag] = 0;
+            }
+            else 
+            { 
+                _tagContainer[tag] = cnt - 1;
+                tagTest[(int)tag] = cnt - 1;
+            }
         }
         else
         {

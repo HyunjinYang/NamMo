@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            //OnAttackInputPerformed.Invoke();
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
         }
     }
     // ÆÄµ¿Å½Áö

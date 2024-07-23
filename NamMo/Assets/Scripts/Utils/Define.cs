@@ -35,11 +35,14 @@ public class Define
         Player_Action_UseItem,
         Player_Action_Interaction,
         Player_Action_Dash,
+
+        MaxCount
     }
     public enum GameplayAbility
     {
         GA_Jump,
         GA_Dash,
+        GA_Attack,
     }
     public enum CameraMode
     {
