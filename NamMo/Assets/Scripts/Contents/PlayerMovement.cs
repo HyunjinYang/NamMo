@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     public Action OnLandGround;
     public Action OnDashEnd;
     public Action OnDashCanceled;
+    public bool IsJumping {  get { return _isJumping; } }
+    public bool IsDashing { get { return _isDashing; } }
     // -------------------- Unity Method --------------------
     #region Unity Method
     private void Awake()

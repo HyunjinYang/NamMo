@@ -43,6 +43,7 @@ public class Define
         GA_Jump,
         GA_Dash,
         GA_Attack,
+        GA_WaveDetect,
     }
     public enum CameraMode
     {

@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("HandleWaveInput");
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_WaveDetect);
         }
     }
     // ÆÐ¸µ
