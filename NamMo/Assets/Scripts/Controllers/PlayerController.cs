@@ -1,24 +1,110 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D _rigidBody;
-    float _speed = 10.0f;
+    [SerializeField] private AbilitySystemComponent _asc;
+    [SerializeField] private List<Define.GameplayAbility> _abilities;
+    public Action<float> OnMoveInputChanged;
+    public Action OnAttackInputPerformed;
     private void Awake()
     {
-        _rigidBody = GetComponent<Rigidbody2D>();
+        if (_asc == null) _asc = GetComponent<AbilitySystemComponent>();
+        foreach(var ability in _abilities)
+        {
+            _asc.GiveAbility(ability);
+        }
     }
-    void Start()
+    // 이동
+    public void HandleMoveInput(InputAction.CallbackContext context)
     {
-        
+        float value = context.ReadValue<float>();
+        if (context.started)
+        {
+        }
+        else if (context.performed)
+        {
+            OnMoveInputChanged.Invoke(value);
+        }
+        else if (context.canceled)
+        {
+            OnMoveInputChanged.Invoke(value);
+        }
     }
-    void Update()
+    // 점프
+    public void HandleJumpInput(InputAction.CallbackContext context)
     {
-        float inputVal = Input.GetAxis("Horizontal");
-
-        Vector2 moveVec = new Vector2(inputVal, 0) * _speed * Time.deltaTime;
-        _rigidBody.MovePosition(_rigidBody.position + moveVec);
+        if (context.started)
+        {
+        }
+        else if (context.performed)
+        {
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+        }
+        else if (context.canceled)
+        {
+            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
+        }
     }
+    // 공격
+    public void HandleAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
+        }
+    }
+    // 파동탐지
+    public void HandleWaveInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_WaveDetect);
+        }
+    }
+    // 패링
+    public void HandleParryingInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("HandleParryingInput");
+        }
+    }
+    // 대쉬
+    public void HandleDashInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("HandleDashInput");
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
+        }
+    }
+    // 상호작용
+    public void HandleInteractionInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("HandleInteractionInput");
+        }
+    }
+    // 아이템1
+    public void HandleUseItem1Input(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("HandleUseItem1Input");
+        }
+    }
+    // 아이템2
+    public void HandleUseItem2Input(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("HandleUseItem2Input");
+        }
+    }
+    
 }

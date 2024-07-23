@@ -40,10 +40,24 @@ public class Define
     {
         Player_Action_Jump,
         Player_Action_Attack,
-        Player_Action_Parring,
+        Player_Action_Parrying,
         Player_Action_Wave,
-        Player_Action_Drink,
         Player_Action_UseItem,
-        
+        Player_Action_Interaction,
+        Player_Action_Dash,
+
+        MaxCount
+    }
+    public enum GameplayAbility
+    {
+        GA_Jump,
+        GA_Dash,
+        GA_Attack,
+        GA_WaveDetect,
+    }
+    public enum CameraMode
+    {
+        None,
+        FollowTarget,
     }
 }
