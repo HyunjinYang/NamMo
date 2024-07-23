@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager: Managers
+public class UIManager
 {
     int _order = 10;
 
