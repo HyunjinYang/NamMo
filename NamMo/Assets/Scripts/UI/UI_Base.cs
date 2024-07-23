@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public abstract class UI_Base : MonoBehaviour
@@ -42,12 +43,31 @@ public abstract class UI_Base : MonoBehaviour
 		return objects[idx] as T;
 	}
 
+	protected virtual void Input(Define.KeyInput key)
+	{
+		
+	}
+
 	protected GameObject GetObject(int idx) { return Get<GameObject>(idx); }
 	protected Text GetText(int idx) { return Get<Text>(idx); }
 	protected Button GetButton(int idx) { return Get<Button>(idx); }
 	protected Image GetImage(int idx) { return Get<Image>(idx); }
 
-	public static void BindEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
+	void OnNavigate(InputValue value)
+	{
+		Vector2 vector = value.Get<Vector2>();
+		if (vector.x == 0 && vector.y == 0)
+			return;
+		Define.KeyInput key = Managers.Input.ReturnKey(vector);
+		Input(key);
+	}
+
+	void OnSubmit()
+	{
+		Define.KeyInput key = Managers.Input.ActionKey("Enter");
+		Input(key);
+	}
+	public static void BindEvent(GameObject go, Action action, Define.UIEvent type = Define.UIEvent.Click)
 	{
 		UI_EventHandler evt = Util.GetOrAddComponent<UI_EventHandler>(go);
 

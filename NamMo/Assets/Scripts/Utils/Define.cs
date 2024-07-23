@@ -16,6 +16,16 @@ public class Define
         MaxCount,
     }
 
+    public enum KeyInput
+    {
+        W,
+        S,
+        A,
+        D,
+        Enter,
+        Esc
+    }
+
     public enum UIEvent
     {
         Click,
