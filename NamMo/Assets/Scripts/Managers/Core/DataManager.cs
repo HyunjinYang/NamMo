@@ -11,8 +11,10 @@ public interface ILoader<Key, Value>
 
 public class DataManager
 {
+    public Dictionary<int, Data.PrologueFadeInScript> PrologueFadeInScriptDict { get; private set; } = new Dictionary<int, PrologueFadeInScript>();
     public void Init()
     {
+        PrologueFadeInScriptDict = LoadJson<Data.PrologueFadeInScriptData, int, Data.PrologueFadeInScript>("PrologueFadeInScriptData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

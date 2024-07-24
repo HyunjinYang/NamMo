@@ -7,6 +7,7 @@ public class Define
     public enum Scene
     {
         Unknown,
+        PrologueScene,
     }
 
     public enum Sound
@@ -59,5 +60,10 @@ public class Define
     {
         None,
         FollowTarget,
+    }
+    public enum Languages
+    {
+        Kor,
+        Eng,
     }
 }
