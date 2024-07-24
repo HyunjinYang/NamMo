@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private GameObject _CharacterSprite;
 
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
@@ -88,9 +89,9 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         _isFacingRight = !_isFacingRight;
-        Vector3 localScale = transform.localScale;
+        Vector3 localScale = _CharacterSprite.transform.localScale;
         localScale.x *= -1f;
-        transform.localScale = localScale;
+        _CharacterSprite.transform.localScale = localScale;
 
         OnFlip.Invoke(_isFacingRight);
     }
@@ -152,7 +153,14 @@ public class PlayerMovement : MonoBehaviour
         _isDashing = true;
         if (_reserveDash) _reserveDash = false;
         _rb.gravityScale = 0f;
-        _rb.velocity = new Vector2(transform.localScale.x * dashForce, 0f);
+        if (_isFacingRight)
+        {
+            _rb.velocity = new Vector2(transform.localScale.x * dashForce, 0f);
+        }
+        else
+        {
+            _rb.velocity = new Vector2(-transform.localScale.x * dashForce, 0f);
+        }
         yield return new WaitForSeconds(dashTime);
         _rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(additionalNoGravityTime);
