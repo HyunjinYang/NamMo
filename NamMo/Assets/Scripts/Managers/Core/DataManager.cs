@@ -12,9 +12,14 @@ public interface ILoader<Key, Value>
 public class DataManager
 {
     public Dictionary<int, Data.PrologueFadeInScript> PrologueFadeInScriptDict { get; private set; } = new Dictionary<int, PrologueFadeInScript>();
+    public Dictionary<int, Data.Conversation> ConversationDict { get; private set; } = new Dictionary<int, Conversation>();
+    public Dictionary<int, Data.CharacterInfo> CharacterInfoDict { get; private set; } = new Dictionary<int, Data.CharacterInfo>();
+
     public void Init()
     {
         PrologueFadeInScriptDict = LoadJson<Data.PrologueFadeInScriptData, int, Data.PrologueFadeInScript>("PrologueFadeInScriptData").MakeDict();
+        ConversationDict = LoadJson<Data.ConversationData, int, Data.Conversation>("ConversationData").MakeDict();
+        CharacterInfoDict = LoadJson<Data.CharacterInfoData, int, Data.CharacterInfo>("CharacterInfoData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

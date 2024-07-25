@@ -18,11 +18,15 @@ public class UI_PrologueFadeInMessage : UI_Base
         Image_Background
     }
     public Action OnPrologueFadeInEnd;
+    public Action<int> OnFadeInScriptComplete;
+    public Action<int> OnFadeOutScriptComplete;
     public override void Init()
     {
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Image>(typeof(Images));
         ShowPrologueMessages();
+        OnFadeInScriptComplete += FadeInScriptComplete;
+        OnFadeOutScriptComplete += FadeOutScriptComplete;
     }
     private void ShowPrologueMessages()
     {
@@ -35,32 +39,12 @@ public class UI_PrologueFadeInMessage : UI_Base
         if(Managers.Data.PrologueFadeInScriptDict.TryGetValue(scriptNum, out scripts))
         {
             Get<TextMeshProUGUI>((int)Texts.Text_Script).text = scripts.scripts[languageCode];
-            Get<TextMeshProUGUI>((int)Texts.Text_Script).DOFade(1, 5).OnComplete(
-                () =>
-                {
-                    DelayAction(0f, ()=>FadeOutScript(scriptNum));
-                });
+            Get<TextMeshProUGUI>((int)Texts.Text_Script).DOFade(1, 3).SetEase(Ease.InCubic).OnComplete(() => OnFadeInScriptComplete.Invoke(scriptNum));
         }
     }
     private void FadeOutScript(int scriptNum)
     {
-        PrologueFadeInScript scripts = null;
-        if (Managers.Data.PrologueFadeInScriptDict.TryGetValue(scriptNum + 1, out scripts))
-        {
-            Get<TextMeshProUGUI>((int)Texts.Text_Script).DOFade(0, 1).OnComplete(
-                () =>
-                {
-                    DelayAction(2f, () => FadeInScript(scriptNum + 1));
-                });
-        }
-        else
-        {
-            Get<TextMeshProUGUI>((int)Texts.Text_Script).DOFade(0, 1).OnComplete(
-                () =>
-                {
-                    DelayAction(2f, () => FadeOutScreen());
-                });
-        }
+        Get<TextMeshProUGUI>((int)Texts.Text_Script).DOFade(0, 1).OnComplete(() => OnFadeOutScriptComplete.Invoke(scriptNum));
     }
     private void FadeOutScreen()
     {
@@ -75,13 +59,24 @@ public class UI_PrologueFadeInMessage : UI_Base
                 Destroy(gameObject);
             });
     }
-    private void DelayAction(float time, Action action)
+    private void FadeInScriptComplete(int scriptNum)
     {
-        StartCoroutine(CoDelayAction(time, action));
+        DelayAction(2f, () => FadeOutScript(scriptNum));
     }
-    IEnumerator CoDelayAction(float time, Action action)
+    private void FadeOutScriptComplete(int scriptNum)
     {
-        yield return new WaitForSeconds(time);
-        action.Invoke();
+        PrologueFadeInScript scripts = null;
+        if (Managers.Data.PrologueFadeInScriptDict.TryGetValue(scriptNum + 1, out scripts))
+        {
+            DelayAction(2f, () => FadeInScript(scriptNum + 1));
+        }
+        else
+        {
+            DelayAction(2f, () => FadeOutScreen());
+        }
+    }
+    private Coroutine DelayAction(float time, Action action)
+    {
+        return StartCoroutine(Managers.CoDelayAction(time, action));
     }
 }

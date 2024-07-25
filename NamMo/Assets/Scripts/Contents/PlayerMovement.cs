@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         localScale.x *= -1f;
         _CharacterSprite.transform.localScale = localScale;
 
-        OnFlip.Invoke(_isFacingRight);
+        if (OnFlip != null) OnFlip.Invoke(_isFacingRight);
     }
     private void EndDash()
     {

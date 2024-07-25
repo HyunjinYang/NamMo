@@ -25,4 +25,44 @@ namespace Data
         }
     }
     #endregion
+    #region Conversation
+    [Serializable]
+    public class Conversation
+    {
+        public int num;
+        public int characterId;
+        public List<string> scripts;
+    }
+    [Serializable]
+    public class ConversationData : ILoader<int, Conversation>
+    {
+        public List<Conversation> conversations = new List<Conversation>();
+        public Dictionary<int, Conversation> MakeDict()
+        {
+            Dictionary<int, Conversation> dict = new Dictionary<int, Conversation>();
+            foreach(Conversation conversation in conversations)
+                dict.Add(conversation.num, conversation);
+            return dict;
+        }
+    }
+    #endregion
+    [Serializable]
+    public class CharacterInfo
+    {
+        public int id;
+        public string iconPath;
+        public List<string> names;
+    }
+    [Serializable]
+    public class CharacterInfoData : ILoader<int, CharacterInfo>
+    {
+        public List<CharacterInfo> characterInfos = new List<CharacterInfo>();
+        public Dictionary<int, CharacterInfo> MakeDict()
+        {
+            Dictionary<int, CharacterInfo> dict = new Dictionary<int, CharacterInfo>();
+            foreach (CharacterInfo characterInfo in characterInfos)
+                dict.Add(characterInfo.id, characterInfo);
+            return dict;
+        }
+    }
 }
