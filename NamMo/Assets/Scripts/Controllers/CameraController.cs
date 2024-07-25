@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _target;
     [SerializeField] 
@@ -11,6 +12,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     [Range(0, 1)] private float _followSpeed_Vertical;
     [SerializeField] private Vector2 _posOffset;
+    [SerializeField] public Define.CameraMode CameraMode;
     private PlayerMovement _pm;
     private float _flipOffset;
     private void Awake()
@@ -26,7 +28,7 @@ public class CameraController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (_target) FollowTarget();
+        if (_target && CameraMode == Define.CameraMode.FollowTarget) FollowTarget();
     }
     private void FollowTarget()
     {

@@ -16,6 +16,8 @@ public class GA_Attack : GameAbility
 {
     [SerializeField] private List<AttackInfo> _comboAttackInfos = new List<AttackInfo>();
     private bool _reserveNextAttack = false;
+
+    public Action<int> OnComboChanged;
     protected override void ActivateAbility()
     {
         if(_overlapCnt == 0 || _reserveNextAttack)
@@ -44,6 +46,7 @@ public class GA_Attack : GameAbility
         else
         {
             base.EndAbility();
+            if (OnComboChanged != null) OnComboChanged.Invoke(-1);
         }
     }
     IEnumerator CoAttack()
@@ -51,9 +54,11 @@ public class GA_Attack : GameAbility
         _reserveNextAttack = false;
         
         int currCombo = _overlapCnt - 1;
+        if (OnComboChanged != null) OnComboChanged.Invoke(currCombo);
+
         AttackInfo currComboAttackInfo = _comboAttackInfos[currCombo];
         float additionalGravityTime = currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment - currComboAttackInfo.dashTime;
-        _asc.gameObject.GetComponent<PlayerMovement>().ReserveDash(currComboAttackInfo.attackMoment, currComboAttackInfo.dashForce, currComboAttackInfo.dashTime, additionalGravityTime);
+        _asc.gameObject.GetComponent<PlayerMovement>().ReserveDash(currComboAttackInfo.attackMoment, currComboAttackInfo.dashForce, currComboAttackInfo.dashTime, Define.DashType.AttackDash, additionalGravityTime);
         yield return new WaitForSeconds(currComboAttackInfo.attackMoment);
 
         Debug.Log($"Attack : {currCombo}");

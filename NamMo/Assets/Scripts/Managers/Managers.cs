@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -64,5 +65,10 @@ public class Managers : MonoBehaviour
         Scene.Clear();
         UI.Clear();
         Pool.Clear();
+    }
+    public static IEnumerator CoDelayAction(float time, Action action)
+    {
+        yield return new WaitForSeconds(time);
+        action.Invoke();
     }
 }

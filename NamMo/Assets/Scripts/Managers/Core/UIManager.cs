@@ -95,7 +95,17 @@ public class UIManager
 
 		return popup;
     }
+    public T ShowUI<T>(string name = null) where T : UI_Base
+    {
+        if (string.IsNullOrEmpty(name))
+            name = typeof(T).Name;
 
+        GameObject go = Managers.Resource.Instantiate($"UI/Default/{name}");
+        T ui = Util.GetOrAddComponent<T>(go);
+
+        go.transform.SetParent(Root.transform);
+        return ui;
+    }
     public T ShowLoadingUI<T>(string name = null) where T : UI_Base
     {
         if (string.IsNullOrEmpty(name))

@@ -51,6 +51,7 @@ MonoBehaviour:
   _originWaveSize: 12
   _originWaveStrength: 6
   _originOutlinePowerValue: 6
-  _scaleChangeValue: 200
-  _scaleChangeTime: 0.5
+  _scaleChangeValue: 100
+  _scaleChangeTime: 0.4
   _waveMaterial: {fileID: 2100000, guid: 0324efd9c30261641986ba014b33a3f9, type: 2}
+  _detectMoment: 0.5

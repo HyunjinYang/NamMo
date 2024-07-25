@@ -14,7 +14,7 @@ public class GA_Dash : GameAbility
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
-        _asc.gameObject.GetComponent<PlayerMovement>().Dash(_dashForce, _dashTime);
+        _asc.gameObject.GetComponent<PlayerMovement>().Dash(_dashForce, _dashTime, Define.DashType.DefaultDash);
     }
     public override void CancelAbility()
     {
