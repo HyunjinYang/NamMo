@@ -104,6 +104,12 @@ public class AbilitySystemComponent : MonoBehaviour
             Debug.Log("Not Exsist Tag");
         }
     }
+    public GameAbility GetAbility(Define.GameplayAbility tag)
+    {
+        GameAbility ga = null;
+        _abilities.TryGetValue(tag, out ga);
+        return ga;
+    }
     private GameAbility CreateAbility(Define.GameplayAbility tag)
     {
         GameObject go = Managers.Resource.Instantiate("GameAbility/" + Enum.GetName(typeof(Define.GameplayAbility), tag));

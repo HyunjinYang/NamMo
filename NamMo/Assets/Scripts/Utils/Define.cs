@@ -66,4 +66,9 @@ public class Define
         Kor,
         Eng,
     }
+    public enum DashType
+    {
+        DefaultDash,
+        AttackDash,
+    }
 }

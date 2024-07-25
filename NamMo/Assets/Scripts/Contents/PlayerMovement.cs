@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _isFacingRight = true;
     [SerializeField] private bool _isDashing = false;
     [SerializeField] private bool _isJumping = false;
+    [SerializeField] private bool _isFalling = false;
+    private bool _canMove = true;
 
     private Action _reservedInputAction = null;
     private Coroutine _dashCoroutine = null;
@@ -28,10 +31,31 @@ public class PlayerMovement : MonoBehaviour
 
     public Action<bool> OnFlip;
     public Action OnLandGround;
+    public Action OnDashStart;
     public Action OnDashEnd;
     public Action OnDashCanceled;
+    public Action OnStartJump;
+    public Action OnStartFall;
+    public Action<float> OnWalk;
     public bool IsJumping {  get { return _isJumping; } }
     public bool IsDashing { get { return _isDashing; } }
+    public bool CanMove
+    {
+        get
+        {
+            return _canMove;
+        }
+        set
+        {
+            _canMove = value;
+            _rb.velocity = new Vector2(0, _rb.velocity.y);
+            if (_reservedInputAction != null && _reserveDash == false)
+            {
+                _reservedInputAction.Invoke();
+                _reservedInputAction = null;
+            }
+        }
+    }
     // -------------------- Unity Method --------------------
     #region Unity Method
     private void Awake()
@@ -47,23 +71,37 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isDashing == false && _reserveDash == false)
         {
-            _rb.velocity = new Vector2(_horizontalMoveValue * _speed, _rb.velocity.y);
+            if (_canMove)
+            {
+                _rb.velocity = new Vector2(_horizontalMoveValue * _speed, _rb.velocity.y);
+            }
+            if(_isJumping == false && _isFalling == false)
+            {
+                if (OnWalk != null) OnWalk.Invoke(_horizontalMoveValue);
+            }
         }
-        if (_isJumping && _rb.velocity.y <= 0)
+        if (_rb.velocity.y <= 0f && !_isFalling && !IsGround())
         {
-            if(IsGround())
+            _isFalling = true;
+            if (OnStartFall != null) OnStartFall.Invoke();
+        }
+        if ((_isFalling || _isJumping) && _rb.velocity.y == 0)
+        {
+            if (IsGround())
             {
                 _isJumping = false;
+                _isFalling = false;
                 if (OnLandGround != null) OnLandGround.Invoke();
             }
         }
+        
     }
     #endregion
     // -------------------- Private Method --------------------
     #region Private Method
     private void RefreshHorizontalMoveValue(float value)
     {
-        if (_isDashing || _reserveDash)
+        if (_isDashing || _reserveDash || _canMove == false)
         {
             _reservedInputAction = () =>
             {
@@ -95,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (OnFlip != null) OnFlip.Invoke(_isFacingRight);
     }
-    private void EndDash()
+    private void EndDash(Define.DashType dashType)
     {
         if(_reserveDash == false)
         {
@@ -107,7 +145,10 @@ public class PlayerMovement : MonoBehaviour
             _reservedInputAction.Invoke();
             _reservedInputAction = null;
         }
-        OnDashEnd.Invoke();
+        if (dashType == Define.DashType.DefaultDash)
+        {
+            OnDashEnd.Invoke();
+        }
         _dashCoroutine = null;
     }
     #endregion
@@ -117,39 +158,47 @@ public class PlayerMovement : MonoBehaviour
     {
         _isJumping = true;
         _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+        if (OnStartJump != null) OnStartJump.Invoke();
     }
     public void EndJump()
     {
         if (!_isJumping || _rb.velocity.y <= 0 || IsGround()) return;
         _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
     }
-    public void Dash(float dashForce, float dashTime, float additionalNoGravityTime = 0)
+    public void Dash(float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime = 0)
     {
-        if (_dashCoroutine != null) CancelDash();
-        _dashCoroutine = StartCoroutine(CoDash(dashForce, dashTime, additionalNoGravityTime));
+        if (_dashCoroutine != null) CancelDash(dashType);
+        _dashCoroutine = StartCoroutine(CoDash(dashForce, dashTime, dashType,additionalNoGravityTime));
     }
-    public void CancelDash()
+    public void CancelDash(Define.DashType dashType)
     {
         if (_dashCoroutine == null) return;
         StopCoroutine(_dashCoroutine);
-        EndDash();
-        if (OnDashCanceled != null) OnDashCanceled.Invoke();
+        EndDash(dashType);
+        if (dashType == DashType.DefaultDash)
+        {
+            if (OnDashCanceled != null) OnDashCanceled.Invoke();
+        }
     }
     public bool IsGround()
     {
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
-    public void ReserveDash(float delayTime, float dashForce, float dashTime, float additionalNoGravityTime = 0)
+    public void ReserveDash(float delayTime, float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime = 0)
     {
         _reserveDash = true;
         _rb.velocity = Vector2.zero;
         _rb.gravityScale = 0f;
-        StartCoroutine(CoReserveDash(delayTime, dashForce, dashTime, additionalNoGravityTime));
+        StartCoroutine(CoReserveDash(delayTime, dashForce, dashTime, dashType, additionalNoGravityTime));
     }
     #endregion
     // -------------------- Coroutine --------------------
-    IEnumerator CoDash(float dashForce, float dashTime, float additionalNoGravityTime)
+    IEnumerator CoDash(float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime)
     {
+        if (dashType == DashType.DefaultDash)
+        {
+            if (OnDashStart != null) OnDashStart.Invoke();
+        }
         _isDashing = true;
         if (_reserveDash) _reserveDash = false;
         _rb.gravityScale = 0f;
@@ -164,11 +213,11 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         _rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(additionalNoGravityTime);
-        EndDash();
+        EndDash(dashType);
     }
-    IEnumerator CoReserveDash(float delayTime, float dashForce, float dashTime, float additionalNoGravityTime = 0)
+    IEnumerator CoReserveDash(float delayTime, float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime = 0)
     {
         yield return new WaitForSeconds(delayTime);
-        Dash(dashForce, dashTime, additionalNoGravityTime);
+        Dash(dashForce, dashTime, dashType, additionalNoGravityTime);
     }
 }

@@ -2308,6 +2308,7 @@ MonoBehaviour:
   _jumpForce: 20
   _isDashing: 0
   _isJumping: 0
+  _isFalling: 0
 --- !u!114 &1866191642
 MonoBehaviour:
   m_ObjectHideFlags: 0
