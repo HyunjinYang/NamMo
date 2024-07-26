@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameAbility : MonoBehaviour
 {
     [SerializeField] protected bool _canOverlapAbility = false;
-    // ¹ßµ¿µÉ¶§ Ãß°¡µÉ ÅÂ±×, ¹ßµ¿ÀÌ Á¾·áµÉ¶§ »èÁ¦µÉ ÅÂ±×
+    // ë°œë™ë ë•Œ ì¶”ê°€ë  íƒœê·¸, ë°œë™ì´ ì¢…ë£Œë ë•Œ ì‚­ì œë  íƒœê·¸
     [SerializeField] protected List<Define.GameplayTag> _tagsToAdd;
-    // ¹ßµ¿¿¡ ÇÊ¿äÇÑ ÅÂ±×
+    // ë°œë™ì— í•„ìš”í•œ íƒœê·¸
     [SerializeField] protected List<Define.GameplayTag> _needTags;
-    // ¹ßµ¿ÇÒ ¶§ ÀÖÀ¸¸é ¾ÈµÇ´Â ÅÂ±×
+    // ë°œë™í•  ë•Œ ìˆìœ¼ë©´ ì•ˆë˜ëŠ” íƒœê·¸
     [SerializeField] protected List<Define.GameplayTag> _blockTags;
     protected AbilitySystemComponent _asc;
     protected int _overlapCnt = 0;

@@ -117,7 +117,7 @@ public class UI_MainScene : UI_Base
     }
     private void EnterCursor(int nextidx)
     {
-        SetColor(Get<TextMeshProUGUI>(cursor).gameObject, "#323232", false);
+        SetColor(Get<TextMeshProUGUI>(cursor).gameObject, "#FFFFFF", false);
 
         cursor = nextidx;
         
