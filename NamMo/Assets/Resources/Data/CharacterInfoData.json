@@ -1,0 +1,68 @@
+{
+  "characterInfos": [
+    {
+      "id": "0",
+      "iconPath": "Art/",
+      "names": [
+        "남모",
+        "Nammo"
+      ]
+    },
+    {
+      "id": "1",
+      "iconPath": "Art/",
+      "names": [
+        "준정",
+        "JJ"
+      ]
+    },
+    {
+      "id": "2",
+      "iconPath": "Art/",
+      "names": [
+        "화랑",
+        "HR"
+      ]
+    },
+    {
+      "id": "3",
+      "iconPath": "Art/",
+      "names": [
+        "스승",
+        "teacher"
+      ]
+    },
+    {
+      "id": "4",
+      "iconPath": "Art/",
+      "names": [
+        "???",
+        "???"
+      ]
+    },
+    {
+      "id": "5",
+      "iconPath": "Art/",
+      "names": [
+        "신하",
+        "."
+      ]
+    },
+    {
+      "id": "6",
+      "iconPath": "Art/",
+      "names": [
+        "진흥왕",
+        "."
+      ]
+    },
+    {
+      "id": "7",
+      "iconPath": "Art/",
+      "names": [
+        "스님",
+        "."
+      ]
+    }
+  ]
+} 
