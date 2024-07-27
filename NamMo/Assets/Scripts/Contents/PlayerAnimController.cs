@@ -66,7 +66,6 @@ public class PlayerAnimController : MonoBehaviour
         _isFalling = false;
         _animator.SetBool("IsJumping", _isJumping);
         _animator.SetBool("IsFalling", _isFalling);
-        Debug.Log("?");
         _animator.SetBool("IsLanding", true);
         StartCoroutine(CoDelayAction(
             () =>

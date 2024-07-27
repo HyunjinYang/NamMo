@@ -48,9 +48,9 @@ MonoBehaviour:
   _tagsToAdd: 03000000
   _needTags: 
   _blockTags: 000000000100000006000000
-  _originWaveSize: 12
-  _originWaveStrength: 6
-  _originOutlinePowerValue: 6
+  _originWaveSize: 8
+  _originWaveStrength: 2
+  _originOutlinePowerValue: 5
   _scaleChangeValue: 100
   _scaleChangeTime: 0.4
   _waveMaterial: {fileID: 2100000, guid: 0324efd9c30261641986ba014b33a3f9, type: 2}
