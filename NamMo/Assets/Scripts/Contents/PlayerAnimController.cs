@@ -12,6 +12,7 @@ public class PlayerAnimController : MonoBehaviour
     private bool _isFalling = false;
     private bool _isDasing = false;
     private bool _isWaveDetecting = false;
+    private bool _isAirAttacking = false;
     private float _moveDir = 0;
     private int _attackCombo = -1;
 
@@ -37,6 +38,12 @@ public class PlayerAnimController : MonoBehaviour
             {
                 waveDetectAbility.OnWaveStart += WaveDetectStart;
                 waveDetectAbility.OnWaveEnd += WaveDetectEnd;
+            }
+            GA_AirAttack airAttackAbility = asc.GetAbility(Define.GameplayAbility.GA_AirAttack) as GA_AirAttack;
+            if (airAttackAbility)
+            {
+                airAttackAbility.OnAirAttackStart += AirAttackStart;
+                airAttackAbility.OnAirAttackEnd += AirAttackEnd;
             }
         }
     }
@@ -112,6 +119,16 @@ public class PlayerAnimController : MonoBehaviour
     {
         _isWaveDetecting = false;
         _animator.SetBool("IsWaveDetecting", _isWaveDetecting);
+    }
+    private void AirAttackStart()
+    {
+        _isAirAttacking = true;
+        _animator.SetBool("IsAirAttacking", _isAirAttacking);
+    }
+    private void AirAttackEnd()
+    {
+        _isAirAttacking = false;
+        _animator.SetBool("IsAirAttacking", _isAirAttacking);
     }
     IEnumerator CoDelayAction(Action action)
     {

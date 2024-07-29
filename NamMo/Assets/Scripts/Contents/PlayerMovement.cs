@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float _horizontalMoveValue;
     private float _originalGravity;
     private bool _isFacingRight = true;
+    private bool _needCheckFrontGround = false;
     [SerializeField] private bool _isDashing = false;
     [SerializeField] private bool _isJumping = false;
     [SerializeField] private bool _isFalling = false;
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public Action<float> OnWalk;
     public bool IsJumping {  get { return _isJumping; } }
     public bool IsDashing { get { return _isDashing; } }
+    public bool IsFalling { get { return _isFalling; } }
     public bool CanMove
     {
         get
@@ -94,7 +96,16 @@ public class PlayerMovement : MonoBehaviour
                 if (OnLandGround != null) OnLandGround.Invoke();
             }
         }
-        
+        if(_isDashing && _needCheckFrontGround)
+        {
+            float offset = 1f;
+            if (_isFacingRight == false) offset *= -1;
+            if (IsGround(offset) == false)
+            {
+                _rb.velocity = Vector2.zero;
+                _needCheckFrontGround = false;
+            }
+        }
     }
     #endregion
     // -------------------- Private Method --------------------
@@ -140,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
             _rb.gravityScale = _originalGravity;
         }
         _isDashing = false;
+        _needCheckFrontGround = false;
         if (_reservedInputAction != null && _reserveDash == false)
         {
             _reservedInputAction.Invoke();
@@ -180,9 +192,9 @@ public class PlayerMovement : MonoBehaviour
             if (OnDashCanceled != null) OnDashCanceled.Invoke();
         }
     }
-    public bool IsGround()
+    public bool IsGround(float offset = 0)
     {
-        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
+        return Physics2D.OverlapCircle(_groundCheck.position + new Vector3(offset, 0, 0), 0.2f, _groundLayer);
     }
     public void ReserveDash(float delayTime, float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime = 0)
     {
@@ -198,6 +210,10 @@ public class PlayerMovement : MonoBehaviour
         if (dashType == DashType.DefaultDash)
         {
             if (OnDashStart != null) OnDashStart.Invoke();
+        }
+        else
+        {
+            _needCheckFrontGround = true;
         }
         _isDashing = true;
         if (_reserveDash) _reserveDash = false;

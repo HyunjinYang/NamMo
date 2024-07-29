@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<Define.GameplayAbility> _abilities;
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
+    private PlayerMovement _pm;
     private void Awake()
     {
+        _pm = gameObject.GetComponent<PlayerMovement>();
         if (_asc == null) _asc = GetComponent<AbilitySystemComponent>();
         foreach(var ability in _abilities)
         {
@@ -52,9 +54,19 @@ public class PlayerController : MonoBehaviour
     // 공격
     public void HandleAttackInput(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if(_pm.IsJumping || _pm.IsFalling)
         {
-            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
+            if (context.performed)
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_AirAttack);
+            }
+        }
+        else
+        {
+            if (context.performed)
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
+            }
         }
     }
     // 파동탐지
