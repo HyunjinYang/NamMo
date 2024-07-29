@@ -47,7 +47,7 @@ MonoBehaviour:
   _canOverlapAbility: 1
   _tagsToAdd: 01000000
   _needTags: 
-  _blockTags: 060000000700000003000000
+  _blockTags: 0300000007000000
   _comboAttackInfos:
   - attackTime: 0.4
     attackMoment: 0.15

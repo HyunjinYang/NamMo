@@ -11,15 +11,26 @@ public class GA_AirAttack : GameAbility
     [SerializeField] private float _attack2Moment;
     public Action OnAirAttackStart;
     public Action OnAirAttackEnd;
+    private Coroutine _airAttackCoroutine = null;
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
         if (OnAirAttackStart != null) OnAirAttackStart.Invoke();
-        StartCoroutine(CoAirAttack());
+        if (_asc.GetComponent<PlayerMovement>().IsDashing) _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Dash);
+        _airAttackCoroutine = StartCoroutine(CoAirAttack());
+    }
+    public override void CancelAbility()
+    {
+        if (_airAttackCoroutine != null)
+        {
+            StopCoroutine(_airAttackCoroutine);
+            EndAbility();
+        }
     }
     protected override void EndAbility()
     {
         base.EndAbility();
+        _airAttackCoroutine = null;
         if (OnAirAttackEnd != null) OnAirAttackEnd.Invoke();
     }
     IEnumerator CoAirAttack()

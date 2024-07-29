@@ -27,9 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Action _reservedInputAction = null;
     private Coroutine _dashCoroutine = null;
+    private Coroutine _reserveDashCoroutine = null;
 
-    private bool _reserveDash;
-
+    [SerializeField] private bool _reserveDash;
+    
     public Action<bool> OnFlip;
     public Action OnLandGround;
     public Action OnDashStart;
@@ -195,10 +196,25 @@ public class PlayerMovement : MonoBehaviour
         if (_dashCoroutine != null) CancelDash(dashType);
         _dashCoroutine = StartCoroutine(CoDash(dashForce, dashTime, dashType,additionalNoGravityTime));
     }
+    public void CancelReserveDash(Define.DashType dashType)
+    {
+        if (_reserveDashCoroutine != null)
+        {
+            _reserveDash = false;
+            StopCoroutine(_reserveDashCoroutine);
+            _reserveDashCoroutine = null;
+            _rb.gravityScale = _originalGravity;
+        }
+        else
+        {
+            CancelDash(dashType);
+        }
+    }
     public void CancelDash(Define.DashType dashType)
     {
         if (_dashCoroutine == null) return;
         StopCoroutine(_dashCoroutine);
+        _dashCoroutine = null;
         EndDash(dashType);
         if (dashType == DashType.DefaultDash)
         {
@@ -209,12 +225,18 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(_groundCheck.position + new Vector3(offset, 0, 0), 0.2f, _groundLayer);
     }
+    public GameObject GetGroundFloor()
+    {
+        Collider2D floor = Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
+        if(floor == null) return null;
+        return floor.gameObject;
+    }
     public void ReserveDash(float delayTime, float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime = 0)
     {
         _reserveDash = true;
         _rb.velocity = Vector2.zero;
         _rb.gravityScale = 0f;
-        StartCoroutine(CoReserveDash(delayTime, dashForce, dashTime, dashType, additionalNoGravityTime));
+        _reserveDashCoroutine = StartCoroutine(CoReserveDash(delayTime, dashForce, dashTime, dashType, additionalNoGravityTime));
     }
     #endregion
     // -------------------- Coroutine --------------------
@@ -250,6 +272,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator CoReserveDash(float delayTime, float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime = 0)
     {
         yield return new WaitForSeconds(delayTime);
+        _reserveDashCoroutine = null;
         Dash(dashForce, dashTime, dashType, additionalNoGravityTime);
     }
 }

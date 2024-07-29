@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _asc: {fileID: 262104088}
-  _abilities: 0000000001000000020000000300000004000000
+  _abilities: 000000000100000002000000030000000400000005000000
 --- !u!114 &262104086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a448cd828ac5ed04dbdcd63fc05c990e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagTest: 0000000000000000000000000000000000000000000000000000000000000000
+  tagTest: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!212 &262104089
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1952,13 +1952,14 @@ GameObject:
   - component: {fileID: 1162671912}
   - component: {fileID: 1162671911}
   - component: {fileID: 1162671915}
+  - component: {fileID: 1162671916}
   m_Layer: 20
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!251 &1162671911
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -2030,7 +2031,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162671910}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2120,6 +2121,18 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
+--- !u!114 &1162671916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162671910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015d313a16943f448bb3691c264657a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1405502235
 GameObject:
   m_ObjectHideFlags: 0

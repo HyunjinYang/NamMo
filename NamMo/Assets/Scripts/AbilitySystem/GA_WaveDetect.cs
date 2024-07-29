@@ -56,6 +56,7 @@ public class GA_WaveDetect : GameAbility
         _waveDetectLight.transform.position = _asc.transform.position;
         yield return new WaitForSeconds(_detectMoment);
         if (_turnOffLightCoroutine != null) StopCoroutine(_turnOffLightCoroutine);
+        _waveDetectLight.GetComponent<Light2D>().intensity = 0.4f;
         for (int i = 0; i < (int)(_scaleChangeTime * 50); i++)
         {
             float size = _originWaveSize + Mathf.Sin((90f / (100f * _scaleChangeTime)) * (i + 1) * Mathf.Deg2Rad) * _scaleChangeValue;

@@ -9,15 +9,16 @@ public class GA_Dash : GameAbility
     protected override void Init()
     {
         _asc.gameObject.GetComponent<PlayerMovement>().OnDashEnd += EndAbility;
-        _asc.gameObject.GetComponent<PlayerMovement>().OnDashCanceled += CancelAbility;
     }
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
+        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_AirAttack);
+        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Attack);
         _asc.gameObject.GetComponent<PlayerMovement>().Dash(_dashForce, _dashTime, Define.DashType.DefaultDash);
     }
     public override void CancelAbility()
     {
-        Debug.Log("Cancel Dash");
+        _asc.gameObject.GetComponent<PlayerMovement>().CancelDash(Define.DashType.DefaultDash);
     }
 }

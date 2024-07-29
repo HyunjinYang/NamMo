@@ -23,6 +23,8 @@ public class GA_Attack : GameAbility
         if(_overlapCnt == 0 || _reserveNextAttack)
         {
             base.ActivateAbility();
+            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Dash);
+            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_DownJump);
             StartCoroutine(CoAttack());
         }
         else
@@ -36,6 +38,16 @@ public class GA_Attack : GameAbility
         if (_overlapCnt >= _comboAttackInfos.Count) return false;
         if (_reserveNextAttack) return false;
         return true;
+    }
+    public override void CancelAbility()
+    {
+        if (_reserveNextAttack)
+        {
+            _overlapCnt++;
+            _reserveNextAttack = false;
+        }
+        _asc.gameObject.GetComponent<PlayerMovement>().CancelReserveDash(Define.DashType.AttackDash);
+        EndAbility();
     }
     protected override void EndAbility()
     {

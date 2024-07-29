@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             if (_pushDown)
             {
-                Debug.Log("Down Jump");
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
             }
             else
             {
