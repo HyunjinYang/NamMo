@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
     private PlayerMovement _pm;
+    private bool _pushDown = false;
     private void Awake()
     {
         _pm = gameObject.GetComponent<PlayerMovement>();
@@ -44,11 +45,31 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.performed)
         {
-            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+            if (_pushDown)
+            {
+                Debug.Log("Down Jump");
+            }
+            else
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+            }
+            
         }
         else if (context.canceled)
         {
             _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
+        }
+    }
+    // 하단
+    public void HandleDownInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _pushDown = true;
+        }
+        else if (context.canceled)
+        {
+            _pushDown = false;
         }
     }
     // 공격

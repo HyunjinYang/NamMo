@@ -75,7 +75,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_canMove)
             {
-                _rb.velocity = new Vector2(_horizontalMoveValue * _speed, _rb.velocity.y);
+                if(_isJumping || _isFalling)
+                {
+                    float x = Mathf.Lerp(_rb.velocity.x, _horizontalMoveValue * _speed, 0.08f);
+                    _rb.velocity = new Vector2(x, _rb.velocity.y);
+                }
+                else
+                {
+                    _rb.velocity = new Vector2(_horizontalMoveValue * _speed, _rb.velocity.y);
+                }
             }
             if(_isJumping == false && _isFalling == false)
             {
@@ -169,7 +177,12 @@ public class PlayerMovement : MonoBehaviour
     public void StartJump()
     {
         _isJumping = true;
-        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+        float jumForce = _jumpForce;
+        if (_isDashing)
+        {
+            _rb.gravityScale = _originalGravity;
+        }
+        _rb.velocity = new Vector2(_rb.velocity.x, jumForce);
         if (OnStartJump != null) OnStartJump.Invoke();
     }
     public void EndJump()
@@ -227,7 +240,10 @@ public class PlayerMovement : MonoBehaviour
             _rb.velocity = new Vector2(-transform.localScale.x * dashForce, 0f);
         }
         yield return new WaitForSeconds(dashTime);
-        _rb.velocity = Vector2.zero;
+        if(!(_isJumping || _isFalling))
+        {
+            _rb.velocity = Vector2.zero;
+        }
         yield return new WaitForSeconds(additionalNoGravityTime);
         EndDash(dashType);
     }
