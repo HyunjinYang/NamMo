@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.Localization.Settings;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class UI_MainScene : UI_Base
@@ -11,6 +13,8 @@ public class UI_MainScene : UI_Base
     private Action[] _actions = new Action[5];
     private int cursor = 0;
     private const int BUTTON_COUNT = 5;
+    private bool isSaveDataCheck;
+    private bool langageTest;
     enum Images
     {
         NewGame,
@@ -82,7 +86,7 @@ public class UI_MainScene : UI_Base
         }
     }
     private void NewGame()
-    {
+    { 
         Debug.Log("NewGame");
     }
 
@@ -97,6 +101,17 @@ public class UI_MainScene : UI_Base
     }
     private void Setting()
     {
+        if (!langageTest)
+        {
+            LoadLocale("en");
+            langageTest = true;
+        }
+        else
+        {
+            LoadLocale("ko");
+            langageTest = false;
+        }
+
         Debug.Log("Setting");
     }
 
@@ -115,9 +130,20 @@ public class UI_MainScene : UI_Base
                 Util.FindChild<Image>(gameObject).color = newcolor;
         }
     }
+    
+    public void LoadLocale(string languageIdentifier) {
+        LocaleIdentifier localeCode = new LocaleIdentifier(languageIdentifier);
+        for(int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; i++) {
+            Locale aLocale = LocalizationSettings.AvailableLocales.Locales[i];
+            LocaleIdentifier anIdentifier = aLocale.Identifier;
+            if(anIdentifier == localeCode) {
+                LocalizationSettings.SelectedLocale = aLocale;
+            }
+        }
+    }
     private void EnterCursor(int nextidx)
     {
-        SetColor(Get<TextMeshProUGUI>(cursor).gameObject, "#323232", false);
+        SetColor(Get<TextMeshProUGUI>(cursor).gameObject, "#FFFFFF", false);
 
         cursor = nextidx;
         

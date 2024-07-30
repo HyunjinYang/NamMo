@@ -16,7 +16,23 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 2f956042fa51e124aa391816f506e206
   m_Entries:
   - m_Id: 21561225216
-    m_Key: key
+    m_Key: NewGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4247375032147968
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4247974662430720
+    m_Key: "Recall Memories\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4248179805839360
+    m_Key: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4248270708989952
+    m_Key: Quit
     m_Metadata:
       m_Items: []
   m_Metadata:

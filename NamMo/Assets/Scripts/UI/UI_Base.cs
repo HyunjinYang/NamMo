@@ -10,6 +10,7 @@ public abstract class UI_Base : MonoBehaviour
 {
 	protected Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
 	public abstract void Init();
+	protected int _uiNum;
 	bool _init = false;
 	private void Start()
 	{
