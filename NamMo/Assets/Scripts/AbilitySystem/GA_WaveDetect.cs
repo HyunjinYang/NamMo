@@ -42,7 +42,7 @@ public class GA_WaveDetect : GameAbility
     protected override bool CanActivateAbility()
     {
         if (base.CanActivateAbility() == false) return false;
-        //if (_asc.gameObject.GetComponent<PlayerMovement>().IsJumping || _asc.gameObject.GetComponent<PlayerMovement>().IsDashing) return false;
+        if (_asc.gameObject.GetComponent<PlayerMovement>().IsGround() == false) return false;
         return true;
     }
     protected override void EndAbility()
