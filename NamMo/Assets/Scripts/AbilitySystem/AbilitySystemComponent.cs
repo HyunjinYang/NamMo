@@ -7,6 +7,10 @@ public class AbilitySystemComponent : MonoBehaviour
 {
     Dictionary<Define.GameplayTag, int> _tagContainer = new Dictionary<Define.GameplayTag, int>();
     Dictionary<Define.GameplayAbility, GameAbility> _abilities = new Dictionary<Define.GameplayAbility, GameAbility>();
+    public PlayerController GetPlayerController()
+    {
+        return gameObject.GetComponent<PlayerController>();
+    }
     [SerializeField]
     private int[] tagTest = new int[(int)Define.GameplayTag.MaxCount];
     public void GiveAbility(Define.GameplayAbility tag)
@@ -52,7 +56,7 @@ public class AbilitySystemComponent : MonoBehaviour
             if (ga.IsActivated) ga.CancelAbility();
             else
             {
-                Debug.Log("Not Activated Ability");
+                //Debug.Log("Not Activated Ability");
             }
         }
         else

@@ -67,10 +67,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _OutlinePowerValue: 6
+    - _OutlinePowerValue: 5
     - _OutlineStrength: 6
-    - _Size: 12
-    - _WaveStrength: 6
+    - _Size: 8
+    - _WaveStrength: 2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

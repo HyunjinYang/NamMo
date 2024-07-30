@@ -29,10 +29,10 @@ public class PrologueScene : BaseScene
 
         _heroNammo.SetActive(false);
 
-        //UI_PrologueFadeInMessage prologueFadeIn = Managers.UI.ShowUI<UI_PrologueFadeInMessage>();
-        //prologueFadeIn.OnPrologueFadeInEnd += StartPrologue;
+        UI_PrologueFadeInMessage prologueFadeIn = Managers.UI.ShowUI<UI_PrologueFadeInMessage>();
+        prologueFadeIn.OnPrologueFadeInEnd += StartPrologue;
 
-        StartPrologue();
+        //StartPrologue();
     }
     private void StartPrologue()
     {

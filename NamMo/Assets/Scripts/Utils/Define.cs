@@ -46,6 +46,9 @@ public class Define
         Player_Action_UseItem,
         Player_Action_Interaction,
         Player_Action_Dash,
+        Player_Action_AirAttack,
+        Player_Action_DownJump,
+        Player_Action_Block,
 
         MaxCount
     }
@@ -55,6 +58,10 @@ public class Define
         GA_Dash,
         GA_Attack,
         GA_WaveDetect,
+        GA_AirAttack,
+        GA_DownJump,
+        GA_Block,
+        GA_Parrying,
     }
     public enum CameraMode
     {

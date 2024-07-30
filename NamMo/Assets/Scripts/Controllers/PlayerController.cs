@@ -7,16 +7,24 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private AbilitySystemComponent _asc;
+    [SerializeField] private BlockArea _blockArea;
     [SerializeField] private List<Define.GameplayAbility> _abilities;
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
+    private PlayerMovement _pm;
+    private bool _pushDown = false;
     private void Awake()
     {
+        _pm = gameObject.GetComponent<PlayerMovement>();
         if (_asc == null) _asc = GetComponent<AbilitySystemComponent>();
         foreach(var ability in _abilities)
         {
             _asc.GiveAbility(ability);
         }
+    }
+    public BlockArea GetBlockArea()
+    {
+        return _blockArea;
     }
     // 이동
     public void HandleMoveInput(InputAction.CallbackContext context)
@@ -42,19 +50,49 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.performed)
         {
-            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+            if (_pushDown)
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
+            }
+            else
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+            }
+            
         }
         else if (context.canceled)
         {
             _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
         }
     }
-    // 공격
-    public void HandleAttackInput(InputAction.CallbackContext context)
+    // 하단
+    public void HandleDownInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
+            _pushDown = true;
+        }
+        else if (context.canceled)
+        {
+            _pushDown = false;
+        }
+    }
+    // 공격
+    public void HandleAttackInput(InputAction.CallbackContext context)
+    {
+        if(_pm.IsJumping || _pm.IsFalling)
+        {
+            if (context.performed)
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_AirAttack);
+            }
+        }
+        else
+        {
+            if (context.performed)
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
+            }
         }
     }
     // 파동탐지
@@ -70,7 +108,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("HandleParryingInput");
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Block);
+        }
+        else if (context.canceled)
+        {
+            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         }
     }
     // 대쉬

@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "9f5240bf-278b-40fc-8de1-a6e3cd011134",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -122,6 +131,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "1D Axis",
+                    "id": "e0313cc3-1d6e-4c8e-b409-91bde18b3331",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "d903c559-1338-4147-9b22-e97c63f2caf9",
+                    "path": "<XInputController>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "574f9cd6-0133-46ad-a487-c4b0c8e81881",
+                    "path": "<XInputController>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "7a8e66bb-6a1f-4045-bdfc-910772c465b4",
                     "path": "<Keyboard>/j",
@@ -139,6 +181,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5115003-2278-4e42-abfd-87886af73f21",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -178,6 +231,17 @@
                 },
                 {
                     "name": "",
+                    "id": "1b0ad3a3-05ad-4682-b712-7f27d8eae856",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2020fcad-3a69-4ebc-9bf5-63d508d488e3",
                     "path": "<Keyboard>/f",
                     "interactions": "",
@@ -189,11 +253,33 @@
                 },
                 {
                     "name": "",
+                    "id": "892cf1ed-b838-4385-9342-9df5059cdaab",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
+                    "action": "Wave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f45226d3-3ef3-4412-b005-a5d5c25fc948",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59b9cb85-ea32-4f6d-a477-43ffe1a3c168",
+                    "path": "<XInputController>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -228,6 +314,17 @@
                     "processors": "",
                     "groups": "PC",
                     "action": "UseItem2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8f184ed-84d7-4ccc-aebd-821e40629d64",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
