@@ -48,7 +48,7 @@ MonoBehaviour:
   _canOverlapAbility: 0
   _tagsToAdd: 03000000
   _needTags: 
-  _blockTags: 000000000100000006000000
+  _blockTags: 00000000010000000600000002000000
   _originWaveSize: 8
   _originWaveStrength: 2
   _originOutlinePowerValue: 5

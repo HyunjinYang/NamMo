@@ -16,7 +16,8 @@ public class GA_AirAttack : GameAbility
     {
         base.ActivateAbility();
         if (OnAirAttackStart != null) OnAirAttackStart.Invoke();
-        if (_asc.GetComponent<PlayerMovement>().IsDashing) _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Dash);
+        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Dash);
+        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _airAttackCoroutine = StartCoroutine(CoAirAttack());
     }
     public override void CancelAbility()

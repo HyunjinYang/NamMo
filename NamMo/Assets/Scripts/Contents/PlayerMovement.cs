@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         set
         {
             _canMove = value;
-            _rb.velocity = new Vector2(0, _rb.velocity.y);
+            //_rb.velocity = new Vector2(0, _rb.velocity.y);
             if (_reservedInputAction != null && _reserveDash == false)
             {
                 _reservedInputAction.Invoke();
@@ -74,16 +74,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isDashing == false && _reserveDash == false)
         {
-            if (_canMove)
             {
-                if(_isJumping || _isFalling)
+                float horizontalValue = _horizontalMoveValue;
+                if (_canMove == false) horizontalValue = 0f;
+                if (_isJumping || _isFalling)
                 {
-                    float x = Mathf.Lerp(_rb.velocity.x, _horizontalMoveValue * _speed, 0.08f);
+                    float x = Mathf.Lerp(_rb.velocity.x, horizontalValue * _speed, 0.08f);
                     _rb.velocity = new Vector2(x, _rb.velocity.y);
                 }
                 else
                 {
-                    _rb.velocity = new Vector2(_horizontalMoveValue * _speed, _rb.velocity.y);
+                    _rb.velocity = new Vector2(horizontalValue * _speed, _rb.velocity.y);
                 }
             }
             if(_isJumping == false && _isFalling == false)

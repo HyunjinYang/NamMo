@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private AbilitySystemComponent _asc;
+    [SerializeField] private BlockArea _blockArea;
     [SerializeField] private List<Define.GameplayAbility> _abilities;
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
@@ -20,6 +21,10 @@ public class PlayerController : MonoBehaviour
         {
             _asc.GiveAbility(ability);
         }
+    }
+    public BlockArea GetBlockArea()
+    {
+        return _blockArea;
     }
     // 이동
     public void HandleMoveInput(InputAction.CallbackContext context)
@@ -103,7 +108,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("HandleParryingInput");
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Block);
+        }
+        else if (context.canceled)
+        {
+            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         }
     }
     // 대쉬

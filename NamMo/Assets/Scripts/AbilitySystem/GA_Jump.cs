@@ -12,6 +12,7 @@ public class GA_Jump : GameAbility
     {
         base.ActivateAbility();
         _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Attack);
+        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _asc.GetComponent<PlayerMovement>().StartJump();
     }
     public override void CancelAbility()
