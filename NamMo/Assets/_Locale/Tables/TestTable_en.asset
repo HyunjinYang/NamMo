@@ -19,7 +19,23 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 21561225216
-    m_Localized: Hello
+    m_Localized: NewGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4247375032147968
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4247974662430720
+    m_Localized: "Recall Memories\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4248179805839360
+    m_Localized: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4248270708989952
+    m_Localized: Quit
     m_Metadata:
       m_Items: []
   references:
