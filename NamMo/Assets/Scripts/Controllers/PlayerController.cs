@@ -4,28 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public partial class PlayerController : MonoBehaviour
 {
     [SerializeField] private AbilitySystemComponent _asc;
     [SerializeField] private BlockArea _blockArea;
     [SerializeField] private List<Define.GameplayAbility> _abilities;
+    [SerializeField] private GameObject _playerSprite;
+
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
+
     private PlayerMovement _pm;
+    private PlayerStat _ps;
+    private PlayerCombatComponent _pcc;
+    
     private bool _pushDown = false;
     private void Awake()
     {
         _pm = gameObject.GetComponent<PlayerMovement>();
+        _ps = gameObject.GetComponent<PlayerStat>();
+        _pcc = gameObject.GetComponent<PlayerCombatComponent>();
+        _ps.SetPlayerController(this);
+        _pcc.SetPlayerController(this);
         if (_asc == null) _asc = GetComponent<AbilitySystemComponent>();
         foreach(var ability in _abilities)
         {
             _asc.GiveAbility(ability);
         }
     }
-    public BlockArea GetBlockArea()
-    {
-        return _blockArea;
-    }
+    public AbilitySystemComponent GetASC() { return _asc; }
+    public PlayerMovement GetPlayerMovement() { return _pm; }
+    public PlayerStat GetPlayerStat() { return _ps; }
+    public PlayerCombatComponent GetPlayerCombatComponent() { return _pcc; }
+    public BlockArea GetBlockArea() { return _blockArea; }
+    public GameObject GetPlayerSprite() { return _playerSprite; }
+}
+// Handle Input
+public partial class PlayerController : MonoBehaviour
+{
     // 이동
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
@@ -58,7 +74,7 @@ public class PlayerController : MonoBehaviour
             {
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
             }
-            
+
         }
         else if (context.canceled)
         {
@@ -80,7 +96,7 @@ public class PlayerController : MonoBehaviour
     // 공격
     public void HandleAttackInput(InputAction.CallbackContext context)
     {
-        if(_pm.IsJumping || _pm.IsFalling)
+        if (_pm.IsJumping || _pm.IsFalling)
         {
             if (context.performed)
             {
@@ -120,7 +136,6 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("HandleDashInput");
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
         }
     }
@@ -148,5 +163,4 @@ public class PlayerController : MonoBehaviour
             Debug.Log("HandleUseItem2Input");
         }
     }
-    
 }

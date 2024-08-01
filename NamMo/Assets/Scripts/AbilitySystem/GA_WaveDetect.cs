@@ -45,6 +45,11 @@ public class GA_WaveDetect : GameAbility
         if (_asc.gameObject.GetComponent<PlayerMovement>().IsGround() == false) return false;
         return true;
     }
+    public override void CancelAbility()
+    {
+
+        EndAbility();
+    }
     protected override void EndAbility()
     {
         base.EndAbility();

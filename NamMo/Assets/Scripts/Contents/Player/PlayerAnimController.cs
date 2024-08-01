@@ -15,6 +15,8 @@ public class PlayerAnimController : MonoBehaviour
     private bool _isAirAttacking = false;
     private bool _isBlocking = false;
     private bool _isParrying = false;
+    private bool _isHurting = false;
+
     private float _moveDir = 0;
     private int _attackCombo = -1;
     private void Start()
@@ -57,6 +59,12 @@ public class PlayerAnimController : MonoBehaviour
             {
                 parryingAbility.OnParryingStart += ParryingStart;
                 parryingAbility.OnParryingEnd += ParryingEnd;
+            }
+            GA_Hurt hurtAbility = asc.GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt;
+            if (hurtAbility)
+            {
+                hurtAbility.OnHurtStart += HurtingStart;
+                hurtAbility.OnHurtEnd += HurtingEnd;
             }
         }
     }
@@ -162,6 +170,16 @@ public class PlayerAnimController : MonoBehaviour
     {
         _isParrying = false;
         _animator.SetBool("IsParrying", _isParrying);
+    }
+    private void HurtingStart()
+    {
+        _isHurting = true;
+        _animator.SetBool("IsHurting", _isHurting);
+    }
+    private void HurtingEnd()
+    {
+        _isHurting = false;
+        _animator.SetBool("IsHurting", _isHurting);
     }
     IEnumerator CoDelayAction(Action action)
     {

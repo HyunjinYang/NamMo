@@ -47,5 +47,5 @@ MonoBehaviour:
   _canOverlapAbility: 0
   _tagsToAdd: 09000000
   _needTags: 
-  _blockTags: 0200000003000000
+  _blockTags: 02000000030000000a000000
   _perfectParryingTime: 0.15

@@ -47,4 +47,4 @@ MonoBehaviour:
   _canOverlapAbility: 0
   _tagsToAdd: 08000000
   _needTags: 
-  _blockTags: 000000000800000003000000
+  _blockTags: 0000000008000000030000000a000000

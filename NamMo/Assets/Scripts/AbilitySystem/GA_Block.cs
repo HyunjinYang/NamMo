@@ -50,9 +50,16 @@ public class GA_Block : GameAbility
     {
         if (_isPerfectParryingTiming)
         {
-            CancelAbility();
-            Destroy(go);
-            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
+            if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
+            {
+                CancelAbility();
+                Destroy(go);
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
+            }
+            else
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
+            }
         }
         else
         {

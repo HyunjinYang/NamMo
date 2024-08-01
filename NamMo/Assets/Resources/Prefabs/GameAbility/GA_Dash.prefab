@@ -47,6 +47,6 @@ MonoBehaviour:
   _canOverlapAbility: 0
   _tagsToAdd: 06000000
   _needTags: 
-  _blockTags: 03000000
+  _blockTags: 030000000a000000
   _dashForce: 20
   _dashTime: 0.3
