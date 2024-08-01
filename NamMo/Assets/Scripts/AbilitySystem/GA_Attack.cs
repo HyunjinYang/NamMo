@@ -23,9 +23,6 @@ public class GA_Attack : GameAbility
         if(_overlapCnt == 0 || _reserveNextAttack)
         {
             base.ActivateAbility();
-            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Dash);
-            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_DownJump);
-            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Parrying);
             StartCoroutine(CoAttack());
         }
         else

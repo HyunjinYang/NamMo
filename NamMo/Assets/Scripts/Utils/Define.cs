@@ -67,6 +67,7 @@ public class Define
         GA_Block,
         GA_Parrying,
         GA_Hurt,
+        GA_Invincible
     }
     public enum CameraMode
     {

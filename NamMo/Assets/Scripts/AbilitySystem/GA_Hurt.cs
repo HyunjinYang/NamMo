@@ -5,19 +5,13 @@ using UnityEngine;
 
 public class GA_Hurt : GameAbility
 {
+    [SerializeField] private float _hurtTime;
     private float _dir = 0;
     public Action OnHurtStart;
     public Action OnHurtEnd;
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
-
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Dash);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Attack);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_AirAttack);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_DownJump);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
 
         _asc.GetPlayerController().GetPlayerMovement().CanMove = false;
         _asc.GetPlayerController().GetPlayerMovement().KnockBack(_dir);
@@ -39,7 +33,7 @@ public class GA_Hurt : GameAbility
     }
     IEnumerator CoHurt()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(_hurtTime);
         EndAbility();
     }
 }

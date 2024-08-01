@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canOverlapAbility: 0
-  _tagsToAdd: 0a0000000b000000
+  _tagsToAdd: 0a000000
   _needTags: 
   _blockTags: 
+  _cancelAbilities: 000000000100000002000000040000000500000006000000
+  _hurtTime: 0.5

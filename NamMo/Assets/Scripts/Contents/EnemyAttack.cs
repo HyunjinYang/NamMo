@@ -19,6 +19,5 @@ public class EnemyAttack : MonoBehaviour
         PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
         if (pc == null) return;
         pc.GetPlayerCombatComponent().GetDamaged(_damage, transform.position);
-        gameObject.GetComponent<Collider2D>().enabled = false;
     }
 }

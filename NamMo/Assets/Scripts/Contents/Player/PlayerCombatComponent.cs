@@ -20,7 +20,7 @@ public class PlayerCombatComponent : MonoBehaviour
         {
             // 방어하고 있는 경우
             damage /= 2;
-            StartCoroutine(CoInvincibleShortTime());
+            StartCoroutine(CoHurtShortTime());
         }
         else
         {
@@ -28,17 +28,17 @@ public class PlayerCombatComponent : MonoBehaviour
             if (transform.position.x < attackPos.x) force = -1;
             (_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackDirection(force);
             _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
+            
         }
+        _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Invincible);
         StartCoroutine(CoShowAttackedEffect());
         _pc.GetPlayerStat().ApplyDamage(damage);
     }
-    IEnumerator CoInvincibleShortTime()
+    IEnumerator CoHurtShortTime()
     {
         _pc.GetASC().AddTag(Define.GameplayTag.Player_State_Hurt);
-        _pc.GetASC().AddTag(Define.GameplayTag.Player_State_Invincible);
         yield return new WaitForSeconds(0.5f);
         _pc.GetASC().RemoveTag(Define.GameplayTag.Player_State_Hurt);
-        _pc.GetASC().RemoveTag(Define.GameplayTag.Player_State_Invincible);
     }
     IEnumerator CoShowAttackedEffect()
     {

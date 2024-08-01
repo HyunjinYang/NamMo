@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class GA_Block : GameAbility
@@ -14,9 +15,6 @@ public class GA_Block : GameAbility
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Dash);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Attack);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_AirAttack);
 
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
         _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
@@ -52,6 +50,7 @@ public class GA_Block : GameAbility
         {
             if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
             {
+                // TODO 패링 기획에 따라 변경
                 CancelAbility();
                 Destroy(go);
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
@@ -59,6 +58,7 @@ public class GA_Block : GameAbility
             else
             {
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Invincible);
             }
         }
         else
