@@ -11,11 +11,14 @@ struct AttackInfo
     public float attackRate;
     public float dashForce;
     public float dashTime;
+    public Vector2 attackRange;
+    public Vector2 attackOffset;
 }
 public class GA_Attack : GameAbility
 {
     [SerializeField] private List<AttackInfo> _comboAttackInfos = new List<AttackInfo>();
     private bool _reserveNextAttack = false;
+    private Coroutine _attackCoroutine = null;
 
     public Action<int> OnComboChanged;
     protected override void ActivateAbility()
@@ -23,7 +26,8 @@ public class GA_Attack : GameAbility
         if(_overlapCnt == 0 || _reserveNextAttack)
         {
             base.ActivateAbility();
-            StartCoroutine(CoAttack());
+            _attackCoroutine = StartCoroutine(CoAttack());
+            _asc.GetPlayerController().GetAttackArea().OnAttackAreaTriggerEntered += HandleTriggeredObject;
         }
         else
         {
@@ -49,6 +53,7 @@ public class GA_Attack : GameAbility
     }
     protected override void EndAbility()
     {
+        _asc.GetPlayerController().GetAttackArea().OnAttackAreaTriggerEntered -= HandleTriggeredObject;
         if (_reserveNextAttack)
         {
             ActivateAbility();
@@ -57,7 +62,17 @@ public class GA_Attack : GameAbility
         {
             base.EndAbility();
             if (OnComboChanged != null) OnComboChanged.Invoke(-1);
+            if (_attackCoroutine != null)
+            {
+                StopCoroutine(_attackCoroutine);
+                _attackCoroutine = null;
+            }
         }
+    }
+    private void HandleTriggeredObject(GameObject go)
+    {
+        Debug.Log("Attack Hit");
+        go.GetComponent<DummyEnemy>().Damaged();
     }
     IEnumerator CoAttack()
     {
@@ -68,12 +83,20 @@ public class GA_Attack : GameAbility
 
         AttackInfo currComboAttackInfo = _comboAttackInfos[currCombo];
         float additionalGravityTime = currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment - currComboAttackInfo.dashTime;
-        _asc.gameObject.GetComponent<PlayerMovement>().ReserveDash(currComboAttackInfo.attackMoment, currComboAttackInfo.dashForce, currComboAttackInfo.dashTime, Define.DashType.AttackDash, additionalGravityTime);
+        _asc.gameObject.GetComponent<PlayerMovement>().ReserveDash(currComboAttackInfo.attackMoment, currComboAttackInfo.dashForce, currComboAttackInfo.dashTime, Define.DashType.AttackDash, additionalGravityTime);      
+        
         yield return new WaitForSeconds(currComboAttackInfo.attackMoment);
 
-        Debug.Log($"Attack : {currCombo}");
+        _asc.GetPlayerController().GetAttackArea().SetAttackRange(currComboAttackInfo.attackRange, currComboAttackInfo.attackOffset);
+        _asc.GetPlayerController().GetAttackArea().ActiveAttackArea();
+        
+        yield return new WaitForFixedUpdate();
 
+        _asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
+        
         yield return new WaitForSeconds(currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment);
+
+        _attackCoroutine = null;
         EndAbility();
     }
 }

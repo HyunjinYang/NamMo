@@ -18,7 +18,7 @@ public class PlayerCombatComponent : MonoBehaviour
         }
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Block))
         {
-            // 방어하고 있는 경우
+            // 패링 타이밍이 맞지 않았다면 데미지 절반 적용
             damage /= 2;
             StartCoroutine(CoHurtShortTime());
         }
@@ -28,7 +28,7 @@ public class PlayerCombatComponent : MonoBehaviour
             if (transform.position.x < attackPos.x) force = -1;
             (_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackDirection(force);
             _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
-            
+
         }
         _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Invincible);
         StartCoroutine(CoShowAttackedEffect());
@@ -42,7 +42,7 @@ public class PlayerCombatComponent : MonoBehaviour
     }
     IEnumerator CoShowAttackedEffect()
     {
-        _pc.GetPlayerSprite().GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0.5f, 0.5f);
+        _pc.GetPlayerSprite().GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0.5f, 1f);
         yield return new WaitForSeconds(0.5f);
         _pc.GetPlayerSprite().GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
     }

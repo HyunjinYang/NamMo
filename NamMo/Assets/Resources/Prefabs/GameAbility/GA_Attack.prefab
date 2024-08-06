@@ -55,13 +55,19 @@ MonoBehaviour:
     attackRate: 0
     dashForce: 10
     dashTime: 0.07
+    attackRange: {x: 2, y: 1}
+    attackOffset: {x: 0.5, y: 0}
   - attackTime: 0.35
     attackMoment: 0.05
     attackRate: 0
     dashForce: 10
     dashTime: 0.07
+    attackRange: {x: 2, y: 1}
+    attackOffset: {x: 0.5, y: 0}
   - attackTime: 0.65
     attackMoment: 0.05
     attackRate: 0
     dashForce: 10
     dashTime: 0.07
+    attackRange: {x: 3, y: 1}
+    attackOffset: {x: 1, y: 0}

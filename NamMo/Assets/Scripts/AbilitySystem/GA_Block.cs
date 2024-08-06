@@ -7,10 +7,10 @@ using UnityEngine;
 public class GA_Block : GameAbility
 {
     [SerializeField] private float _perfectParryingTime;
+    public bool IsPerfectParryingTiming { get; private set; } = false;
     public Action OnBlockStart;
     public Action OnBlockEnd;
 
-    private bool _isPerfectParryingTiming = false;
     private Coroutine _parryingCoroutine = null;
     protected override void ActivateAbility()
     {
@@ -40,25 +40,21 @@ public class GA_Block : GameAbility
             StopCoroutine(_parryingCoroutine);
             _parryingCoroutine = null;
         }
-        _isPerfectParryingTiming = false;
+        IsPerfectParryingTiming = false;
 
         if (OnBlockEnd != null) OnBlockEnd.Invoke();
     }
     private void HandleTriggeredObject(GameObject go)
     {
-        if (_isPerfectParryingTiming)
+        if (IsPerfectParryingTiming)
         {
             if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
             {
                 // TODO 패링 기획에 따라 변경
+                Debug.Log("Parrying");
                 CancelAbility();
                 Destroy(go);
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
-            }
-            else
-            {
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Invincible);
             }
         }
         else
@@ -69,9 +65,9 @@ public class GA_Block : GameAbility
     }
     IEnumerator CoChangeParryingTypeByTimeFlow()
     {
-        _isPerfectParryingTiming = true;
+        IsPerfectParryingTiming = true;
         yield return new WaitForSeconds(_perfectParryingTime);
-        _isPerfectParryingTiming = false;
+        IsPerfectParryingTiming = false;
         _parryingCoroutine = null;
     }
 }

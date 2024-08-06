@@ -68,7 +68,7 @@ Material:
     m_Floats:
     - _CharacterPos: 0
     - _DetectDistance: 0
-    - _DetectLight: 0.5
+    - _DetectLight: 0.9
     - _EnableExternalAlpha: 0
     - _LightDistance: 1.9
     - _MinLight: 0.1
