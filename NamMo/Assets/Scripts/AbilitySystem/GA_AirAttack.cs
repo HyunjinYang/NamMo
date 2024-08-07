@@ -42,7 +42,7 @@ public class GA_AirAttack : GameAbility
     private void HandleTriggeredObject(GameObject go)
     {
         Debug.Log("Attack Hit");
-        go.GetComponent<DummyEnemy>().Damaged();
+        go.GetComponent<Enemy.Enemy>().Hit(1);
     }
     IEnumerator CoAirAttack()
     {

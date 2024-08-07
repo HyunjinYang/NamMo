@@ -14,7 +14,7 @@ public class AttackArea : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<DummyEnemy>() == null) return;
+        if (collision.gameObject.GetComponent<Enemy.Enemy>() == null) return;
         if (OnAttackAreaTriggerEntered != null) OnAttackAreaTriggerEntered.Invoke(collision.gameObject);
     }
     public void SetAttackRange(Vector2 range, Vector2 offset)

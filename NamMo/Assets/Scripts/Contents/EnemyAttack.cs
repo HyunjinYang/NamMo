@@ -11,10 +11,10 @@ public class EnemyAttack : MonoBehaviour
     {
         Destroy(gameObject, 1.5f);
     }
-    private void Update()
+    /*private void Update()
     {
         transform.position += Vector3.left * _speed * Time.deltaTime;
-    }
+    }*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
