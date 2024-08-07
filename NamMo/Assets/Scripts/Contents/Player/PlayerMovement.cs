@@ -8,13 +8,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
-    //[SerializeField] private GameObject _CharacterSprite;
+    [SerializeField] protected GameObject _CharacterSprite;
 
-    [SerializeField] private float _speed;
+    [SerializeField] protected float _speed;
     [SerializeField] private float _jumpForce;
     
     PlayerController _pc;
-    Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
 
     private float _horizontalMoveValue;
     private float _originalGravity;
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     }
     // -------------------- Unity Method --------------------
     #region Unity Method
-    private void Awake()
+    protected virtual void Awake()
     {
         if (_pc == null) _pc = GetComponent<PlayerController>();
         _rb = GetComponent<Rigidbody2D>();
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
         _originalGravity = 4f;
     }
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (_isDashing == false && _reserveDash == false)
         {
@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
     }
-    private void Flip()
+    protected virtual void Flip()
     {
         _isFacingRight = !_isFacingRight;
         Vector3 localScale = _pc.GetPlayerSprite().transform.localScale;

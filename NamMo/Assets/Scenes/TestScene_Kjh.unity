@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 31495302}
   - component: {fileID: 31495303}
-  m_Layer: 21
+  m_Layer: 3
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 84747703}
   - component: {fileID: 84747705}
   - component: {fileID: 84747706}
-  m_Layer: 21
+  m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 116261635}
-  m_Layer: 21
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 262104088}
   - component: {fileID: 262104090}
   - component: {fileID: 262104089}
-  m_Layer: 21
+  m_Layer: 3
   m_Name: Nammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,6 +789,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 1048576
+  _CharacterSprite: {fileID: 0}
   _speed: 10
   _jumpForce: 20
   _isDashing: 0
@@ -2058,7 +2059,7 @@ GameObject:
   - component: {fileID: 948924950}
   - component: {fileID: 948924953}
   - component: {fileID: 948924952}
-  m_Layer: 21
+  m_Layer: 3
   m_Name: BlockArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2343,7 +2344,7 @@ GameObject:
   - component: {fileID: 1405502237}
   - component: {fileID: 1405502239}
   - component: {fileID: 1405502240}
-  m_Layer: 21
+  m_Layer: 3
   m_Name: CharacterSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3175,7 +3176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1777486740}
   - component: {fileID: 1777486741}
-  m_Layer: 21
+  m_Layer: 3
   m_Name: Light_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3258,7 +3259,7 @@ GameObject:
   - component: {fileID: 1826802334}
   - component: {fileID: 1826802335}
   - component: {fileID: 1826802336}
-  m_Layer: 21
+  m_Layer: 3
   m_Name: AttackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
