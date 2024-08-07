@@ -1,0 +1,131 @@
+using System;
+using NamMo;
+using UnityEngine;
+using UnityEngine.PlayerLoop;
+
+namespace Enemy
+{
+    public class RangedEnemy : Enemy
+    {
+        public Action OnRangeAttack;
+        public Action OnEndRangeAttack;
+        public Action OnMelAttack;
+        
+        [SerializeField] private GameObject archr;
+        [SerializeField] private EnemyBlockArea _enemyBlockArea;
+        private Animator _animator;
+        
+
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            SceneLinkedSMB<RangedEnemy>.Initialise(_animator, this);
+        }
+
+        enum State
+        {
+            Patrol,
+            RangeAttack,
+            MelAttack,
+            None
+        }
+
+        [SerializeField] private State _state = State.None;
+        
+        public override void Behavire(float distance)
+        {
+            if (distance >= 6.5f)
+            {
+                Patrol();
+                _state = State.Patrol;
+            }
+            else if (distance < 6.5f && distance >= 3.5f)
+            {
+                RangeAttackInit();
+                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Gamemanager.ReturnToPlayerPostion().x);
+            }
+            else if (distance < 3.5f)
+            {
+                MelAttackInit();
+                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Gamemanager.ReturnToPlayerPostion().x);
+            }
+        }
+
+
+        public void RangeAttack()
+        {
+            var cur =Instantiate(archr, gameObject.transform.position, transform.rotation);
+        }
+
+        private void RangeAttackInit()
+        {
+            if (_state == State.RangeAttack)
+                return;
+            _state = State.RangeAttack;
+            Debug.Log("RangeAttack!");
+            OnRangeAttack.Invoke();
+            _enemyMovement.OnWalk(0f);
+            _enemyMovement._isPatrol = false;
+            _enemyMovement._isAttack = true;
+        }
+
+        private void MelAttackInit()
+        {
+            if (_enemyMovement._isPatrol)
+                return;
+            if (_state == State.MelAttack)
+            {
+                if (!_enemyMovement._isAttack)
+                {
+                    _enemyMovement._isAttack = true;
+                    _enemyMovement.OnWalk(0f);
+                }
+
+                return;
+            }
+            Onattack.Invoke();
+            _enemyMovement.OnWalk(0f);
+            _enemyMovement._isPatrol = false;
+            _enemyMovement._isAttack = true;
+            _state = State.MelAttack;
+            Debug.Log("MelAttack");
+        }
+
+        public void MelAttack()
+        {
+            _enemyBlockArea.ActiveBlockArea();
+        }
+        public void Patrol()
+        {
+            if (_state == State.Patrol)
+                return;
+            OnEndattack.Invoke();
+            _enemyMovement._isPatrol = true;
+        }
+
+
+        public void SetRangeAttack(bool isActivate)
+        {
+            if (_state != State.RangeAttack)
+            {
+                _enemyMovement._isAttack = isActivate;
+                OnEndRangeAttack.Invoke();
+            }
+        }
+
+        public void SetMelAttack(bool isActivate)
+        {
+            _enemyBlockArea.DeActiveBlockArea();
+            if (_state != State.MelAttack)
+            {
+                _enemyMovement._isAttack = isActivate;
+                OnEndattack.Invoke();
+            }
+        }
+        public void SetHit(bool isActivate)
+        {
+            _enemyMovement._isHit = isActivate;
+            OnEndHit.Invoke();
+        }
+    }
+}
