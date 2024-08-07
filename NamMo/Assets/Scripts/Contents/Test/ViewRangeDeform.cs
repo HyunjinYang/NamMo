@@ -47,40 +47,40 @@ public class ViewRangeDeform : MonoBehaviour
         {
             _deformCheck[i] = false;
         }
-        for (int i = 0; i < 12; i++) // 12¹æÇâ ray Å½»ö
+        for (int i = 0; i < 12; i++) // 12ë°©í–¥ ray íƒìƒ‰
         {
             RaycastHit2D hit;
             float rayDist = 5f;
-            hit = Physics2D.Raycast(transform.position, new Vector2(_dirX[i], _dirY[i]), rayDist, LayerMask.GetMask("Ground")); // Ground Layer¸¸ Å½»ö
+            hit = Physics2D.Raycast(transform.position, new Vector2(_dirX[i], _dirY[i]), rayDist, LayerMask.GetMask("Ground")); // Ground Layerë§Œ íƒìƒ‰
             if (hit)
             {
                 Debug.DrawLine(transform.position, hit.point, Color.green);
 
-                // localÀÇ ¿øÁ¡À» world±âÁØÀ¸·Î ¹Ù²Ù°í Ray¿¡ Å½»öµÈ ¿ÀºêÁ§Æ® ³»ÀÇ °¡Àå °¡±î¿î ÁÂÇ¥¸¦ ÃßÃâ
+                // localì˜ ì›ì ì„ worldê¸°ì¤€ìœ¼ë¡œ ë°”ê¾¸ê³  Rayì— íƒìƒ‰ëœ ì˜¤ë¸Œì íŠ¸ ë‚´ì˜ ê°€ì¥ ê°€ê¹Œìš´ ì¢Œí‘œë¥¼ ì¶”ì¶œ
                 Vector2 closestPos = hit.collider.ClosestPoint(transform.TransformPoint(Vector2.zero));
-                // Å½»öµÈ °¡Àå °¡±î¿î ÁÂÇ¥¸¦ local·Î º¯È¯
+                // íƒìƒ‰ëœ ê°€ì¥ ê°€ê¹Œìš´ ì¢Œí‘œë¥¼ localë¡œ ë³€í™˜
                 Vector2 localClosestPos = transform.InverseTransformPoint(closestPos);
-                // Ãæµ¹ ÁöÁ¡À» local ÁÂÇ¥°è·Î º¯È¯
+                // ì¶©ëŒ ì§€ì ì„ local ì¢Œí‘œê³„ë¡œ ë³€í™˜
                 Vector2 localHitPoint = transform.InverseTransformPoint(hit.point);
-                // À§ÀÇ µÎ ÁÂÇ¥¸¦ ÅëÇØ Á÷¼±ÀÇ º¤ÅÍ¸¦ ±¸ÇÑ´Ù
+                // ìœ„ì˜ ë‘ ì¢Œí‘œë¥¼ í†µí•´ ì§ì„ ì˜ ë²¡í„°ë¥¼ êµ¬í•œë‹¤
                 Vector2 localHitObjectVector = localClosestPos - localHitPoint;
                 if (localHitObjectVector.magnitude > 0.03f) localHitObjectVector = localHitObjectVector.normalized;
-                // ³»ÀûÀ» ÅëÇØ Åõ¿µ ±æÀÌ¸¦ ±¸ÇÑ´Ù
+                // ë‚´ì ì„ í†µí•´ íˆ¬ì˜ ê¸¸ì´ë¥¼ êµ¬í•œë‹¤
                 float projection = Vector2.Dot(-localHitPoint, localHitObjectVector);
-                // ÃÖ´Ü º¤ÅÍ¸¦ ±¸ÇÑ´Ù. (¿øÁ¡¿¡¼­ Åõ¿µµÈ Á¡±îÁöÀÇ º¤ÅÍ)
+                // ìµœë‹¨ ë²¡í„°ë¥¼ êµ¬í•œë‹¤. (ì›ì ì—ì„œ íˆ¬ì˜ëœ ì ê¹Œì§€ì˜ ë²¡í„°)
                 Vector2 projectedPoint = localHitPoint + localHitObjectVector * projection;
                 for (int j = 0; j < _vertices.Length; j++)
                 {
-                    // Ãæµ¹ ÁöÁ¡±îÁöÀÇ º¤ÅÍ¿Í ¸ğµç Á¤Á¡µé±îÁöÀÇ º¤ÅÍ¸¦ °Ë»ç
+                    // ì¶©ëŒ ì§€ì ê¹Œì§€ì˜ ë²¡í„°ì™€ ëª¨ë“  ì •ì ë“¤ê¹Œì§€ì˜ ë²¡í„°ë¥¼ ê²€ì‚¬
                     float value = Vector2.Angle(new Vector2(localHitPoint.x, localHitPoint.y), new Vector2(_originVertices[j].x, _originVertices[j].y));
                     float maxAngle = 15f;
-                    // °¢µµ°¡ 15µµ ÀÌ»óÀÌ¸é ½ºÅµ, ´Ù¸¥ ¿µ¿ª¿¡ ¸Ã±ä´Ù.
+                    // ê°ë„ê°€ 15ë„ ì´ìƒì´ë©´ ìŠ¤í‚µ, ë‹¤ë¥¸ ì˜ì—­ì— ë§¡ê¸´ë‹¤.
                     if (value > maxAngle) continue;
 
-                    // ÃÖ´Ü º¤ÅÍ¿Í Á¤Á¡±îÁöÀÇ º¤ÅÍÀÇ »çÀÌ°¢À» ±¸ÇÑ´Ù.
+                    // ìµœë‹¨ ë²¡í„°ì™€ ì •ì ê¹Œì§€ì˜ ë²¡í„°ì˜ ì‚¬ì´ê°ì„ êµ¬í•œë‹¤.
                     float angle = Vector2.Angle(projectedPoint, new Vector2(_originVertices[j].x, _originVertices[j].y));
 
-                    // »ï°¢ÇÔ¼ö ÀÀ¿ëÇÏ¸é ÀÌ·± ½ÄÀ» ¾òÀ» ¼ö ÀÖÀ½
+                    // ì‚¼ê°í•¨ìˆ˜ ì‘ìš©í•˜ë©´ ì´ëŸ° ì‹ì„ ì–»ì„ ìˆ˜ ìˆìŒ
                     float vertexLen = (projectedPoint.magnitude) / Mathf.Cos(angle * Mathf.Deg2Rad);
                     vertexLen /= rayDist;
                     vertexLen = Mathf.Clamp(vertexLen, 0, 1);
