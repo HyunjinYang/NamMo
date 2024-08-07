@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8301208345152375250
+--- !u!1 &8719923357553118691
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7624856580267009182}
-  - component: {fileID: 4020330313808368748}
+  - component: {fileID: 6264001217123375013}
+  - component: {fileID: 6449487846404659968}
   m_Layer: 0
-  m_Name: GA_Parrying
+  m_Name: GA_Invincible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7624856580267009182
+--- !u!4 &6264001217123375013
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8301208345152375250}
+  m_GameObject: {fileID: 8719923357553118691}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.891617, y: -1.9332942, z: -0.017792303}
+  m_LocalPosition: {x: -8.808037, y: -2.4543214, z: -0.010853509}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4020330313808368748
+--- !u!114 &6449487846404659968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8301208345152375250}
+  m_GameObject: {fileID: 8719923357553118691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d7a3cfdb85c8d24fa2fec44c684f3bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7188dc97b8aaf5b4c8c04a107bc7b1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _canOverlapAbility: 0
-  _tagsToAdd: 020000000b000000
+  _tagsToAdd: 0b000000
   _needTags: 
   _blockTags: 
-  _parryingTime: 0.7
+  _invincibleTime: 0.8

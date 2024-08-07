@@ -8,9 +8,7 @@ public class GA_DownJump : GameAbility
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Attack);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Parrying);
-        _floor.GetComponent<DownJumpFloor>().DeActiveShortTime();
+        _floor.GetComponent<DownJumpFloor>().ChangeColliderMaskShortTime();
         _asc.gameObject.GetComponent<PlayerMovement>().OnLandGround += EndAbility;
     }
     protected override bool CanActivateAbility()

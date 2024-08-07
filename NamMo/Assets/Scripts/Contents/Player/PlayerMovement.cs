@@ -16,13 +16,14 @@ public class PlayerMovement : MonoBehaviour
     PlayerController _pc;
     protected Rigidbody2D _rb;
 
-    protected float _horizontalMoveValue;
+    private float _horizontalMoveValue;
     private float _originalGravity;
     private bool _isFacingRight = true;
     private bool _needCheckFrontGround = false;
     [SerializeField] private bool _isDashing = false;
     [SerializeField] private bool _isJumping = false;
     [SerializeField] private bool _isFalling = false;
+    [SerializeField] private bool _isKnockBacking = false;
     private bool _canMove = true;
 
     private Action _reservedInputAction = null;
@@ -77,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 float horizontalValue = _horizontalMoveValue;
                 if (_canMove == false) horizontalValue = 0f;
-                if (_isJumping || _isFalling)
+                if (_isJumping || _isFalling || _isKnockBacking)
                 {
                     float x = Mathf.Lerp(_rb.velocity.x, horizontalValue * _speed, 0.08f);
                     _rb.velocity = new Vector2(x, _rb.velocity.y);
@@ -148,9 +149,9 @@ public class PlayerMovement : MonoBehaviour
     protected virtual void Flip()
     {
         _isFacingRight = !_isFacingRight;
-        Vector3 localScale = _CharacterSprite.transform.localScale;
+        Vector3 localScale = _pc.GetPlayerSprite().transform.localScale;
         localScale.x *= -1f;
-        _CharacterSprite.transform.localScale = localScale;
+        _pc.GetPlayerSprite().transform.localScale = localScale;
 
         if (OnFlip != null) OnFlip.Invoke(_isFacingRight);
     }
@@ -222,6 +223,11 @@ public class PlayerMovement : MonoBehaviour
             if (OnDashCanceled != null) OnDashCanceled.Invoke();
         }
     }
+    public void KnockBack(float force, float power = 5)
+    {
+        _rb.AddForce(new Vector2(force, 1f) * power, ForceMode2D.Impulse);
+        StartCoroutine(CoKnockBack(0.5f));
+    }
     public bool IsGround(float offset = 0)
     {
         return Physics2D.OverlapCircle(_groundCheck.position + new Vector3(offset, 0, 0), 0.2f, _groundLayer);
@@ -275,5 +281,11 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         _reserveDashCoroutine = null;
         Dash(dashForce, dashTime, dashType, additionalNoGravityTime);
+    }
+    IEnumerator CoKnockBack(float time)
+    {
+        _isKnockBacking = true;
+        yield return new WaitForSeconds(time);
+        _isKnockBacking = false;
     }
 }

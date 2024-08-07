@@ -1,22 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class GA_Block : GameAbility
 {
     [SerializeField] private float _perfectParryingTime;
+    public bool IsPerfectParryingTiming { get; private set; } = false;
     public Action OnBlockStart;
     public Action OnBlockEnd;
 
-    private bool _isPerfectParryingTiming = false;
     private Coroutine _parryingCoroutine = null;
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Dash);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Attack);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_AirAttack);
 
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
         _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
@@ -42,17 +40,22 @@ public class GA_Block : GameAbility
             StopCoroutine(_parryingCoroutine);
             _parryingCoroutine = null;
         }
-        _isPerfectParryingTiming = false;
+        IsPerfectParryingTiming = false;
 
         if (OnBlockEnd != null) OnBlockEnd.Invoke();
     }
     private void HandleTriggeredObject(GameObject go)
     {
-        if (_isPerfectParryingTiming)
+        if (IsPerfectParryingTiming)
         {
-            CancelAbility();
-            Destroy(go);
-            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
+            if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
+            {
+                // TODO 패링 기획에 따라 변경
+                Debug.Log("Parrying");
+                CancelAbility();
+                Destroy(go);
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
+            }
         }
         else
         {
@@ -62,9 +65,9 @@ public class GA_Block : GameAbility
     }
     IEnumerator CoChangeParryingTypeByTimeFlow()
     {
-        _isPerfectParryingTiming = true;
+        IsPerfectParryingTiming = true;
         yield return new WaitForSeconds(_perfectParryingTime);
-        _isPerfectParryingTiming = false;
+        IsPerfectParryingTiming = false;
         _parryingCoroutine = null;
     }
 }

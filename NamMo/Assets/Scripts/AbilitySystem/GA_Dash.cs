@@ -13,10 +13,6 @@ public class GA_Dash : GameAbility
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_AirAttack);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Attack);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
-        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _asc.gameObject.GetComponent<PlayerMovement>().Dash(_dashForce, _dashTime, Define.DashType.DefaultDash);
     }
     public override void CancelAbility()

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class DownJumpFloor : MonoBehaviour
 {
-    public void DeActiveShortTime()
+    public void ChangeColliderMaskShortTime()
     {
-        GetComponent<Collider2D>().isTrigger = true;
-        StartCoroutine(CoDeActiveShortTime());
+        GetComponent<PlatformEffector2D>().colliderMask = ~LayerMask.GetMask("Player");
+        StartCoroutine(CoChangeColliderMaskShortTime());
     }
-    IEnumerator CoDeActiveShortTime()
+    IEnumerator CoChangeColliderMaskShortTime()
     {
         yield return new WaitForSeconds(0.5f);
-        GetComponent<Collider2D>().isTrigger = false;
+        GetComponent<PlatformEffector2D>().colliderMask = -1;
     }
 }

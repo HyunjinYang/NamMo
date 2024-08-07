@@ -11,6 +11,8 @@ public class GameAbility : MonoBehaviour
     [SerializeField] protected List<Define.GameplayTag> _needTags;
     // 발동할 때 있으면 안되는 태그
     [SerializeField] protected List<Define.GameplayTag> _blockTags;
+    // 발동될 때 취소할 능력
+    [SerializeField] protected List<Define.GameplayAbility> _cancelAbilities;
     protected AbilitySystemComponent _asc;
     protected int _overlapCnt = 0;
 
@@ -42,6 +44,10 @@ public class GameAbility : MonoBehaviour
     {
         _isActivated = true;
         _overlapCnt++;
+        foreach(Define.GameplayAbility ga in _cancelAbilities)
+        {
+            _asc.TryCancelAbilityByTag(ga);
+        }
     }
     protected virtual bool CanActivateAbility()
     {

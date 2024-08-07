@@ -49,6 +49,10 @@ public class Define
         Player_Action_AirAttack,
         Player_Action_DownJump,
         Player_Action_Block,
+        Player_Action_Hurt,
+
+        Player_State_Invincible,
+        Player_State_Hurt,
 
         MaxCount
     }
@@ -62,6 +66,8 @@ public class Define
         GA_DownJump,
         GA_Block,
         GA_Parrying,
+        GA_Hurt,
+        GA_Invincible
     }
     public enum CameraMode
     {

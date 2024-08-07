@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canOverlapAbility: 0
-  _tagsToAdd: 03000000
+  _tagsToAdd: 030000000b000000
   _needTags: 
-  _blockTags: 00000000010000000600000002000000
+  _blockTags: 000000000100000006000000020000000a000000
   _originWaveSize: 8
   _originWaveStrength: 2
   _originOutlinePowerValue: 5

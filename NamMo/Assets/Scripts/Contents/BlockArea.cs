@@ -15,7 +15,7 @@ public class BlockArea : MonoBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<EnemyAttack>() == null) return;
-        if (OnBlockAreaTriggerEntered != null) OnBlockAreaTriggerEntered.Invoke(collision.gameObject);
+        //if (OnBlockAreaTriggerEntered != null) OnBlockAreaTriggerEntered.Invoke(collision.gameObject);
     }
     public void ActiveBlockArea()
     {
