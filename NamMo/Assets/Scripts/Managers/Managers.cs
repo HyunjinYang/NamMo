@@ -19,6 +19,7 @@ public class Managers : MonoBehaviour
     SoundManager _sound = new SoundManager();
     UIManager _ui = new UIManager();
     InputManager _input = new InputManager();
+    private GameManager _gameManage = new GameManager();
 
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
@@ -27,6 +28,7 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static InputManager Input { get { return Instance._input; } }
+    public static GameManager Gamemanager { get { return Instance._gameManage; } }
 	#endregion
 
 	void Start()
@@ -56,6 +58,7 @@ public class Managers : MonoBehaviour
             s_instance._input = new InputManager();
             s_instance._input.Init();
             s_instance._sound.Init();
+            s_instance._gameManage.Init();
         }		
 	}
 
