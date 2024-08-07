@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enemy;
 
 [Serializable]
 struct AttackInfo
@@ -72,7 +73,7 @@ public class GA_Attack : GameAbility
     private void HandleTriggeredObject(GameObject go)
     {
         Debug.Log("Attack Hit");
-        go.GetComponent<DummyEnemy>().Damaged();
+        go.GetComponent<Enemy.Enemy>().Hit(1);
     }
     IEnumerator CoAttack()
     {

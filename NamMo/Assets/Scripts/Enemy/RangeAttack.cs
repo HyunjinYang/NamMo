@@ -23,6 +23,7 @@ namespace Enemy
                 Destroy(this);
         }
 
+        /*
         private void OnTriggerEnter2D(Collider2D other)
         {
             if(other.gameObject.GetComponent<PlayerController>() != null)
@@ -30,6 +31,6 @@ namespace Enemy
                Debug.Log("플레이어 공격!!");
                Destroy(this);
             }
-        }
+        }*/
     }
 }

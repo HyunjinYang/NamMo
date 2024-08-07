@@ -32,6 +32,7 @@ namespace Enemy
 
         public void Hit(int damage)
         {
+            Debug.Log("맞았음");
             _hp -= damage;
             _enemyMovement._isHit = true;
             OnHit.Invoke();
