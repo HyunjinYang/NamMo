@@ -12,7 +12,7 @@ public class BlockArea : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _collider.enabled = false;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<EnemyAttack>() == null) return;
         //if (OnBlockAreaTriggerEntered != null) OnBlockAreaTriggerEntered.Invoke(collision.gameObject);
