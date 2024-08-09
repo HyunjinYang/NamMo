@@ -12,7 +12,6 @@ public class ViewRangeDeform : MonoBehaviour
     Vector3[] _originVertices;
     Vector3[] _vertices;
     bool[] _deformCheck;
-    HashSet<Collider2D> _colliders = new HashSet<Collider2D>();
 
     float[] _dirX = new float[12] { 0, 0.5f, 0.86f, 1, 0.86f, 0.5f, 0, -0.5f, -0.86f, -1, -0.86f, -0.5f };
     float[] _dirY = new float[12] { 1, 0.86f, 0.5f, 0, -0.5f, -0.86f, -1, -0.86f, -0.5f, 0, 0.5f, 0.86f };
@@ -36,9 +35,7 @@ public class ViewRangeDeform : MonoBehaviour
         for (int i = 0; i < _mesh.vertices.Length; i++)
         {
             _originVertices[i] = _mesh.vertices[i];
-            //_originVertices[i].z = 0;
             _vertices[i] = _mesh.vertices[i];
-            //_vertices[i].z = 0;
         }
     }
     private void DeformVertices()
@@ -56,8 +53,8 @@ public class ViewRangeDeform : MonoBehaviour
             {
                 Debug.DrawLine(transform.position, hit.point, Color.green);
 
-                // local의 원점을 world기준으로 바꾸고 Ray에 탐색된 오브젝트 내의 가장 가까운 좌표를 추출
-                Vector2 closestPos = hit.collider.ClosestPoint(transform.TransformPoint(Vector2.zero));
+                // Ray에 탐색된 오브젝트 내의 가장 가까운 좌표를 추출
+                Vector2 closestPos = hit.collider.ClosestPoint(transform.position);
                 // 탐색된 가장 가까운 좌표를 local로 변환
                 Vector2 localClosestPos = transform.InverseTransformPoint(closestPos);
                 // 충돌 지점을 local 좌표계로 변환
@@ -105,21 +102,7 @@ public class ViewRangeDeform : MonoBehaviour
     {
         _mesh.vertices = _vertices;
         _mesh.RecalculateBounds();
-        _mesh.RecalculateNormals();
-        _mesh.RecalculateTangents();
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (1 << collision.gameObject.layer != LayerMask.GetMask("Ground")) return;
-        SpriteRenderer spr = collision.gameObject.GetComponent<SpriteRenderer>();
-        if (spr == null) return;
-        _colliders.Add(collision);
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (1 << collision.gameObject.layer != LayerMask.GetMask("Ground")) return;
-        SpriteRenderer spr = collision.gameObject.GetComponent<SpriteRenderer>();
-        if (spr == null) return;
-        _colliders.Remove(collision);
+        //_mesh.RecalculateNormals();
+        //_mesh.RecalculateTangents();
     }
 }
