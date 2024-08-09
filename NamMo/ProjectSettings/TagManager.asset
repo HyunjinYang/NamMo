@@ -26,7 +26,7 @@ TagManager:
   - 
   - 
   - Ground
-  - Player
+  - 
   - EnemyAttack
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: New Layer 1
     uniqueID: 1907124881
+    locked: 0
+  - name: Enemy
+    uniqueID: 1322050693
     locked: 0
