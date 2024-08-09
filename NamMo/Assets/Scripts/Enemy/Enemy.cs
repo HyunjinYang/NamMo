@@ -5,13 +5,14 @@ namespace Enemy
 {
     public class Enemy : MonoBehaviour
     {
-        protected int _hp;
+        [SerializeField] protected int _hp;
         protected GameObject _player;
         [SerializeField] protected EnemyMovement _enemyMovement;
         public Action Onattack;
         public Action OnEndattack;
         public Action OnHit;
         public Action OnEndHit;
+        public Action Dead;
         public bool _isParingAvailable = false;
         public virtual void Behavire(float distance)
         {
@@ -34,8 +35,23 @@ namespace Enemy
         {
             Debug.Log("맞았음");
             _hp -= damage;
+
+            if (_hp <= 0)
+            {
+                Debug.Log("tlfgoaehla");
+                OnDead();
+                return;
+            }
+
             _enemyMovement._isHit = true;
             OnHit.Invoke();
+        }
+
+        public void OnDead()
+        {
+            _enemyMovement._isDead = true;
+            Dead.Invoke();
+            Debug.Log("Dead");
         }
 
         public void EndHit()

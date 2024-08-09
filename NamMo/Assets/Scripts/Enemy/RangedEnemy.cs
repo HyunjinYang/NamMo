@@ -134,5 +134,11 @@ namespace Enemy
             _enemyMovement._isHit = isActivate;
             OnEndHit.Invoke();
         }
+
+        public void Dead()
+        {
+            Debug.Log("aDADS");
+            Destroy(_enemyMovement.gameObject);
+        }
     }
 }
