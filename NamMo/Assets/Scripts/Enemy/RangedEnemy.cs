@@ -31,7 +31,14 @@ namespace Enemy
         }
 
         [SerializeField] private State _state = State.None;
-        
+
+        public void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(transform.position, 6.5f);
+            Gizmos.DrawSphere(transform.position, 3.5f);
+        }
+
         public override void Behavire(float distance)
         {
             if (distance >= 6.5f)

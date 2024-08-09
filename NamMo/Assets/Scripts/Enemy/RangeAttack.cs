@@ -7,7 +7,7 @@ namespace Enemy
 {
     public class RangeAttack : EnemyAttack
     {
-        [SerializeField] private float _speed;
+        [SerializeField] private float _arcspeed;
         [SerializeField] private Vector2 target;
         private void Awake()
         {
@@ -17,7 +17,7 @@ namespace Enemy
         private void FixedUpdate()
         {
             gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position,
-                target, _speed * Time.deltaTime);
+                target, _arcspeed * Time.deltaTime);
             
             if(Vector2.Distance(gameObject.transform.position, target) <= 0f)
                 Destroy(this);
