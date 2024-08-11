@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using NamMo;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -9,7 +11,8 @@ namespace Enemy
     {
         public Action OnRangeAttack;
         public Action OnEndRangeAttack;
-        public Action OnMelAttack;
+        
+        [SerializeField] private float AttackTime;
         
         [SerializeField] private GameObject archr;
         [SerializeField] private EnemyBlockArea _enemyBlockArea;
@@ -31,13 +34,6 @@ namespace Enemy
         }
 
         [SerializeField] private State _state = State.None;
-
-        public void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(transform.position, 6.5f);
-            Gizmos.DrawSphere(transform.position, 3.5f);
-        }
 
         public override void Behavire(float distance)
         {
@@ -100,7 +96,7 @@ namespace Enemy
 
         public void MelAttack()
         {
-            _enemyBlockArea.ActiveBlockArea();
+            StartCoroutine(CoAttack());
         }
         public void Patrol()
         {
@@ -137,8 +133,15 @@ namespace Enemy
 
         public void Dead()
         {
-            Debug.Log("aDADS");
             Destroy(_enemyMovement.gameObject);
         }
+
+
+        IEnumerator CoAttack()
+        {
+            yield return new WaitForSeconds(AttackTime);
+            _enemyBlockArea.ActiveBlockArea();
+        }
+
     }
 }
