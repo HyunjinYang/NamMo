@@ -22,6 +22,8 @@ public partial class PlayerController : MonoBehaviour
     private bool _pushDown = false;
     private void Awake()
     {
+        Managers.Scene.CurrentScene.SetPlayerController(this);
+
         _pm = gameObject.GetComponent<PlayerMovement>();
         _ps = gameObject.GetComponent<PlayerStat>();
         _pcc = gameObject.GetComponent<PlayerCombatComponent>();
@@ -130,7 +132,7 @@ public partial class PlayerController : MonoBehaviour
         }
         else if (context.canceled)
         {
-            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
+            //_asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         }
     }
     // ´ë½¬

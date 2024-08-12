@@ -49,4 +49,6 @@ MonoBehaviour:
   _needTags: 
   _blockTags: 02000000030000000a000000
   _cancelAbilities: 01000000020000000400000005000000
-  _perfectParryingTime: 0.15
+  _coolTime: 0.7
+  _perfectParryingTime: 0.3
+  _blockTime: 0.5

@@ -34,7 +34,7 @@ public class PlayerAnimController : MonoBehaviour
             GA_Attack attackAbility = asc.GetAbility(Define.GameplayAbility.GA_Attack) as GA_Attack;
             if (attackAbility)
             {
-                attackAbility.OnComboChanged += ComboAttack;
+                attackAbility.OnAttackComboChanged += ComboAttack;
             }
             GA_WaveDetect waveDetectAbility = asc.GetAbility(Define.GameplayAbility.GA_WaveDetect) as GA_WaveDetect;
             if (waveDetectAbility)

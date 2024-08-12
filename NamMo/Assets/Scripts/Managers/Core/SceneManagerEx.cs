@@ -5,9 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerEx
 {
-    public BaseScene CurrentScene { get { return GameObject.FindObjectOfType<BaseScene>(); } }
+    private BaseScene _baseScene = null;
+    public BaseScene CurrentScene
+    {
+        get
+        {
+            if(_baseScene == null)
+            {
+                _baseScene = GameObject.FindObjectOfType<BaseScene>();
+            }
+            return _baseScene;
+        }
+    }
 
-	public void LoadScene(Define.Scene type)
+    public void LoadScene(Define.Scene type)
     {
         Managers.Clear();
 
@@ -23,5 +34,6 @@ public class SceneManagerEx
     public void Clear()
     {
         CurrentScene.Clear();
+        _baseScene = null;
     }
 }

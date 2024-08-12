@@ -1,27 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class GA_Block : GameAbility
 {
     [SerializeField] private float _perfectParryingTime;
-    public bool IsPerfectParryingTiming { get; private set; } = false;
+    [SerializeField] private float _blockTime;
+    private bool _isPerfectParryingTiming = false;
     public Action OnBlockStart;
     public Action OnBlockEnd;
 
-    private Coroutine _parryingCoroutine = null;
+    private Coroutine _cacluateParryingTimingCoroutine = null;
+    private Coroutine _blockCoroutine = null;
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
 
-        _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
-        _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
-        _asc.GetPlayerController().GetBlockArea().ActiveBlockArea();
-        _parryingCoroutine = StartCoroutine(CoChangeParryingTypeByTimeFlow());
+        _cacluateParryingTimingCoroutine = StartCoroutine(CoChangeParryingTypeByTimeFlow());
+        _blockCoroutine = StartCoroutine(CoBlock());
 
-        if (OnBlockStart != null) OnBlockStart.Invoke();
     }
     public override void CancelAbility()
     {
@@ -35,18 +33,23 @@ public class GA_Block : GameAbility
         _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered -= HandleTriggeredObject;
         _asc.GetPlayerController().GetBlockArea().DeActiveBlockArea();
 
-        if (_parryingCoroutine != null)
+        if (_cacluateParryingTimingCoroutine != null)
         {
-            StopCoroutine(_parryingCoroutine);
-            _parryingCoroutine = null;
+            StopCoroutine(_cacluateParryingTimingCoroutine);
+            _cacluateParryingTimingCoroutine = null;
         }
-        IsPerfectParryingTiming = false;
+        if(_blockCoroutine != null)
+        {
+            StopCoroutine(_blockCoroutine);
+            _blockCoroutine = null;
+        }
+        _isPerfectParryingTiming = false;
 
         if (OnBlockEnd != null) OnBlockEnd.Invoke();
     }
     private void HandleTriggeredObject(GameObject go)
     {
-        if (IsPerfectParryingTiming)
+        if (_isPerfectParryingTiming)
         {
             if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
             {
@@ -63,11 +66,20 @@ public class GA_Block : GameAbility
             Debug.Log("타이밍 미스");
         }
     }
+    IEnumerator CoBlock()
+    {
+        _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
+        _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
+        _asc.GetPlayerController().GetBlockArea().ActiveBlockArea();
+        if (OnBlockStart != null) OnBlockStart.Invoke();
+        yield return new WaitForSeconds(_blockTime);
+        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
+    }
     IEnumerator CoChangeParryingTypeByTimeFlow()
     {
-        IsPerfectParryingTiming = true;
+        _isPerfectParryingTiming = true;
         yield return new WaitForSeconds(_perfectParryingTime);
-        IsPerfectParryingTiming = false;
-        _parryingCoroutine = null;
+        _isPerfectParryingTiming = false;
+        _cacluateParryingTimingCoroutine = null;
     }
 }

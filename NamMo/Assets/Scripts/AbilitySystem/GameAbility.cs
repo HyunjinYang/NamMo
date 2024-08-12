@@ -13,10 +13,12 @@ public class GameAbility : MonoBehaviour
     [SerializeField] protected List<Define.GameplayTag> _blockTags;
     // 발동될 때 취소할 능력
     [SerializeField] protected List<Define.GameplayAbility> _cancelAbilities;
+    [SerializeField] protected float _coolTime;
     protected AbilitySystemComponent _asc;
     protected int _overlapCnt = 0;
 
     private bool _isActivated = false;
+    private bool _isCoolTime = false;
     public bool IsActivated { get { return _isActivated; } }
     private void Start()
     {
@@ -48,9 +50,15 @@ public class GameAbility : MonoBehaviour
         {
             _asc.TryCancelAbilityByTag(ga);
         }
+        if(_coolTime > 0 && _canOverlapAbility == false)
+        {
+            _isCoolTime = true;
+            StartCoroutine(CoCaculateCoolTime());
+        }
     }
     protected virtual bool CanActivateAbility()
     {
+        if (_isCoolTime) return false;
         foreach(Define.GameplayTag tag in _needTags)
         {
             if (_asc.IsExsistTag(tag) == false) return false;
@@ -73,6 +81,11 @@ public class GameAbility : MonoBehaviour
         }
         _isActivated = false;
         _overlapCnt = 0;
+        if (_coolTime > 0 && _canOverlapAbility)
+        {
+            _isCoolTime = true;
+            StartCoroutine(CoCaculateCoolTime());
+        }
     }
     public virtual void CancelAbility()
     {
@@ -83,5 +96,10 @@ public class GameAbility : MonoBehaviour
         {
             _asc.RemoveTag(tag);
         }
+    }
+    IEnumerator CoCaculateCoolTime()
+    {
+        yield return new WaitForSeconds(_coolTime);
+        _isCoolTime = false;
     }
 }

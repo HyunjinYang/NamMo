@@ -21,7 +21,7 @@ public class GA_Attack : GameAbility
     private bool _reserveNextAttack = false;
     private Coroutine _attackCoroutine = null;
 
-    public Action<int> OnComboChanged;
+    public Action<int> OnAttackComboChanged;
     protected override void ActivateAbility()
     {
         if(_overlapCnt == 0 || _reserveNextAttack)
@@ -62,7 +62,7 @@ public class GA_Attack : GameAbility
         else
         {
             base.EndAbility();
-            if (OnComboChanged != null) OnComboChanged.Invoke(-1);
+            if (OnAttackComboChanged != null) OnAttackComboChanged.Invoke(-1);
             if (_attackCoroutine != null)
             {
                 StopCoroutine(_attackCoroutine);
@@ -80,7 +80,7 @@ public class GA_Attack : GameAbility
         _reserveNextAttack = false;
         
         int currCombo = _overlapCnt - 1;
-        if (OnComboChanged != null) OnComboChanged.Invoke(currCombo);
+        if (OnAttackComboChanged != null) OnAttackComboChanged.Invoke(currCombo);
 
         AttackInfo currComboAttackInfo = _comboAttackInfos[currCombo];
         float additionalGravityTime = currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment - currComboAttackInfo.dashTime;
