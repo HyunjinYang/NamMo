@@ -97,6 +97,13 @@ public class GameAbility : MonoBehaviour
             _asc.RemoveTag(tag);
         }
     }
+    protected void RefreshCoolTime()
+    {
+        if(_coolTime > 0)
+        {
+            _coolTime = 0;
+        }
+    }
     IEnumerator CoCaculateCoolTime()
     {
         yield return new WaitForSeconds(_coolTime);

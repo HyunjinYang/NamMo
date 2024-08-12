@@ -585,6 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652c14e2f1854428aa761205d7877b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hp: 0
   _enemyMovement: {fileID: 716350994}
   _isParingAvailable: 0
   archr: {fileID: 1875608416882566130, guid: 3f928b261a6e6ff4bbe5b4ab170af3ab, type: 3}
@@ -1927,7 +1928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &716350994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1958,6 +1959,7 @@ MonoBehaviour:
   _isWait: 0
   _isAttack: 0
   _isHit: 0
+  _isDead: 0
   _isPatrol: 0
   _playerposition: {fileID: 0}
   direct: 1
