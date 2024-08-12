@@ -15,6 +15,7 @@ namespace Enemy
         [SerializeField] private bool _isWait = false;
         [SerializeField] public bool _isAttack = false;
         public bool _isHit = false;
+        public bool _isDead = false;
         public bool _isPatrol = false;
         private Transform _currentWayPoint;
         private float _distance = 0.1f;
@@ -30,7 +31,7 @@ namespace Enemy
 
         protected override void FixedUpdate()
         {
-            if (_isHit)
+            if (_isHit || _isDead)
                 return;
             
             if (!_isAttack && !_isWait && !_isPatrol)

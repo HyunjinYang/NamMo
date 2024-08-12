@@ -134,3 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _arcspeed: 5
+  target: {x: 0, y: 0}

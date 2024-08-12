@@ -18,6 +18,7 @@ namespace Enemy
             _enemy.OnEndattack += EndAttack;
             _enemy.OnHit += Hit;
             _enemy.OnEndHit += EndHit;
+            _enemy.Dead += Dead;
             _animator = GetComponent<Animator>();
         }
 
@@ -55,6 +56,11 @@ namespace Enemy
         private void EndAttack()
         {
             _animator.SetBool("IsAttack", false);
+        }
+
+        private void Dead()
+        {
+            _animator.SetBool("IsDead", true);
         }
     }
 }
