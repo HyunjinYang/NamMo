@@ -8,7 +8,6 @@ namespace NamMo
     {
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            Debug.Log("aSDAD");
         }
 
         public override void OnSLStatePostEnter(Animator animator,AnimatorStateInfo stateInfo,int layerIndex) {
@@ -21,7 +20,6 @@ namespace NamMo
         }
         public override void OnSLStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            Debug.Log("맞는거 끝남!!");
             _monoBehaviour.Dead();
         }
     }
