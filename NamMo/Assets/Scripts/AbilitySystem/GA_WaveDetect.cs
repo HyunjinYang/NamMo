@@ -6,30 +6,29 @@ using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.VFX;
 
 public class GA_WaveDetect : GameAbility
 {
-    [SerializeField] private Material _waveMaterial;
-    [SerializeField] private float _originWaveDistanceFromCenter;
     [SerializeField] private float _scaleChangeTime;
     [SerializeField] private float _detectMoment;
     [SerializeField] private float _motionTime;
 
-    [SerializeField] private GameObject _waveDetectEffect;
+    [SerializeField] private GameObject _waveDetectEffectPrefab;
 
     [Header("Wave Detect Light")]
     [SerializeField] private GameObject _waveDetectLight;
     [SerializeField] private float _lightRemainingTime;
+    [SerializeField] private float _reviseValue;
     public Action OnWaveStart;
     public Action OnWaveEnd;
 
     private Coroutine _turnOffLightCoroutine = null;
+    private Coroutine _sizeUpWaveCoroutine = null;
     protected override void Init()
     {
         base.Init();
-        _waveMaterial.SetFloat("_WaveDistanceFromCenter", _originWaveDistanceFromCenter);
 
-        _waveDetectEffect.transform.SetParent(null);
         _waveDetectLight.transform.SetParent(null);
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
         _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = 0;
@@ -50,7 +49,6 @@ public class GA_WaveDetect : GameAbility
     }
     public override void CancelAbility()
     {
-
         EndAbility();
     }
     protected override void EndAbility()
@@ -61,27 +59,21 @@ public class GA_WaveDetect : GameAbility
     }
     IEnumerator CoWaveDetect()
     {
-        _waveDetectEffect.transform.position = _asc.transform.position;
         _waveDetectLight.transform.position = _asc.transform.position;
         yield return new WaitForSeconds(_detectMoment);
         if (_turnOffLightCoroutine != null) StopCoroutine(_turnOffLightCoroutine);
+        if (_sizeUpWaveCoroutine != null) StopCoroutine(_sizeUpWaveCoroutine);
         _waveDetectLight.GetComponent<Light2D>().intensity = 0.1f;
-        _waveMaterial.DOFloat(1, "_WaveDistanceFromCenter", _scaleChangeTime).SetEase(Ease.Linear).OnComplete(() =>
-        {
-            _waveMaterial.SetFloat("_WaveDistanceFromCenter", _originWaveDistanceFromCenter);
-        });
-        for (int i = 0; i < (int)(_scaleChangeTime * 50); i++)
-        {
-            float size = _originWaveDistanceFromCenter + (40 * i) / (_scaleChangeTime * 50);
-            _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = size;
-            _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = size;
-            yield return new WaitForSeconds(0.02f);
-        }
+
+        GameObject waveEffect = Instantiate(_waveDetectEffectPrefab, _asc.GetPlayerController().transform.position, Quaternion.identity);
+        waveEffect.GetComponent<VFXController>().Play(_scaleChangeTime);
+
+        _sizeUpWaveCoroutine = StartCoroutine(CoSizeUpWave());
         _turnOffLightCoroutine = StartCoroutine(CoTurnOffDetectLight());
     }
     IEnumerator CoTurnOffDetectLight()
     {
-        yield return new WaitForSeconds(_lightRemainingTime - 2f);
+        yield return new WaitForSeconds(_scaleChangeTime + _lightRemainingTime - 2f);
         for(int i = 0; i < 5; i++)
         {
             _waveDetectLight.GetComponent<Light2D>().intensity = 0f;
@@ -92,6 +84,16 @@ public class GA_WaveDetect : GameAbility
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
         _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = 0;
         _turnOffLightCoroutine = null;
+    }
+    IEnumerator CoSizeUpWave()
+    {
+        for (int i = 0; i < (int)(_scaleChangeTime * 50); i++)
+        {
+            float size = (50 * i) / (_scaleChangeTime * 50);
+            _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = size + _reviseValue;
+            _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = size + _reviseValue;
+            yield return new WaitForSeconds(0.02f);
+        }
     }
     IEnumerator CoEndAbility()
     {

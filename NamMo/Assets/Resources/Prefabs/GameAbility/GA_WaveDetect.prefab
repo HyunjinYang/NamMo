@@ -218,11 +218,10 @@ MonoBehaviour:
   _blockTags: 000000000100000006000000020000000a000000
   _cancelAbilities: 
   _coolTime: 5
-  _waveMaterial: {fileID: 2100000, guid: 377068bad33c4ff418ae55c6fa423b52, type: 2}
-  _originWaveDistanceFromCenter: -0.1
   _scaleChangeTime: 3
   _detectMoment: 0.5
   _motionTime: 1.5
-  _waveDetectEffect: {fileID: 4179444943261880446}
+  _waveDetectEffectPrefab: {fileID: 1243250658357058128, guid: 78d6a161a8b7f244d901ba7a9c91b3df, type: 3}
   _waveDetectLight: {fileID: 1489081750304997150}
   _lightRemainingTime: 5
+  _reviseValue: -3.5
