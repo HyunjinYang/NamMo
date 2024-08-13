@@ -33,12 +33,10 @@ namespace Enemy
 
         public void Hit(int damage)
         {
-            Debug.Log("맞았음");
             _hp -= damage;
 
             if (_hp <= 0)
             {
-                Debug.Log("tlfgoaehla");
                 OnDead();
                 return;
             }
@@ -51,7 +49,6 @@ namespace Enemy
         {
             _enemyMovement._isDead = true;
             Dead.Invoke();
-            Debug.Log("Dead");
         }
 
         public void EndHit()
