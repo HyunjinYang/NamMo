@@ -24,11 +24,14 @@ public class PlayerCombatComponent : MonoBehaviour
         }
         else
         {
-            float force = 1;
-            if (transform.position.x < attackPos.x) force = -1;
-            (_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackDirection(force);
-            _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
-
+            // ³Ë¹é, ÇÇ°Ýability
+            if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Wave) == false)
+            {
+                float force = 1;
+                if (transform.position.x < attackPos.x) force = -1;
+                (_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackDirection(force);
+                _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
+            }
         }
         _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Invincible);
         StartCoroutine(CoShowAttackedEffect());

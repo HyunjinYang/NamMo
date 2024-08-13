@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2146f34aea272154da67a44e4a8b1c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canOverlapAbility: 0
+  _canOverlapAbility: 1
   _tagsToAdd: 09000000
   _needTags: 
-  _blockTags: 02000000030000000a000000
-  _cancelAbilities: 01000000020000000400000005000000
-  _perfectParryingTime: 0.15
+  _blockTags: 0a00000003000000
+  _cancelAbilities: 0100000002000000040000000500000007000000
+  _coolTime: 0.2
+  _perfectParryingTime: 0.3
+  _blockTime: 0.5

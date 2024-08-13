@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public abstract class BaseScene : MonoBehaviour
 {
+    private PlayerController _pc = null;
     public Define.Scene SceneType { get; protected set; } = Define.Scene.Unknown;
+    public PlayerController Player { get { return _pc; } }
 
 	void Awake()
 	{
@@ -26,6 +28,10 @@ public abstract class BaseScene : MonoBehaviour
     {
         //StartCoroutine(LoadSceneAsync(sceneName));
         SceneManager.LoadScene(sceneName);
+    }
+    public void SetPlayerController(PlayerController pc)
+    {
+        _pc = pc;
     }
 
     //IEnumerator LoadSceneAsync(string sceneName)

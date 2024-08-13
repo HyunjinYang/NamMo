@@ -1,73 +1,114 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class GA_Block : GameAbility
 {
     [SerializeField] private float _perfectParryingTime;
-    public bool IsPerfectParryingTiming { get; private set; } = false;
-    public Action OnBlockStart;
-    public Action OnBlockEnd;
+    [SerializeField] private float _blockTime;
+    private bool _isPerfectParryingTiming = false;
+    private bool _reserveNextCombo = false;
+    //public Action OnBlockStart;
+    //public Action OnBlockEnd;
+    public Action<int> OnBlockComboChanged;
 
-    private Coroutine _parryingCoroutine = null;
+    private Coroutine _cacluateParryingTimingCoroutine = null;
+    private Coroutine _blockCoroutine = null;
     protected override void ActivateAbility()
     {
-        base.ActivateAbility();
-
-        _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
-        _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
-        _asc.GetPlayerController().GetBlockArea().ActiveBlockArea();
-        _parryingCoroutine = StartCoroutine(CoChangeParryingTypeByTimeFlow());
-
-        if (OnBlockStart != null) OnBlockStart.Invoke();
+        if (_overlapCnt == 0 || _reserveNextCombo)
+        {
+            base.ActivateAbility();
+            _cacluateParryingTimingCoroutine = StartCoroutine(CoChangeParryingTypeByTimeFlow());
+            _blockCoroutine = StartCoroutine(CoBlock());
+        }
+        else
+        {
+            _reserveNextCombo = true;
+        }
+    }
+    protected override bool CanActivateAbility()
+    {
+        if (base.CanActivateAbility() == false) return false;
+        if (_reserveNextCombo) return false;
+        return true;
     }
     public override void CancelAbility()
     {
+        if (_reserveNextCombo)
+        {
+            _overlapCnt++;
+            _reserveNextCombo = false;
+        }
         EndAbility();
     }
     protected override void EndAbility()
     {
-        base.EndAbility();
-
-        _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
-        _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered -= HandleTriggeredObject;
-        _asc.GetPlayerController().GetBlockArea().DeActiveBlockArea();
-
-        if (_parryingCoroutine != null)
+        if (_cacluateParryingTimingCoroutine != null)
         {
-            StopCoroutine(_parryingCoroutine);
-            _parryingCoroutine = null;
+            StopCoroutine(_cacluateParryingTimingCoroutine);
+            _cacluateParryingTimingCoroutine = null;
         }
-        IsPerfectParryingTiming = false;
+        if (_blockCoroutine != null)
+        {
+            StopCoroutine(_blockCoroutine);
+            _blockCoroutine = null;
+        }
+        _isPerfectParryingTiming = false;
 
-        if (OnBlockEnd != null) OnBlockEnd.Invoke();
+        if (_reserveNextCombo)
+        {
+            ActivateAbility();
+        }
+        else
+        {
+            base.EndAbility();
+            _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
+            _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered -= HandleTriggeredObject;
+            _asc.GetPlayerController().GetBlockArea().DeActiveBlockArea();
+
+            if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke(_overlapCnt);
+        }
     }
     private void HandleTriggeredObject(GameObject go)
     {
-        if (IsPerfectParryingTiming)
+        if (_isPerfectParryingTiming)
         {
             if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
             {
                 // TODO 패링 기획에 따라 변경
                 Debug.Log("Parrying");
                 CancelAbility();
+                RefreshCoolTime();
                 Destroy(go);
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
             }
         }
         else
         {
-            // TODO : 데미지 절반만 적용
-            Debug.Log("타이밍 미스");
+            // 타이밍 미스
         }
+    }
+    IEnumerator CoBlock()
+    {
+        _reserveNextCombo = false;
+        _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
+        _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
+        _asc.GetPlayerController().GetBlockArea().ActiveBlockArea();
+        Debug.Log($"Block Combo : {(_overlapCnt - 1) % 3 + 1}");
+        if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke((_overlapCnt - 1) % 3 + 1);
+
+        yield return new WaitForSeconds(_blockTime);
+
+        _blockCoroutine = null;
+        EndAbility();
     }
     IEnumerator CoChangeParryingTypeByTimeFlow()
     {
-        IsPerfectParryingTiming = true;
+        _isPerfectParryingTiming = true;
         yield return new WaitForSeconds(_perfectParryingTime);
-        IsPerfectParryingTiming = false;
-        _parryingCoroutine = null;
+        _isPerfectParryingTiming = false;
+        _cacluateParryingTimingCoroutine = null;
     }
 }

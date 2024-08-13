@@ -1,32 +1,33 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.VFX;
 
 public class GA_WaveDetect : GameAbility
 {
-    [SerializeField] private float _originWaveSize;
-    [SerializeField] private float _originWaveStrength;
-    [SerializeField] private float _originOutlinePowerValue;
-    [SerializeField] private float _scaleChangeValue;
     [SerializeField] private float _scaleChangeTime;
-    [SerializeField] private Material _waveMaterial;
     [SerializeField] private float _detectMoment;
+    [SerializeField] private float _motionTime;
+
+    [SerializeField] private GameObject _waveDetectEffectPrefab;
 
     [Header("Wave Detect Light")]
     [SerializeField] private GameObject _waveDetectLight;
     [SerializeField] private float _lightRemainingTime;
+    [SerializeField] private float _reviseValue;
     public Action OnWaveStart;
     public Action OnWaveEnd;
 
     private Coroutine _turnOffLightCoroutine = null;
+    private Coroutine _sizeUpWaveCoroutine = null;
     protected override void Init()
     {
         base.Init();
-        _waveMaterial.SetFloat("_Size", _originWaveSize);
-        _waveMaterial.SetFloat("_WaveStrength", _originWaveStrength);
-        _waveMaterial.SetFloat("_OutlinePowerValue", _originOutlinePowerValue);
 
         _waveDetectLight.transform.SetParent(null);
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
@@ -36,6 +37,7 @@ public class GA_WaveDetect : GameAbility
     {
         base.ActivateAbility();
         StartCoroutine(CoWaveDetect());
+        StartCoroutine(CoEndAbility());
         if (OnWaveStart != null) OnWaveStart.Invoke();
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
     }
@@ -47,7 +49,6 @@ public class GA_WaveDetect : GameAbility
     }
     public override void CancelAbility()
     {
-
         EndAbility();
     }
     protected override void EndAbility()
@@ -61,27 +62,18 @@ public class GA_WaveDetect : GameAbility
         _waveDetectLight.transform.position = _asc.transform.position;
         yield return new WaitForSeconds(_detectMoment);
         if (_turnOffLightCoroutine != null) StopCoroutine(_turnOffLightCoroutine);
+        if (_sizeUpWaveCoroutine != null) StopCoroutine(_sizeUpWaveCoroutine);
         _waveDetectLight.GetComponent<Light2D>().intensity = 0.1f;
-        for (int i = 0; i < (int)(_scaleChangeTime * 50); i++)
-        {
-            float size = _originWaveSize + Mathf.Sin((90f / (100f * _scaleChangeTime)) * (i + 1) * Mathf.Deg2Rad) * _scaleChangeValue;
-            _waveMaterial.SetFloat("_Size", size);
-            _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = size / 2 + _originWaveStrength / 2;
-            _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = size / 2 + _originWaveStrength / 2;
-            yield return new WaitForSeconds(0.02f);
-        }
+
+        GameObject waveEffect = Instantiate(_waveDetectEffectPrefab, _asc.GetPlayerController().transform.position, Quaternion.identity);
+        waveEffect.GetComponent<VFXController>().Play(_scaleChangeTime);
+
+        _sizeUpWaveCoroutine = StartCoroutine(CoSizeUpWave());
         _turnOffLightCoroutine = StartCoroutine(CoTurnOffDetectLight());
-        for (int i = (int)(_scaleChangeTime * 50); i > 0; i--)
-        {
-            float size = _originWaveSize + Mathf.Sin((90f / (100f * _scaleChangeTime)) * (i - 1) * Mathf.Deg2Rad) * _scaleChangeValue;
-            _waveMaterial.SetFloat("_Size", size);
-            yield return new WaitForSeconds(0.02f);
-        }
-        EndAbility();
     }
     IEnumerator CoTurnOffDetectLight()
     {
-        yield return new WaitForSeconds(_lightRemainingTime - 2f);
+        yield return new WaitForSeconds(_scaleChangeTime + _lightRemainingTime - 2f);
         for(int i = 0; i < 5; i++)
         {
             _waveDetectLight.GetComponent<Light2D>().intensity = 0f;
@@ -92,5 +84,20 @@ public class GA_WaveDetect : GameAbility
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
         _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = 0;
         _turnOffLightCoroutine = null;
+    }
+    IEnumerator CoSizeUpWave()
+    {
+        for (int i = 0; i < (int)(_scaleChangeTime * 50); i++)
+        {
+            float size = (50 * i) / (_scaleChangeTime * 50);
+            _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = size + _reviseValue;
+            _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = size + _reviseValue;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+    IEnumerator CoEndAbility()
+    {
+        yield return new WaitForSeconds(_motionTime);
+        EndAbility();
     }
 }

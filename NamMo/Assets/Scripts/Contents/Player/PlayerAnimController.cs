@@ -13,12 +13,13 @@ public class PlayerAnimController : MonoBehaviour
     private bool _isDasing = false;
     private bool _isWaveDetecting = false;
     private bool _isAirAttacking = false;
-    private bool _isBlocking = false;
+    //private bool _isBlocking = false;
     private bool _isParrying = false;
     private bool _isHurting = false;
 
     private float _moveDir = 0;
     private int _attackCombo = -1;
+    private int _blockCombo = -1;
     private void Start()
     {
         if (_animator == null) _animator = GetComponent<Animator>();
@@ -34,7 +35,7 @@ public class PlayerAnimController : MonoBehaviour
             GA_Attack attackAbility = asc.GetAbility(Define.GameplayAbility.GA_Attack) as GA_Attack;
             if (attackAbility)
             {
-                attackAbility.OnComboChanged += ComboAttack;
+                attackAbility.OnAttackComboChanged += ComboAttack;
             }
             GA_WaveDetect waveDetectAbility = asc.GetAbility(Define.GameplayAbility.GA_WaveDetect) as GA_WaveDetect;
             if (waveDetectAbility)
@@ -51,8 +52,7 @@ public class PlayerAnimController : MonoBehaviour
             GA_Block blockAbility = asc.GetAbility(Define.GameplayAbility.GA_Block) as GA_Block;
             if (blockAbility)
             {
-                blockAbility.OnBlockStart += BlockStart;
-                blockAbility.OnBlockEnd += BlockEnd;
+                blockAbility.OnBlockComboChanged += BlockCombo;
             }
             GA_Parrying parryingAbility = asc.GetAbility(Define.GameplayAbility.GA_Parrying) as GA_Parrying;
             if (parryingAbility)
@@ -151,16 +151,21 @@ public class PlayerAnimController : MonoBehaviour
         _isAirAttacking = false;
         _animator.SetBool("IsAirAttacking", _isAirAttacking);
     }
-    private void BlockStart()
+    private void BlockCombo(int combo)
     {
-        _isBlocking = true;
-        _animator.SetBool("IsBlocking", _isBlocking);
+        _blockCombo = combo;
+        _animator.SetInteger("BlockCombo", _blockCombo);
     }
-    private void BlockEnd()
-    {
-        _isBlocking = false;
-        _animator.SetBool("IsBlocking", _isBlocking);
-    }
+    //private void BlockStart()
+    //{
+    //    _isBlocking = true;
+    //    _animator.SetBool("IsBlocking", _isBlocking);
+    //}
+    //private void BlockEnd()
+    //{
+    //    _isBlocking = false;
+    //    _animator.SetBool("IsBlocking", _isBlocking);
+    //}
     private void ParryingStart()
     {
         _isParrying = true;
