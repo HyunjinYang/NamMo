@@ -670,6 +670,7 @@ MonoBehaviour:
   _hp: 0
   _enemyMovement: {fileID: 716350994}
   _isParingAvailable: 0
+  AttackTime: 0
   archr: {fileID: 1875608416882566130, guid: 3f928b261a6e6ff4bbe5b4ab170af3ab, type: 3}
   _enemyBlockArea: {fileID: 833019567}
   _state: 3
