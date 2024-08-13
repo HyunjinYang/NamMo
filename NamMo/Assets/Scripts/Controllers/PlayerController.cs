@@ -11,6 +11,7 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private AttackArea _attackArea;
     [SerializeField] private List<Define.GameplayAbility> _abilities;
     [SerializeField] private GameObject _playerSprite;
+    [SerializeField] private WaveTrigger _waveTrigger;
 
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
@@ -42,6 +43,7 @@ public partial class PlayerController : MonoBehaviour
     public BlockArea GetBlockArea() { return _blockArea; }
     public AttackArea GetAttackArea() { return _attackArea; }
     public GameObject GetPlayerSprite() { return _playerSprite; }
+    public WaveTrigger GetWaveTrigger() { return _waveTrigger; }
 }
 // Handle Input
 public partial class PlayerController : MonoBehaviour
