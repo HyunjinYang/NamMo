@@ -11,9 +11,11 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private AttackArea _attackArea;
     [SerializeField] private List<Define.GameplayAbility> _abilities;
     [SerializeField] private GameObject _playerSprite;
+    [SerializeField] private WaveTrigger _waveTrigger;
 
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
+    public Action OnInteractionInputPerformed;
 
     private PlayerMovement _pm;
     private PlayerStat _ps;
@@ -42,6 +44,7 @@ public partial class PlayerController : MonoBehaviour
     public BlockArea GetBlockArea() { return _blockArea; }
     public AttackArea GetAttackArea() { return _attackArea; }
     public GameObject GetPlayerSprite() { return _playerSprite; }
+    public WaveTrigger GetWaveTrigger() { return _waveTrigger; }
 }
 // Handle Input
 public partial class PlayerController : MonoBehaviour
@@ -72,16 +75,31 @@ public partial class PlayerController : MonoBehaviour
         {
             if (_pushDown)
             {
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
+                if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
+                {
+                    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_DownJump);
+                }
+                else
+                {
+                    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
+                }
             }
             else
             {
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+                if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
+                {
+                    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_Jump);
+                }
+                else
+                {
+                    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+                }
             }
 
         }
         else if (context.canceled)
         {
+            _asc.ReserveCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
             _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
         }
     }
@@ -130,17 +148,20 @@ public partial class PlayerController : MonoBehaviour
         {
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Block);
         }
-        else if (context.canceled)
-        {
-            //_asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
-        }
     }
     // 대쉬
     public void HandleDashInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
+            if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack) || _asc.IsExsistTag(Define.GameplayTag.Player_Action_AirAttack))
+            {
+                _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_Dash);
+            }
+            else
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
+            }
         }
     }
     // 상호작용
@@ -148,7 +169,7 @@ public partial class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("HandleInteractionInput");
+            if (OnInteractionInputPerformed != null) OnInteractionInputPerformed.Invoke();
         }
     }
     // 아이템1

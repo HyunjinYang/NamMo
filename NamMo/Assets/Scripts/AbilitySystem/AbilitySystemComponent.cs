@@ -7,6 +7,8 @@ public class AbilitySystemComponent : MonoBehaviour
 {
     Dictionary<Define.GameplayTag, int> _tagContainer = new Dictionary<Define.GameplayTag, int>();
     Dictionary<Define.GameplayAbility, GameAbility> _abilities = new Dictionary<Define.GameplayAbility, GameAbility>();
+    private List<Define.GameplayAbility> _reservedAbilities = new List<Define.GameplayAbility>();
+    private List<Define.GameplayAbility> _reservedCancelAbilities = new List<Define.GameplayAbility>();
     public PlayerController GetPlayerController()
     {
         return gameObject.GetComponent<PlayerController>();
@@ -47,6 +49,30 @@ public class AbilitySystemComponent : MonoBehaviour
         {
             Debug.Log("Not Exsist Ability");
         }
+    }
+    public void ReserveAbilityByTag(Define.GameplayAbility tag)
+    {
+        if (_reservedAbilities.Contains(tag)) return;
+        _reservedAbilities.Add(tag);
+    }
+    public void ReserveCancelAbilityByTag(Define.GameplayAbility tag)
+    {
+        if (_reservedAbilities.Contains(tag) == false) return;
+        if (_reservedCancelAbilities.Contains(tag)) return;
+        _reservedCancelAbilities.Add(tag);
+    }
+    public void FlushReservedAbility()
+    {
+        foreach(Define.GameplayAbility ability in _reservedAbilities)
+        {
+            TryActivateAbilityByTag(ability);
+        }
+        foreach (Define.GameplayAbility ability in _reservedCancelAbilities)
+        {
+            TryCancelAbilityByTag(ability);
+        }
+        _reservedAbilities.Clear();
+        _reservedCancelAbilities.Clear();
     }
     public void TryCancelAbilityByTag(Define.GameplayAbility tag)
     {

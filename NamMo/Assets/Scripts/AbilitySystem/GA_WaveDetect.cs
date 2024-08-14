@@ -2,8 +2,6 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.VFX;
@@ -57,13 +55,23 @@ public class GA_WaveDetect : GameAbility
         if (OnWaveEnd != null) OnWaveEnd.Invoke();
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
     }
+    private void HandleTriggeredWaveObject(GameObject go)
+    {
+        // TODO : 파동탐지 감지 이벤트
+        Debug.Log($"파동 감지 : {go.name}");
+    }
     IEnumerator CoWaveDetect()
     {
         _waveDetectLight.transform.position = _asc.transform.position;
         yield return new WaitForSeconds(_detectMoment);
+
+        _asc.GetPlayerController().GetWaveTrigger().OnWaveRangeTriggerEntered -= HandleTriggeredWaveObject;
+        _asc.GetPlayerController().GetWaveTrigger().OnWaveRangeTriggerEntered += HandleTriggeredWaveObject;
+
         if (_turnOffLightCoroutine != null) StopCoroutine(_turnOffLightCoroutine);
         if (_sizeUpWaveCoroutine != null) StopCoroutine(_sizeUpWaveCoroutine);
-        _waveDetectLight.GetComponent<Light2D>().intensity = 0.1f;
+        _waveDetectLight.GetComponent<Light2D>().intensity = 0.01f;
+        _asc.GetPlayerController().GetWaveTrigger().SetRadius(0);
 
         GameObject waveEffect = Instantiate(_waveDetectEffectPrefab, _asc.GetPlayerController().transform.position, Quaternion.identity);
         waveEffect.GetComponent<VFXController>().Play(_scaleChangeTime);
@@ -78,7 +86,7 @@ public class GA_WaveDetect : GameAbility
         {
             _waveDetectLight.GetComponent<Light2D>().intensity = 0f;
             yield return new WaitForSeconds(0.2f);
-            _waveDetectLight.GetComponent<Light2D>().intensity = 0.1f;
+            _waveDetectLight.GetComponent<Light2D>().intensity = 0.01f;
             yield return new WaitForSeconds(0.2f);
         }
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
@@ -90,10 +98,14 @@ public class GA_WaveDetect : GameAbility
         for (int i = 0; i < (int)(_scaleChangeTime * 50); i++)
         {
             float size = (50 * i) / (_scaleChangeTime * 50);
-            _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = size + _reviseValue;
-            _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = size + _reviseValue;
+            size += _reviseValue;
+            _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = size;
+            _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = size;
+            _asc.GetPlayerController().GetWaveTrigger().SetRadius(size);
             yield return new WaitForSeconds(0.02f);
         }
+        _asc.GetPlayerController().GetWaveTrigger().OnWaveRangeTriggerEntered -= HandleTriggeredWaveObject;
+        _sizeUpWaveCoroutine = null;
     }
     IEnumerator CoEndAbility()
     {

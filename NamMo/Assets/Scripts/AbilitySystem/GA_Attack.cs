@@ -97,6 +97,8 @@ public class GA_Attack : GameAbility
         
         yield return new WaitForSeconds(currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment);
 
+        _asc.FlushReservedAbility();
+
         _attackCoroutine = null;
         EndAbility();
     }

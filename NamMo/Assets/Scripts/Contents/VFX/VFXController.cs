@@ -11,9 +11,10 @@ public class VFXController : MonoBehaviour
         _vfx = GetComponent<VisualEffect>();
         _vfx.Stop();
     }
-    public void Play(float lifeTime)
+    public void Play(float lifeTime, float size = 1)
     {
         _vfx.SetFloat("LifeTime", lifeTime);
+        _vfx.SetFloat("Size", size);
         _vfx.Play();
         Destroy(gameObject, lifeTime);
     }
