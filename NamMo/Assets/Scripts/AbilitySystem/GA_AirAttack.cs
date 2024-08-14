@@ -65,6 +65,7 @@ public class GA_AirAttack : GameAbility
         _asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
 
         yield return new WaitForSeconds(_attackTime - _attack2Moment);
+        _asc.FlushReservedAbility();
         _airAttackCoroutine = null;
         EndAbility();
     }

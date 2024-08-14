@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void EndJump()
     {
-        if (!_isJumping || _rb.velocity.y <= 0 || IsGround()) return;
+        //if (!_isJumping || _rb.velocity.y <= 0 || IsGround()) return;
         _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
     }
     public void Dash(float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime = 0)

@@ -70,8 +70,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 5
-  m_PointLightOuterRadius: 5
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 0
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7448901945203682290
 Transform:
   m_ObjectHideFlags: 0
@@ -224,4 +224,4 @@ MonoBehaviour:
   _waveDetectEffectPrefab: {fileID: 1243250658357058128, guid: 78d6a161a8b7f244d901ba7a9c91b3df, type: 3}
   _waveDetectLight: {fileID: 1489081750304997150}
   _lightRemainingTime: 5
-  _reviseValue: -3.5
+  _reviseValue: 0
