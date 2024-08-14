@@ -15,6 +15,7 @@ public partial class PlayerController : MonoBehaviour
 
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
+    public Action OnInteractionInputPerformed;
 
     private PlayerMovement _pm;
     private PlayerStat _ps;
@@ -132,10 +133,6 @@ public partial class PlayerController : MonoBehaviour
         {
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Block);
         }
-        else if (context.canceled)
-        {
-            //_asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
-        }
     }
     // 대쉬
     public void HandleDashInput(InputAction.CallbackContext context)
@@ -150,7 +147,7 @@ public partial class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("HandleInteractionInput");
+            if (OnInteractionInputPerformed != null) OnInteractionInputPerformed.Invoke();
         }
     }
     // 아이템1

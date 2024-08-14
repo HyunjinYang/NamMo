@@ -70,7 +70,7 @@ public class GA_WaveDetect : GameAbility
 
         if (_turnOffLightCoroutine != null) StopCoroutine(_turnOffLightCoroutine);
         if (_sizeUpWaveCoroutine != null) StopCoroutine(_sizeUpWaveCoroutine);
-        _waveDetectLight.GetComponent<Light2D>().intensity = 0.1f;
+        _waveDetectLight.GetComponent<Light2D>().intensity = 0.01f;
         _asc.GetPlayerController().GetWaveTrigger().SetRadius(0);
 
         GameObject waveEffect = Instantiate(_waveDetectEffectPrefab, _asc.GetPlayerController().transform.position, Quaternion.identity);
@@ -86,7 +86,7 @@ public class GA_WaveDetect : GameAbility
         {
             _waveDetectLight.GetComponent<Light2D>().intensity = 0f;
             yield return new WaitForSeconds(0.2f);
-            _waveDetectLight.GetComponent<Light2D>().intensity = 0.1f;
+            _waveDetectLight.GetComponent<Light2D>().intensity = 0.01f;
             yield return new WaitForSeconds(0.2f);
         }
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
