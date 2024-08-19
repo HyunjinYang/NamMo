@@ -9,8 +9,7 @@ public class GA_Block : GameAbility
     [SerializeField] private float _blockTime;
     private bool _isPerfectParryingTiming = false;
     private bool _reserveNextCombo = false;
-    //public Action OnBlockStart;
-    //public Action OnBlockEnd;
+
     public Action<int> OnBlockComboChanged;
 
     private Coroutine _cacluateParryingTimingCoroutine = null;

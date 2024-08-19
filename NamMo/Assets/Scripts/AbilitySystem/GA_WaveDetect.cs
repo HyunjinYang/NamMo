@@ -13,16 +13,19 @@ public class GA_WaveDetect : GameAbility
     [SerializeField] private float _motionTime;
 
     [SerializeField] private GameObject _waveDetectEffectPrefab;
+    [Header("Remain Use Count")]
+    [SerializeField] private int _remainUseCnt;
 
     [Header("Wave Detect Light")]
     [SerializeField] private GameObject _waveDetectLight;
     [SerializeField] private float _lightRemainingTime;
     [SerializeField] private float _reviseValue;
-    public Action OnWaveStart;
-    public Action OnWaveEnd;
 
     private Coroutine _turnOffLightCoroutine = null;
     private Coroutine _sizeUpWaveCoroutine = null;
+
+    public Action<int> OnRemainUseCntChanged;
+    public int RemainUseCnt { get {  return _remainUseCnt; } }
     protected override void Init()
     {
         base.Init();
@@ -36,23 +39,25 @@ public class GA_WaveDetect : GameAbility
         base.ActivateAbility();
         StartCoroutine(CoWaveDetect());
         StartCoroutine(CoEndAbility());
-        if (OnWaveStart != null) OnWaveStart.Invoke();
+        _remainUseCnt--;
+        if (OnRemainUseCntChanged != null) OnRemainUseCntChanged.Invoke(_remainUseCnt);
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
     }
     protected override bool CanActivateAbility()
     {
         if (base.CanActivateAbility() == false) return false;
         if (_asc.gameObject.GetComponent<PlayerMovement>().IsGround() == false) return false;
+        if (_remainUseCnt <= 0) return false;
         return true;
     }
     public override void CancelAbility()
     {
+        base.CancelAbility();
         EndAbility();
     }
     protected override void EndAbility()
     {
         base.EndAbility();
-        if (OnWaveEnd != null) OnWaveEnd.Invoke();
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
     }
     private void HandleTriggeredWaveObject(GameObject go)
