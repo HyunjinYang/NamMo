@@ -49,4 +49,5 @@ MonoBehaviour:
   _needTags: 
   _blockTags: 
   _cancelAbilities: 000000000100000002000000040000000500000006000000
-  _hurtTime: 0.5
+  _coolTime: 0
+  _hurtTime: 0.2

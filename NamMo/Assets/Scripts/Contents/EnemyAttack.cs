@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     private bool _blockCheck = false;
     private void Start()
     {
-        Destroy(gameObject, 1.5f);
+        //Destroy(gameObject, 1.5f);
     }
     /*private void Update()
     {

@@ -40,13 +40,13 @@ public class PlayerCombatComponent : MonoBehaviour
     IEnumerator CoHurtShortTime()
     {
         _pc.GetASC().AddTag(Define.GameplayTag.Player_State_Hurt);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         _pc.GetASC().RemoveTag(Define.GameplayTag.Player_State_Hurt);
     }
     IEnumerator CoShowAttackedEffect()
     {
         _pc.GetPlayerSprite().GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0.5f, 1f);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         _pc.GetPlayerSprite().GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
     }
 }
