@@ -14,6 +14,11 @@ public class GA_Block : GameAbility
 
     private Coroutine _cacluateParryingTimingCoroutine = null;
     private Coroutine _blockCoroutine = null;
+    protected override void Init()
+    {
+        base.Init();
+        _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
+    }
     protected override void ActivateAbility()
     {
         if (_overlapCnt == 0 || _reserveNextCombo)
@@ -64,12 +69,13 @@ public class GA_Block : GameAbility
         {
             base.EndAbility();
             _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
-            _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered -= HandleTriggeredObject;
+            //_asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered -= HandleTriggeredObject;
             _asc.GetPlayerController().GetBlockArea().DeActiveBlockArea();
 
             if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke(_overlapCnt);
         }
     }
+    private bool canceled = false;
     private void HandleTriggeredObject(GameObject go)
     {
         if (_isPerfectParryingTiming)
@@ -77,23 +83,25 @@ public class GA_Block : GameAbility
             if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
             {
                 // TODO 패링 기획에 따라 변경
-                Debug.Log("Parrying");
-                CancelAbility();
-                RefreshCoolTime();
-                Destroy(go);
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
+                if (go.GetComponent<BaseProjectile>())
+                {
+                    BaseProjectile projectile = go.GetComponent<BaseProjectile>();
+                    projectile.SetProjectileInfo(null, projectile.Speed, projectile.Damage, _asc.GetPlayerController().gameObject);
+                    projectile.Parried();
+                }
+                //CancelAbility();
+                if (canceled == false)
+                {
+                    StartCoroutine(CoCancelAbility());
+                }
             }
-        }
-        else
-        {
-            // 타이밍 미스
         }
     }
     IEnumerator CoBlock()
     {
         _reserveNextCombo = false;
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
-        _asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
+        //_asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
         _asc.GetPlayerController().GetBlockArea().ActiveBlockArea();
         Debug.Log($"Block Combo : {(_overlapCnt - 1) % 3 + 1}");
         if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke((_overlapCnt - 1) % 3 + 1);
@@ -109,5 +117,14 @@ public class GA_Block : GameAbility
         yield return new WaitForSeconds(_perfectParryingTime);
         _isPerfectParryingTiming = false;
         _cacluateParryingTimingCoroutine = null;
+    }
+    IEnumerator CoCancelAbility()
+    {
+        canceled = true;
+        yield return new WaitForEndOfFrame();
+        CancelAbility();
+        RefreshCoolTime();
+        _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
+        canceled = false;
     }
 }

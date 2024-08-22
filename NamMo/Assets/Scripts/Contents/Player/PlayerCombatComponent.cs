@@ -9,12 +9,12 @@ public class PlayerCombatComponent : MonoBehaviour
     {
         _pc = pc;
     }
-    public void GetDamaged(/*TODO*/float damage, Vector3 attackPos)
+    public bool GetDamaged(/*TODO*/float damage, Vector3 attackPos)
     {
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_State_Invincible))
         {
             // 무적상태일때 공격이 들어왔을 경우
-            return;
+            return false;
         }
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Block))
         {
@@ -36,6 +36,7 @@ public class PlayerCombatComponent : MonoBehaviour
         _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Invincible);
         StartCoroutine(CoShowAttackedEffect());
         _pc.GetPlayerStat().ApplyDamage(damage);
+        return true;
     }
     IEnumerator CoHurtShortTime()
     {
