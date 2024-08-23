@@ -10,7 +10,7 @@ public class GameManager
     }
     public void FindPlayer()
     {
-        _player = GameObject.Find("Nammo").GetComponent<PlayerMovement>();
+//        _player = GameObject.Find("Nammo").GetComponent<PlayerMovement>();
     }
 
     public Vector2 ReturnToPlayerPostion()

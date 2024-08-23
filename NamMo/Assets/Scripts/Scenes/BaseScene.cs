@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public abstract class BaseScene : MonoBehaviour
 {
+    
     private PlayerController _pc = null;
     public Define.Scene SceneType { get; protected set; } = Define.Scene.Unknown;
     public PlayerController Player { get { return _pc; } }

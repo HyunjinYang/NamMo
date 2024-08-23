@@ -24,6 +24,7 @@ public partial class PlayerController : MonoBehaviour
     private bool _pushDown = false;
     private void Awake()
     {
+        
         Managers.Scene.CurrentScene.SetPlayerController(this);
 
         _pm = gameObject.GetComponent<PlayerMovement>();
@@ -49,7 +50,7 @@ public partial class PlayerController : MonoBehaviour
 // Handle Input
 public partial class PlayerController : MonoBehaviour
 {
-    // ÀÌµ¿
+    // ï¿½Ìµï¿½
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
         float value = context.ReadValue<float>();
@@ -65,7 +66,7 @@ public partial class PlayerController : MonoBehaviour
             OnMoveInputChanged.Invoke(value);
         }
     }
-    // Á¡ÇÁ
+    // ï¿½ï¿½ï¿½ï¿½
     public void HandleJumpInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -103,7 +104,7 @@ public partial class PlayerController : MonoBehaviour
             _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
         }
     }
-    // ÇÏ´Ü
+    // ï¿½Ï´ï¿½
     public void HandleDownInput(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -115,7 +116,7 @@ public partial class PlayerController : MonoBehaviour
             _pushDown = false;
         }
     }
-    // °ø°Ý
+    // ï¿½ï¿½ï¿½ï¿½
     public void HandleAttackInput(InputAction.CallbackContext context)
     {
         if (_pm.IsJumping || _pm.IsFalling)
@@ -133,7 +134,7 @@ public partial class PlayerController : MonoBehaviour
             }
         }
     }
-    // ÆÄµ¿Å½Áö
+    // ï¿½Äµï¿½Å½ï¿½ï¿½
     public void HandleWaveInput(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -141,7 +142,7 @@ public partial class PlayerController : MonoBehaviour
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_WaveDetect);
         }
     }
-    // ÆÐ¸µ
+    // ï¿½Ð¸ï¿½
     public void HandleParryingInput(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -149,7 +150,7 @@ public partial class PlayerController : MonoBehaviour
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Block);
         }
     }
-    // ´ë½¬
+    // ï¿½ë½¬
     public void HandleDashInput(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -164,7 +165,7 @@ public partial class PlayerController : MonoBehaviour
             }
         }
     }
-    // »óÈ£ÀÛ¿ë
+    // ï¿½ï¿½È£ï¿½Û¿ï¿½
     public void HandleInteractionInput(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -172,7 +173,7 @@ public partial class PlayerController : MonoBehaviour
             if (OnInteractionInputPerformed != null) OnInteractionInputPerformed.Invoke();
         }
     }
-    // ¾ÆÀÌÅÛ1
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1
     public void HandleUseItem1Input(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -180,7 +181,7 @@ public partial class PlayerController : MonoBehaviour
             Debug.Log("HandleUseItem1Input");
         }
     }
-    // ¾ÆÀÌÅÛ2
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2
     public void HandleUseItem2Input(InputAction.CallbackContext context)
     {
         if (context.performed)

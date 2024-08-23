@@ -11,7 +11,7 @@ namespace Enemy
         [SerializeField] private Vector2 target;
         private void Awake()
         {
-            target = Managers.Gamemanager.ReturnToPlayerPostion();
+            target = Managers.Scene.CurrentScene.Player.transform.position;
         }
 
         private void FixedUpdate()

@@ -44,7 +44,6 @@ namespace Enemy
             {
                 _hitCollider = ResultObj[i];
                 float distance = Vector2.Distance(_hitCollider.gameObject.transform.position, transform.position);
-                
                 _enemy.Behavire(distance);
             }
         }

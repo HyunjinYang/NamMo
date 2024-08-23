@@ -45,12 +45,12 @@ namespace Enemy
             else if (distance < 6.5f && distance >= 3.5f)
             {
                 RangeAttackInit();
-                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Gamemanager.ReturnToPlayerPostion().x);
+                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
             }
             else if (distance < 3.5f)
             {
                 MelAttackInit();
-                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Gamemanager.ReturnToPlayerPostion().x);
+                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
             }
         }
 
@@ -118,7 +118,7 @@ namespace Enemy
 
         public void SetMelAttack(bool isActivate)
         {
-            _enemyBlockArea.DeActiveBlockArea();
+            //_enemyBlockArea.DeActiveBlockArea();
             if (_state != State.MelAttack)
             {
                 _enemyMovement._isAttack = isActivate;
