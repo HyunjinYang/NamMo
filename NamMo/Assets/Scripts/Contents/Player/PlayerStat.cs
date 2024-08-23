@@ -12,6 +12,8 @@ public class PlayerStat : MonoBehaviour
 
     public Action OnDead;
     public Action<float, float> OnHpChanged;
+    public float MaxHp { get { return _maxHp; } }
+    public float Hp { get { return _hp; } }
     private void Start()
     {
         OnHpChanged += TestChangeHp;

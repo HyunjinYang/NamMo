@@ -12,6 +12,8 @@ public class BaseInteractable : MonoBehaviour
 
     protected Model_InteractionTextData _currentInteractionTextData;
     protected UI_Interaction _interactionUI = null;
+
+    protected PlayerController _player = null;
     void Start()
     {
         Init();
@@ -19,11 +21,13 @@ public class BaseInteractable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerController>() == null) return;
+        _player = collision.gameObject.GetComponent<PlayerController>();
         HandleTriggerEnterEvent();
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerController>() == null) return;
+        _player = null;
         HandleTriggerExitEvent();
     }
     protected virtual void Init()
@@ -50,7 +54,10 @@ public class BaseInteractable : MonoBehaviour
     }
     private void CloseInteractionUIAndCutOffAction()
     {
-        Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed -= HandleInteractionEvent;
+        if (Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed != null)
+        {
+            Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed -= HandleInteractionEvent;
+        }
         if (_interactionUI)
         {
             _interactionUI.Close();

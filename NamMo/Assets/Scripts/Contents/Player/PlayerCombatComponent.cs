@@ -9,22 +9,27 @@ public class PlayerCombatComponent : MonoBehaviour
     {
         _pc = pc;
     }
-    public void GetDamaged(/*TODO*/float damage, Vector3 attackPos)
+    public bool GetDamaged(/*TODO*/float damage, Vector3 attackPos)
     {
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_State_Invincible))
         {
-            // ë¬´ì ìƒíƒœì¼ë•Œ ê³µê²©ì´ ë“¤ì–´ì™”ì„ ê²½ìš°
-            return;
+            // ¹«Àû»óÅÂÀÏ¶§ °ø°İÀÌ µé¾î¿ÔÀ» °æ¿ì
+            return false;
         }
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Block))
         {
-            // íŒ¨ë§ íƒ€ì´ë°ì´ ë§ì§€ ì•Šì•˜ë‹¤ë©´ ë°ë¯¸ì§€ ì ˆë°˜ ì ìš©
+            GA_Block blockAbility = _pc.GetASC().GetAbility(Define.GameplayAbility.GA_Block) as GA_Block;
+            if (blockAbility.ReserveParrying)
+            {
+                return false;
+            }
+            // ÆĞ¸µ Å¸ÀÌ¹ÖÀÌ ¸ÂÁö ¾Ê¾Ò´Ù¸é µ¥¹ÌÁö Àı¹İ Àû¿ë
             damage /= 2;
             StartCoroutine(CoHurtShortTime());
         }
         else
         {
-            // ë„‰ë°±, í”¼ê²©ability
+            // ³Ë¹é, ÇÇ°İability
             if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Wave) == false)
             {
                 float force = 1;
@@ -36,17 +41,18 @@ public class PlayerCombatComponent : MonoBehaviour
         _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Invincible);
         StartCoroutine(CoShowAttackedEffect());
         _pc.GetPlayerStat().ApplyDamage(damage);
+        return true;
     }
     IEnumerator CoHurtShortTime()
     {
         _pc.GetASC().AddTag(Define.GameplayTag.Player_State_Hurt);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         _pc.GetASC().RemoveTag(Define.GameplayTag.Player_State_Hurt);
     }
     IEnumerator CoShowAttackedEffect()
     {
         _pc.GetPlayerSprite().GetComponent<SpriteRenderer>().color = new Color(1, 0.5f, 0.5f, 1f);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         _pc.GetPlayerSprite().GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
     }
 }

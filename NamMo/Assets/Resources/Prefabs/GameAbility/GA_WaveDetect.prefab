@@ -222,6 +222,7 @@ MonoBehaviour:
   _detectMoment: 0.5
   _motionTime: 1.5
   _waveDetectEffectPrefab: {fileID: 1243250658357058128, guid: 78d6a161a8b7f244d901ba7a9c91b3df, type: 3}
+  _remainUseCnt: 100
   _waveDetectLight: {fileID: 1489081750304997150}
   _lightRemainingTime: 5
-  _reviseValue: 0
+  _reviseValue: 1.2

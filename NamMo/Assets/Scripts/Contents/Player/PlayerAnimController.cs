@@ -31,41 +31,30 @@ public class PlayerAnimController : MonoBehaviour
             _pm.OnWalk += Walk;
             _pm.OnDashStart += StartDash;
             _pm.OnDashEnd += EndDash;
+
             AbilitySystemComponent asc = _pm.gameObject.GetComponent<AbilitySystemComponent>();
             GA_Attack attackAbility = asc.GetAbility(Define.GameplayAbility.GA_Attack) as GA_Attack;
             if (attackAbility)
             {
                 attackAbility.OnAttackComboChanged += ComboAttack;
             }
-            GA_WaveDetect waveDetectAbility = asc.GetAbility(Define.GameplayAbility.GA_WaveDetect) as GA_WaveDetect;
-            if (waveDetectAbility)
-            {
-                waveDetectAbility.OnWaveStart += WaveDetectStart;
-                waveDetectAbility.OnWaveEnd += WaveDetectEnd;
-            }
-            GA_AirAttack airAttackAbility = asc.GetAbility(Define.GameplayAbility.GA_AirAttack) as GA_AirAttack;
-            if (airAttackAbility)
-            {
-                airAttackAbility.OnAirAttackStart += AirAttackStart;
-                airAttackAbility.OnAirAttackEnd += AirAttackEnd;
-            }
+
+            asc.GetAbility(Define.GameplayAbility.GA_WaveDetect).OnAbilityActivated += WaveDetectStart;
+            asc.GetAbility(Define.GameplayAbility.GA_WaveDetect).OnAbilityEnded += WaveDetectEnd;
+
+            asc.GetAbility(Define.GameplayAbility.GA_AirAttack).OnAbilityActivated += AirAttackStart;
+            asc.GetAbility(Define.GameplayAbility.GA_AirAttack).OnAbilityEnded += AirAttackEnd;
+
             GA_Block blockAbility = asc.GetAbility(Define.GameplayAbility.GA_Block) as GA_Block;
             if (blockAbility)
             {
                 blockAbility.OnBlockComboChanged += BlockCombo;
             }
-            GA_Parrying parryingAbility = asc.GetAbility(Define.GameplayAbility.GA_Parrying) as GA_Parrying;
-            if (parryingAbility)
-            {
-                parryingAbility.OnParryingStart += ParryingStart;
-                parryingAbility.OnParryingEnd += ParryingEnd;
-            }
-            GA_Hurt hurtAbility = asc.GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt;
-            if (hurtAbility)
-            {
-                hurtAbility.OnHurtStart += HurtingStart;
-                hurtAbility.OnHurtEnd += HurtingEnd;
-            }
+            asc.GetAbility(Define.GameplayAbility.GA_Parrying).OnAbilityActivated += ParryingStart;
+            asc.GetAbility(Define.GameplayAbility.GA_Parrying).OnAbilityEnded += ParryingEnd;
+
+            asc.GetAbility(Define.GameplayAbility.GA_Hurt).OnAbilityActivated += HurtingStart;
+            asc.GetAbility(Define.GameplayAbility.GA_Hurt).OnAbilityEnded += HurtingEnd;
         }
     }
     private void StartJump()

@@ -48,4 +48,6 @@ MonoBehaviour:
   _tagsToAdd: 0b000000
   _needTags: 
   _blockTags: 
-  _invincibleTime: 0.8
+  _cancelAbilities: 
+  _coolTime: 0
+  _invincibleTime: 0.3

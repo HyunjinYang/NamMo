@@ -13,19 +13,17 @@ public class GA_AirAttack : GameAbility
     [SerializeField] private Vector2 _attackOffset1;
     [SerializeField] private Vector2 _attackRange2;
     [SerializeField] private Vector2 _attackOffset2;
-    public Action OnAirAttackStart;
-    public Action OnAirAttackEnd;
     private Coroutine _airAttackCoroutine = null;
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
-        if (OnAirAttackStart != null) OnAirAttackStart.Invoke();
         _airAttackCoroutine = StartCoroutine(CoAirAttack());
         _asc.GetPlayerController().GetAttackArea().OnAttackAreaTriggerEntered += HandleTriggeredObject;
 
     }
     public override void CancelAbility()
     {
+        base.CancelAbility();
         if (_airAttackCoroutine != null)
         {
             StopCoroutine(_airAttackCoroutine);
@@ -37,7 +35,6 @@ public class GA_AirAttack : GameAbility
         base.EndAbility();
         _asc.GetPlayerController().GetAttackArea().OnAttackAreaTriggerEntered -= HandleTriggeredObject;
         _airAttackCoroutine = null;
-        if (OnAirAttackEnd != null) OnAirAttackEnd.Invoke();
     }
     private void HandleTriggeredObject(GameObject go)
     {

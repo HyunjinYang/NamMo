@@ -7,8 +7,6 @@ using UnityEngine;
 public class GA_Parrying : GameAbility
 {
     [SerializeField] private float _parryingTime;
-    public Action OnParryingStart;
-    public Action OnParryingEnd;
 
     private Coroutine _parryingCoroutine;
     protected override void ActivateAbility()
@@ -20,10 +18,10 @@ public class GA_Parrying : GameAbility
         Camera.main.transform.DOShakePosition(0.15f, new Vector3(0.25f, 0.25f, 0), 50);
         Camera.main.DOOrthoSize(9, 0.5f);
         Time.timeScale = 0.5f;
-        if (OnParryingStart != null) OnParryingStart.Invoke();
     }
     public override void CancelAbility()
     {
+        base.CancelAbility();
         EndAbility();
     }
     protected override void EndAbility()
@@ -38,7 +36,6 @@ public class GA_Parrying : GameAbility
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
         Camera.main.DOOrthoSize(10, 0.5f);
         Time.timeScale = 1.0f;
-        if (OnParryingEnd != null) OnParryingEnd.Invoke();
     }
     IEnumerator CoParrying()
     {

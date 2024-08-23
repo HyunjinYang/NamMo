@@ -44,6 +44,7 @@ public class GA_Attack : GameAbility
     }
     public override void CancelAbility()
     {
+        base.CancelAbility();
         if (_reserveNextAttack)
         {
             _overlapCnt++;

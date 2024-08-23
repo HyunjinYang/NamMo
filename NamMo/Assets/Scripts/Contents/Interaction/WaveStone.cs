@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -51,6 +50,7 @@ public class WaveStone : BaseInteractable
             GameObject vfx = Managers.Resource.Instantiate("VFX/WaveEffect");
             vfx.transform.position = transform.position;
             vfx.GetComponent<VFXController>().Play(_waveLifeTime, _waveSize);
+            vfx.GetComponent<VFXController>().SetColor(Color.green, 3f);
             StartCoroutine(CoCreateAndSizeUpLight());
             yield return new WaitForSeconds(_repeatTime);
         }
@@ -59,12 +59,13 @@ public class WaveStone : BaseInteractable
     {
         GameObject waveStoneLight = Managers.Resource.Instantiate("WaveStoneLight");
         waveStoneLight.transform.position =transform.position;
-        for (int i = 0; i < (int)(_waveLifeTime * 50); i++)
+        for (int i = 0; i < (int)(_waveLifeTime * 25); i++)
         {
-            float size = (50 * i) * _waveSize / (_waveLifeTime * 50) + _lightReviseValue;
+            float size = (25 * i) * _waveSize / (_waveLifeTime * 25) + _lightReviseValue;
+            size *= _lightReviseValue;
             waveStoneLight.GetComponent<Light2D>().pointLightInnerRadius = size;
             waveStoneLight.GetComponent<Light2D>().pointLightOuterRadius = size;
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.04f);
         }
         yield return new WaitForSeconds(_lightRemainTime);
 

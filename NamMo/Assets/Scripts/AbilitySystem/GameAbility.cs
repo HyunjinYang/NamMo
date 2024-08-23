@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameAbility : MonoBehaviour
@@ -19,6 +21,11 @@ public class GameAbility : MonoBehaviour
 
     private bool _isActivated = false;
     private bool _isCoolTime = false;
+    public Action OnAbilityActivated;
+    public Action OnAbilityCanceled;
+    public Action OnAbilityEnded;
+    public Action<float> OnCooltimeStart;
+    public Action<float> OnCooltimeStart_Combo;
     public bool IsActivated { get { return _isActivated; } }
     private void Start()
     {
@@ -54,7 +61,9 @@ public class GameAbility : MonoBehaviour
         {
             _isCoolTime = true;
             StartCoroutine(CoCaculateCoolTime());
+            if (OnCooltimeStart != null) OnCooltimeStart.Invoke(_coolTime);
         }
+        if (OnAbilityActivated != null) OnAbilityActivated.Invoke();
     }
     protected virtual bool CanActivateAbility()
     {
@@ -85,10 +94,13 @@ public class GameAbility : MonoBehaviour
         {
             _isCoolTime = true;
             StartCoroutine(CoCaculateCoolTime());
+            if (OnCooltimeStart_Combo != null) OnCooltimeStart_Combo.Invoke(_coolTime);
         }
+        if (OnAbilityEnded != null) OnAbilityEnded.Invoke();
     }
     public virtual void CancelAbility()
     {
+        if (OnAbilityCanceled != null) OnAbilityCanceled.Invoke();
     }
     private void RemoveTags()
     {

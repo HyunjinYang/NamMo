@@ -21,6 +21,7 @@ public class GA_DownJump : GameAbility
     }
     public override void CancelAbility()
     {
+        base.CancelAbility();
         EndAbility();
     }
     protected override void EndAbility()
