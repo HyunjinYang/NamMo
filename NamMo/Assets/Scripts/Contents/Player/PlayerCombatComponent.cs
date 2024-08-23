@@ -13,18 +13,18 @@ public class PlayerCombatComponent : MonoBehaviour
     {
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_State_Invincible))
         {
-            // ¹«Àû»óÅÂÀÏ¶§ °ø°İÀÌ µé¾î¿ÔÀ» °æ¿ì
+            // ë¬´ì ìƒíƒœì¼ë•Œ ê³µê²©ì´ ë“¤ì–´ì™”ì„ ê²½ìš°
             return;
         }
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Block))
         {
-            // ÆĞ¸µ Å¸ÀÌ¹ÖÀÌ ¸ÂÁö ¾Ê¾Ò´Ù¸é µ¥¹ÌÁö Àı¹İ Àû¿ë
+            // íŒ¨ë§ íƒ€ì´ë°ì´ ë§ì§€ ì•Šì•˜ë‹¤ë©´ ë°ë¯¸ì§€ ì ˆë°˜ ì ìš©
             damage /= 2;
             StartCoroutine(CoHurtShortTime());
         }
         else
         {
-            // ³Ë¹é, ÇÇ°İability
+            // ë„‰ë°±, í”¼ê²©ability
             if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Wave) == false)
             {
                 float force = 1;

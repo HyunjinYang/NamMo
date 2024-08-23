@@ -19,6 +19,9 @@ namespace Enemy
             _enemy.OnHit += Hit;
             _enemy.OnEndHit += EndHit;
             _enemy.Dead += Dead;
+            _enemy.OnGroggy += Groggy;
+            _enemy.OnEndGroggy += EndGroggy;
+            
             _animator = GetComponent<Animator>();
         }
 
@@ -61,6 +64,16 @@ namespace Enemy
         private void Dead()
         {
             _animator.SetBool("IsDead", true);
+        }
+
+        private void Groggy()
+        {
+            _animator.SetBool("IsGroggy", true);
+        }
+
+        private void EndGroggy()
+        {
+            _animator.SetBool("IsGroggy", false);
         }
     }
 }

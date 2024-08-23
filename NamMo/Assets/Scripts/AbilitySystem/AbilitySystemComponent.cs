@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AbilitySystemComponent : MonoBehaviour
 {
+    
     Dictionary<Define.GameplayTag, int> _tagContainer = new Dictionary<Define.GameplayTag, int>();
     Dictionary<Define.GameplayAbility, GameAbility> _abilities = new Dictionary<Define.GameplayAbility, GameAbility>();
     private List<Define.GameplayAbility> _reservedAbilities = new List<Define.GameplayAbility>();

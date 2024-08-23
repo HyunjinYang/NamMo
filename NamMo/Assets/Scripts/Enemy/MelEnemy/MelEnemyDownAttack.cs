@@ -7,7 +7,10 @@ namespace Enemy.MelEnemy
     {
         public override IEnumerator Pattern()
         {
+            _gameObject.OnDownAttack.Invoke();
             yield return new WaitForSeconds(_gameObject.Attack2Time);
+            _gameObject._enemyAttack3BlockArea.ActiveBlockArea();
+            _gameObject.OnEndDownAttack.Invoke();
         }
     }
 }

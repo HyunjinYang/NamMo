@@ -77,17 +77,17 @@ public class GA_Block : GameAbility
         {
             if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
             {
-                // TODO ÆĞ¸µ ±âÈ¹¿¡ µû¶ó º¯°æ
+                // TODO íŒ¨ë§ ê¸°íšì— ë”°ë¼ ë³€ê²½
                 Debug.Log("Parrying");
                 CancelAbility();
                 RefreshCoolTime();
-                Destroy(go);
+                //Destroy(go);
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
             }
         }
         else
         {
-            // Å¸ÀÌ¹Ö ¹Ì½º
+            // íƒ€ì´ë° ë¯¸ìŠ¤
         }
     }
     IEnumerator CoBlock()

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagerEx
 {
     private BaseScene _baseScene = null;
+    
     public BaseScene CurrentScene
     {
         get
