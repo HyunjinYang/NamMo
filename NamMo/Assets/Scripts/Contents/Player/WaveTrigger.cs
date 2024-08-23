@@ -15,6 +15,10 @@ public class WaveTrigger : MonoBehaviour
     {
         _circleCollider.radius = value;
     }
+    public float GetRadius()
+    {
+        return _circleCollider.radius;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // TODO : 적 파동기 탐지

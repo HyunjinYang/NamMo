@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 public class VFXController : MonoBehaviour
 {
     private VisualEffect _vfx;
+    private Coroutine _destroyCoroutine = null;
     private void Awake()
     {
         _vfx = GetComponent<VisualEffect>();
@@ -16,6 +17,25 @@ public class VFXController : MonoBehaviour
         _vfx.SetFloat("LifeTime", lifeTime);
         _vfx.SetFloat("Size", size);
         _vfx.Play();
-        Destroy(gameObject, lifeTime);
+        _destroyCoroutine = StartCoroutine(CoReserveDestroy(lifeTime));
+    }
+    public void SetColor(Color color, float intencity)
+    {
+        float factor = Mathf.Pow(2, intencity);
+        Color hdrColor = new Color(color.r * factor, color.g * factor, color.b * factor, color.a);
+        _vfx.SetVector4("WaveColor", hdrColor);
+    }
+    public void DestroyWave(float time)
+    {
+        StopCoroutine(_destroyCoroutine);
+        Destroy(gameObject, time);
+    }
+    IEnumerator CoReserveDestroy(float lifeTime)
+    {
+        yield return new WaitForSeconds(lifeTime);
+        if (gameObject)
+        {
+            Destroy(gameObject);
+        }
     }
 }

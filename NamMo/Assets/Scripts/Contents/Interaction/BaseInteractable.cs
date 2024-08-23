@@ -54,7 +54,10 @@ public class BaseInteractable : MonoBehaviour
     }
     private void CloseInteractionUIAndCutOffAction()
     {
-        Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed -= HandleInteractionEvent;
+        if (Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed != null)
+        {
+            Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed -= HandleInteractionEvent;
+        }
         if (_interactionUI)
         {
             _interactionUI.Close();

@@ -14,6 +14,9 @@ public class GA_Block : GameAbility
 
     private Coroutine _cacluateParryingTimingCoroutine = null;
     private Coroutine _blockCoroutine = null;
+
+    private bool _reserveParrying = false;
+    public bool ReserveParrying { get { return _reserveParrying; } }
     protected override void Init()
     {
         base.Init();
@@ -89,7 +92,7 @@ public class GA_Block : GameAbility
                     projectile.SetProjectileInfo(null, projectile.Speed, projectile.Damage, _asc.GetPlayerController().gameObject);
                     projectile.Parried();
                 }
-                //CancelAbility();
+                _reserveParrying = true;
                 if (canceled == false)
                 {
                     StartCoroutine(CoCancelAbility());
@@ -126,5 +129,6 @@ public class GA_Block : GameAbility
         RefreshCoolTime();
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
         canceled = false;
+        _reserveParrying = false;
     }
 }

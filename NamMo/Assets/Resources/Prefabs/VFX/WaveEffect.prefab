@@ -61,7 +61,10 @@ VisualEffect:
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 8, y: 8, z: 8, w: 0}
+        m_Name: WaveColor
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:

@@ -21,8 +21,13 @@ public class GA_WaveDetect : GameAbility
     [SerializeField] private float _lightRemainingTime;
     [SerializeField] private float _reviseValue;
 
+    [Header("VFX")]
+    private GameObject _waveEffect;
+
     private Coroutine _turnOffLightCoroutine = null;
     private Coroutine _sizeUpWaveCoroutine = null;
+
+    private List<DummyWaveEnemy> waveEnemies = new List<DummyWaveEnemy>();
 
     public Action<int> OnRemainUseCntChanged;
     public int RemainUseCnt { get {  return _remainUseCnt; } }
@@ -62,28 +67,64 @@ public class GA_WaveDetect : GameAbility
     }
     private void HandleTriggeredWaveObject(GameObject go)
     {
-        // TODO : 파동탐지 감지 이벤트
-        Debug.Log($"파동 감지 : {go.name}");
+        // tmp
+        if (go.gameObject.GetComponent<EnemyWave>())
+        {
+            go.gameObject.GetComponent<EnemyWave>().Parried();
+            SetWaveColor(Color.red, 4f);
+        }
+        if (go.gameObject.GetComponent<DummyWaveEnemy>())
+        {
+            DummyWaveEnemy enemy = go.gameObject.GetComponent<DummyWaveEnemy>();
+            enemy.InPlayerWaveDetect = true;
+            waveEnemies.Add(enemy);
+        }
+    }
+    private void ShowWaveVFX()
+    {
+        _waveEffect = Instantiate(_waveDetectEffectPrefab, _asc.GetPlayerController().transform.position, Quaternion.identity);
+        _waveEffect.GetComponent<Renderer>().sortingOrder = 1;
+        _waveEffect.GetComponent<VFXController>().Play(_scaleChangeTime);
+    }
+    public void SetWaveColor(Color color, float intencity)
+    {
+        if (_waveEffect)
+        {
+            _waveEffect.GetComponent<VFXController>().SetColor(color, intencity);
+        }
+    }
+    private void ClearInWaveEnemies()
+    {
+        foreach (DummyWaveEnemy waveEnemy in waveEnemies)
+        {
+            if (waveEnemy)
+            {
+                waveEnemy.InPlayerWaveDetect = false;
+            }
+        }
     }
     IEnumerator CoWaveDetect()
     {
         _waveDetectLight.transform.position = _asc.transform.position;
         yield return new WaitForSeconds(_detectMoment);
 
+        _asc.GetPlayerController().GetWaveTrigger().transform.SetParent(null);
+        _asc.GetPlayerController().GetWaveTrigger().transform.position = _asc.GetPlayerController().transform.position;
         _asc.GetPlayerController().GetWaveTrigger().OnWaveRangeTriggerEntered -= HandleTriggeredWaveObject;
         _asc.GetPlayerController().GetWaveTrigger().OnWaveRangeTriggerEntered += HandleTriggeredWaveObject;
 
         if (_turnOffLightCoroutine != null) StopCoroutine(_turnOffLightCoroutine);
         if (_sizeUpWaveCoroutine != null) StopCoroutine(_sizeUpWaveCoroutine);
+        ClearInWaveEnemies();
         _waveDetectLight.GetComponent<Light2D>().intensity = 0.01f;
         _asc.GetPlayerController().GetWaveTrigger().SetRadius(0);
 
-        GameObject waveEffect = Instantiate(_waveDetectEffectPrefab, _asc.GetPlayerController().transform.position, Quaternion.identity);
-        waveEffect.GetComponent<VFXController>().Play(_scaleChangeTime);
+        ShowWaveVFX();
 
         _sizeUpWaveCoroutine = StartCoroutine(CoSizeUpWave());
         _turnOffLightCoroutine = StartCoroutine(CoTurnOffDetectLight());
     }
+    
     IEnumerator CoTurnOffDetectLight()
     {
         yield return new WaitForSeconds(_scaleChangeTime + _lightRemainingTime - 2f);
@@ -100,16 +141,19 @@ public class GA_WaveDetect : GameAbility
     }
     IEnumerator CoSizeUpWave()
     {
-        for (int i = 0; i < (int)(_scaleChangeTime * 50); i++)
+        for (int i = 0; i < (int)(_scaleChangeTime * 25); i++)
         {
-            float size = (50 * i) / (_scaleChangeTime * 50);
-            size += _reviseValue;
+            float size = (25 * i) / (_scaleChangeTime * 25);
+            size *= _reviseValue;
             _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = size;
             _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = size;
             _asc.GetPlayerController().GetWaveTrigger().SetRadius(size);
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.04f);
         }
         _asc.GetPlayerController().GetWaveTrigger().OnWaveRangeTriggerEntered -= HandleTriggeredWaveObject;
+        ClearInWaveEnemies();
+        
+        waveEnemies.Clear();
         _sizeUpWaveCoroutine = null;
     }
     IEnumerator CoEndAbility()

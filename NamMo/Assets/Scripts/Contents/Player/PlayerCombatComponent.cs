@@ -18,6 +18,11 @@ public class PlayerCombatComponent : MonoBehaviour
         }
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Block))
         {
+            GA_Block blockAbility = _pc.GetASC().GetAbility(Define.GameplayAbility.GA_Block) as GA_Block;
+            if (blockAbility.ReserveParrying)
+            {
+                return false;
+            }
             // 패링 타이밍이 맞지 않았다면 데미지 절반 적용
             damage /= 2;
             StartCoroutine(CoHurtShortTime());
