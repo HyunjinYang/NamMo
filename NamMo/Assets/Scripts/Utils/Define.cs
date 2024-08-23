@@ -84,6 +84,7 @@ public class Define
         DefaultDash,
         AttackDash,
     }
+    
     public enum ModelType
     {
         Unknown,

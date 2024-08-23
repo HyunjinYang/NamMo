@@ -1,0 +1,5504 @@
+fileFormatVersion: 2
+guid: c50ec57482e47894c9ab1637ed0151f6
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Bertha_Frame_5
+    originalName: 
+    pivot: {x: 0.61206895, y: -0.35087723}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 908
+      y: 240
+      width: 116
+      height: 114
+    spriteID: 5f9c265b1d303b6478194f4d1cbea33b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 908, y: 240}
+  - name: Bertha_Frame_6
+    originalName: 
+    pivot: {x: 0.5068493, y: -0.4}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 222
+      y: 121
+      width: 146
+      height: 100
+    spriteID: eff170b3886657d4c8ac9ab01d71b958
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 222, y: 121}
+  - name: Bertha_Frame_7
+    originalName: 
+    pivot: {x: 0.5058824, y: -0.43820226}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1016
+      y: 4
+      width: 170
+      height: 89
+    spriteID: ef82b954230740548a2c84a77aa1f9af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1016, y: 4}
+  - name: Bertha_Frame_8
+    originalName: 
+    pivot: {x: 0.5058824, y: -0.45348838}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1564
+      y: 4
+      width: 170
+      height: 86
+    spriteID: 61dd80bd286efed42a36b3cd08d2ed8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1564, y: 4}
+  - name: Bertha_Frame_9
+    originalName: 
+    pivot: {x: 0.50581396, y: -0.44827586}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1194
+      y: 4
+      width: 172
+      height: 87
+    spriteID: 3f1fb62cacc93ea478e461227eb2bc94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1194, y: 4}
+  - name: Bertha_Frame_10
+    originalName: 
+    pivot: {x: 0.505618, y: -0.44827586}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 830
+      y: 4
+      width: 178
+      height: 87
+    spriteID: e3dfd6022c3704b4bbe9c8b3194e11e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 830, y: 4}
+  - name: Bertha_Frame_11
+    originalName: 
+    pivot: {x: 0.50549453, y: -0.4814815}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1374
+      y: 4
+      width: 182
+      height: 81
+    spriteID: cafb14051fe46f648abeb385dfa772c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1374, y: 4}
+  - name: Bertha_Frame_12
+    originalName: 
+    pivot: {x: 0.5058824, y: -0.4814815}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1858
+      y: 121
+      width: 170
+      height: 81
+    spriteID: 9383cc08f2030c341ae2b953b6741acb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1858, y: 121}
+  - name: Bertha_Frame_51
+    originalName: 
+    pivot: {x: 0.63076925, y: -0.56}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1340
+      y: 363
+      width: 130
+      height: 75
+    spriteID: 9064006fbd077674bb81b87307e6e130
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1340, y: 363}
+  - name: Bertha_Frame_52
+    originalName: 
+    pivot: {x: 0.6962026, y: -0.56}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1553
+      y: 240
+      width: 158
+      height: 75
+    spriteID: 582e6cc7d41d3464ba4f7a9caf4ed7af
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1553, y: 240}
+  - name: Bertha_Frame_53
+    originalName: 
+    pivot: {x: 0.72254336, y: -0.54545456}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 727
+      y: 240
+      width: 173
+      height: 77
+    spriteID: 5ad78fa1be3741c429c82593c3aac840
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 727, y: 240}
+  - name: Bertha_Frame_54
+    originalName: 
+    pivot: {x: 0.72727275, y: -0.52500004}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1294
+      y: 121
+      width: 176
+      height: 80
+    spriteID: 873bf65835be3364fbfee319b7ad68f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1294, y: 121}
+  - name: Bertha_Frame_60
+    originalName: 
+    pivot: {x: 0.2080537, y: -0.44565216}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 194
+      y: 240
+      width: 149
+      height: 92
+    spriteID: 21538f52d2fd47148929a726e727eca6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 194, y: 240}
+  - name: Bertha_Frame_61
+    originalName: 
+    pivot: {x: 0.20382166, y: -0.43010753}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1742
+      y: 4
+      width: 157
+      height: 93
+    spriteID: 47fc34958901ee24abdd6d485a931d6e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1742, y: 4}
+  - name: Bertha_Frame_62
+    originalName: 
+    pivot: {x: 0.28089887, y: -0.4021739}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 644
+      y: 4
+      width: 178
+      height: 92
+    spriteID: b007fd81b0d0d01439d94ca8c8b531f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 644, y: 4}
+  - name: Bertha_Frame_63
+    originalName: 
+    pivot: {x: 0.2888889, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 456
+      y: 4
+      width: 180
+      height: 108
+    spriteID: 44cbcd87414e7a742b4c42fef897a4c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 456, y: 4}
+  - name: Bertha_Frame_64
+    originalName: 
+    pivot: {x: 0.2967033, y: -0.29565218}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 240
+      width: 182
+      height: 115
+    spriteID: a45353f3e5fd41a43a07658fb0f68569
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 240}
+  - name: Bertha_Frame_65
+    originalName: 
+    pivot: {x: 0.2616279, y: -0.28448275}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 363
+      width: 172
+      height: 116
+    spriteID: 830e00f3d552ed448b324d219d4eb521
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 363}
+  - name: Bertha_Frame_66
+    originalName: 
+    pivot: {x: 0.23952097, y: -0.37931034}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 376
+      y: 121
+      width: 167
+      height: 87
+    spriteID: dd9e5611c3441924dbf5c7cba6f1c1c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 376, y: 121}
+  - name: Bertha_Frame_81
+    originalName: 
+    pivot: {x: 0.33858266, y: -0.9361703}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1565
+      y: 780
+      width: 127
+      height: 47
+    spriteID: 29a67e51039210a4f87c43a38c7ac279
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1565, y: 780}
+  - name: Bertha_Frame_82
+    originalName: 
+    pivot: {x: 0.42056075, y: -0.8979592}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 814
+      y: 877
+      width: 107
+      height: 49
+    spriteID: 0d7d93b991e213142836a60f9a328ac4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 814, y: 877}
+  - name: Bertha_Frame_55
+    originalName: 
+    pivot: {x: 0.7650602, y: -0.5694445}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1379
+      y: 240
+      width: 166
+      height: 72
+    spriteID: febb20c7edb95574298bdc5ecb7a2fb2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1379, y: 240}
+  - name: Bertha_Frame_56
+    originalName: 
+    pivot: {x: 0.4875, y: -0.6865672}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 515
+      y: 877
+      width: 80
+      height: 67
+    spriteID: 9510984abf07cb746b4040977df1f343
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 515, y: 877}
+  - name: Bertha_Frame_57
+    originalName: 
+    pivot: {x: 0.41666666, y: -0.6811594}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1006
+      y: 877
+      width: 72
+      height: 69
+    spriteID: 203637cf593395d469146d9a7856ec84
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1006, y: 877}
+  - name: Bertha_Frame_58
+    originalName: 
+    pivot: {x: 0.32786882, y: -0.6486487}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1762
+      y: 877
+      width: 61
+      height: 74
+    spriteID: c9bba7b3715a90141bee63114f521239
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1762, y: 877}
+  - name: Bertha_Frame_59
+    originalName: 
+    pivot: {x: 0.3015873, y: -0.631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1436
+      y: 877
+      width: 63
+      height: 76
+    spriteID: 70b76ef515344bd43a158ebc7ae304ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1436, y: 877}
+  - name: Bertha_Frame_86
+    originalName: 
+    pivot: {x: 0.5037594, y: -0.5569621}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1907
+      y: 4
+      width: 133
+      height: 79
+    spriteID: 7d8f3ae735ba7a243951e0bdabb21593
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1907, y: 4}
+  - name: Bertha_Frame_87
+    originalName: 
+    pivot: {x: 0.7078652, y: -0.5301205}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1132
+      y: 575
+      width: 89
+      height: 83
+    spriteID: e22c01f0ca63abf4999193ea7f147ea2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1132, y: 575}
+  - name: Bertha_Frame_88
+    originalName: 
+    pivot: {x: 0.6962026, y: -0.5301205}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1740
+      y: 685
+      width: 79
+      height: 83
+    spriteID: 1b8ee7feacfa35e449e850588c3b5cce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1740, y: 685}
+  - name: Bertha_Frame_89
+    originalName: 
+    pivot: {x: 0.71428573, y: -0.5714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 93
+      y: 685
+      width: 91
+      height: 77
+    spriteID: b4baf1446cd6bc246805c28b202e1f06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 93, y: 685}
+  - name: Bertha_Frame_90
+    originalName: 
+    pivot: {x: 0.74038464, y: -0.77192986}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 160
+      y: 877
+      width: 104
+      height: 57
+    spriteID: 0775fd6cf797f3843a75f437e7602063
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 160, y: 877}
+  - name: Bertha_Frame_91
+    originalName: 
+    pivot: {x: 0.7368421, y: -0.73684216}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 152
+      y: 980
+      width: 114
+      height: 57
+    spriteID: 7a762799e566a4a45aa4968c87455c6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 152, y: 980}
+  - name: Bertha_Frame_92
+    originalName: 
+    pivot: {x: 0.72307694, y: -0.75000006}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1876
+      y: 487
+      width: 130
+      height: 56
+    spriteID: 28270e9f406287d4ab4990f249c21052
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1876, y: 487}
+  - name: Bertha_Frame_93
+    originalName: 
+    pivot: {x: 0.7076923, y: -0.7592592}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1731
+      y: 621
+      width: 130
+      height: 54
+    spriteID: 77d0de563246c3a48a227259422882ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1731, y: 621}
+  - name: Bertha_Frame_94
+    originalName: 
+    pivot: {x: 0.7164179, y: -0.71929824}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1440
+      y: 487
+      width: 134
+      height: 57
+    spriteID: eff2ac425ae573e418053fc5dee2d739
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1440, y: 487}
+  - name: Bertha_Frame_95
+    originalName: 
+    pivot: {x: 0.71428573, y: -0.73214287}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1218
+      y: 685
+      width: 119
+      height: 56
+    spriteID: 8f0f31afb8d6a0d428898476a43b316c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1218, y: 685}
+  - name: Bertha_Frame_113
+    originalName: 
+    pivot: {x: 0.6025641, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1456
+      y: 980
+      width: 78
+      height: 80
+    spriteID: d6686bec5eb1b1b4ab755b8e6312dd14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1456, y: 980}
+  - name: Bertha_Frame_114
+    originalName: 
+    pivot: {x: 0.61333334, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1399
+      y: 780
+      width: 75
+      height: 80
+    spriteID: 1be9ec68474cf87479c60efd8e745b2c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1399, y: 780}
+  - name: Bertha_Frame_115
+    originalName: 
+    pivot: {x: 0.61333334, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1482
+      y: 780
+      width: 75
+      height: 80
+    spriteID: 5fbaa38d90e9b1b46b72ee40e8e7ad60
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1482, y: 780}
+  - name: Bertha_Frame_116
+    originalName: 
+    pivot: {x: 0.61333334, y: -0.5432099}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1238
+      y: 780
+      width: 75
+      height: 81
+    spriteID: 8beb99cdf6c96534daad78beb82c74b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1238, y: 780}
+  - name: Bertha_Frame_117
+    originalName: 
+    pivot: {x: 0.6052632, y: -0.5432099}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 594
+      y: 780
+      width: 76
+      height: 81
+    spriteID: c43699dde55866842825c0dc21316e9d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 594, y: 780}
+  - name: Bertha_Frame_118
+    originalName: 
+    pivot: {x: 0.59210527, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 848
+      y: 780
+      width: 76
+      height: 80
+    spriteID: 5b901373accac0d4583277fc18024449
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 848, y: 780}
+  - name: Bertha_Frame_119
+    originalName: 
+    pivot: {x: 0.59210527, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 932
+      y: 780
+      width: 76
+      height: 80
+    spriteID: b56ef94fb3c56404d9985cc6785c10f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 932, y: 780}
+  - name: Bertha_Frame_120
+    originalName: 
+    pivot: {x: 0.5974026, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 424
+      y: 780
+      width: 77
+      height: 80
+    spriteID: b7f1943c605a4e34d9b9e8d971e756a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 424, y: 780}
+  - name: Bertha_Frame_121
+    originalName: 
+    pivot: {x: 0.5974026, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 509
+      y: 780
+      width: 77
+      height: 80
+    spriteID: 0709cfa9094dea248972bd451183c73a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 509, y: 780}
+  - name: Bertha_Frame_122
+    originalName: 
+    pivot: {x: 0.5974026, y: -0.5569621}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 678
+      y: 780
+      width: 77
+      height: 79
+    spriteID: 6f83d2b41f98d4744844a482c9b58680
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 678, y: 780}
+  - name: Bertha_Frame_123
+    originalName: 
+    pivot: {x: 0.5974026, y: -0.5569621}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 763
+      y: 780
+      width: 77
+      height: 79
+    spriteID: 770be126486a45744a1d41c658c9816c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 763, y: 780}
+  - name: Bertha_Frame_124
+    originalName: 
+    pivot: {x: 0.6025641, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1542
+      y: 980
+      width: 78
+      height: 80
+    spriteID: 635bf01f23f9e154591db196feb8a926
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1542, y: 980}
+  - name: Bertha_Frame_126
+    originalName: 
+    pivot: {x: 0.5652174, y: -0.62857145}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1086
+      y: 877
+      width: 69
+      height: 70
+    spriteID: bd87878d9e015fb4b91bb5e8565e0767
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1086, y: 877}
+  - name: Bertha_Frame_127
+    originalName: 
+    pivot: {x: 0.54838705, y: -0.70967746}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1150
+      width: 62
+      height: 62
+    spriteID: 7894d5c43f0629148bb4f03767d8b3b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1150}
+  - name: Bertha_Frame_128
+    originalName: 
+    pivot: {x: 0.55932206, y: -0.70967746}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 1220
+      width: 59
+      height: 62
+    spriteID: 8be861be8adf988499c4dd84236e4a6d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 1220}
+  - name: Bertha_Frame_129
+    originalName: 
+    pivot: {x: 0.5762712, y: -0.68750006}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1291
+      width: 59
+      height: 64
+    spriteID: 46d7348fc9e78f1459cc08b0833995a2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1291}
+  - name: Bertha_Frame_130
+    originalName: 
+    pivot: {x: 0.5833334, y: -0.6984128}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1220
+      width: 60
+      height: 63
+    spriteID: a2de3d8a47d36144191470badda2823d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1220}
+  - name: Bertha_Frame_131
+    originalName: 
+    pivot: {x: 0.5762712, y: -0.70967746}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 1220
+      width: 59
+      height: 62
+    spriteID: 0f72ca992b8a5994180b807baffc7c93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 1220}
+  - name: Bertha_Frame_132
+    originalName: 
+    pivot: {x: 0.5862069, y: -0.70967746}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 340
+      y: 1220
+      width: 58
+      height: 62
+    spriteID: 4c10a8018ba88f64d8404ea1ca1bedfc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 340, y: 1220}
+  - name: Bertha_Frame_133
+    originalName: 
+    pivot: {x: 0.5762712, y: -0.6984128}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 1220
+      width: 59
+      height: 63
+    spriteID: c58c2c8c05f585f458919cde01f79492
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 1220}
+  - name: Bertha_Frame_134
+    originalName: 
+    pivot: {x: 0.55932206, y: -0.70967746}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 273
+      y: 1220
+      width: 59
+      height: 62
+    spriteID: c864e2793bd5da14b977bc805e41077b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 273, y: 1220}
+  - name: Bertha_Frame_135
+    originalName: 
+    pivot: {x: 0.5588235, y: -0.62857145}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1596
+      y: 877
+      width: 68
+      height: 70
+    spriteID: 4f5c363e57f6f9942bdf8795ab3b28c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1596, y: 877}
+  - name: Bertha_Frame_137
+    originalName: 
+    pivot: {x: 0.61627907, y: -0.47311828}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 211
+      y: 575
+      width: 86
+      height: 93
+    spriteID: 1a9e1a075525e5e4081dd70ebb1fd14c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 211, y: 575}
+  - name: Bertha_Frame_138
+    originalName: 
+    pivot: {x: 0.62068963, y: -0.47727275}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 668
+      y: 575
+      width: 87
+      height: 88
+    spriteID: d0f1e9ed6fb22454885f024f85d5fd59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 668, y: 575}
+  - name: Bertha_Frame_139
+    originalName: 
+    pivot: {x: 0.625, y: -0.48275864}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 685
+      width: 80
+      height: 87
+    spriteID: 276ca425bf944d644babb28f71d715ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 472, y: 685}
+  - name: Bertha_Frame_140
+    originalName: 
+    pivot: {x: 0.65822786, y: -0.48275864}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 825
+      y: 685
+      width: 79
+      height: 87
+    spriteID: 4496608a6f4784c498263c732e915655
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 825, y: 685}
+  - name: Bertha_Frame_141
+    originalName: 
+    pivot: {x: 0.6625, y: -0.48275864}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 560
+      y: 685
+      width: 80
+      height: 87
+    spriteID: c5c78b33f0ef6244a9d20a57a938ed8b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 560, y: 685}
+  - name: Bertha_Frame_142
+    originalName: 
+    pivot: {x: 0.6666667, y: -0.48275864}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 685
+      width: 81
+      height: 87
+    spriteID: 8a61d03fb2f055d4cb62d8fa1b4b438c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 685}
+  - name: Bertha_Frame_143
+    originalName: 
+    pivot: {x: 0.6923077, y: -0.48275864}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 999
+      y: 685
+      width: 78
+      height: 87
+    spriteID: 103178cc50241c641aeca49005e4d3f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 999, y: 685}
+  - name: Bertha_Frame_144
+    originalName: 
+    pivot: {x: 0.6756757, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 555
+      y: 980
+      width: 74
+      height: 86
+    spriteID: e711322117f30b442b50b480d8c4ded3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 555, y: 980}
+  - name: Bertha_Frame_145
+    originalName: 
+    pivot: {x: 0.6756757, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 637
+      y: 980
+      width: 74
+      height: 86
+    spriteID: 782853942f00f9a44abdba2b36b3c31e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 637, y: 980}
+  - name: Bertha_Frame_146
+    originalName: 
+    pivot: {x: 0.6756757, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 719
+      y: 980
+      width: 74
+      height: 86
+    spriteID: 1e64ee55694770b4bbacaeb5de9fdb38
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 719, y: 980}
+  - name: Bertha_Frame_147
+    originalName: 
+    pivot: {x: 0.6756757, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 801
+      y: 980
+      width: 74
+      height: 86
+    spriteID: 5ee2de2316de0444fabf51e350837094
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 801, y: 980}
+  - name: Bertha_Frame_148
+    originalName: 
+    pivot: {x: 0.6756757, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 883
+      y: 980
+      width: 74
+      height: 86
+    spriteID: 748bcf47edeb0cb4994215ed17249840
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 883, y: 980}
+  - name: Bertha_Frame_149
+    originalName: 
+    pivot: {x: 0.6756757, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 965
+      y: 980
+      width: 74
+      height: 86
+    spriteID: cdf692e7c562d2e4c90066e7c9985743
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 965, y: 980}
+  - name: Bertha_Frame_150
+    originalName: 
+    pivot: {x: 0.6756757, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1047
+      y: 980
+      width: 74
+      height: 86
+    spriteID: 5788b34633f131b42a36a96f1ff44282
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1047, y: 980}
+  - name: Bertha_Frame_151
+    originalName: 
+    pivot: {x: 0.7012987, y: -0.48314607}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 780
+      width: 77
+      height: 89
+    spriteID: 0818ac81999bf684db8da95becb1e7d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 780}
+  - name: Bertha_Frame_159
+    originalName: 
+    pivot: {x: 0.61627907, y: -0.47311828}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 305
+      y: 575
+      width: 86
+      height: 93
+    spriteID: d829ed7a54775274cb4554819016e0d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 305, y: 575}
+  - name: Bertha_Frame_160
+    originalName: 
+    pivot: {x: 0.62068963, y: -0.47727275}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 763
+      y: 575
+      width: 87
+      height: 88
+    spriteID: a096928d2dd61cd4cbf4bbf78235a5e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 763, y: 575}
+  - name: Bertha_Frame_161
+    originalName: 
+    pivot: {x: 0.65822786, y: -0.48275864}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 912
+      y: 685
+      width: 79
+      height: 87
+    spriteID: 8cc522ce7a3f7b643b6c5004ea868c1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 912, y: 685}
+  - name: Bertha_Frame_162
+    originalName: 
+    pivot: {x: 0.6625, y: -0.48275864}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 648
+      y: 685
+      width: 80
+      height: 87
+    spriteID: 9d6f356f6cc3c9c41ab1d98c914584cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 648, y: 685}
+  - name: Bertha_Frame_163
+    originalName: 
+    pivot: {x: 0.73529416, y: -0.56}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1330
+      y: 487
+      width: 102
+      height: 75
+    spriteID: 9b50dbc9737d4234083c30efb370d4f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1330, y: 487}
+  - name: Bertha_Frame_164
+    originalName: 
+    pivot: {x: 0.80165285, y: -0.7636364}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1345
+      y: 685
+      width: 121
+      height: 55
+    spriteID: af518d0f9223aa44b9d5913b2b858f1b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1345, y: 685}
+  - name: Bertha_Frame_165
+    originalName: 
+    pivot: {x: 0.81395346, y: -0.69811326}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1869
+      y: 621
+      width: 129
+      height: 53
+    spriteID: 40456b9a4510aae4798f10cfe8af3caf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1869, y: 621}
+  - name: Bertha_Frame_166
+    originalName: 
+    pivot: {x: 0.8181819, y: -0.5254237}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 995
+      y: 487
+      width: 132
+      height: 59
+    spriteID: 1894a47d861bafb40a804499f463df0a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 995, y: 487}
+  - name: Bertha_Frame_167
+    originalName: 
+    pivot: {x: 0.8167939, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 856
+      y: 487
+      width: 131
+      height: 60
+    spriteID: c86b59662b8790c4390464faa752fef4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 856, y: 487}
+  - name: Bertha_Frame_168
+    originalName: 
+    pivot: {x: 0.8167939, y: -0.47540987}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 717
+      y: 487
+      width: 131
+      height: 61
+    spriteID: 132109415c2dcb34a8ff5236c33658b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 717, y: 487}
+  - name: Bertha_Frame_169
+    originalName: 
+    pivot: {x: 0.808, y: -0.5344827}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1403
+      y: 575
+      width: 125
+      height: 58
+    spriteID: 0be1a292ae16d92469d8279791b0e8cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1403, y: 575}
+  - name: Bertha_Frame_170
+    originalName: 
+    pivot: {x: 0.808, y: -0.5084746}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1743
+      y: 487
+      width: 125
+      height: 59
+    spriteID: 49bcf3bde9a560d47874b1dc2e3141e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1743, y: 487}
+  - name: Bertha_Frame_171
+    originalName: 
+    pivot: {x: 0.808, y: -0.69811326}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1474
+      y: 685
+      width: 125
+      height: 53
+    spriteID: 8d0baeb788412c54383470352988a1a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1474, y: 685}
+  - name: Bertha_Frame_172
+    originalName: 
+    pivot: {x: 0.808, y: -0.69811326}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1607
+      y: 685
+      width: 125
+      height: 53
+    spriteID: ab16a37d1602dd14f9a9c7d070ec893b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1607, y: 685}
+  - name: Bertha_Frame_173
+    originalName: 
+    pivot: {x: 0.808, y: -0.6851852}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1085
+      y: 685
+      width: 125
+      height: 54
+    spriteID: 24e45e26d4b1a6549bbf54c0c64c4c0b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1085, y: 685}
+  - name: Bertha_Frame_174
+    originalName: 
+    pivot: {x: 0.66013074, y: -0.75510204}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1582
+      y: 487
+      width: 153
+      height: 49
+    spriteID: 01e16805d5e80754a913cf3d328431f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1582, y: 487}
+  - name: Bertha_Frame_40
+    originalName: 
+    pivot: {x: 0.65882355, y: -0.5365854}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 685
+      width: 85
+      height: 82
+    spriteID: 273ddd028a2b43b469a4ba969178778b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 685}
+  - name: Bertha_Frame_106
+    originalName: 
+    pivot: {x: 0.6329114, y: -0.5365854}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 274
+      y: 980
+      width: 79
+      height: 82
+    spriteID: 4ab77fea246c21c4cbb91c15a5ab23be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 274, y: 980}
+  - name: Bertha_Frame_152
+    originalName: 
+    pivot: {x: 0.65882355, y: -0.5365854}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 285
+      y: 685
+      width: 85
+      height: 82
+    spriteID: 40c76dfff0cc6854c9d9ec6fc67c45ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 285, y: 685}
+  - name: Bertha_Frame_13
+    originalName: 
+    pivot: {x: 0.6699029, y: -0.66101694}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1016
+      y: 780
+      width: 103
+      height: 59
+    spriteID: 0209303174cf3ce4a98e7fd435d12531
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1016, y: 780}
+  - name: Bertha_Frame_14
+    originalName: 
+    pivot: {x: 0.6699029, y: -0.66101694}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1127
+      y: 780
+      width: 103
+      height: 59
+    spriteID: 7b607b3e180b264428731e4e1033515d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1127, y: 780}
+  - name: Bertha_Frame_47
+    originalName: 
+    pivot: {x: 0.5694445, y: -0.5375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 355
+      y: 877
+      width: 72
+      height: 80
+    spriteID: 0de46d3b5eb7b064fb942d06b6ec374b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 355, y: 877}
+  - name: Bertha_Frame_48
+    originalName: 
+    pivot: {x: 0.56, y: -0.5584416}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 877
+      width: 75
+      height: 77
+    spriteID: 65b6cb9b0f3276f428181d243e559453
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 272, y: 877}
+  - name: Bertha_Frame_49
+    originalName: 
+    pivot: {x: 0.5813953, y: -0.56578946}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1926
+      y: 685
+      width: 86
+      height: 76
+    spriteID: da8ae4ec113115f4d8e7190b7dfb7a0e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1926, y: 685}
+  - name: Bertha_Frame_50
+    originalName: 
+    pivot: {x: 0.5777778, y: -0.59154934}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 457
+      y: 980
+      width: 90
+      height: 71
+    spriteID: d340f458c893b9d4ab71d84f25edbe76
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 457, y: 980}
+  - name: Bertha_Frame_70
+    originalName: 
+    pivot: {x: 0.27683616, y: -0.55128205}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1673
+      y: 121
+      width: 177
+      height: 78
+    spriteID: e4fa5afee253f1c4ba6e836187fac23d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1673, y: 121}
+  - name: Bertha_Frame_75
+    originalName: 
+    pivot: {x: 0.6447368, y: -0.5365854}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 261
+      y: 780
+      width: 76
+      height: 82
+    spriteID: 428f72360e9ea7746bffd1fd0c6abd54
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 261, y: 780}
+  - name: Bertha_Frame_76
+    originalName: 
+    pivot: {x: 0.6296296, y: -0.5176471}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 736
+      y: 685
+      width: 81
+      height: 85
+    spriteID: a1d34403db0347d40bd3ccbea5002a89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 736, y: 685}
+  - name: Bertha_Frame_77
+    originalName: 
+    pivot: {x: 0.6282051, y: -0.47311828}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1317
+      y: 575
+      width: 78
+      height: 93
+    spriteID: 98fcfa7f6970ca444bd15f6c165bddc0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1317, y: 575}
+  - name: Bertha_Frame_78
+    originalName: 
+    pivot: {x: 0.625, y: -0.47826087}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1229
+      y: 575
+      width: 80
+      height: 92
+    spriteID: 7c6a173527076534b9eaca29c5be8dc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1229, y: 575}
+  - name: Bertha_Frame_83
+    originalName: 
+    pivot: {x: 0.5243902, y: -0.8979592}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 1088
+      width: 82
+      height: 49
+    spriteID: 59a277874a1160a44a9f0286654ffbe4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 1088}
+  - name: Bertha_Frame_84
+    originalName: 
+    pivot: {x: 0.5125, y: -0.84615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1916
+      y: 877
+      width: 80
+      height: 52
+    spriteID: 95aea6003343b324781c758450516ce7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1916, y: 877}
+  - name: Bertha_Frame_85
+    originalName: 
+    pivot: {x: 0.46753246, y: -0.7962963}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1088
+      width: 77
+      height: 54
+    spriteID: 5f76f9b9010f4a449ae9b8b31a129293
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1088}
+  - name: Bertha_Frame_98
+    originalName: 
+    pivot: {x: 0.41284403, y: -0.35238096}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 230
+      y: 4
+      width: 218
+      height: 105
+    spriteID: 809b3bf849492084a9616a921d372533
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 230, y: 4}
+  - name: Bertha_Frame_99
+    originalName: 
+    pivot: {x: 0.28089887, y: -0.5789474}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 541
+      y: 240
+      width: 178
+      height: 76
+    spriteID: c3a30052797dd0a49be3f8854e2d17d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 541, y: 240}
+  - name: Bertha_Frame_100
+    originalName: 
+    pivot: {x: 0.44144145, y: -0.5789474}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 487
+      width: 111
+      height: 76
+    spriteID: 6d1a91e4d0702064fa45c7fe90e8dd9a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 256, y: 487}
+  - name: Bertha_Frame_101
+    originalName: 
+    pivot: {x: 0.3846154, y: -0.61111116}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1827
+      y: 685
+      width: 91
+      height: 72
+    spriteID: b9ffb8b7b1864924897a7c7eddda0f02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1827, y: 685}
+  - name: Bertha_Frame_102
+    originalName: 
+    pivot: {x: 0.42045456, y: -0.60273975}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 980
+      width: 88
+      height: 73
+    spriteID: 361305b2e24692c41914cc7891702836
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 980}
+  - name: Bertha_Frame_0
+    originalName: 
+    pivot: {x: 0.6506024, y: -0.74137926}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1163
+      y: 877
+      width: 83
+      height: 58
+    spriteID: e2877e5f171c45d4a843e84050adffd8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1163, y: 877}
+  - name: Bertha_Frame_1
+    originalName: 
+    pivot: {x: 0.7261905, y: -0.4945055}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 951
+      y: 575
+      width: 84
+      height: 91
+    spriteID: 6d125a4df9856e742bf4f16b5a7a1641
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 951, y: 575}
+  - name: Bertha_Frame_2
+    originalName: 
+    pivot: {x: 0.7261905, y: -0.4787234}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 399
+      y: 575
+      width: 84
+      height: 94
+    spriteID: cc19eba0b25fe4e41ab6f233658af7dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 399, y: 575}
+  - name: Bertha_Frame_3
+    originalName: 
+    pivot: {x: 0.7261905, y: -0.48387095}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 576
+      y: 575
+      width: 84
+      height: 93
+    spriteID: 3121b597b78415343ac80045c56c0864
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 576, y: 575}
+  - name: Bertha_Frame_15
+    originalName: 
+    pivot: {x: 0.69902915, y: -0.84313726}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 703
+      y: 877
+      width: 103
+      height: 51
+    spriteID: 143525b3423813745af9ac1adb038997
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 703, y: 877}
+  - name: Bertha_Frame_16
+    originalName: 
+    pivot: {x: 0.6956522, y: -0.74137926}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 603
+      y: 877
+      width: 92
+      height: 58
+    spriteID: 78e7473101556f24bb06ce7f8590ca0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 603, y: 877}
+  - name: Bertha_Frame_17
+    originalName: 
+    pivot: {x: 0.6419753, y: -0.7288135}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1507
+      y: 877
+      width: 81
+      height: 59
+    spriteID: 00a6f5ab471baf948b30a589fa3bef31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1507, y: 877}
+  - name: Bertha_Frame_18
+    originalName: 
+    pivot: {x: 0.64634144, y: -0.74137926}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1672
+      y: 877
+      width: 82
+      height: 58
+    spriteID: 6e3a46de01d98b741a66fe87e5d4bc06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1672, y: 877}
+  - name: Bertha_Frame_19
+    originalName: 
+    pivot: {x: 0.6506024, y: -0.74137926}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1254
+      y: 877
+      width: 83
+      height: 58
+    spriteID: a3292c3c70e98ac4292232fcaf74e15d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1254, y: 877}
+  - name: Bertha_Frame_20
+    originalName: 
+    pivot: {x: 0.6506024, y: -0.74137926}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1345
+      y: 877
+      width: 83
+      height: 58
+    spriteID: 383b2fc2549ee074c89acc01c6a26641
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1345, y: 877}
+  - name: Bertha_Frame_21
+    originalName: 
+    pivot: {x: 0.65217394, y: -0.58666664}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 929
+      y: 877
+      width: 69
+      height: 75
+    spriteID: bc58d1eed2d108240a662c81b0b7d7dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 929, y: 877}
+  - name: Bertha_Frame_22
+    originalName: 
+    pivot: {x: 0.69014084, y: -0.4631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 877
+      width: 71
+      height: 95
+    spriteID: 857a74feac9d4ef498f0d81155e663d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 877}
+  - name: Bertha_Frame_23
+    originalName: 
+    pivot: {x: 0.69696975, y: -0.44}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 980
+      width: 66
+      height: 100
+    spriteID: c3e10f38912fc924d890350cc409bf46
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 980}
+  - name: Bertha_Frame_24
+    originalName: 
+    pivot: {x: 0.7746479, y: -0.48275864}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 345
+      y: 780
+      width: 71
+      height: 87
+    spriteID: 7073c5e286ad78a408ea958a0dac240e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 345, y: 780}
+  - name: Bertha_Frame_25
+    originalName: 
+    pivot: {x: 0.7714286, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1321
+      y: 780
+      width: 70
+      height: 86
+    spriteID: 027921939c7b0ed44a96f3170ae9a6d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1321, y: 780}
+  - name: Bertha_Frame_26
+    originalName: 
+    pivot: {x: 0.7777778, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1972
+      y: 980
+      width: 72
+      height: 86
+    spriteID: d9c1483d901cd9a41807c2b7fdd01a64
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1972, y: 980}
+  - name: Bertha_Frame_27
+    originalName: 
+    pivot: {x: 0.7808219, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1375
+      y: 980
+      width: 73
+      height: 86
+    spriteID: 1ab323c66b096624491a804326476a4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1375, y: 980}
+  - name: Bertha_Frame_28
+    originalName: 
+    pivot: {x: 0.7837838, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1129
+      y: 980
+      width: 74
+      height: 86
+    spriteID: e176592b96926b8498b00fe6974f9584
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1129, y: 980}
+  - name: Bertha_Frame_29
+    originalName: 
+    pivot: {x: 0.7837838, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1211
+      y: 980
+      width: 74
+      height: 86
+    spriteID: 839611d3d4cbe4945b35b3dc5d49016f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1211, y: 980}
+  - name: Bertha_Frame_30
+    originalName: 
+    pivot: {x: 0.76811594, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1700
+      y: 780
+      width: 69
+      height: 86
+    spriteID: c9b3e20544175ad4eb0242853df2c0e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1700, y: 780}
+  - name: Bertha_Frame_31
+    originalName: 
+    pivot: {x: 0.76811594, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1777
+      y: 780
+      width: 69
+      height: 86
+    spriteID: dad325fbbde54284bbb9e8b0d89385a2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1777, y: 780}
+  - name: Bertha_Frame_32
+    originalName: 
+    pivot: {x: 0.76811594, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1854
+      y: 780
+      width: 69
+      height: 86
+    spriteID: e161854c82cccdd47980788caa855f44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1854, y: 780}
+  - name: Bertha_Frame_33
+    originalName: 
+    pivot: {x: 0.76811594, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1931
+      y: 780
+      width: 69
+      height: 86
+    spriteID: 874aeef3fa901f3408a86171011dadb4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1931, y: 780}
+  - name: Bertha_Frame_34
+    originalName: 
+    pivot: {x: 0.76811594, y: -0.48837212}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 83
+      y: 877
+      width: 69
+      height: 86
+    spriteID: 87cab2c910b04f8429e702ef1a5aa233
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 83, y: 877}
+  - name: Bertha_Frame_35
+    originalName: 
+    pivot: {x: 0.69696975, y: -0.44}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 980
+      width: 66
+      height: 100
+    spriteID: 36ef8ca8bfb315741aa4505a54191092
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 980}
+  - name: Bertha_Frame_36
+    originalName: 
+    pivot: {x: 0.72839504, y: -0.47311828}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1043
+      y: 575
+      width: 81
+      height: 93
+    spriteID: 1b25118cff46ce646b13c1c7bdacc38e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1043, y: 575}
+  - name: Bertha_Frame_37
+    originalName: 
+    pivot: {x: 0.76744187, y: -0.5432099}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 378
+      y: 685
+      width: 86
+      height: 81
+    spriteID: 411749e209609a449938b1e1d85cbc02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 378, y: 685}
+  - name: Bertha_Frame_38
+    originalName: 
+    pivot: {x: 0.7297298, y: -0.5116279}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1293
+      y: 980
+      width: 74
+      height: 86
+    spriteID: b8b9df2a2516da148a8400ae86ad98e5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1293, y: 980}
+  - name: Bertha_Frame_39
+    originalName: 
+    pivot: {x: 0.74025977, y: -0.43137258}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 491
+      y: 575
+      width: 77
+      height: 102
+    spriteID: 88030ff6ec9df5b46aac873f8c50b428
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 491, y: 575}
+  - name: Bertha_Frame_41
+    originalName: 
+    pivot: {x: 0.5943396, y: -0.5641026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 375
+      y: 487
+      width: 106
+      height: 78
+    spriteID: 5d6c2b5428844e346a0774a97924f85d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 375, y: 487}
+  - name: Bertha_Frame_42
+    originalName: 
+    pivot: {x: 0.58474576, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1862
+      y: 363
+      width: 118
+      height: 80
+    spriteID: 54b4f07c0ead7bb4da1175bdb0c8db1e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1862, y: 363}
+  - name: Bertha_Frame_43
+    originalName: 
+    pivot: {x: 0.5833334, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1478
+      y: 363
+      width: 120
+      height: 80
+    spriteID: df6767ddae0b6804b89267c58da078ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1478, y: 363}
+  - name: Bertha_Frame_44
+    originalName: 
+    pivot: {x: 0.5819672, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 560
+      y: 363
+      width: 122
+      height: 80
+    spriteID: 8a5c92f61758740409a3077555cdd3be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 560, y: 363}
+  - name: Bertha_Frame_45
+    originalName: 
+    pivot: {x: 0.5819672, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 690
+      y: 363
+      width: 122
+      height: 80
+    spriteID: 99c5e9eab216b9b42983cfea107b14dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 690, y: 363}
+  - name: Bertha_Frame_46
+    originalName: 
+    pivot: {x: 0.6025641, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1628
+      y: 980
+      width: 78
+      height: 80
+    spriteID: ddd89b9704adbab4ab2c01f7bc6faeb2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1628, y: 980}
+  - name: Bertha_Frame_68
+    originalName: 
+    pivot: {x: 0.24390243, y: -0.5526316}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1207
+      y: 240
+      width: 164
+      height: 76
+    spriteID: 4153f1435a8cf234a85d0a3d1fe325b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1207, y: 240}
+  - name: Bertha_Frame_69
+    originalName: 
+    pivot: {x: 0.27745664, y: -0.63235295}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 184
+      y: 363
+      width: 173
+      height: 68
+    spriteID: 78063403fb1fed149acf90073ace672f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 184, y: 363}
+  - name: Bertha_Frame_71
+    originalName: 
+    pivot: {x: 0.27011493, y: -0.5308642}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1112
+      y: 121
+      width: 174
+      height: 81
+    spriteID: 221743ebfdcfccd4ab6ee29426fd8c7c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1112, y: 121}
+  - name: Bertha_Frame_72
+    originalName: 
+    pivot: {x: 0.26857144, y: -0.5308642}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 746
+      y: 121
+      width: 175
+      height: 81
+    spriteID: f3777079ee4a6434096965da7f484133
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 746, y: 121}
+  - name: Bertha_Frame_73
+    originalName: 
+    pivot: {x: 0.26857144, y: -0.5308642}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 929
+      y: 121
+      width: 175
+      height: 81
+    spriteID: 917a454433d3fad44ac18ae92f8072c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 929, y: 121}
+  - name: Bertha_Frame_74
+    originalName: 
+    pivot: {x: 0.6025641, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1714
+      y: 980
+      width: 78
+      height: 80
+    spriteID: 6074b365fcbfaab4db6c3e60fae50b8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1714, y: 980}
+  - name: Bertha_Frame_79
+    originalName: 
+    pivot: {x: 0.67058825, y: -0.48888892}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 858
+      y: 575
+      width: 85
+      height: 90
+    spriteID: 1ac16146fddffa64dbbc29419cdf3cdc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 858, y: 575}
+  - name: Bertha_Frame_104
+    originalName: 
+    pivot: {x: 0.6805556, y: -0.58666664}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 435
+      y: 877
+      width: 72
+      height: 75
+    spriteID: 0febfe8ae8b2c394abff55c2580f15f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 435, y: 877}
+  - name: Bertha_Frame_105
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.43137258}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 575
+      width: 92
+      height: 102
+    spriteID: cebf4c7150506b6458b62a3eb0601d65
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 575}
+  - name: Bertha_Frame_107
+    originalName: 
+    pivot: {x: 0.5943396, y: -0.5641026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 489
+      y: 487
+      width: 106
+      height: 78
+    spriteID: 032de125415814e46b8202124457c018
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 489, y: 487}
+  - name: Bertha_Frame_108
+    originalName: 
+    pivot: {x: 0.58474576, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 487
+      width: 118
+      height: 80
+    spriteID: ba79ece96fc0d534e87ffb579ff8c430
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 487}
+  - name: Bertha_Frame_109
+    originalName: 
+    pivot: {x: 0.5833334, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1606
+      y: 363
+      width: 120
+      height: 80
+    spriteID: f3f9cab2feb3ded449dac920eb4f25f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1606, y: 363}
+  - name: Bertha_Frame_110
+    originalName: 
+    pivot: {x: 0.5819672, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 820
+      y: 363
+      width: 122
+      height: 80
+    spriteID: b476f9d5b982b0c4e8e4e0caaf4fbe40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 820, y: 363}
+  - name: Bertha_Frame_111
+    originalName: 
+    pivot: {x: 0.5819672, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 950
+      y: 363
+      width: 122
+      height: 80
+    spriteID: 20895cea70a309b4a89322b6b579d84b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 950, y: 363}
+  - name: Bertha_Frame_112
+    originalName: 
+    pivot: {x: 0.6025641, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1800
+      y: 980
+      width: 78
+      height: 80
+    spriteID: a672cacfbf8c8cc4dad65ceefaf0339c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1800, y: 980}
+  - name: Bertha_Frame_125
+    originalName: 
+    pivot: {x: 0.6025641, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1886
+      y: 980
+      width: 78
+      height: 80
+    spriteID: 3b8d0954c846570448f7a21042d28a95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1886, y: 980}
+  - name: Bertha_Frame_136
+    originalName: 
+    pivot: {x: 0.6025641, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 780
+      width: 78
+      height: 80
+    spriteID: 19588c72063ac0c4e83a5aaf655c6e0f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 780}
+  - name: Bertha_Frame_153
+    originalName: 
+    pivot: {x: 0.5943396, y: -0.5641026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 603
+      y: 487
+      width: 106
+      height: 78
+    spriteID: 4b5c7fa2839ac2b46b1c677c8482cac3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 603, y: 487}
+  - name: Bertha_Frame_154
+    originalName: 
+    pivot: {x: 0.58474576, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 487
+      width: 118
+      height: 80
+    spriteID: 5e4c59730e3cddb4aa75276085bb0b85
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 487}
+  - name: Bertha_Frame_155
+    originalName: 
+    pivot: {x: 0.5833334, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1734
+      y: 363
+      width: 120
+      height: 80
+    spriteID: a7ab0795a9c2a4543aca9639e432536e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1734, y: 363}
+  - name: Bertha_Frame_156
+    originalName: 
+    pivot: {x: 0.5819672, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1080
+      y: 363
+      width: 122
+      height: 80
+    spriteID: 6dde0f28eb5847b438420c0f1de24069
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1080, y: 363}
+  - name: Bertha_Frame_157
+    originalName: 
+    pivot: {x: 0.5819672, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1210
+      y: 363
+      width: 122
+      height: 80
+    spriteID: fc4435219afc88345bfdf953ab302e5c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1210, y: 363}
+  - name: Bertha_Frame_158
+    originalName: 
+    pivot: {x: 0.6025641, y: -0.55}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 175
+      y: 780
+      width: 78
+      height: 80
+    spriteID: 7d8a70ba2842e4f4bba353e38603e680
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 175, y: 780}
+  - name: Bertha_Frame_67
+    originalName: 
+    pivot: {x: 0.26347306, y: -0.53846157}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1032
+      y: 240
+      width: 167
+      height: 78
+    spriteID: 283ed848b54853b469035734027f3492
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1032, y: 240}
+  - name: Bertha_Frame_80
+    originalName: 
+    pivot: {x: 0.42105263, y: -0.58666664}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1911
+      y: 240
+      width: 133
+      height: 75
+    spriteID: 4a34b6e85cdd01d4497b876083e8d898
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1911, y: 240}
+  - name: Bertha_Frame_103
+    originalName: 
+    pivot: {x: 0.36363637, y: -0.77192986}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1831
+      y: 877
+      width: 77
+      height: 57
+    spriteID: e65b91608dd70e64fb616a8afeb7547e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1831, y: 877}
+  - name: Bertha_Frame_175
+    originalName: 
+    pivot: {x: 0.54891306, y: -0.578125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1719
+      y: 240
+      width: 184
+      height: 64
+    spriteID: dc052712173d2614fa8b643275b0bd5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1719, y: 240}
+  - name: Bertha_Frame_176
+    originalName: 
+    pivot: {x: 0.55494505, y: -0.42666665}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 351
+      y: 240
+      width: 182
+      height: 75
+    spriteID: d9bda379a1c88b84aab6b3ed2f88ea7d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 351, y: 240}
+  - name: Bertha_Frame_177
+    originalName: 
+    pivot: {x: 0.54010695, y: -0.4933333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1478
+      y: 121
+      width: 187
+      height: 75
+    spriteID: 375c3fdbd0202f74a89f09c85c8842ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1478, y: 121}
+  - name: Bertha_Frame_178
+    originalName: 
+    pivot: {x: 0.54010695, y: -0.42105263}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 551
+      y: 121
+      width: 187
+      height: 76
+    spriteID: ef89cc151a950e947aa94faa33ddf616
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 551, y: 121}
+  - name: Bertha_Frame_179
+    originalName: 
+    pivot: {x: 0.54010695, y: -0.5614035}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 365
+      y: 363
+      width: 187
+      height: 57
+    spriteID: 1d1c64ecbeb8fb7428bc6fe9a87efd8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 365, y: 363}
+  - name: Bertha_Frame_180
+    originalName: 
+    pivot: {x: 0.54010695, y: -0.7804878}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1135
+      y: 487
+      width: 187
+      height: 41
+    spriteID: a1d7f527be34cb34e90462b92930071d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1135, y: 487}
+  - name: Bertha_Frame_181
+    originalName: 
+    pivot: {x: 0.54010695, y: -0.7619048}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 365
+      y: 428
+      width: 187
+      height: 42
+    spriteID: d323c45b420b1fe4e9785a37636c21aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 365, y: 428}
+  - name: Bertha_Frame_182
+    originalName: 
+    pivot: {x: 0.54010695, y: -0.84210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1536
+      y: 575
+      width: 187
+      height: 38
+    spriteID: 22875422c0811e043b2e48aa9f0a8b58
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1536, y: 575}
+  - name: Bertha_Frame_183
+    originalName: 
+    pivot: {x: 0.54010695, y: -0.84210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1731
+      y: 575
+      width: 187
+      height: 38
+    spriteID: 2eaa2c4f4462d1349a3c0aa2bf7ce00e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1731, y: 575}
+  - name: Bertha_Frame_184
+    originalName: 
+    pivot: {x: 0.54010695, y: -0.84210527}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1536
+      y: 621
+      width: 187
+      height: 38
+    spriteID: b432ac2b34c8108438bbe151f6477a35
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1536, y: 621}
+  - name: Bertha_Frame_96
+    originalName: 
+    pivot: {x: 0.41904762, y: -0.34234235}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 121
+      width: 210
+      height: 111
+    spriteID: a062e3188ae0eb146b91770c9d73299d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 121}
+  - name: Bertha_Frame_97
+    originalName: 
+    pivot: {x: 0.41284403, y: -0.33944952}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 218
+      height: 109
+    spriteID: 71412c786015a74468f732bc9957d95c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Bertha_Frame_4
+    originalName: 
+    pivot: {x: 0.7373737, y: -0.79310346}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 575
+      width: 99
+      height: 87
+    spriteID: 43e218d93b08e484bb02e68dcaf48ea2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 575}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1724173298
+    name: Bertha
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Bertha_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 57
+        y: 40
+        width: 116
+        height: 114
+      spriteId: 5f9c265b1d303b6478194f4d1cbea33b
+    - name: Bertha_Frame_6
+      frameIndex: 6
+      additiveSortOrder: 0
+      cellRect:
+        x: 54
+        y: 40
+        width: 146
+        height: 100
+      spriteId: eff170b3886657d4c8ac9ab01d71b958
+    - name: Bertha_Frame_7
+      frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 42
+        y: 39
+        width: 170
+        height: 89
+      spriteId: ef82b954230740548a2c84a77aa1f9af
+    - name: Bertha_Frame_8
+      frameIndex: 8
+      additiveSortOrder: 0
+      cellRect:
+        x: 42
+        y: 39
+        width: 170
+        height: 86
+      spriteId: 61dd80bd286efed42a36b3cd08d2ed8f
+    - name: Bertha_Frame_9
+      frameIndex: 9
+      additiveSortOrder: 0
+      cellRect:
+        x: 41
+        y: 39
+        width: 172
+        height: 87
+      spriteId: 3f1fb62cacc93ea478e461227eb2bc94
+    - name: Bertha_Frame_10
+      frameIndex: 10
+      additiveSortOrder: 0
+      cellRect:
+        x: 38
+        y: 39
+        width: 178
+        height: 87
+      spriteId: e3dfd6022c3704b4bbe9c8b3194e11e6
+    - name: Bertha_Frame_11
+      frameIndex: 11
+      additiveSortOrder: 0
+      cellRect:
+        x: 36
+        y: 39
+        width: 182
+        height: 81
+      spriteId: cafb14051fe46f648abeb385dfa772c1
+    - name: Bertha_Frame_12
+      frameIndex: 12
+      additiveSortOrder: 0
+      cellRect:
+        x: 42
+        y: 39
+        width: 170
+        height: 81
+      spriteId: 9383cc08f2030c341ae2b953b6741acb
+    - name: Bertha_Frame_51
+      frameIndex: 51
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 42
+        width: 130
+        height: 75
+      spriteId: 9064006fbd077674bb81b87307e6e130
+    - name: Bertha_Frame_52
+      frameIndex: 52
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 42
+        width: 158
+        height: 75
+      spriteId: 582e6cc7d41d3464ba4f7a9caf4ed7af
+    - name: Bertha_Frame_53
+      frameIndex: 53
+      additiveSortOrder: 0
+      cellRect:
+        x: 3
+        y: 42
+        width: 173
+        height: 77
+      spriteId: 5ad78fa1be3741c429c82593c3aac840
+    - name: Bertha_Frame_54
+      frameIndex: 54
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 42
+        width: 176
+        height: 80
+      spriteId: 873bf65835be3364fbfee319b7ad68f4
+    - name: Bertha_Frame_60
+      frameIndex: 60
+      additiveSortOrder: 0
+      cellRect:
+        x: 97
+        y: 41
+        width: 149
+        height: 92
+      spriteId: 21538f52d2fd47148929a726e727eca6
+    - name: Bertha_Frame_61
+      frameIndex: 61
+      additiveSortOrder: 0
+      cellRect:
+        x: 96
+        y: 40
+        width: 157
+        height: 93
+      spriteId: 47fc34958901ee24abdd6d485a931d6e
+    - name: Bertha_Frame_62
+      frameIndex: 62
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 37
+        width: 178
+        height: 92
+      spriteId: b007fd81b0d0d01439d94ca8c8b531f5
+    - name: Bertha_Frame_63
+      frameIndex: 63
+      additiveSortOrder: 0
+      cellRect:
+        x: 76
+        y: 36
+        width: 180
+        height: 108
+      spriteId: 44cbcd87414e7a742b4c42fef897a4c5
+    - name: Bertha_Frame_64
+      frameIndex: 64
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 34
+        width: 182
+        height: 115
+      spriteId: a45353f3e5fd41a43a07658fb0f68569
+    - name: Bertha_Frame_65
+      frameIndex: 65
+      additiveSortOrder: 0
+      cellRect:
+        x: 83
+        y: 33
+        width: 172
+        height: 116
+      spriteId: 830e00f3d552ed448b324d219d4eb521
+    - name: Bertha_Frame_66
+      frameIndex: 66
+      additiveSortOrder: 0
+      cellRect:
+        x: 88
+        y: 33
+        width: 167
+        height: 87
+      spriteId: dd9e5611c3441924dbf5c7cba6f1c1c8
+    - name: Bertha_Frame_81
+      frameIndex: 81
+      additiveSortOrder: 0
+      cellRect:
+        x: 85
+        y: 44
+        width: 127
+        height: 47
+      spriteId: 29a67e51039210a4f87c43a38c7ac279
+    - name: Bertha_Frame_82
+      frameIndex: 82
+      additiveSortOrder: 0
+      cellRect:
+        x: 83
+        y: 44
+        width: 107
+        height: 49
+      spriteId: 0d7d93b991e213142836a60f9a328ac4
+    - name: Bertha_Frame_55
+      frameIndex: 55
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 41
+        width: 166
+        height: 72
+      spriteId: febb20c7edb95574298bdc5ecb7a2fb2
+    - name: Bertha_Frame_56
+      frameIndex: 56
+      additiveSortOrder: 0
+      cellRect:
+        x: 89
+        y: 46
+        width: 80
+        height: 67
+      spriteId: 9510984abf07cb746b4040977df1f343
+    - name: Bertha_Frame_57
+      frameIndex: 57
+      additiveSortOrder: 0
+      cellRect:
+        x: 98
+        y: 47
+        width: 72
+        height: 69
+      spriteId: 203637cf593395d469146d9a7856ec84
+    - name: Bertha_Frame_58
+      frameIndex: 58
+      additiveSortOrder: 0
+      cellRect:
+        x: 108
+        y: 48
+        width: 61
+        height: 74
+      spriteId: c9bba7b3715a90141bee63114f521239
+    - name: Bertha_Frame_59
+      frameIndex: 59
+      additiveSortOrder: 0
+      cellRect:
+        x: 109
+        y: 48
+        width: 63
+        height: 76
+      spriteId: 70b76ef515344bd43a158ebc7ae304ba
+    - name: Bertha_Frame_86
+      frameIndex: 86
+      additiveSortOrder: 0
+      cellRect:
+        x: 61
+        y: 44
+        width: 133
+        height: 79
+      spriteId: 7d8f3ae735ba7a243951e0bdabb21593
+    - name: Bertha_Frame_87
+      frameIndex: 87
+      additiveSortOrder: 0
+      cellRect:
+        x: 65
+        y: 44
+        width: 89
+        height: 83
+      spriteId: e22c01f0ca63abf4999193ea7f147ea2
+    - name: Bertha_Frame_88
+      frameIndex: 88
+      additiveSortOrder: 0
+      cellRect:
+        x: 73
+        y: 44
+        width: 79
+        height: 83
+      spriteId: 1b8ee7feacfa35e449e850588c3b5cce
+    - name: Bertha_Frame_89
+      frameIndex: 89
+      additiveSortOrder: 0
+      cellRect:
+        x: 63
+        y: 44
+        width: 91
+        height: 77
+      spriteId: b4baf1446cd6bc246805c28b202e1f06
+    - name: Bertha_Frame_90
+      frameIndex: 90
+      additiveSortOrder: 0
+      cellRect:
+        x: 51
+        y: 44
+        width: 104
+        height: 57
+      spriteId: 0775fd6cf797f3843a75f437e7602063
+    - name: Bertha_Frame_91
+      frameIndex: 91
+      additiveSortOrder: 0
+      cellRect:
+        x: 44
+        y: 42
+        width: 114
+        height: 57
+      spriteId: 7a762799e566a4a45aa4968c87455c6a
+    - name: Bertha_Frame_92
+      frameIndex: 92
+      additiveSortOrder: 0
+      cellRect:
+        x: 34
+        y: 42
+        width: 130
+        height: 56
+      spriteId: 28270e9f406287d4ab4990f249c21052
+    - name: Bertha_Frame_93
+      frameIndex: 93
+      additiveSortOrder: 0
+      cellRect:
+        x: 36
+        y: 41
+        width: 130
+        height: 54
+      spriteId: 77d0de563246c3a48a227259422882ad
+    - name: Bertha_Frame_94
+      frameIndex: 94
+      additiveSortOrder: 0
+      cellRect:
+        x: 32
+        y: 41
+        width: 134
+        height: 57
+      spriteId: eff2ac425ae573e418053fc5dee2d739
+    - name: Bertha_Frame_95
+      frameIndex: 95
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 41
+        width: 119
+        height: 56
+      spriteId: 8f0f31afb8d6a0d428898476a43b316c
+    - name: Bertha_Frame_113
+      frameIndex: 113
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 44
+        width: 78
+        height: 80
+      spriteId: d6686bec5eb1b1b4ab755b8e6312dd14
+    - name: Bertha_Frame_114
+      frameIndex: 114
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 75
+        height: 80
+      spriteId: 1be9ec68474cf87479c60efd8e745b2c
+    - name: Bertha_Frame_115
+      frameIndex: 115
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 75
+        height: 80
+      spriteId: 5fbaa38d90e9b1b46b72ee40e8e7ad60
+    - name: Bertha_Frame_116
+      frameIndex: 116
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 75
+        height: 81
+      spriteId: 8beb99cdf6c96534daad78beb82c74b6
+    - name: Bertha_Frame_117
+      frameIndex: 117
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 76
+        height: 81
+      spriteId: c43699dde55866842825c0dc21316e9d
+    - name: Bertha_Frame_118
+      frameIndex: 118
+      additiveSortOrder: 0
+      cellRect:
+        x: 83
+        y: 44
+        width: 76
+        height: 80
+      spriteId: 5b901373accac0d4583277fc18024449
+    - name: Bertha_Frame_119
+      frameIndex: 119
+      additiveSortOrder: 0
+      cellRect:
+        x: 83
+        y: 44
+        width: 76
+        height: 80
+      spriteId: b56ef94fb3c56404d9985cc6785c10f7
+    - name: Bertha_Frame_120
+      frameIndex: 120
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 77
+        height: 80
+      spriteId: b7f1943c605a4e34d9b9e8d971e756a3
+    - name: Bertha_Frame_121
+      frameIndex: 121
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 77
+        height: 80
+      spriteId: 0709cfa9094dea248972bd451183c73a
+    - name: Bertha_Frame_122
+      frameIndex: 122
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 77
+        height: 79
+      spriteId: 6f83d2b41f98d4744844a482c9b58680
+    - name: Bertha_Frame_123
+      frameIndex: 123
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 77
+        height: 79
+      spriteId: 770be126486a45744a1d41c658c9816c
+    - name: Bertha_Frame_124
+      frameIndex: 124
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 44
+        width: 78
+        height: 80
+      spriteId: 635bf01f23f9e154591db196feb8a926
+    - name: Bertha_Frame_126
+      frameIndex: 126
+      additiveSortOrder: 0
+      cellRect:
+        x: 89
+        y: 44
+        width: 69
+        height: 70
+      spriteId: bd87878d9e015fb4b91bb5e8565e0767
+    - name: Bertha_Frame_127
+      frameIndex: 127
+      additiveSortOrder: 0
+      cellRect:
+        x: 94
+        y: 44
+        width: 62
+        height: 62
+      spriteId: 7894d5c43f0629148bb4f03767d8b3b6
+    - name: Bertha_Frame_128
+      frameIndex: 128
+      additiveSortOrder: 0
+      cellRect:
+        x: 95
+        y: 44
+        width: 59
+        height: 62
+      spriteId: 8be861be8adf988499c4dd84236e4a6d
+    - name: Bertha_Frame_129
+      frameIndex: 129
+      additiveSortOrder: 0
+      cellRect:
+        x: 94
+        y: 44
+        width: 59
+        height: 64
+      spriteId: 46d7348fc9e78f1459cc08b0833995a2
+    - name: Bertha_Frame_130
+      frameIndex: 130
+      additiveSortOrder: 0
+      cellRect:
+        x: 93
+        y: 44
+        width: 60
+        height: 63
+      spriteId: a2de3d8a47d36144191470badda2823d
+    - name: Bertha_Frame_131
+      frameIndex: 131
+      additiveSortOrder: 0
+      cellRect:
+        x: 94
+        y: 44
+        width: 59
+        height: 62
+      spriteId: 0f72ca992b8a5994180b807baffc7c93
+    - name: Bertha_Frame_132
+      frameIndex: 132
+      additiveSortOrder: 0
+      cellRect:
+        x: 94
+        y: 44
+        width: 58
+        height: 62
+      spriteId: 4c10a8018ba88f64d8404ea1ca1bedfc
+    - name: Bertha_Frame_133
+      frameIndex: 133
+      additiveSortOrder: 0
+      cellRect:
+        x: 94
+        y: 44
+        width: 59
+        height: 63
+      spriteId: c58c2c8c05f585f458919cde01f79492
+    - name: Bertha_Frame_134
+      frameIndex: 134
+      additiveSortOrder: 0
+      cellRect:
+        x: 95
+        y: 44
+        width: 59
+        height: 62
+      spriteId: c864e2793bd5da14b977bc805e41077b
+    - name: Bertha_Frame_135
+      frameIndex: 135
+      additiveSortOrder: 0
+      cellRect:
+        x: 90
+        y: 44
+        width: 68
+        height: 70
+      spriteId: 4f5c363e57f6f9942bdf8795ab3b28c5
+    - name: Bertha_Frame_137
+      frameIndex: 137
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 44
+        width: 86
+        height: 93
+      spriteId: 1a9e1a075525e5e4081dd70ebb1fd14c
+    - name: Bertha_Frame_138
+      frameIndex: 138
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 42
+        width: 87
+        height: 88
+      spriteId: d0f1e9ed6fb22454885f024f85d5fd59
+    - name: Bertha_Frame_139
+      frameIndex: 139
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 42
+        width: 80
+        height: 87
+      spriteId: 276ca425bf944d644babb28f71d715ed
+    - name: Bertha_Frame_140
+      frameIndex: 140
+      additiveSortOrder: 0
+      cellRect:
+        x: 76
+        y: 42
+        width: 79
+        height: 87
+      spriteId: 4496608a6f4784c498263c732e915655
+    - name: Bertha_Frame_141
+      frameIndex: 141
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 42
+        width: 80
+        height: 87
+      spriteId: c5c78b33f0ef6244a9d20a57a938ed8b
+    - name: Bertha_Frame_142
+      frameIndex: 142
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 42
+        width: 81
+        height: 87
+      spriteId: 8a61d03fb2f055d4cb62d8fa1b4b438c
+    - name: Bertha_Frame_143
+      frameIndex: 143
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 42
+        width: 78
+        height: 87
+      spriteId: 103178cc50241c641aeca49005e4d3f0
+    - name: Bertha_Frame_144
+      frameIndex: 144
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 43
+        width: 74
+        height: 86
+      spriteId: e711322117f30b442b50b480d8c4ded3
+    - name: Bertha_Frame_145
+      frameIndex: 145
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 43
+        width: 74
+        height: 86
+      spriteId: 782853942f00f9a44abdba2b36b3c31e
+    - name: Bertha_Frame_146
+      frameIndex: 146
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 43
+        width: 74
+        height: 86
+      spriteId: 1e64ee55694770b4bbacaeb5de9fdb38
+    - name: Bertha_Frame_147
+      frameIndex: 147
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 43
+        width: 74
+        height: 86
+      spriteId: 5ee2de2316de0444fabf51e350837094
+    - name: Bertha_Frame_148
+      frameIndex: 148
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 43
+        width: 74
+        height: 86
+      spriteId: 748bcf47edeb0cb4994215ed17249840
+    - name: Bertha_Frame_149
+      frameIndex: 149
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 43
+        width: 74
+        height: 86
+      spriteId: cdf692e7c562d2e4c90066e7c9985743
+    - name: Bertha_Frame_150
+      frameIndex: 150
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 43
+        width: 74
+        height: 86
+      spriteId: 5788b34633f131b42a36a96f1ff44282
+    - name: Bertha_Frame_151
+      frameIndex: 151
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 43
+        width: 77
+        height: 89
+      spriteId: 0818ac81999bf684db8da95becb1e7d1
+    - name: Bertha_Frame_159
+      frameIndex: 159
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 44
+        width: 86
+        height: 93
+      spriteId: d829ed7a54775274cb4554819016e0d0
+    - name: Bertha_Frame_160
+      frameIndex: 160
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 42
+        width: 87
+        height: 88
+      spriteId: a096928d2dd61cd4cbf4bbf78235a5e4
+    - name: Bertha_Frame_161
+      frameIndex: 161
+      additiveSortOrder: 0
+      cellRect:
+        x: 76
+        y: 42
+        width: 79
+        height: 87
+      spriteId: 8cc522ce7a3f7b643b6c5004ea868c1b
+    - name: Bertha_Frame_162
+      frameIndex: 162
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 42
+        width: 80
+        height: 87
+      spriteId: 9d6f356f6cc3c9c41ab1d98c914584cd
+    - name: Bertha_Frame_163
+      frameIndex: 163
+      additiveSortOrder: 0
+      cellRect:
+        x: 53
+        y: 42
+        width: 102
+        height: 75
+      spriteId: 9b50dbc9737d4234083c30efb370d4f1
+    - name: Bertha_Frame_164
+      frameIndex: 164
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 42
+        width: 121
+        height: 55
+      spriteId: af518d0f9223aa44b9d5913b2b858f1b
+    - name: Bertha_Frame_165
+      frameIndex: 165
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 37
+        width: 129
+        height: 53
+      spriteId: 40456b9a4510aae4798f10cfe8af3caf
+    - name: Bertha_Frame_166
+      frameIndex: 166
+      additiveSortOrder: 0
+      cellRect:
+        x: 20
+        y: 31
+        width: 132
+        height: 59
+      spriteId: 1894a47d861bafb40a804499f463df0a
+    - name: Bertha_Frame_167
+      frameIndex: 167
+      additiveSortOrder: 0
+      cellRect:
+        x: 21
+        y: 30
+        width: 131
+        height: 60
+      spriteId: c86b59662b8790c4390464faa752fef4
+    - name: Bertha_Frame_168
+      frameIndex: 168
+      additiveSortOrder: 0
+      cellRect:
+        x: 21
+        y: 29
+        width: 131
+        height: 61
+      spriteId: 132109415c2dcb34a8ff5236c33658b9
+    - name: Bertha_Frame_169
+      frameIndex: 169
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 31
+        width: 125
+        height: 58
+      spriteId: 0be1a292ae16d92469d8279791b0e8cc
+    - name: Bertha_Frame_170
+      frameIndex: 170
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 30
+        width: 125
+        height: 59
+      spriteId: 49bcf3bde9a560d47874b1dc2e3141e6
+    - name: Bertha_Frame_171
+      frameIndex: 171
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 37
+        width: 125
+        height: 53
+      spriteId: 8d0baeb788412c54383470352988a1a0
+    - name: Bertha_Frame_172
+      frameIndex: 172
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 37
+        width: 125
+        height: 53
+      spriteId: ab16a37d1602dd14f9a9c7d070ec893b
+    - name: Bertha_Frame_173
+      frameIndex: 173
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 37
+        width: 125
+        height: 54
+      spriteId: 24e45e26d4b1a6549bbf54c0c64c4c0b
+    - name: Bertha_Frame_174
+      frameIndex: 174
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 37
+        width: 153
+        height: 49
+      spriteId: 01e16805d5e80754a913cf3d328431f6
+    - name: Bertha_Frame_40
+      frameIndex: 40
+      additiveSortOrder: 0
+      cellRect:
+        x: 72
+        y: 44
+        width: 85
+        height: 82
+      spriteId: 273ddd028a2b43b469a4ba969178778b
+    - name: Bertha_Frame_106
+      frameIndex: 106
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 44
+        width: 79
+        height: 82
+      spriteId: 4ab77fea246c21c4cbb91c15a5ab23be
+    - name: Bertha_Frame_152
+      frameIndex: 152
+      additiveSortOrder: 0
+      cellRect:
+        x: 72
+        y: 44
+        width: 85
+        height: 82
+      spriteId: 40c76dfff0cc6854c9d9ec6fc67c45ef
+    - name: Bertha_Frame_13
+      frameIndex: 13
+      additiveSortOrder: 0
+      cellRect:
+        x: 59
+        y: 39
+        width: 103
+        height: 59
+      spriteId: 0209303174cf3ce4a98e7fd435d12531
+    - name: Bertha_Frame_14
+      frameIndex: 14
+      additiveSortOrder: 0
+      cellRect:
+        x: 59
+        y: 39
+        width: 103
+        height: 59
+      spriteId: 7b607b3e180b264428731e4e1033515d
+    - name: Bertha_Frame_47
+      frameIndex: 47
+      additiveSortOrder: 0
+      cellRect:
+        x: 87
+        y: 43
+        width: 72
+        height: 80
+      spriteId: 0de46d3b5eb7b064fb942d06b6ec374b
+    - name: Bertha_Frame_48
+      frameIndex: 48
+      additiveSortOrder: 0
+      cellRect:
+        x: 86
+        y: 43
+        width: 75
+        height: 77
+      spriteId: 65b6cb9b0f3276f428181d243e559453
+    - name: Bertha_Frame_49
+      frameIndex: 49
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 43
+        width: 86
+        height: 76
+      spriteId: da8ae4ec113115f4d8e7190b7dfb7a0e
+    - name: Bertha_Frame_50
+      frameIndex: 50
+      additiveSortOrder: 0
+      cellRect:
+        x: 76
+        y: 42
+        width: 90
+        height: 71
+      spriteId: d340f458c893b9d4ab71d84f25edbe76
+    - name: Bertha_Frame_70
+      frameIndex: 70
+      additiveSortOrder: 0
+      cellRect:
+        x: 79
+        y: 43
+        width: 177
+        height: 78
+      spriteId: e4fa5afee253f1c4ba6e836187fac23d
+    - name: Bertha_Frame_75
+      frameIndex: 75
+      additiveSortOrder: 0
+      cellRect:
+        x: 79
+        y: 44
+        width: 76
+        height: 82
+      spriteId: 428f72360e9ea7746bffd1fd0c6abd54
+    - name: Bertha_Frame_76
+      frameIndex: 76
+      additiveSortOrder: 0
+      cellRect:
+        x: 77
+        y: 44
+        width: 81
+        height: 85
+      spriteId: a1d34403db0347d40bd3ccbea5002a89
+    - name: Bertha_Frame_77
+      frameIndex: 77
+      additiveSortOrder: 0
+      cellRect:
+        x: 79
+        y: 44
+        width: 78
+        height: 93
+      spriteId: 98fcfa7f6970ca444bd15f6c165bddc0
+    - name: Bertha_Frame_78
+      frameIndex: 78
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 44
+        width: 80
+        height: 92
+      spriteId: 7c6a173527076534b9eaca29c5be8dc6
+    - name: Bertha_Frame_83
+      frameIndex: 83
+      additiveSortOrder: 0
+      cellRect:
+        x: 85
+        y: 44
+        width: 82
+        height: 49
+      spriteId: 59a277874a1160a44a9f0286654ffbe4
+    - name: Bertha_Frame_84
+      frameIndex: 84
+      additiveSortOrder: 0
+      cellRect:
+        x: 87
+        y: 44
+        width: 80
+        height: 52
+      spriteId: 95aea6003343b324781c758450516ce7
+    - name: Bertha_Frame_85
+      frameIndex: 85
+      additiveSortOrder: 0
+      cellRect:
+        x: 92
+        y: 43
+        width: 77
+        height: 54
+      spriteId: 5f76f9b9010f4a449ae9b8b31a129293
+    - name: Bertha_Frame_98
+      frameIndex: 98
+      additiveSortOrder: 0
+      cellRect:
+        x: 38
+        y: 37
+        width: 218
+        height: 105
+      spriteId: 809b3bf849492084a9616a921d372533
+    - name: Bertha_Frame_99
+      frameIndex: 99
+      additiveSortOrder: 0
+      cellRect:
+        x: 78
+        y: 44
+        width: 178
+        height: 76
+      spriteId: c3a30052797dd0a49be3f8854e2d17d5
+    - name: Bertha_Frame_100
+      frameIndex: 100
+      additiveSortOrder: 0
+      cellRect:
+        x: 79
+        y: 44
+        width: 111
+        height: 76
+      spriteId: 6d1a91e4d0702064fa45c7fe90e8dd9a
+    - name: Bertha_Frame_101
+      frameIndex: 101
+      additiveSortOrder: 0
+      cellRect:
+        x: 93
+        y: 44
+        width: 91
+        height: 72
+      spriteId: b9ffb8b7b1864924897a7c7eddda0f02
+    - name: Bertha_Frame_102
+      frameIndex: 102
+      additiveSortOrder: 0
+      cellRect:
+        x: 91
+        y: 44
+        width: 88
+        height: 73
+      spriteId: 361305b2e24692c41914cc7891702836
+    - name: Bertha_Frame_0
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 43
+        width: 83
+        height: 58
+      spriteId: e2877e5f171c45d4a843e84050adffd8
+    - name: Bertha_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 67
+        y: 45
+        width: 84
+        height: 91
+      spriteId: 6d125a4df9856e742bf4f16b5a7a1641
+    - name: Bertha_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 67
+        y: 45
+        width: 84
+        height: 94
+      spriteId: cc19eba0b25fe4e41ab6f233658af7dd
+    - name: Bertha_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 67
+        y: 45
+        width: 84
+        height: 93
+      spriteId: 3121b597b78415343ac80045c56c0864
+    - name: Bertha_Frame_15
+      frameIndex: 15
+      additiveSortOrder: 0
+      cellRect:
+        x: 56
+        y: 43
+        width: 103
+        height: 51
+      spriteId: 143525b3423813745af9ac1adb038997
+    - name: Bertha_Frame_16
+      frameIndex: 16
+      additiveSortOrder: 0
+      cellRect:
+        x: 64
+        y: 43
+        width: 92
+        height: 58
+      spriteId: 78e7473101556f24bb06ce7f8590ca0c
+    - name: Bertha_Frame_17
+      frameIndex: 17
+      additiveSortOrder: 0
+      cellRect:
+        x: 76
+        y: 43
+        width: 81
+        height: 59
+      spriteId: 00a6f5ab471baf948b30a589fa3bef31
+    - name: Bertha_Frame_18
+      frameIndex: 18
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 43
+        width: 82
+        height: 58
+      spriteId: 6e3a46de01d98b741a66fe87e5d4bc06
+    - name: Bertha_Frame_19
+      frameIndex: 19
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 43
+        width: 83
+        height: 58
+      spriteId: a3292c3c70e98ac4292232fcaf74e15d
+    - name: Bertha_Frame_20
+      frameIndex: 20
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 43
+        width: 83
+        height: 58
+      spriteId: 383b2fc2549ee074c89acc01c6a26641
+    - name: Bertha_Frame_21
+      frameIndex: 21
+      additiveSortOrder: 0
+      cellRect:
+        x: 83
+        y: 44
+        width: 69
+        height: 75
+      spriteId: bc58d1eed2d108240a662c81b0b7d7dc
+    - name: Bertha_Frame_22
+      frameIndex: 22
+      additiveSortOrder: 0
+      cellRect:
+        x: 79
+        y: 44
+        width: 71
+        height: 95
+      spriteId: 857a74feac9d4ef498f0d81155e663d0
+    - name: Bertha_Frame_23
+      frameIndex: 23
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 66
+        height: 100
+      spriteId: c3e10f38912fc924d890350cc409bf46
+    - name: Bertha_Frame_24
+      frameIndex: 24
+      additiveSortOrder: 0
+      cellRect:
+        x: 73
+        y: 42
+        width: 71
+        height: 87
+      spriteId: 7073c5e286ad78a408ea958a0dac240e
+    - name: Bertha_Frame_25
+      frameIndex: 25
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 42
+        width: 70
+        height: 86
+      spriteId: 027921939c7b0ed44a96f3170ae9a6d3
+    - name: Bertha_Frame_26
+      frameIndex: 26
+      additiveSortOrder: 0
+      cellRect:
+        x: 72
+        y: 42
+        width: 72
+        height: 86
+      spriteId: d9c1483d901cd9a41807c2b7fdd01a64
+    - name: Bertha_Frame_27
+      frameIndex: 27
+      additiveSortOrder: 0
+      cellRect:
+        x: 71
+        y: 42
+        width: 73
+        height: 86
+      spriteId: 1ab323c66b096624491a804326476a4a
+    - name: Bertha_Frame_28
+      frameIndex: 28
+      additiveSortOrder: 0
+      cellRect:
+        x: 70
+        y: 42
+        width: 74
+        height: 86
+      spriteId: e176592b96926b8498b00fe6974f9584
+    - name: Bertha_Frame_29
+      frameIndex: 29
+      additiveSortOrder: 0
+      cellRect:
+        x: 70
+        y: 42
+        width: 74
+        height: 86
+      spriteId: 839611d3d4cbe4945b35b3dc5d49016f
+    - name: Bertha_Frame_30
+      frameIndex: 30
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 42
+        width: 69
+        height: 86
+      spriteId: c9b3e20544175ad4eb0242853df2c0e8
+    - name: Bertha_Frame_31
+      frameIndex: 31
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 42
+        width: 69
+        height: 86
+      spriteId: dad325fbbde54284bbb9e8b0d89385a2
+    - name: Bertha_Frame_32
+      frameIndex: 32
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 42
+        width: 69
+        height: 86
+      spriteId: e161854c82cccdd47980788caa855f44
+    - name: Bertha_Frame_33
+      frameIndex: 33
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 42
+        width: 69
+        height: 86
+      spriteId: 874aeef3fa901f3408a86171011dadb4
+    - name: Bertha_Frame_34
+      frameIndex: 34
+      additiveSortOrder: 0
+      cellRect:
+        x: 75
+        y: 42
+        width: 69
+        height: 86
+      spriteId: 87cab2c910b04f8429e702ef1a5aa233
+    - name: Bertha_Frame_35
+      frameIndex: 35
+      additiveSortOrder: 0
+      cellRect:
+        x: 82
+        y: 44
+        width: 66
+        height: 100
+      spriteId: 36ef8ca8bfb315741aa4505a54191092
+    - name: Bertha_Frame_36
+      frameIndex: 36
+      additiveSortOrder: 0
+      cellRect:
+        x: 69
+        y: 44
+        width: 81
+        height: 93
+      spriteId: 1b25118cff46ce646b13c1c7bdacc38e
+    - name: Bertha_Frame_37
+      frameIndex: 37
+      additiveSortOrder: 0
+      cellRect:
+        x: 62
+        y: 44
+        width: 86
+        height: 81
+      spriteId: 411749e209609a449938b1e1d85cbc02
+    - name: Bertha_Frame_38
+      frameIndex: 38
+      additiveSortOrder: 0
+      cellRect:
+        x: 74
+        y: 44
+        width: 74
+        height: 86
+      spriteId: b8b9df2a2516da148a8400ae86ad98e5
+    - name: Bertha_Frame_39
+      frameIndex: 39
+      additiveSortOrder: 0
+      cellRect:
+        x: 71
+        y: 44
+        width: 77
+        height: 102
+      spriteId: 88030ff6ec9df5b46aac873f8c50b428
+    - name: Bertha_Frame_41
+      frameIndex: 41
+      additiveSortOrder: 0
+      cellRect:
+        x: 65
+        y: 44
+        width: 106
+        height: 78
+      spriteId: 5d6c2b5428844e346a0774a97924f85d
+    - name: Bertha_Frame_42
+      frameIndex: 42
+      additiveSortOrder: 0
+      cellRect:
+        x: 59
+        y: 44
+        width: 118
+        height: 80
+      spriteId: 54b4f07c0ead7bb4da1175bdb0c8db1e
+    - name: Bertha_Frame_43
+      frameIndex: 43
+      additiveSortOrder: 0
+      cellRect:
+        x: 58
+        y: 44
+        width: 120
+        height: 80
+      spriteId: df6767ddae0b6804b89267c58da078ee
+    - name: Bertha_Frame_44
+      frameIndex: 44
+      additiveSortOrder: 0
+      cellRect:
+        x: 57
+        y: 44
+        width: 122
+        height: 80
+      spriteId: 8a5c92f61758740409a3077555cdd3be
+    - name: Bertha_Frame_45
+      frameIndex: 45
+      additiveSortOrder: 0
+      cellRect:
+        x: 57
+        y: 44
+        width: 122
+        height: 80
+      spriteId: 99c5e9eab216b9b42983cfea107b14dd
+    - name: Bertha_Frame_46
+      frameIndex: 46
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 44
+        width: 78
+        height: 80
+      spriteId: ddd89b9704adbab4ab2c01f7bc6faeb2
+    - name: Bertha_Frame_68
+      frameIndex: 68
+      additiveSortOrder: 0
+      cellRect:
+        x: 88
+        y: 42
+        width: 164
+        height: 76
+      spriteId: 4153f1435a8cf234a85d0a3d1fe325b5
+    - name: Bertha_Frame_69
+      frameIndex: 69
+      additiveSortOrder: 0
+      cellRect:
+        x: 80
+        y: 43
+        width: 173
+        height: 68
+      spriteId: 78063403fb1fed149acf90073ace672f
+    - name: Bertha_Frame_71
+      frameIndex: 71
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 43
+        width: 174
+        height: 81
+      spriteId: 221743ebfdcfccd4ab6ee29426fd8c7c
+    - name: Bertha_Frame_72
+      frameIndex: 72
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 43
+        width: 175
+        height: 81
+      spriteId: f3777079ee4a6434096965da7f484133
+    - name: Bertha_Frame_73
+      frameIndex: 73
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 43
+        width: 175
+        height: 81
+      spriteId: 917a454433d3fad44ac18ae92f8072c8
+    - name: Bertha_Frame_74
+      frameIndex: 74
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 44
+        width: 78
+        height: 80
+      spriteId: 6074b365fcbfaab4db6c3e60fae50b8f
+    - name: Bertha_Frame_79
+      frameIndex: 79
+      additiveSortOrder: 0
+      cellRect:
+        x: 71
+        y: 44
+        width: 85
+        height: 90
+      spriteId: 1ac16146fddffa64dbbc29419cdf3cdc
+    - name: Bertha_Frame_104
+      frameIndex: 104
+      additiveSortOrder: 0
+      cellRect:
+        x: 79
+        y: 44
+        width: 72
+        height: 75
+      spriteId: 0febfe8ae8b2c394abff55c2580f15f6
+    - name: Bertha_Frame_105
+      frameIndex: 105
+      additiveSortOrder: 0
+      cellRect:
+        x: 56
+        y: 44
+        width: 92
+        height: 102
+      spriteId: cebf4c7150506b6458b62a3eb0601d65
+    - name: Bertha_Frame_107
+      frameIndex: 107
+      additiveSortOrder: 0
+      cellRect:
+        x: 65
+        y: 44
+        width: 106
+        height: 78
+      spriteId: 032de125415814e46b8202124457c018
+    - name: Bertha_Frame_108
+      frameIndex: 108
+      additiveSortOrder: 0
+      cellRect:
+        x: 59
+        y: 44
+        width: 118
+        height: 80
+      spriteId: ba79ece96fc0d534e87ffb579ff8c430
+    - name: Bertha_Frame_109
+      frameIndex: 109
+      additiveSortOrder: 0
+      cellRect:
+        x: 58
+        y: 44
+        width: 120
+        height: 80
+      spriteId: f3f9cab2feb3ded449dac920eb4f25f9
+    - name: Bertha_Frame_110
+      frameIndex: 110
+      additiveSortOrder: 0
+      cellRect:
+        x: 57
+        y: 44
+        width: 122
+        height: 80
+      spriteId: b476f9d5b982b0c4e8e4e0caaf4fbe40
+    - name: Bertha_Frame_111
+      frameIndex: 111
+      additiveSortOrder: 0
+      cellRect:
+        x: 57
+        y: 44
+        width: 122
+        height: 80
+      spriteId: 20895cea70a309b4a89322b6b579d84b
+    - name: Bertha_Frame_112
+      frameIndex: 112
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 44
+        width: 78
+        height: 80
+      spriteId: a672cacfbf8c8cc4dad65ceefaf0339c
+    - name: Bertha_Frame_125
+      frameIndex: 125
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 44
+        width: 78
+        height: 80
+      spriteId: 3b8d0954c846570448f7a21042d28a95
+    - name: Bertha_Frame_136
+      frameIndex: 136
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 44
+        width: 78
+        height: 80
+      spriteId: 19588c72063ac0c4e83a5aaf655c6e0f
+    - name: Bertha_Frame_153
+      frameIndex: 153
+      additiveSortOrder: 0
+      cellRect:
+        x: 65
+        y: 44
+        width: 106
+        height: 78
+      spriteId: 4b5c7fa2839ac2b46b1c677c8482cac3
+    - name: Bertha_Frame_154
+      frameIndex: 154
+      additiveSortOrder: 0
+      cellRect:
+        x: 59
+        y: 44
+        width: 118
+        height: 80
+      spriteId: 5e4c59730e3cddb4aa75276085bb0b85
+    - name: Bertha_Frame_155
+      frameIndex: 155
+      additiveSortOrder: 0
+      cellRect:
+        x: 58
+        y: 44
+        width: 120
+        height: 80
+      spriteId: a7ab0795a9c2a4543aca9639e432536e
+    - name: Bertha_Frame_156
+      frameIndex: 156
+      additiveSortOrder: 0
+      cellRect:
+        x: 57
+        y: 44
+        width: 122
+        height: 80
+      spriteId: 6dde0f28eb5847b438420c0f1de24069
+    - name: Bertha_Frame_157
+      frameIndex: 157
+      additiveSortOrder: 0
+      cellRect:
+        x: 57
+        y: 44
+        width: 122
+        height: 80
+      spriteId: fc4435219afc88345bfdf953ab302e5c
+    - name: Bertha_Frame_158
+      frameIndex: 158
+      additiveSortOrder: 0
+      cellRect:
+        x: 81
+        y: 44
+        width: 78
+        height: 80
+      spriteId: 7d8a70ba2842e4f4bba353e38603e680
+    - name: Bertha_Frame_67
+      frameIndex: 67
+      additiveSortOrder: 0
+      cellRect:
+        x: 84
+        y: 42
+        width: 167
+        height: 78
+      spriteId: 283ed848b54853b469035734027f3492
+    - name: Bertha_Frame_80
+      frameIndex: 80
+      additiveSortOrder: 0
+      cellRect:
+        x: 72
+        y: 44
+        width: 133
+        height: 75
+      spriteId: 4a34b6e85cdd01d4497b876083e8d898
+    - name: Bertha_Frame_103
+      frameIndex: 103
+      additiveSortOrder: 0
+      cellRect:
+        x: 100
+        y: 44
+        width: 77
+        height: 57
+      spriteId: e65b91608dd70e64fb616a8afeb7547e
+    - name: Bertha_Frame_175
+      frameIndex: 175
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 37
+        width: 184
+        height: 64
+      spriteId: dc052712173d2614fa8b643275b0bd5a
+    - name: Bertha_Frame_176
+      frameIndex: 176
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 32
+        width: 182
+        height: 75
+      spriteId: d9bda379a1c88b84aab6b3ed2f88ea7d
+    - name: Bertha_Frame_177
+      frameIndex: 177
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 37
+        width: 187
+        height: 75
+      spriteId: 375c3fdbd0202f74a89f09c85c8842ce
+    - name: Bertha_Frame_178
+      frameIndex: 178
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 32
+        width: 187
+        height: 76
+      spriteId: ef89cc151a950e947aa94faa33ddf616
+    - name: Bertha_Frame_179
+      frameIndex: 179
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 32
+        width: 187
+        height: 57
+      spriteId: 1d1c64ecbeb8fb7428bc6fe9a87efd8c
+    - name: Bertha_Frame_180
+      frameIndex: 180
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 32
+        width: 187
+        height: 41
+      spriteId: a1d7f527be34cb34e90462b92930071d
+    - name: Bertha_Frame_181
+      frameIndex: 181
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 32
+        width: 187
+        height: 42
+      spriteId: d323c45b420b1fe4e9785a37636c21aa
+    - name: Bertha_Frame_182
+      frameIndex: 182
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 32
+        width: 187
+        height: 38
+      spriteId: 22875422c0811e043b2e48aa9f0a8b58
+    - name: Bertha_Frame_183
+      frameIndex: 183
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 32
+        width: 187
+        height: 38
+      spriteId: 2eaa2c4f4462d1349a3c0aa2bf7ce00e
+    - name: Bertha_Frame_184
+      frameIndex: 184
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 32
+        width: 187
+        height: 38
+      spriteId: b432ac2b34c8108438bbe151f6477a35
+    - name: Bertha_Frame_96
+      frameIndex: 96
+      additiveSortOrder: 0
+      cellRect:
+        x: 40
+        y: 38
+        width: 210
+        height: 111
+      spriteId: a062e3188ae0eb146b91770c9d73299d
+    - name: Bertha_Frame_97
+      frameIndex: 97
+      additiveSortOrder: 0
+      cellRect:
+        x: 38
+        y: 37
+        width: 218
+        height: 109
+      spriteId: 71412c786015a74468f732bc9957d95c
+    - name: Bertha_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 55
+        y: 69
+        width: 99
+        height: 87
+      spriteId: 43e218d93b08e484bb02e68dcaf48ea2
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 256, y: 156}

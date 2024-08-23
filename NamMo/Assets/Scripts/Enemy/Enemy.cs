@@ -13,6 +13,9 @@ namespace Enemy
         public Action OnHit;
         public Action OnEndHit;
         public Action Dead;
+        public Action OnGroggy;
+        public Action OnEndGroggy;
+        
         public bool _isParingAvailable = false;
         public virtual void Behavire(float distance)
         {
@@ -56,5 +59,6 @@ namespace Enemy
             _enemyMovement._isHit = false;
             OnEndHit.Invoke();
         }
+        
     }
 }
