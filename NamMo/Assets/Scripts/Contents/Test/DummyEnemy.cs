@@ -6,8 +6,9 @@ using UnityEngine;
 public class DummyEnemy : MonoBehaviour
 {
     private Coroutine _attackedEffectCoroutine = null;
-    public void Damaged()
+    public void Damaged(float damage)
     {
+        Debug.Log($"Damaged : {damage}");
         if (_attackedEffectCoroutine != null)
         {
             StopCoroutine(_attackedEffectCoroutine);
