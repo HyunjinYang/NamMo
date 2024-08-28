@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
             _isFalling = true;
             if (OnStartFall != null) OnStartFall.Invoke();
         }
-        if ((_isFalling || _isJumping) && _rb.velocity.y == 0)
+        if ((_isFalling || _isJumping) && _rb.velocity.y <= 1f)
         {
             if (IsGround())
             {
@@ -230,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool IsGround(float offset = 0)
     {
-        return Physics2D.OverlapCircle(_groundCheck.position + new Vector3(offset, 0, 0), 0.2f, _groundLayer);
+        return Physics2D.OverlapCircle(_groundCheck.position + new Vector3(offset, 0, 0), 0.5f, _groundLayer);
     }
     public GameObject GetGroundFloor()
     {
