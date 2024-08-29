@@ -209,7 +209,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (isOnSlope && canWalkOnSlope)
                     {
-                        _rb.velocity = new Vector2(_speed * slopeNormalPerp.x * -_horizontalMoveValue, _speed * slopeNormalPerp.y * -_horizontalMoveValue);
+                        _rb.velocity = new Vector2(_speed * slopeNormalPerp.x * -horizontalValue, _speed * slopeNormalPerp.y * -horizontalValue);
                     }
                     else
                     {
@@ -398,11 +398,11 @@ public class PlayerMovement : MonoBehaviour
         _rb.gravityScale = 0f;
         if (_isFacingRight)
         {
-            _rb.velocity = new Vector2(transform.localScale.x * dashForce, 0f);
+            _rb.velocity = new Vector2(dashForce, 0f);
         }
         else
         {
-            _rb.velocity = new Vector2(-transform.localScale.x * dashForce, 0f);
+            _rb.velocity = new Vector2(-dashForce, 0f);
         }
         yield return new WaitForSeconds(dashTime);
         if(!(_isJumping || _isFalling))
