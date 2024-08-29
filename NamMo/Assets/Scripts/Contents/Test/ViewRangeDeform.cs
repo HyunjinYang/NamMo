@@ -35,6 +35,7 @@ public class ViewRangeDeform : MonoBehaviour
         for (int i = 0; i < _mesh.vertices.Length; i++)
         {
             _originVertices[i] = _mesh.vertices[i];
+            _originVertices[i].z = 0;
             _vertices[i] = _mesh.vertices[i];
         }
     }
