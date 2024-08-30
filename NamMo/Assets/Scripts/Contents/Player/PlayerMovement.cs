@@ -361,6 +361,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void KnockBack(float force, float power = 5)
     {
+        _rb.velocity = new Vector2(0, _rb.velocity.y);
         _rb.AddForce(new Vector2(force, 1f) * power, ForceMode2D.Impulse);
         StartCoroutine(CoKnockBack(0.5f));
     }
