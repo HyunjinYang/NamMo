@@ -10,19 +10,21 @@ namespace Enemy.MelEnemy
 {
     public class MelEnemy : Enemy
     {
-        enum State
-        {
-            Patrol,
-            Attack,
-            None
-        }
-        
         public Action OnDownAttack;
         public Action OnEndDownAttack;
 
-        public int patternCount = 0;
+        [SerializeField] public bool _isAttacking;
+
+        public bool IsAttacking
+        {
+            get
+            {
+                return _isAttacking;
+            }
+        }
         
-        [SerializeField] private State _state = State.None;
+        public StateMachine stateMachine;
+        
         [SerializeField] public EnemyBlockArea _enemyAttack1BlockArea;
         [SerializeField] public EnemyBlockArea _enemyAttack2BlockArea;
         [SerializeField] public EnemyBlockArea _enemyAttack3BlockArea;
@@ -30,114 +32,119 @@ namespace Enemy.MelEnemy
         private Animator _animator;
         private MelEnemyAttackPattern<MelEnemy> _pattern;
         private Random _rand = new Random();
-        private Coroutine _currentPattern;
-        [SerializeField] public bool _isTurm = false;
+
+        private Coroutine _attackCoroutine;
+        
         public float Attack1Time1;
         public float Attack1Time2;
         public float Attack2Time;
+        public float _distance;
         private void Start()
         {
             _animator = GetComponent<Animator>();
             SceneLinkedSMB<MelEnemy>.Initialise(_animator, this);
-            if (OnGroggy == null)
-                Debug.Log("ASDWW1");
-            _enemyAttack1BlockArea._groggy = OnGroggy;
-            _enemyAttack2BlockArea._groggy = OnGroggy;
-            _enemyAttack3BlockArea._groggy = OnGroggy;
+            
+            stateMachine = new StateMachine(this);
+            stateMachine.Initialize(stateMachine._IdelState);
+        }
+
+        public void GroggyEnter()
+        {
+            _enemyAttack1BlockArea._groggy += OnGroggy;
+            _enemyAttack2BlockArea._groggy += OnGroggy;
+            _enemyAttack3BlockArea._groggy += OnGroggy;
+        }
+
+        public void GroggyExit()
+        {
+            _enemyAttack1BlockArea._groggy -= OnGroggy;
+            _enemyAttack2BlockArea._groggy -= OnGroggy;
+            _enemyAttack3BlockArea._groggy -= OnGroggy;   
         }
 
         public override void Behavire(float distance)
         {
-            if (distance >= 3f && _state == State.None)
-            {
-                Patrol();
-                _state = State.Patrol;
-                _enemyMovement._isAttack = false;
-            }
-            else if (distance < 3f)
-            {
-                if (_state == State.Attack || _isTurm)
-                    return;
-                
-                _state = State.Attack;
-
-                AttackInit();
-                
-                var next = _rand.Next(0, 2);
-                
-                SetPattern(next);
-                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-                StartPattern();
-            }
-        }
-        
-        private void Patrol()
-        {
-            OnEndattack.Invoke();
-            _enemyMovement._isPatrol = true;
-        }
-
-        private void AttackInit()
-        {
-            if (_enemyAttack1BlockArea._groggy == null)
-                _enemyAttack1BlockArea._groggy = OnGroggy;
-            if (_enemyAttack2BlockArea._groggy == null)
-                _enemyAttack2BlockArea._groggy = OnGroggy;
-            if (_enemyAttack3BlockArea._groggy == null)
-                _enemyAttack3BlockArea._groggy = OnGroggy;
-            _enemyMovement.OnWalk.Invoke(0f);
-            _enemyMovement._isPatrol = false;
-            _enemyMovement._isAttack = true;
-        }
-
-        public void EndAttack()
-        {
-            _state = State.None;
-        }
-
-        public void IsAttackEnd()
-        {
-            _enemyMovement._isAttack = false;
-        }
-        private void SetPattern(int idx)
-        {
-            _pattern = _patternlist[idx];
-            _pattern.Initialise(this);
-        }
-
-        private void StartPattern()
-        {
-            _currentPattern = StartCoroutine(_pattern.Pattern());
-        }
-
-        public void StopPattern()
-        {
-            StopCoroutine(_currentPattern);
-            OnEndattack.Invoke();
-            OnEndDownAttack.Invoke();
-            
-            _enemyAttack1BlockArea.DeActiveBlockArea();
-            _enemyAttack2BlockArea.DeActiveBlockArea();
-            _enemyAttack3BlockArea.DeActiveBlockArea();
-            
-            _enemyAttack1BlockArea._isHit = true;
-            _enemyAttack2BlockArea._isHit = true;
-            _enemyAttack3BlockArea._isHit = true;
-        }
-
-        public void Hit()
-        {
-            _enemyAttack1BlockArea._isHit = false;
-            _enemyAttack2BlockArea._isHit = false;
-            _enemyAttack3BlockArea._isHit = false;
-            _state = State.None;
-            _enemyMovement._isHit = false;
-            OnEndHit.Invoke();
+            stateMachine.Update();
+            _distance = distance;
         }
         
         public void Dead()
         {
             Destroy(_enemyMovement.gameObject);
+        }
+
+        public void Attack()
+        {
+            _enemyMovement._isAttack = true;
+            _enemyMovement.OnWalk(0f);
+            _isAttacking = false;
+            _attackCoroutine = StartCoroutine(CoAttack());
+        }
+
+        public void EndAttack()
+        {
+            _enemyMovement._isAttack = false;
+            _isAttacking = false;
+            StopCoroutine(_attackCoroutine);
+            _pattern = null;
+        }
+        
+        public void Patrol()
+        {
+            _enemyMovement._isPatrol = true;
+        }
+
+        public void EndPatrol()
+        {
+            _enemyMovement._isPatrol = false;
+        }
+
+        public void Groggy()
+        {
+            _enemyMovement._isGroggy = true;
+        }
+
+        public void EndGroggy()
+        {
+            _enemyMovement._isGroggy = false;
+        }
+
+        public void TransitionGroggy()
+        {
+            stateMachine.TransitionState(stateMachine._GroggyState);
+        }
+
+        public void TransitionEndGroggy()
+        {
+            stateMachine.TransitionState(stateMachine._patrolstate);
+        }
+
+        public void TransitionHit()
+        {
+            stateMachine.TransitionState(stateMachine._HitState);
+        }
+
+        public void TransitionEndHit()
+        {
+            stateMachine.TransitionState(stateMachine._patrolstate);
+        }
+        
+        private IEnumerator CoAttack()
+        {
+            while (true)
+            {
+                var next = _rand.Next(0, 2);
+
+                _pattern = _patternlist[next];
+                _pattern.Initialise(this);
+                _isAttacking = true;
+                Debug.Log("sTART!");
+                yield return StartCoroutine(_pattern.Pattern());
+                _enemyAttack1BlockArea.DeActiveBlockArea();
+                _enemyAttack2BlockArea.DeActiveBlockArea();
+                _enemyAttack3BlockArea.DeActiveBlockArea();
+                yield return new WaitForSeconds(2f);
+            }
         }
 
     }

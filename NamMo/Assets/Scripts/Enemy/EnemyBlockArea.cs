@@ -33,6 +33,8 @@ namespace Enemy
                     foreach (Collider2D c in results)
                     {
                         BlockArea blockArea = c.gameObject.GetComponent<BlockArea>();
+                        if (c.gameObject.GetComponent<EnemyBlockArea>() != null)
+                            continue;
                         if (blockArea)
                         {
                             _blockCheck = true;

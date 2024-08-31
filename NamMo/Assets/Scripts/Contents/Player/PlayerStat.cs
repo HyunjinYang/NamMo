@@ -44,7 +44,7 @@ public class PlayerStat : MonoBehaviour
     }
     private void TestChangeHp(float hp, float maxHp)
     {
-        Debug.Log($"Hp : {hp}, MaxHp : {maxHp}");
+        //Debug.Log($"Hp : {hp}, MaxHp : {maxHp}");
     }
     private void TestDead()
     {

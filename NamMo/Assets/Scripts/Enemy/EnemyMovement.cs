@@ -9,14 +9,15 @@ namespace Enemy
 {
     public class EnemyMovement : PlayerMovement
     {
-        [SerializeField] private Transform _point1;
-        [SerializeField] private Transform _point2;
+        [SerializeField] protected Transform _point1;
+        [SerializeField] protected Transform _point2;
         [SerializeField] private bool _isNextPoint = false;
         [SerializeField] private bool _isWait = false;
         [SerializeField] public bool _isAttack = false;
         public bool _isHit = false;
         public bool _isDead = false;
         public bool _isPatrol = false;
+        public bool _isGroggy = false;
         private Transform _currentWayPoint;
         private float _distance = 0.1f;
         public Action OnAttack;
@@ -34,7 +35,7 @@ namespace Enemy
             if (_isHit || _isDead)
                 return;
             
-            if (!_isAttack && !_isWait && !_isPatrol)
+            if (!_isAttack && !_isWait && !_isPatrol && !_isGroggy)
             {
                 OnWalk.Invoke(1f);
                 _CharacterSprite.transform.position = Vector2.MoveTowards(_CharacterSprite.transform.position, _currentWayPoint.position,
