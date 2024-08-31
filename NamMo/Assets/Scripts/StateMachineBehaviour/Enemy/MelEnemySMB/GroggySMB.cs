@@ -8,6 +8,7 @@ namespace NamMo.Enemy.MelEnemySMB
     {
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            _monoBehaviour.TransitionGroggy();;
         }
 
         public override void OnSLStatePostEnter(Animator animator,AnimatorStateInfo stateInfo,int layerIndex) {
@@ -20,8 +21,10 @@ namespace NamMo.Enemy.MelEnemySMB
         }
         public override void OnSLStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            _monoBehaviour.EndAttack();
+            //_monoBehaviour.EndAttack();
             _monoBehaviour.OnEndGroggy();
+            if(!_monoBehaviour.ReturnIsHit())
+                _monoBehaviour.TransitionEndGroggy();
         }
     }
 }

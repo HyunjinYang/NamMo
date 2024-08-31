@@ -54,6 +54,15 @@ namespace Enemy
             Dead.Invoke();
         }
 
+        public bool ReturnIsHit()
+        {
+            return _enemyMovement._isHit;
+        }
+
+        public bool ReturnIsDead()
+        {
+            return _enemyMovement._isDead;
+        }
         public void EndHit()
         {
             _enemyMovement._isHit = false;
