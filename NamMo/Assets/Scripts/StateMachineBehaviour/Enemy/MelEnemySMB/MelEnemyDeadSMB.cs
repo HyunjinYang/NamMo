@@ -8,6 +8,7 @@ namespace NamMo.Enemy.MelEnemySMB
     {
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            _monoBehaviour.EndAttack();
         }
 
         public override void OnSLStatePostEnter(Animator animator,AnimatorStateInfo stateInfo,int layerIndex) {

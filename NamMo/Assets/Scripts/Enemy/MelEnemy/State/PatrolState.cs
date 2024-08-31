@@ -21,10 +21,20 @@ namespace Enemy.MelEnemy
             {
                 _melEnemy.stateMachine.TransitionState(_melEnemy.stateMachine._DeadState);
             }
-            
-            if (_melEnemy._distance <= 3f)
+
+            if (_melEnemy.isTest)
             {
-                _melEnemy.stateMachine.TransitionState(_melEnemy.stateMachine._AttackState);
+                if (_melEnemy._distance <= 5.7f)
+                {
+                    _melEnemy.stateMachine.TransitionState(_melEnemy.stateMachine._AttackState);
+                }
+            }
+            else
+            {
+                if (_melEnemy._distance <= 3f)
+                {
+                    _melEnemy.stateMachine.TransitionState(_melEnemy.stateMachine._AttackState);
+                }
             }
         }
 

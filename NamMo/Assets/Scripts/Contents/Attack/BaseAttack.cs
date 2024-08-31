@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -57,8 +58,10 @@ public abstract class BaseAttack : MonoBehaviour
     protected virtual void FixedUpdateAttack() { }
     protected virtual void CheckCollision(Collider2D collision)
     {
-        // °ø°ÝÀÚ¿Í Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ °°´Ù¸é return
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ return
         if (collision.gameObject == _attacker) return;
+        
+        Debug.Log(collision.gameObject.name);
         if (_attacker.GetComponent<PlayerController>())
         {
             CheckEnemy(collision);
@@ -76,7 +79,7 @@ public abstract class BaseAttack : MonoBehaviour
         if (pc == null && ba == null) return;
         if (ba)
         {
-            // ÇÃ·¹ÀÌ¾îÀÇ ¹æ¾î ¿µ¿ª¿¡ ´ê¾Ò´Ù¸é GA_BlockÂÊ ÄÚµå ½ÇÇà
+            // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ò´Ù¸ï¿½ GA_Blockï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
             if (_blockedCurrentFrame == false)
             {
                 _blockedCurrentFrame = true;
@@ -85,8 +88,8 @@ public abstract class BaseAttack : MonoBehaviour
         }
         if (pc)
         {
-            // ÇÃ·¹ÀÌ¾îÀÇ ¿µ¿ª¿¡ ´ê¾Ò´Ù¸é ¹æ¾î ¿µ¿ªµµ ´ê¾ÆÀÖ´ÂÁö Ã¼Å©, ´ê¾ÆÀÖ´Ù¸é GA_BlockÂÊ ÄÚµå ½ÇÇà
-            // ¹æ¾î(ÆÐ¸µ)¸¦ ¿ì¼±À¸·Î Ã¼Å©ÇØ¾ß ÇÏ´Âµ¥ ÇÑ ÇÁ·¹ÀÓ¿¡ °ãÃÄÀÖÀ» °æ¿ì ¾î¶² ÆÇÁ¤ÀÌ ¸ÕÀú µé¾î¿ÃÁö ¸ð¸£±â ¶§¹®
+            // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ò´Ù¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©, ï¿½ï¿½ï¿½ï¿½Ö´Ù¸ï¿½ GA_Blockï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
+            // ï¿½ï¿½ï¿½(ï¿½Ð¸ï¿½)ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ø¾ï¿½ ï¿½Ï´Âµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½î¶² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ð¸£±ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (_blockedCurrentFrame == false)
             {
                 List<Collider2D> results = new List<Collider2D>();

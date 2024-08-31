@@ -23,6 +23,8 @@ namespace Enemy
         {
             _animator = GetComponent<Animator>();
             SceneLinkedSMB<RangedEnemy>.Initialise(_animator, this);
+            _enemyBlockArea.SetAttackInfo(gameObject, 2);
+
         }
 
         enum State
@@ -57,8 +59,17 @@ namespace Enemy
 
         public void RangeAttack()
         {
-            var cur =Instantiate(archr, gameObject.transform.position, transform.rotation);
+            GameObject cur =Instantiate(archr, gameObject.transform.position, transform.rotation);
+            cur.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 1f, 4, Managers.Scene.CurrentScene.Player.gameObject);
+            cur.GetComponent<BaseProjectile>().OnHitted += ((go) =>
+            {
+                if (cur)
+                {
+                    Managers.Resource.Destroy(cur);
+                }
+            });
         }
+        
 
         private void RangeAttackInit()
         {
@@ -140,7 +151,7 @@ namespace Enemy
         IEnumerator CoAttack()
         {
             yield return new WaitForSeconds(AttackTime);
-            _enemyBlockArea.ActiveBlockArea();
+            _enemyBlockArea.ActiveAttackArea();
         }
 
     }

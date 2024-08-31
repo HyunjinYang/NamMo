@@ -34,6 +34,8 @@ namespace Enemy.MelEnemy
         private Random _rand = new Random();
 
         private Coroutine _attackCoroutine;
+
+        public bool isTest = false;
         
         public float Attack1Time1;
         public float Attack1Time2;
@@ -46,6 +48,11 @@ namespace Enemy.MelEnemy
             
             stateMachine = new StateMachine(this);
             stateMachine.Initialize(stateMachine._IdelState);
+            
+            _enemyAttack1BlockArea.SetAttackInfo(gameObject, 2);
+            _enemyAttack2BlockArea.SetAttackInfo(gameObject, 2);
+            _enemyAttack3BlockArea.SetAttackInfo(gameObject, 2);
+
         }
 
         public void GroggyEnter()
@@ -83,10 +90,16 @@ namespace Enemy.MelEnemy
 
         public void EndAttack()
         {
+            Debug.Log("End Attack!3");
             _enemyMovement._isAttack = false;
             _isAttacking = false;
+            OnEndattack.Invoke();
+            OnEndDownAttack.Invoke();
             StopCoroutine(_attackCoroutine);
             _pattern = null;
+            _enemyAttack1BlockArea.DeActiveAttackArea();
+            _enemyAttack2BlockArea.DeActiveAttackArea();
+            _enemyAttack3BlockArea.DeActiveAttackArea();
         }
         
         public void Patrol()
@@ -139,10 +152,11 @@ namespace Enemy.MelEnemy
                 _pattern.Initialise(this);
                 _isAttacking = true;
                 Debug.Log("sTART!");
+                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
                 yield return StartCoroutine(_pattern.Pattern());
-                _enemyAttack1BlockArea.DeActiveBlockArea();
-                _enemyAttack2BlockArea.DeActiveBlockArea();
-                _enemyAttack3BlockArea.DeActiveBlockArea();
+                _enemyAttack1BlockArea.DeActiveAttackArea();
+                _enemyAttack2BlockArea.DeActiveAttackArea();
+                _enemyAttack3BlockArea.DeActiveAttackArea();
                 yield return new WaitForSeconds(2f);
             }
         }

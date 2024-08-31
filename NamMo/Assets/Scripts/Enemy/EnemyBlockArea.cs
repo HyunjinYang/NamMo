@@ -5,59 +5,24 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyBlockArea : BlockArea
+    public class EnemyBlockArea : BaseAttack, IParryingable
     {
         public bool _isHit = false;
         private bool _blockCheck = false;
-        public Action _groggy; 
-        protected override void OnTriggerEnter2D(Collider2D collision)
+        public Action _groggy;
+
+        private BoxCollider2D _boxCollider;
+
+        protected override void Init()
         {
-            PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
-            BlockArea ba = collision.gameObject.GetComponent<BlockArea>();
-            if (pc == null && ba == null) return;
-            if (ba)
-            {
-                if (_blockCheck == false)
-                {
-                    _blockCheck = true;
-                    //ba.OnBlockAreaTriggerEntered.Invoke(gameObject);
-                }
-            }
-            if (pc)
-            {
-                if (_blockCheck == false)
-                {
-                    List<Collider2D> results = new List<Collider2D>();
-                    ContactFilter2D filter = new ContactFilter2D().NoFilter();
-                    GetComponent<Collider2D>().OverlapCollider(filter, results);
-                    foreach (Collider2D c in results)
-                    {
-                        BlockArea blockArea = c.gameObject.GetComponent<BlockArea>();
-                        if (c.gameObject.GetComponent<EnemyBlockArea>() != null)
-                            continue;
-                        if (blockArea)
-                        {
-                            _blockCheck = true;
-                            blockArea.OnBlockAreaTriggerEntered.Invoke(gameObject);
-                            if (_groggy != null)
-                                _groggy.Invoke();
-                            break;
-                        }
-                    }
-                }
-                pc.GetPlayerCombatComponent().GetDamaged(1, transform.position);
-            }
-            if (_blockCheck)
-            {
-                StartCoroutine(CoRefreshBlockCheck());
-            }
-            DeActiveBlockArea();
+            base.Init();
+            _boxCollider = _collider as BoxCollider2D;
+            _boxCollider.enabled = false;
         }
-        IEnumerator CoRefreshBlockCheck()
+
+        public void Parried(GameObject attacker, GameObject target = null)
         {
-            yield return new WaitForEndOfFrame();
-            _blockCheck = false;
+            _groggy.Invoke();
         }
-        
     }
 }

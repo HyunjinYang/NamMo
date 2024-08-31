@@ -8,11 +8,18 @@ namespace Enemy.MelEnemy
         public override IEnumerator Pattern()
         {
             _gameObject.Onattack.Invoke();
-            Debug.Log(_gameObject.Attack1Time1);
             yield return new WaitForSeconds(_gameObject.Attack1Time1);
-            _gameObject._enemyAttack1BlockArea.ActiveBlockArea();
+            
+            if (!_gameObject._isAttacking)
+                yield break;
+            
+            _gameObject._enemyAttack1BlockArea.ActiveAttackArea();
             yield return new WaitForSeconds(_gameObject.Attack1Time2);
-            _gameObject._enemyAttack2BlockArea.ActiveBlockArea();
+            
+            if (!_gameObject._isAttacking)
+                yield break;
+            
+            _gameObject._enemyAttack2BlockArea.ActiveAttackArea();
             yield return new WaitForSeconds(0.2f);
             _gameObject.OnEndattack.Invoke();
         }

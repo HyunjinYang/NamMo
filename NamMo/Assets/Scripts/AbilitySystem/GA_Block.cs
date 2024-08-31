@@ -94,6 +94,10 @@ public class GA_Block : GameAbility
                         StartCoroutine(CoCancelAbility(go));
                     }
                 }
+                else
+                {
+                    Debug.Log(go.name);
+                }
                 
             }
         }
