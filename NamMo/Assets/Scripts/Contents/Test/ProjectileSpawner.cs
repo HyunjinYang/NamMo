@@ -20,7 +20,14 @@ public class ProjectileSpawner : MonoBehaviour
         while (true)
         {
             GameObject projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-            projectile.GetComponent<BaseProjectile>().SetProjectileInfo(Managers.Scene.CurrentScene.Player.gameObject, _speed, 1f, null);
+            projectile.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 1f, _speed, Managers.Scene.CurrentScene.Player.gameObject);
+            projectile.GetComponent<BaseProjectile>().OnHitted += ((go) =>
+            {
+                if (projectile)
+                {
+                    Managers.Resource.Destroy(projectile);
+                }
+            });
             yield return new WaitForSeconds(3f);
         }
     }

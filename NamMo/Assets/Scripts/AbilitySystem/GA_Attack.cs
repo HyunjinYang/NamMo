@@ -28,7 +28,7 @@ public class GA_Attack : GameAbility
         {
             base.ActivateAbility();
             _attackCoroutine = StartCoroutine(CoAttack());
-            _asc.GetPlayerController().GetAttackArea().OnAttackAreaTriggerEntered += HandleTriggeredObject;
+            _asc.GetPlayerController().GetAttackArea().OnHitted += HandleTriggeredObject;
         }
         else
         {
@@ -55,7 +55,7 @@ public class GA_Attack : GameAbility
     }
     protected override void EndAbility()
     {
-        _asc.GetPlayerController().GetAttackArea().OnAttackAreaTriggerEntered -= HandleTriggeredObject;
+        _asc.GetPlayerController().GetAttackArea().OnHitted -= HandleTriggeredObject;
         if (_reserveNextAttack)
         {
             ActivateAbility();
@@ -74,7 +74,6 @@ public class GA_Attack : GameAbility
     private void HandleTriggeredObject(GameObject go)
     {
         Debug.Log("Attack Hit");
-        go.GetComponent<Enemy.Enemy>().Hit(1);
     }
     IEnumerator CoAttack()
     {
@@ -89,6 +88,7 @@ public class GA_Attack : GameAbility
         
         yield return new WaitForSeconds(currComboAttackInfo.attackMoment);
 
+        _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, currComboAttackInfo.attackRate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(currComboAttackInfo.attackRange, currComboAttackInfo.attackOffset);
         _asc.GetPlayerController().GetAttackArea().ActiveAttackArea();
         

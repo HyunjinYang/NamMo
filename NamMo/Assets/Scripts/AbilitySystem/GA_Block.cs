@@ -78,25 +78,23 @@ public class GA_Block : GameAbility
             if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke(_overlapCnt);
         }
     }
-    private bool canceled = false;
     private void HandleTriggeredObject(GameObject go)
     {
         if (_isPerfectParryingTiming)
         {
-            if (_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false)
+            if (true/*_asc.IsExsistTag(Define.GameplayTag.Player_State_Hurt) == false*/)
             {
-                // TODO 패링 기획에 따라 변경
-                if (go.GetComponent<BaseProjectile>())
+                IParryingable parryingable = go.GetComponent<IParryingable>();
+                if (parryingable != null)
                 {
-                    BaseProjectile projectile = go.GetComponent<BaseProjectile>();
-                    projectile.SetProjectileInfo(null, projectile.Speed, projectile.Damage, _asc.GetPlayerController().gameObject);
-                    projectile.Parried();
+                    parryingable.Parried(_asc.GetPlayerController().gameObject, null);
+                    if (_reserveParrying == false)
+                    {
+                        _reserveParrying = true;
+                        StartCoroutine(CoCancelAbility(go));
+                    }
                 }
-                _reserveParrying = true;
-                if (canceled == false)
-                {
-                    StartCoroutine(CoCancelAbility());
-                }
+                
             }
         }
     }
@@ -121,14 +119,12 @@ public class GA_Block : GameAbility
         _isPerfectParryingTiming = false;
         _cacluateParryingTimingCoroutine = null;
     }
-    IEnumerator CoCancelAbility()
+    IEnumerator CoCancelAbility(GameObject go)
     {
-        canceled = true;
         yield return new WaitForEndOfFrame();
-        CancelAbility();
+        _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         RefreshCoolTime();
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
-        canceled = false;
         _reserveParrying = false;
     }
 }

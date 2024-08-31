@@ -6,7 +6,8 @@ using UnityEngine;
 public class GA_AirAttack : GameAbility
 {
     [SerializeField] private float _attackTime;
-    [SerializeField] private float _attackRate;
+    [SerializeField] private float _attack1Rate;
+    [SerializeField] private float _attack2Rate;
     [SerializeField] private float _attack1Moment;
     [SerializeField] private float _attack2Moment;
     [SerializeField] private Vector2 _attackRange1;
@@ -18,7 +19,7 @@ public class GA_AirAttack : GameAbility
     {
         base.ActivateAbility();
         _airAttackCoroutine = StartCoroutine(CoAirAttack());
-        _asc.GetPlayerController().GetAttackArea().OnAttackAreaTriggerEntered += HandleTriggeredObject;
+        _asc.GetPlayerController().GetAttackArea().OnHitted += HandleTriggeredObject;
 
     }
     public override void CancelAbility()
@@ -33,18 +34,18 @@ public class GA_AirAttack : GameAbility
     protected override void EndAbility()
     {
         base.EndAbility();
-        _asc.GetPlayerController().GetAttackArea().OnAttackAreaTriggerEntered -= HandleTriggeredObject;
+        _asc.GetPlayerController().GetAttackArea().OnHitted -= HandleTriggeredObject;
         _airAttackCoroutine = null;
     }
     private void HandleTriggeredObject(GameObject go)
     {
         Debug.Log("Attack Hit");
-        go.GetComponent<Enemy.Enemy>().Hit(1);
     }
     IEnumerator CoAirAttack()
     {
         yield return new WaitForSeconds(_attack1Moment);
 
+        _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, _attack1Rate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackRange1, _attackOffset1);
         _asc.GetPlayerController().GetAttackArea().ActiveAttackArea();
 
@@ -54,6 +55,7 @@ public class GA_AirAttack : GameAbility
 
         yield return new WaitForSeconds(_attack2Moment - _attack1Moment);
 
+        _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, _attack2Rate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackRange2, _attackOffset2);
         _asc.GetPlayerController().GetAttackArea().ActiveAttackArea();
 

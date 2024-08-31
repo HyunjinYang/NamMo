@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// lagacy class
 public class AttackArea : MonoBehaviour
 {
     private BoxCollider2D _collider;

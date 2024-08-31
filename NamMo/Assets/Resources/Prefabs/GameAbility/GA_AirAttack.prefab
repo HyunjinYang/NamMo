@@ -51,7 +51,8 @@ MonoBehaviour:
   _cancelAbilities: 0100000007000000
   _coolTime: 0
   _attackTime: 0.4
-  _attackRate: 0
+  _attack1Rate: 1
+  _attack2Rate: 1
   _attack1Moment: 0.1
   _attack2Moment: 0.25
   _attackRange1: {x: 2, y: 1}

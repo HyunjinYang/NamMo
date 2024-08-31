@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultProjectile : BaseProjectile
+public class DefaultProjectile : BaseProjectile, IParryingable
 {
     private Vector2 _direction;
-    public override void SetProjectileInfo(GameObject target, float speed, float damage, GameObject owner = null)
+    public override void SetAttackInfo(GameObject attacker, float damage, float speed = 0, GameObject target = null)
     {
-        base.SetProjectileInfo(target, speed, damage, owner);
-        if (target)
-        {
-            _direction = (target.transform.position - transform.position).normalized;
-        }
+        base.SetAttackInfo(attacker, damage, speed, target);
+        _target = target;
+        _direction = (target.transform.position - transform.position).normalized;
     }
 
-    protected override void UpdateProjectile()
+    protected override void UpdateAttack()
     {
-        gameObject.transform.position += new Vector3(_direction.x, _direction.y) * _projectileInfo.speed * Time.deltaTime;
+        gameObject.transform.position += new Vector3(_direction.x, _direction.y) * _speed * Time.deltaTime;
     }
-    public override void Parried()
+
+    public void Parried(GameObject attacker, GameObject target = null)
     {
+        _attacker = attacker;
+        _target = target;
         _direction *= -1;
     }
 }
