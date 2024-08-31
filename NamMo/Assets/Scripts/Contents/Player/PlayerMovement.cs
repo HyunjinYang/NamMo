@@ -27,14 +27,15 @@ public class PlayerMovement : MonoBehaviour
     private float slopeSideAngle;
     private float lastSlopeAngle;
     [SerializeField] private bool _isGround;
+    [SerializeField] private bool _isFrontGround;
 
     PlayerController _pc;
     protected Rigidbody2D _rb;
 
     private float _horizontalMoveValue;
     private float _originalGravity;
+    private float _dashForce;
     private bool _isFacingRight = true;
-    private bool _needCheckFrontGround = false;
     [SerializeField] private bool _isDashing = false;
     [SerializeField] private bool _isJumping = false;
     [SerializeField] private bool _isFalling = false;
@@ -91,7 +92,8 @@ public class PlayerMovement : MonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
-        CheckGround();
+        _isGround = CheckGround();
+        _isFrontGround = CheckGround(1);
         SlopeCheck();
         CheckCurrentState();
         ApplyMove();
@@ -101,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     #region Private Method
     private void RefreshHorizontalMoveValue(float value)
     {
-        if (_isDashing || _reserveDash || _canMove == false)
+        if (_dashCoroutine != null || _reserveDash || _canMove == false)
         {
             _reservedInputAction = () =>
             {
@@ -124,25 +126,31 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
     }
-    private void CheckGround(float offset = 0)
+    private bool CheckGround(float offset = 0)
     {
-        Collider2D col = Physics2D.OverlapCircle(_groundCheck.position + new Vector3(offset, 0, 0), _groundCheckRadius, _groundLayer);
+        Vector3 offsetV;
+        if (_isFacingRight)
+        {
+            offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0) * offset * -1;
+        }
+        else
+        {
+            offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0) * offset;
+        }
+        Collider2D col = Physics2D.OverlapCircle(_groundCheck.position + offsetV, _groundCheckRadius, _groundLayer);
         if (col == null)
         {
-            _isGround = false;
-            return;
+            return false;
         }
         if (col.gameObject.GetComponent<DownJumpFloor>() == null)
         {
-            _isGround = true;
-            return;
+            return true;
         }
         if (col.gameObject.GetComponent<DownJumpFloor>().IgnoreGroundCheck)
         {
-            _isGround = false;
-            return;
+            return false;
         }
-        _isGround = true;
+        return true;
     }
     protected virtual void Flip()
     {
@@ -160,7 +168,6 @@ public class PlayerMovement : MonoBehaviour
             _rb.gravityScale = _originalGravity;
         }
         _isDashing = false;
-        _needCheckFrontGround = false;
         if (_reservedInputAction != null && _reserveDash == false)
         {
             _reservedInputAction.Invoke();
@@ -195,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyMove()
     {
         
-        if (_isDashing == false && _reserveDash == false)
+        if (_dashCoroutine == null && _reserveDash == false)
         {
             {
                 float horizontalValue = _horizontalMoveValue;
@@ -223,15 +230,23 @@ public class PlayerMovement : MonoBehaviour
                 if (OnWalk != null) OnWalk.Invoke(_horizontalMoveValue);
             }
         }
-        
-        if (_isDashing && _needCheckFrontGround)
+
+        if (_isDashing)
         {
-            float offset = 1f;
-            if (_isFacingRight == false) offset *= -1;
-            if (_isGround == false)// TODO
+            if (_isGround && _isFrontGround == false)
             {
                 _rb.velocity = Vector2.zero;
-                _needCheckFrontGround = false;
+            }
+            else
+            {
+                if (_isFacingRight)
+                {
+                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce * -1;
+                }
+                else
+                {
+                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce;
+                }
             }
         }
     }
@@ -289,6 +304,11 @@ public class PlayerMovement : MonoBehaviour
 
             Debug.DrawRay(hit.point, slopeNormalPerp, Color.blue);
             Debug.DrawRay(hit.point, hit.normal, Color.green);
+
+        }
+        else
+        {
+            slopeNormalPerp = Vector2.left;
 
         }
 
@@ -386,27 +406,17 @@ public class PlayerMovement : MonoBehaviour
     // -------------------- Coroutine --------------------
     IEnumerator CoDash(float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime)
     {
+        _dashForce = dashForce;
         if (dashType == DashType.DefaultDash)
         {
             if (OnDashStart != null) OnDashStart.Invoke();
         }
-        else
-        {
-            _needCheckFrontGround = true;
-        }
         _isDashing = true;
         if (_reserveDash) _reserveDash = false;
         _rb.gravityScale = 0f;
-        if (_isFacingRight)
-        {
-            _rb.velocity = new Vector2(dashForce, 0f);
-        }
-        else
-        {
-            _rb.velocity = new Vector2(-dashForce, 0f);
-        }
         yield return new WaitForSeconds(dashTime);
-        if(!(_isJumping || _isFalling))
+        _isDashing = false;
+        if (!(_isJumping || _isFalling))
         {
             _rb.velocity = Vector2.zero;
         }
@@ -428,5 +438,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
+        Vector3 offsetV;
+        if (_isFacingRight)
+        {
+            offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0)  * -1;
+        }
+        else
+        {
+            offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0);
+        }
+        Gizmos.DrawWireSphere(_groundCheck.position + offsetV, _groundCheckRadius);
     }
 }

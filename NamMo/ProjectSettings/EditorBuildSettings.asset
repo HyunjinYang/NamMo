@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CaveScene.unity
+    guid: 9a1ac232c3ce27c49b03e0fd4b74041a
+  - enabled: 1
     path: Assets/Scenes/TestScene_Kjh.unity
     guid: dbddf515f057091419f423c8a842cd8d
   - enabled: 1
