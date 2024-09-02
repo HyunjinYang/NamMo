@@ -22,6 +22,12 @@ public class PlayerStat : MonoBehaviour
     {
         _pc = pc;
     }
+    public void SetHealthInfo(float hp, float maxHp)
+    {
+        _hp = hp;
+        _maxHp = maxHp;
+        if (OnHpChanged != null) OnHpChanged.Invoke(_hp, _maxHp);
+    }
     public void ApplyDamage(float damage)
     {
         if (_hp <= damage)

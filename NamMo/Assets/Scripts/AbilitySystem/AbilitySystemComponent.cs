@@ -32,6 +32,7 @@ public class AbilitySystemComponent : MonoBehaviour
         GameAbility ga = null;
         if (_abilities.TryGetValue(tag, out ga))
         {
+            Destroy(ga.gameObject);
             _abilities.Remove(tag);
         }
         else
@@ -141,9 +142,22 @@ public class AbilitySystemComponent : MonoBehaviour
         _abilities.TryGetValue(tag, out ga);
         return ga;
     }
+    public List<Define.GameplayAbility> GetOwnedAbilities()
+    {
+        List<Define.GameplayAbility> abilities = new List<Define.GameplayAbility>();
+        foreach(Define.GameplayAbility ability in _abilities.Keys)
+        {
+            abilities.Add(ability);
+        }
+        return abilities;
+    }
     public void Clear()
     {
         _tagContainer.Clear();
+        foreach(GameAbility abilityTag in _abilities.Values)
+        {
+            Destroy(abilityTag.gameObject);
+        }
         _abilities.Clear();
         _reservedAbilities.Clear();
         _reservedCancelAbilities.Clear();

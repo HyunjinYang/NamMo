@@ -24,7 +24,6 @@ public partial class PlayerController : MonoBehaviour
     private bool _pushDown = false;
     private void Awake()
     {
-        
         Managers.Scene.CurrentScene.SetPlayerController(this);
 
         _pm = gameObject.GetComponent<PlayerMovement>();
@@ -58,8 +57,21 @@ public partial class PlayerController : MonoBehaviour
         // 마지막 저장 정보를 가져와서 리스폰시킨다.
         // 체력, 파동횟수, 보유 ability
 
-        //tmp
-        _ps.ApplyHeal(_ps.MaxHp);
+        PlayerData playerData = Managers.Data.PlayerData;
+
+        _ps.SetHealthInfo(playerData.Hp, playerData.MaxHp);
+        gameObject.transform.position = playerData.Position;
+        // 씬은 TODO
+        //_asc.Clear();
+        foreach(Define.GameplayAbility ability in playerData.Abilities)
+        {
+            _asc.GiveAbility(ability);
+        }
+        GA_WaveDetect waveDetectAbility = _asc.GetAbility(Define.GameplayAbility.GA_WaveDetect) as GA_WaveDetect;
+        if (waveDetectAbility)
+        {
+            waveDetectAbility.RemainUseCnt = playerData.WaveDetectCnt;
+        }
     }
 }
 // Handle Input
