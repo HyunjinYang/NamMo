@@ -34,7 +34,6 @@ public class PlayerCombatComponent : MonoBehaviour
             {
                 float force = 1;
                 if (transform.position.x < attackPos.x) force = -1;
-                Debug.Log(force);
                 (_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackDirection(force);
                 _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
             }

@@ -30,7 +30,18 @@ public class GA_WaveDetect : GameAbility
     private List<DummyWaveEnemy> waveEnemies = new List<DummyWaveEnemy>();
 
     public Action<int> OnRemainUseCntChanged;
-    public int RemainUseCnt { get {  return _remainUseCnt; } }
+    public int RemainUseCnt 
+    { 
+        get 
+        {  
+            return _remainUseCnt; 
+        }
+        set
+        {
+            _remainUseCnt = value;
+            if (OnRemainUseCntChanged != null) OnRemainUseCntChanged.Invoke(_remainUseCnt);
+        }
+    }
     protected override void Init()
     {
         base.Init();

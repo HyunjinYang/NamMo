@@ -17,11 +17,16 @@ public class PlayerStat : MonoBehaviour
     private void Start()
     {
         OnHpChanged += TestChangeHp;
-        OnDead += TestDead;
     }
     public void SetPlayerController(PlayerController pc)
     {
         _pc = pc;
+    }
+    public void SetHealthInfo(float hp, float maxHp)
+    {
+        _hp = hp;
+        _maxHp = maxHp;
+        if (OnHpChanged != null) OnHpChanged.Invoke(_hp, _maxHp);
     }
     public void ApplyDamage(float damage)
     {
@@ -45,9 +50,5 @@ public class PlayerStat : MonoBehaviour
     private void TestChangeHp(float hp, float maxHp)
     {
         //Debug.Log($"Hp : {hp}, MaxHp : {maxHp}");
-    }
-    private void TestDead()
-    {
-        Debug.Log("Dead");
     }
 }
