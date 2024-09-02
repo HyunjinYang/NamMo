@@ -10,14 +10,15 @@ namespace Enemy.Boss.MiniBoss
             _gameObject.MelAttack();
 
             yield return new WaitForSeconds(_gameObject.melAttack1Time);
-            _gameObject._enemyMelAttack1BlockArea.ActiveBlockArea();
+            _gameObject.EnemyMelAttack1AttackArea.ActiveAttackArea();
             yield return new WaitForSeconds(_gameObject.melAttack2Time);
-            _gameObject._enemyMelAttack2BlockArea.ActiveBlockArea();
+            _gameObject.EnemyMelAttack2AttackArea.ActiveAttackArea();
 
             if (_gameObject._isMelAttack == 1)
             {
+                Debug.Log("Attack3!!");
                 yield return new WaitForSeconds(_gameObject.melAttack3Time);
-                _gameObject._enemyMelAttack3BlockArea.ActiveBlockArea();
+                _gameObject.EnemyMelAttack3AttackArea.ActiveAttackArea();
             }
             
             _gameObject.EndMelAttack();

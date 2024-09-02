@@ -16,7 +16,7 @@ namespace Enemy.MelEnemy
 
         public void Update()
         {
-            if (_MelEnemy._distance <= 6f)
+            if (_MelEnemy._distance <= 8f)
             {
                 _MelEnemy.stateMachine.TransitionState(_MelEnemy.stateMachine._patrolstate);
                 return;

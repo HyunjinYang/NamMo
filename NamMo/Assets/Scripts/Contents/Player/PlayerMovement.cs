@@ -174,13 +174,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CheckCurrentState()
     {
-        // ³«ÇÏ
+        // ï¿½ï¿½ï¿½ï¿½
         if (_rb.velocity.y <= 0f && !_isFalling && !_isGround)
         {
             _isFalling = true;
             if (OnStartFall != null) OnStartFall.Invoke();
         }
-        // ÂøÁö
+        // ï¿½ï¿½ï¿½ï¿½
         if ((_isFalling || _isJumping) && _rb.velocity.y <= 1f)
         {
             if (_isGround)
@@ -427,6 +427,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
+        //Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
     }
 }

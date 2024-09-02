@@ -20,9 +20,19 @@ namespace Enemy.MelEnemy
 
         public void Update()
         {
-            if (_MelEnemy._distance > 3.9f && !_MelEnemy.IsAttacking)
+            if (_MelEnemy.isTest)
             {
-                _MelEnemy.stateMachine.TransitionState(_MelEnemy.stateMachine._patrolstate);
+                if (_MelEnemy._distance > 6.7f && !_MelEnemy.IsAttacking)
+                {
+                    _MelEnemy.stateMachine.TransitionState(_MelEnemy.stateMachine._patrolstate);
+                }
+            }
+            else
+            {
+                if (_MelEnemy._distance > 3.9f && !_MelEnemy.IsAttacking)
+                {
+                    _MelEnemy.stateMachine.TransitionState(_MelEnemy.stateMachine._patrolstate);
+                }
             }
         }
 

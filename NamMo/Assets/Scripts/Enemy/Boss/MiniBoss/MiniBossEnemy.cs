@@ -14,10 +14,10 @@ namespace Enemy.Boss.MiniBoss
         [SerializeField] private MiniBossMeleeAttackPattern _miniBossMeleeAttackPattern;
         [SerializeField] private MiniBossLandAttackPattern _miniBossLandAttackPattern;
         
-        [SerializeField] public EnemyBlockArea _enemyMelAttack1BlockArea;
-        [SerializeField] public EnemyBlockArea _enemyMelAttack2BlockArea;
-        [SerializeField] public EnemyBlockArea _enemyMelAttack3BlockArea;
-        [SerializeField] public EnemyBlockArea _enemyDashAttackBlockArea;
+        [SerializeField] public EnemyAttackArea EnemyMelAttack1AttackArea;
+        [SerializeField] public EnemyAttackArea EnemyMelAttack2AttackArea;
+        [SerializeField] public EnemyAttackArea EnemyMelAttack3AttackArea;
+        [SerializeField] public EnemyAttackArea EnemyDashAttackAttackArea;
 
         public float melAttack1Time;
         public float melAttack2Time;
@@ -54,12 +54,25 @@ namespace Enemy.Boss.MiniBoss
             _miniBossDashAttackPattern.Initialise(this);
             _miniBossLandAttackPattern.Initialise(this);
             _miniBossMeleeAttackPattern.Initialise(this);
+            
+            EnemyMelAttack1AttackArea.SetAttackInfo(gameObject, 2);
+            EnemyMelAttack2AttackArea.SetAttackInfo(gameObject, 2);
+            EnemyMelAttack3AttackArea.SetAttackInfo(gameObject, 2);
+            EnemyDashAttackAttackArea.SetAttackInfo(gameObject, 2);
         }
 
         public override void Behavire(float distance)
         {
             _miniBossStateMachine.Update();
             _distance = distance;
+        }
+
+        public void GroggyEnter()
+        {
+            EnemyMelAttack1AttackArea._groggy += OnGroggy;
+            EnemyMelAttack2AttackArea._groggy += OnGroggy;
+            EnemyMelAttack3AttackArea._groggy += OnGroggy;
+            EnemyDashAttackAttackArea._groggy += OnGroggy;
         }
         
 
@@ -85,6 +98,7 @@ namespace Enemy.Boss.MiniBoss
 
         public void EndMelAttack()
         {
+            
             if(_isMelAttack == 0)
                 OnEndattack.Invoke();
             else
@@ -93,13 +107,34 @@ namespace Enemy.Boss.MiniBoss
         
         public void DashAttack()
         {
-
+            OnDashAttack.Invoke();
         }
 
+        public void EndDashAttack()
+        {
+            OnEndDashAttack.Invoke();
+        }
+
+
+        public void DeActivateAttackArea()
+        {
+            EnemyDashAttackAttackArea.DeActiveAttackArea();
+            EnemyMelAttack1AttackArea.DeActiveAttackArea();
+            EnemyMelAttack2AttackArea.DeActiveAttackArea();
+            EnemyMelAttack3AttackArea.DeActiveAttackArea();
+        }
+        
         public void MelAttackPatternStart()
         {
             Debug.Log("MelAttack Start");
+            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
             StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
+        }
+
+        public void DashAttackPatternStart()
+        {
+            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            StartCoroutine(_miniBossDashAttackPattern.Pattern());
         }
 
         public void StartTurm()

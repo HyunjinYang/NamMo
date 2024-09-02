@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Enemy.MelEnemy
 {
     public class GroggyState: IStateClass
@@ -10,6 +12,7 @@ namespace Enemy.MelEnemy
         }
         public void Enter()
         {
+            Debug.Log("112S");
             _MelEnemy.Groggy();
         }
 

@@ -1,4 +1,5 @@
 using Enemy.MelEnemy;
+using UnityEngine;
 
 namespace Enemy.Boss.MiniBoss.State
 {
@@ -13,7 +14,7 @@ namespace Enemy.Boss.MiniBoss.State
         
         public void Enter()
         {
-            
+            Debug.Log("PatrolState");   
         }
 
         public void Update()
