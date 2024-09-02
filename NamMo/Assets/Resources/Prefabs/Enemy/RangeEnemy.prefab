@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dd757a44174743ad2e256d6c2b7d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isHit: 0
 --- !u!61 &1296114896372936913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -326,6 +327,13 @@ MonoBehaviour:
   _CharacterSprite: {fileID: 5658804607075136401}
   _speed: 3
   _jumpForce: 0
+  maxSlopeAngle: 0
+  _groundCheckRadius: 0
+  slopeCheckDistance: 0
+  noFriction: {fileID: 0}
+  fullFriction: {fileID: 0}
+  isOnSlope: 0
+  _isGround: 0
   _isDashing: 0
   _isJumping: 0
   _isFalling: 0
@@ -339,6 +347,7 @@ MonoBehaviour:
   _isHit: 0
   _isDead: 0
   _isPatrol: 0
+  _isGroggy: 0
   _playerposition: {fileID: 0}
   direct: 1
 --- !u!1 &5441215750628603753
@@ -418,7 +427,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8095168347758986007}
   - component: {fileID: 7730742191598119379}
-  - component: {fileID: 3046799432832317460}
   - component: {fileID: 2654524961557707547}
   - component: {fileID: 906190700937687674}
   - component: {fileID: 4521647291276193697}
@@ -469,7 +477,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6eae3243d3e66343a4ccc9855f3f564, type: 2}
+  - {fileID: 2100000, guid: 0e5b3cdf1ecca494aa0661a3d4e3d706, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -487,8 +495,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1322050693
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cbb01266362469e489d93216c6b44129, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -501,22 +509,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3046799432832317460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5658804607075136401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76b45cfa4fad4c39b4b2b3f67694e1d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  _enemy: {fileID: 2654524961557707547}
 --- !u!114 &2654524961557707547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +525,7 @@ MonoBehaviour:
   _enemyMovement: {fileID: 471647164062134601}
   _isParingAvailable: 0
   AttackTime: 0.25
-  archr: {fileID: 1875608416882566130, guid: 3f928b261a6e6ff4bbe5b4ab170af3ab, type: 3}
+  archr: {fileID: 5158442452074501366, guid: 62b5704ed77ecfb499ceedfc0bff395c, type: 3}
   _enemyBlockArea: {fileID: 942597979863746517}
   _state: 3
 --- !u!95 &906190700937687674

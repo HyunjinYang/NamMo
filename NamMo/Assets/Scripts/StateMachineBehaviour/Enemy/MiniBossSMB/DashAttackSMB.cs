@@ -1,18 +1,17 @@
-using Enemy.MelEnemy;
+using Enemy.Boss.MiniBoss;
 using UnityEngine;
 using UnityEngine.Animations;
 
-namespace NamMo.Enemy.MelEnemySMB
+namespace NamMo.Enemy.MiniBossSMB
 {
-    public class MelEnemyDeadSMB: SceneLinkedSMB<MelEnemy>
+    public class DashAttackSMB: SceneLinkedSMB<MiniBossEnemy>
     {
         public override void OnSLStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            _monoBehaviour.EndAttack();
+            
         }
 
         public override void OnSLStatePostEnter(Animator animator,AnimatorStateInfo stateInfo,int layerIndex) {
-            
         }
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex,
             AnimatorControllerPlayable controller)
@@ -21,7 +20,7 @@ namespace NamMo.Enemy.MelEnemySMB
         }
         public override void OnSLStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            _monoBehaviour.Dead();
+            _monoBehaviour._isAttacking = false;
         }
     }
 }

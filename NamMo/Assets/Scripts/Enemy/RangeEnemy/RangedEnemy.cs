@@ -15,7 +15,7 @@ namespace Enemy
         [SerializeField] private float AttackTime;
         
         [SerializeField] private GameObject archr;
-        [SerializeField] private EnemyBlockArea _enemyBlockArea;
+        [SerializeField] private EnemyAttackArea _enemyAttackArea;
         private Animator _animator;
         
 
@@ -23,6 +23,8 @@ namespace Enemy
         {
             _animator = GetComponent<Animator>();
             SceneLinkedSMB<RangedEnemy>.Initialise(_animator, this);
+            _enemyAttackArea.SetAttackInfo(gameObject, 2);
+
         }
 
         enum State
@@ -35,6 +37,11 @@ namespace Enemy
 
         [SerializeField] private State _state = State.None;
 
+        public void GroggyEnter()
+        {
+            _enemyAttackArea._groggy += OnGroggy;
+        }
+        
         public override void Behavire(float distance)
         {
             if (distance >= 6.5f)
@@ -57,8 +64,17 @@ namespace Enemy
 
         public void RangeAttack()
         {
-            var cur =Instantiate(archr, gameObject.transform.position, transform.rotation);
+            GameObject cur =Instantiate(archr, gameObject.transform.position, transform.rotation);
+            cur.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 1f, 4, Managers.Scene.CurrentScene.Player.gameObject);
+            cur.GetComponent<BaseProjectile>().OnHitted += ((go) =>
+            {
+                if (cur)
+                {
+                    Managers.Resource.Destroy(cur);
+                }
+            });
         }
+        
 
         private void RangeAttackInit()
         {
@@ -86,6 +102,7 @@ namespace Enemy
 
                 return;
             }
+            GroggyEnter();
             Onattack.Invoke();
             _enemyMovement.OnWalk(0f);
             _enemyMovement._isPatrol = false;
@@ -140,7 +157,7 @@ namespace Enemy
         IEnumerator CoAttack()
         {
             yield return new WaitForSeconds(AttackTime);
-            _enemyBlockArea.ActiveBlockArea();
+            _enemyAttackArea.ActiveAttackArea();
         }
 
     }

@@ -12,6 +12,7 @@ namespace Enemy.Boss.MiniBoss.State
         public GroggyState _GroggyState;
         public IdelState IdelState;
         public TurmState TurmState;
+        public DashAttackState _DashAttackState;
         
         public MiniBossStateMachine(MiniBossEnemy _miniBossEnemy)
         {
@@ -21,6 +22,7 @@ namespace Enemy.Boss.MiniBoss.State
             _GroggyState = new GroggyState(_miniBossEnemy);
             IdelState = new IdelState(_miniBossEnemy);
             TurmState = new TurmState(_miniBossEnemy);
+            _DashAttackState = new DashAttackState(_miniBossEnemy);
         }
 
         public void Update()

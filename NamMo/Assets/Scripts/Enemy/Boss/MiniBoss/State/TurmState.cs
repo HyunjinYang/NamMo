@@ -16,6 +16,7 @@ namespace Enemy.Boss.MiniBoss.State
         public void Enter()
         {
             _MiniBossEnemy.StartTurm();
+            Debug.Log("Turm State!");
         }
 
         public void Update()
