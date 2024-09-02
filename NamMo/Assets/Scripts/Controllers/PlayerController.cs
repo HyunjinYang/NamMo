@@ -37,6 +37,7 @@ public partial class PlayerController : MonoBehaviour
         {
             _asc.GiveAbility(ability);
         }
+        _ps.OnDead += Dead;
     }
     public AbilitySystemComponent GetASC() { return _asc; }
     public PlayerMovement GetPlayerMovement() { return _pm; }
@@ -46,6 +47,20 @@ public partial class PlayerController : MonoBehaviour
     public CloseAttack GetAttackArea() { return _attackArea; }
     public GameObject GetPlayerSprite() { return _playerSprite; }
     public WaveTrigger GetWaveTrigger() { return _waveTrigger; }
+    private void Dead()
+    {
+        // 리스폰 전 사전 작업 ex) UI 띄우기 등
+
+        Respawn();
+    }
+    private void Respawn()
+    {
+        // 마지막 저장 정보를 가져와서 리스폰시킨다.
+        // 체력, 파동횟수, 보유 ability
+
+        //tmp
+        _ps.ApplyHeal(_ps.MaxHp);
+    }
 }
 // Handle Input
 public partial class PlayerController : MonoBehaviour

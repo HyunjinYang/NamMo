@@ -6,6 +6,8 @@ using UnityEngine;
 public class DummyWaveEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyWavePrefab;
+    [SerializeField] private AudioSource _audio;
+    [SerializeField] private AudioClip _clip;
 
     private bool _stunned = false;
     private Coroutine _stunCoroutine = null;

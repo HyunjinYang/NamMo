@@ -17,7 +17,6 @@ public class PlayerStat : MonoBehaviour
     private void Start()
     {
         OnHpChanged += TestChangeHp;
-        OnDead += TestDead;
     }
     public void SetPlayerController(PlayerController pc)
     {
@@ -45,9 +44,5 @@ public class PlayerStat : MonoBehaviour
     private void TestChangeHp(float hp, float maxHp)
     {
         //Debug.Log($"Hp : {hp}, MaxHp : {maxHp}");
-    }
-    private void TestDead()
-    {
-        Debug.Log("Dead");
     }
 }
