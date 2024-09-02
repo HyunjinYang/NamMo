@@ -13,13 +13,13 @@ namespace Enemy.MelEnemy
             if (!_gameObject._isAttacking)
                 yield break;
             
-            _gameObject._enemyAttack1BlockArea.ActiveAttackArea();
+            _gameObject.EnemyAttack1AttackArea.ActiveAttackArea();
             yield return new WaitForSeconds(_gameObject.Attack1Time2);
             
             if (!_gameObject._isAttacking)
                 yield break;
             
-            _gameObject._enemyAttack2BlockArea.ActiveAttackArea();
+            _gameObject.EnemyAttack2AttackArea.ActiveAttackArea();
             yield return new WaitForSeconds(0.2f);
             _gameObject.OnEndattack.Invoke();
         }

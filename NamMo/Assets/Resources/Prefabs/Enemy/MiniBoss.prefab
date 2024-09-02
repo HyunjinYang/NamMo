@@ -284,7 +284,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.73, y: -0.5}
+  m_Offset: {x: 2.26, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -295,7 +295,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.06, y: 2}
+  m_Size: {x: 3.73, y: 2.82}
   m_EdgeRadius: 0
 --- !u!1 &1961705469872489041
 GameObject:
@@ -450,7 +450,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6eae3243d3e66343a4ccc9855f3f564, type: 2}
+  - {fileID: 2100000, guid: 0e5b3cdf1ecca494aa0661a3d4e3d706, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -468,8 +468,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1322050693
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8dff0c3c8bf47d246b4818a30e4f3b82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -518,7 +518,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 14.222222, y: 8.666667}
+    oldSize: {x: 18.285715, y: 11.142858}
     newSize: {x: 7.1, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -572,7 +572,7 @@ MonoBehaviour:
   _enemyDashAttackBlockArea: {fileID: 2766970362779768196}
   melAttack1Time: 0.7
   melAttack2Time: 0.5
-  melAttack3Time: 0.3
+  melAttack3Time: 1.25
   dashAttackTime: 0
   _distance: 0
   _isMelAttack: 0
@@ -834,6 +834,13 @@ MonoBehaviour:
   _CharacterSprite: {fileID: 3787324565052666855}
   _speed: 0
   _jumpForce: 0
+  maxSlopeAngle: 0
+  _groundCheckRadius: 0
+  slopeCheckDistance: 0
+  noFriction: {fileID: 0}
+  fullFriction: {fileID: 0}
+  isOnSlope: 0
+  _isGround: 0
   _isDashing: 0
   _isJumping: 0
   _isFalling: 0

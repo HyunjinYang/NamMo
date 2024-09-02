@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyBlockArea : BaseAttack, IParryingable
+    public class EnemyAttackArea : BaseAttack, IParryingable
     {
         public bool _isHit = false;
         private bool _blockCheck = false;

@@ -25,9 +25,9 @@ namespace Enemy.MelEnemy
         
         public StateMachine stateMachine;
         
-        [SerializeField] public EnemyBlockArea _enemyAttack1BlockArea;
-        [SerializeField] public EnemyBlockArea _enemyAttack2BlockArea;
-        [SerializeField] public EnemyBlockArea _enemyAttack3BlockArea;
+        [SerializeField] public EnemyAttackArea EnemyAttack1AttackArea;
+        [SerializeField] public EnemyAttackArea EnemyAttack2AttackArea;
+        [SerializeField] public EnemyAttackArea EnemyAttack3AttackArea;
         [SerializeField] private List<MelEnemyAttackPattern<MelEnemy>> _patternlist = new List<MelEnemyAttackPattern<MelEnemy>>();
         private Animator _animator;
         private MelEnemyAttackPattern<MelEnemy> _pattern;
@@ -49,24 +49,24 @@ namespace Enemy.MelEnemy
             stateMachine = new StateMachine(this);
             stateMachine.Initialize(stateMachine._IdelState);
             
-            _enemyAttack1BlockArea.SetAttackInfo(gameObject, 2);
-            _enemyAttack2BlockArea.SetAttackInfo(gameObject, 2);
-            _enemyAttack3BlockArea.SetAttackInfo(gameObject, 2);
+            EnemyAttack1AttackArea.SetAttackInfo(gameObject, 2);
+            EnemyAttack2AttackArea.SetAttackInfo(gameObject, 2);
+            EnemyAttack3AttackArea.SetAttackInfo(gameObject, 2);
 
         }
 
         public void GroggyEnter()
         {
-            _enemyAttack1BlockArea._groggy += OnGroggy;
-            _enemyAttack2BlockArea._groggy += OnGroggy;
-            _enemyAttack3BlockArea._groggy += OnGroggy;
+            EnemyAttack1AttackArea._groggy += OnGroggy;
+            EnemyAttack2AttackArea._groggy += OnGroggy;
+            EnemyAttack3AttackArea._groggy += OnGroggy;
         }
 
         public void GroggyExit()
         {
-            _enemyAttack1BlockArea._groggy -= OnGroggy;
-            _enemyAttack2BlockArea._groggy -= OnGroggy;
-            _enemyAttack3BlockArea._groggy -= OnGroggy;   
+            EnemyAttack1AttackArea._groggy -= OnGroggy;
+            EnemyAttack2AttackArea._groggy -= OnGroggy;
+            EnemyAttack3AttackArea._groggy -= OnGroggy;   
         }
 
         public override void Behavire(float distance)
@@ -97,9 +97,9 @@ namespace Enemy.MelEnemy
             OnEndDownAttack.Invoke();
             StopCoroutine(_attackCoroutine);
             _pattern = null;
-            _enemyAttack1BlockArea.DeActiveAttackArea();
-            _enemyAttack2BlockArea.DeActiveAttackArea();
-            _enemyAttack3BlockArea.DeActiveAttackArea();
+            EnemyAttack1AttackArea.DeActiveAttackArea();
+            EnemyAttack2AttackArea.DeActiveAttackArea();
+            EnemyAttack3AttackArea.DeActiveAttackArea();
         }
         
         public void Patrol()
@@ -151,12 +151,11 @@ namespace Enemy.MelEnemy
                 _pattern = _patternlist[next];
                 _pattern.Initialise(this);
                 _isAttacking = true;
-                Debug.Log("sTART!");
                 _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
                 yield return StartCoroutine(_pattern.Pattern());
-                _enemyAttack1BlockArea.DeActiveAttackArea();
-                _enemyAttack2BlockArea.DeActiveAttackArea();
-                _enemyAttack3BlockArea.DeActiveAttackArea();
+                EnemyAttack1AttackArea.DeActiveAttackArea();
+                EnemyAttack2AttackArea.DeActiveAttackArea();
+                EnemyAttack3AttackArea.DeActiveAttackArea();
                 yield return new WaitForSeconds(2f);
             }
         }

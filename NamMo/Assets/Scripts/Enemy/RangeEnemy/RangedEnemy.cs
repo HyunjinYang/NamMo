@@ -15,7 +15,7 @@ namespace Enemy
         [SerializeField] private float AttackTime;
         
         [SerializeField] private GameObject archr;
-        [SerializeField] private EnemyBlockArea _enemyBlockArea;
+        [SerializeField] private EnemyAttackArea _enemyAttackArea;
         private Animator _animator;
         
 
@@ -23,7 +23,7 @@ namespace Enemy
         {
             _animator = GetComponent<Animator>();
             SceneLinkedSMB<RangedEnemy>.Initialise(_animator, this);
-            _enemyBlockArea.SetAttackInfo(gameObject, 2);
+            _enemyAttackArea.SetAttackInfo(gameObject, 2);
 
         }
 
@@ -37,6 +37,11 @@ namespace Enemy
 
         [SerializeField] private State _state = State.None;
 
+        public void GroggyEnter()
+        {
+            _enemyAttackArea._groggy += OnGroggy;
+        }
+        
         public override void Behavire(float distance)
         {
             if (distance >= 6.5f)
@@ -97,6 +102,7 @@ namespace Enemy
 
                 return;
             }
+            GroggyEnter();
             Onattack.Invoke();
             _enemyMovement.OnWalk(0f);
             _enemyMovement._isPatrol = false;
@@ -151,7 +157,7 @@ namespace Enemy
         IEnumerator CoAttack()
         {
             yield return new WaitForSeconds(AttackTime);
-            _enemyBlockArea.ActiveAttackArea();
+            _enemyAttackArea.ActiveAttackArea();
         }
 
     }

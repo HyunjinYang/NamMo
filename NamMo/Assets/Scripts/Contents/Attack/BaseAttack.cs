@@ -61,7 +61,6 @@ public abstract class BaseAttack : MonoBehaviour
         // �����ڿ� �浹�� ������Ʈ�� ���ٸ� return
         if (collision.gameObject == _attacker) return;
         
-        Debug.Log(collision.gameObject.name);
         if (_attacker.GetComponent<PlayerController>())
         {
             CheckEnemy(collision);
@@ -107,6 +106,7 @@ public abstract class BaseAttack : MonoBehaviour
                 }
             }
             TryHit(pc.gameObject);
+            DeActiveAttackArea();
         }
         if (_blockedCurrentFrame)
         {

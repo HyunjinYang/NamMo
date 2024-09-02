@@ -13,7 +13,7 @@ namespace Enemy.Boss.MiniBoss.State
         }
         public void Enter()
         {
-            
+            Debug.Log("IdelState!");
         }
 
         public void Update()
@@ -21,6 +21,11 @@ namespace Enemy.Boss.MiniBoss.State
             if (_MiniBossEnemy._distance <= 3.5f)
             {
                 _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine.MeleeAttackState);
+            }
+            
+            else if (_MiniBossEnemy._distance > 3.5f && _MiniBossEnemy._distance <= 7.5f)
+            {
+                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._DashAttackState);
             }
             
             
