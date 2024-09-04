@@ -147,18 +147,17 @@ public class AbilitySystemComponent : MonoBehaviour
         List<Define.GameplayAbility> abilities = new List<Define.GameplayAbility>();
         foreach(Define.GameplayAbility ability in _abilities.Keys)
         {
-            abilities.Add(ability);
+            if (GetAbility(ability).CanUse)
+                abilities.Add(ability);
         }
         return abilities;
     }
     public void Clear()
     {
-        _tagContainer.Clear();
-        foreach(GameAbility abilityTag in _abilities.Values)
+        foreach(Define.GameplayAbility abilityTag in _abilities.Keys)
         {
-            Destroy(abilityTag.gameObject);
+            TryCancelAbilityByTag(abilityTag);
         }
-        _abilities.Clear();
         _reservedAbilities.Clear();
         _reservedCancelAbilities.Clear();
     }

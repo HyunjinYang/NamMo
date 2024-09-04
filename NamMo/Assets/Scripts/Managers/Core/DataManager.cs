@@ -27,7 +27,15 @@ public class DataManager
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
     {
-		TextAsset textAsset = Managers.Resource.Load<TextAsset>($"Data/{path}");
+        TextAsset textAsset = Managers.Resource.Load<TextAsset>($"Data/{path}");
         return JsonUtility.FromJson<Loader>(textAsset.text);
+    }
+    public void SaveAllData()
+    {
+        PlayerData.Save();
+    }
+    public void ClearAllData()
+    {
+        PlayerData.Clear();
     }
 }

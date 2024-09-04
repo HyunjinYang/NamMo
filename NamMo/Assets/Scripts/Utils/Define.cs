@@ -7,8 +7,12 @@ public class Define
     public enum Scene
     {
         Unknown,
+        MainScene,
         PrologueScene,
         CaveScene,
+
+        TestStartScene,
+
     }
 
     public enum Sound

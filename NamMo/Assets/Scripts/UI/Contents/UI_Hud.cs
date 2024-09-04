@@ -26,6 +26,9 @@ public class UI_Hud : UI_Scene
     }
     public override void Init()
     {
+        if (_init) return;
+        _init = true;
+
         base.Init();
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Image>(typeof(Images));

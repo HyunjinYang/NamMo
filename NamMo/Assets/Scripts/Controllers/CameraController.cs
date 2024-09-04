@@ -19,19 +19,23 @@ public class CameraController : MonoBehaviour
     {
         if (_camera == null) _camera = Camera.main;
         _flipOffset = 2f;
-
+    }
+    private void FixedUpdate()
+    {
+        if (CameraMode == Define.CameraMode.FollowTarget) FollowTarget();
+    }
+    public void SetTargetInfo(GameObject target)
+    {
+        _target = target;
         _pm = _target.GetComponent<PlayerMovement>();
         if (_pm)
         {
             _pm.OnFlip += RefreshFlipOffset;
         }
     }
-    private void FixedUpdate()
-    {
-        if (_target && CameraMode == Define.CameraMode.FollowTarget) FollowTarget();
-    }
     private void FollowTarget()
     {
+        if (_target == null) return;
         Vector2 targetPos = new Vector2(_target.transform.position.x, _target.transform.position.y) 
             + _posOffset + new Vector2(_flipOffset, 0);
         float currX = _camera.transform.position.x;

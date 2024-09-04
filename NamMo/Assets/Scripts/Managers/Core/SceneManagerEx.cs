@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagerEx
 {
     private BaseScene _baseScene = null;
-    
+    public Define.Scene LastLocatedScene;
     public BaseScene CurrentScene
     {
         get
@@ -34,6 +34,7 @@ public class SceneManagerEx
 
     public void Clear()
     {
+        LastLocatedScene = CurrentScene.SceneType;
         CurrentScene.Clear();
         _baseScene = null;
     }

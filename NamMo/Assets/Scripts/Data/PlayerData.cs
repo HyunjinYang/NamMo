@@ -6,30 +6,61 @@ using UnityEngine;
 [Serializable]
 public class PlayerData : GameData
 {
+    public static bool Respawn = false;
+
+    public bool isNewData = true;
     public float Hp = 10;
     public float MaxHp = 10;
-    public Vector3 Position;
-    public Define.Scene LocateScene = Define.Scene.CaveScene;
-    public List<Define.GameplayAbility> Abilities = new List<Define.GameplayAbility>();
+    public Vector3 Position = Vector3.zero;
+    public Define.Scene LocateScene = Define.Scene.Unknown;
+    public List<Define.GameplayAbility> Abilities = new List<Define.GameplayAbility>()
+    { 
+        Define.GameplayAbility.GA_Jump,
+        Define.GameplayAbility.GA_Dash,
+        Define.GameplayAbility.GA_Attack,
+        Define.GameplayAbility.GA_WaveDetect,
+        Define.GameplayAbility.GA_AirAttack,
+        Define.GameplayAbility.GA_DownJump,
+        Define.GameplayAbility.GA_Block,
+        Define.GameplayAbility.GA_Parrying,
+        Define.GameplayAbility.GA_Hurt,
+        Define.GameplayAbility.GA_Invincible,
+    };
     public int WaveDetectCnt = 4;
     public override void Save()
     {
+        RefreshData();
+        base.Save();
+    }
+    public override void RefreshData()
+    {
         PlayerController player = Managers.Scene.CurrentScene.Player;
-        GameAbility ability = player.GetASC().GetAbility(Define.GameplayAbility.GA_WaveDetect);
-        if (ability)
+
+        isNewData = false;
+        if (player)
         {
-            GA_WaveDetect waveDetectAbility = ability as GA_WaveDetect;
-            if (waveDetectAbility)
+            Hp = player.GetPlayerStat().Hp;
+            MaxHp = player.GetPlayerStat().MaxHp;
+            Position = player.transform.position;
+            Abilities = player.GetASC().GetOwnedAbilities();
+
+            GameAbility ability = player.GetASC().GetAbility(Define.GameplayAbility.GA_WaveDetect);
+            if (ability)
             {
-                WaveDetectCnt = waveDetectAbility.RemainUseCnt;
+                GA_WaveDetect waveDetectAbility = ability as GA_WaveDetect;
+                if (waveDetectAbility)
+                {
+                    WaveDetectCnt = waveDetectAbility.RemainUseCnt;
+                }
             }
         }
-       
-        Hp = player.GetPlayerStat().Hp;
-        MaxHp = player.GetPlayerStat().MaxHp;
-        Position = player.transform.position;
+
         LocateScene = Managers.Scene.CurrentScene.SceneType;
-        Abilities = player.GetASC().GetOwnedAbilities();
-        base.Save();
+    }
+    public override void Clear()
+    {
+        PlayerData data = new PlayerData();
+        data.Init(typeof(PlayerData).Name);
+        Managers.Data.PlayerData = data;
     }
 }

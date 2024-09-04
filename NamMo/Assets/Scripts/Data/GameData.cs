@@ -34,4 +34,6 @@ public abstract class GameData
             return data;
         }
     }
+    public abstract void RefreshData();
+    public abstract void Clear();
 }

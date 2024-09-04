@@ -12,6 +12,8 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private List<Define.GameplayAbility> _abilities;
     [SerializeField] private GameObject _playerSprite;
     [SerializeField] private WaveTrigger _waveTrigger;
+    [Header("CheatMode")]
+    [SerializeField] private bool _cheatMode = false;
 
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
@@ -35,8 +37,10 @@ public partial class PlayerController : MonoBehaviour
         foreach(var ability in _abilities)
         {
             _asc.GiveAbility(ability);
+            if (_cheatMode) _asc.GetAbility(ability).CanUse = true;
         }
         _ps.OnDead += Dead;
+        Camera.main.GetComponent<CameraController>().SetTargetInfo(gameObject);
     }
     public AbilitySystemComponent GetASC() { return _asc; }
     public PlayerMovement GetPlayerMovement() { return _pm; }
@@ -46,32 +50,35 @@ public partial class PlayerController : MonoBehaviour
     public CloseAttack GetAttackArea() { return _attackArea; }
     public GameObject GetPlayerSprite() { return _playerSprite; }
     public WaveTrigger GetWaveTrigger() { return _waveTrigger; }
-    private void Dead()
+    public void SetPlayerInfoByPlayerData()
     {
-        // 리스폰 전 사전 작업 ex) UI 띄우기 등
-
-        Respawn();
-    }
-    private void Respawn()
-    {
-        // 마지막 저장 정보를 가져와서 리스폰시킨다.
-        // 체력, 파동횟수, 보유 ability
-
         PlayerData playerData = Managers.Data.PlayerData;
 
         _ps.SetHealthInfo(playerData.Hp, playerData.MaxHp);
-        gameObject.transform.position = playerData.Position;
-        // 씬은 TODO
-        //_asc.Clear();
-        foreach(Define.GameplayAbility ability in playerData.Abilities)
+        foreach (Define.GameplayAbility ability in playerData.Abilities)
         {
-            _asc.GiveAbility(ability);
+            _asc.GetAbility(ability).CanUse = true;
         }
         GA_WaveDetect waveDetectAbility = _asc.GetAbility(Define.GameplayAbility.GA_WaveDetect) as GA_WaveDetect;
         if (waveDetectAbility)
         {
             waveDetectAbility.RemainUseCnt = playerData.WaveDetectCnt;
         }
+    }
+    private void Dead()
+    {
+        // 리스폰 전 사전 작업 ex) UI 띄우기 등
+        Managers.Data.PlayerData = GameData.Load<PlayerData>();
+        Respawn();
+    }
+    private void Respawn()
+    {
+        // 마지막 저장 정보를 가져와서 리스폰시킨다.
+        // 체력, 파동횟수, 보유 ability
+        PlayerData.Respawn = true;
+
+        PlayerData playerData = Managers.Data.PlayerData;
+        Managers.Scene.LoadScene(playerData.LocateScene);
     }
 }
 // Handle Input
