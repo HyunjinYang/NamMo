@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemy.WaveAttack;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -18,7 +19,7 @@ public class EnemyWave : MonoBehaviour
     private bool _ignoreCollision = false;
     private GameObject _waveEffect;
 
-    private DummyWaveEnemy _owner;
+    private IWaveAttacker _owner;
     private void Start()
     {
         _waveCollider = GetComponent<CircleCollider2D>();
@@ -27,7 +28,7 @@ public class EnemyWave : MonoBehaviour
     }
     private void ShowWaveVFX()
     {
-        _waveEffect = Instantiate(_waveDetectEffectPrefab, _owner.transform.position, Quaternion.identity);
+        _waveEffect = Instantiate(_waveDetectEffectPrefab, _owner.GetPosition().position, Quaternion.identity);
         _waveEffect.GetComponent<VFXController>().Play(_scaleChangeTime);
     }
     public void Parried()
@@ -36,7 +37,7 @@ public class EnemyWave : MonoBehaviour
         _owner.WaveParried();
         _waveEffect.GetComponent<VFXController>().DestroyWave(1f);
     }
-    public void DoWave(DummyWaveEnemy owner)
+    public void DoWave(IWaveAttacker owner)
     {
         _owner = owner;
         ShowWaveVFX();

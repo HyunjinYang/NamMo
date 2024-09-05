@@ -192,15 +192,15 @@ MonoBehaviour:
   _enemyMovement: {fileID: 4550646516724862641}
   _isParingAvailable: 0
   _isAttacking: 0
-  _enemyAttack1BlockArea: {fileID: 1246528006709331951}
-  _enemyAttack2BlockArea: {fileID: 1916740574364924482}
-  _enemyAttack3BlockArea: {fileID: 3072556026882875366}
+  EnemyAttack1AttackArea: {fileID: 0}
+  EnemyAttack2AttackArea: {fileID: 0}
+  EnemyAttack3AttackArea: {fileID: 0}
   _patternlist:
   - {fileID: 2603003537774195399, guid: a17b5ee64e75f6045bfca14fd4afa554, type: 3}
   - {fileID: 520734689229591719, guid: 60f0dec6514f70e46bc37da8531d81ec, type: 3}
   isTest: 0
-  Attack1Time1: 1.54
-  Attack1Time2: 0.5
+  Attack1Time1: 1.6
+  Attack1Time2: 0.7
   Attack2Time: 0.71
   _distance: 0
 --- !u!114 &6151776520862158515

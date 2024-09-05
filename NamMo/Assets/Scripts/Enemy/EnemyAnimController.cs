@@ -44,7 +44,12 @@ namespace Enemy
 
         private void Hit()
         {
-            _animator.SetBool("IsHit", true);
+            if (_em._isHit)
+            {
+                _animator.Play("Hit", -1, 0f);
+            }
+            else
+                _animator.SetBool("IsHit", true);
         }
 
         private void EndHit()

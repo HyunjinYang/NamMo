@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Enemy.MelEnemy
 {
     public class IdelState: IStateClass
@@ -11,6 +13,7 @@ namespace Enemy.MelEnemy
         
         public void Enter()
         {
+            Debug.Log("Idel State");
             
         }
 

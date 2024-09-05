@@ -1,9 +1,10 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Enemy.WaveAttack;
 using UnityEngine;
 
-public class DummyWaveEnemy : MonoBehaviour
+public class DummyWaveEnemy : MonoBehaviour, IWaveAttacker
 {
     [SerializeField] private GameObject _enemyWavePrefab;
 
@@ -25,6 +26,11 @@ public class DummyWaveEnemy : MonoBehaviour
             StopCoroutine(_stunCoroutine);
         }
         _stunCoroutine = StartCoroutine(CoStun());
+    }
+
+    public Transform GetPosition()
+    {
+        return gameObject.transform;
     }
     IEnumerator CoStun()
     {

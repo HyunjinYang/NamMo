@@ -12,7 +12,7 @@ namespace Enemy.MelEnemy
         }
         public void Enter()
         {
-            Debug.Log("112S");
+            Debug.Log("Groggy State");
             _MelEnemy.Groggy();
         }
 
