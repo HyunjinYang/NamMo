@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 namespace Enemy.Boss.MiniBoss
 {
@@ -6,7 +7,15 @@ namespace Enemy.Boss.MiniBoss
     {
         public override IEnumerator Pattern()
         {
-            return null;
+            _gameObject.LandAttack();
+
+            yield return new WaitForSeconds(_gameObject.landAttackTime);
+            
+            _gameObject.ShootWave();
+
+            yield return new WaitForSeconds(0.5f);
+            
+            _gameObject.EndLandAttack();
         }
     }
 }

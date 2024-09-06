@@ -1,5 +1,4 @@
 using Enemy.MelEnemy;
-using UnityEngine;
 
 namespace Enemy.Boss.MiniBoss.State
 {
@@ -14,7 +13,6 @@ namespace Enemy.Boss.MiniBoss.State
         
         public void Enter()
         {
-            Debug.Log("MelAttackState!");
             _MiniBossEnemy._isAttacking = true;
             _MiniBossEnemy.MelAttackPatternStart();
             _MiniBossEnemy.GroggyEnter();
@@ -30,7 +28,7 @@ namespace Enemy.Boss.MiniBoss.State
 
         public void Exit()
         {
-            _MiniBossEnemy.DeActivateAttackArea();
+            
         }
     }
 }

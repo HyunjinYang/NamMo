@@ -32,14 +32,15 @@ namespace Enemy
             if (other.gameObject.layer == 3)
             {
                 _enemy.PlayerFind(other.gameObject);
-                PlayerCheck();
+                float distance = Vector2.Distance(other.gameObject.transform.position, transform.position);
+                _enemy.Behavire(distance);
             }
         }
 
 
         private void PlayerCheck()
         {
-            var hitCount = Physics2D.OverlapCircle(transform.position, 7.5f, _CheckObject, ResultObj);
+            var hitCount = Physics2D.OverlapCircle(transform.position, 10.5f, _CheckObject, ResultObj);
             for (var i = 0; i < hitCount; i++)
             {
                 _hitCollider = ResultObj[i];

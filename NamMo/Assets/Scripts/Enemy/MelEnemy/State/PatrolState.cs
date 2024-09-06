@@ -12,6 +12,7 @@ namespace Enemy.MelEnemy
         }
         public void Enter()
         {
+            Debug.Log("PatrolState");
            _melEnemy.Patrol();
         }
 

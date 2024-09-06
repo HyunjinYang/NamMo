@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using Enemy.Boss.MiniBoss.State;
+using Enemy.WaveAttack;
 using NamMo;
 using UnityEngine;
 using Random = System.Random;
 
 namespace Enemy.Boss.MiniBoss
 {
-    public class MiniBossEnemy: Enemy
+    public class MiniBossEnemy: Enemy, IWaveAttacker
     {
         public MiniBossStateMachine _miniBossStateMachine;
         [SerializeField] private MiniBossDashAttackPattern _miniBossDashAttackPattern;
@@ -19,10 +20,13 @@ namespace Enemy.Boss.MiniBoss
         [SerializeField] public EnemyAttackArea EnemyMelAttack3AttackArea;
         [SerializeField] public EnemyAttackArea EnemyDashAttackAttackArea;
 
+        public GameObject _enemyWavePrefab;
+        
         public float melAttack1Time;
         public float melAttack2Time;
         public float melAttack3Time;
         public float dashAttackTime;
+        public float landAttackTime;
         
         private Animator _animator;
         
@@ -81,6 +85,21 @@ namespace Enemy.Boss.MiniBoss
             _miniBossStateMachine.TransitionState(_miniBossStateMachine.IdelState);
         }
 
+        public void TransitionToGroggy()
+        {
+            _miniBossStateMachine.TransitionState(_miniBossStateMachine._GroggyState);
+        }
+
+        public void Groggy()
+        {
+            _enemyMovement._isGroggy = true;
+        }
+
+        public void EndGroggy()
+        {
+            _enemyMovement._isGroggy = false;
+        }
+        
         public void MelAttack()
         {
             var next = _rand.Next(0, 2);
@@ -115,6 +134,15 @@ namespace Enemy.Boss.MiniBoss
             OnEndDashAttack.Invoke();
         }
 
+        public void LandAttack()
+        {
+            OnLandAttack.Invoke();
+        }
+
+        public void EndLandAttack()
+        {
+            OnEndLandAttack.Invoke();
+        }
 
         public void DeActivateAttackArea()
         {
@@ -137,6 +165,28 @@ namespace Enemy.Boss.MiniBoss
             StartCoroutine(_miniBossDashAttackPattern.Pattern());
         }
 
+        public void LandAttackPatternStart()
+        {
+            StartCoroutine(_miniBossLandAttackPattern.Pattern());
+        }
+
+        public void ShootWave()
+        {
+            GameObject go = Instantiate(_enemyWavePrefab, transform.position, Quaternion.identity);
+            EnemyWave wave = go.GetComponent<EnemyWave>();
+            wave.DoWave(this);
+        }
+        
+        public void WaveParried()
+        {
+            OnGroggy.Invoke();
+        }
+
+        public Transform GetPosition()
+        {
+            return gameObject.transform;
+        }
+        
         public void StartTurm()
         {
             StartCoroutine(CoTurm());

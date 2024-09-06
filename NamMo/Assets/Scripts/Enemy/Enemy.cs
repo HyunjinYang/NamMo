@@ -43,9 +43,8 @@ namespace Enemy
                 OnDead();
                 return;
             }
-
-            _enemyMovement._isHit = true;
             OnHit.Invoke();
+            _enemyMovement._isHit = true;
         }
 
         public void OnDead()
