@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class AbilitySystemComponent : MonoBehaviour
 {
-    
-    Dictionary<Define.GameplayTag, int> _tagContainer = new Dictionary<Define.GameplayTag, int>();
-    Dictionary<Define.GameplayAbility, GameAbility> _abilities = new Dictionary<Define.GameplayAbility, GameAbility>();
+
+    private Dictionary<Define.GameplayTag, int> _tagContainer = new Dictionary<Define.GameplayTag, int>();
+    private Dictionary<Define.GameplayAbility, GameAbility> _abilities = new Dictionary<Define.GameplayAbility, GameAbility>();
     private List<Define.GameplayAbility> _reservedAbilities = new List<Define.GameplayAbility>();
     private List<Define.GameplayAbility> _reservedCancelAbilities = new List<Define.GameplayAbility>();
     public PlayerController GetPlayerController()
     {
         return gameObject.GetComponent<PlayerController>();
     }
-    [SerializeField]
-    private int[] tagTest = new int[(int)Define.GameplayTag.MaxCount];
+    //[SerializeField]
+    //private int[] tagTest = new int[(int)Define.GameplayTag.MaxCount];
     public void GiveAbility(Define.GameplayAbility tag)
     {
         GameAbility ga = null;
@@ -32,6 +32,7 @@ public class AbilitySystemComponent : MonoBehaviour
         GameAbility ga = null;
         if (_abilities.TryGetValue(tag, out ga))
         {
+            Destroy(ga.gameObject);
             _abilities.Remove(tag);
         }
         else
@@ -106,12 +107,12 @@ public class AbilitySystemComponent : MonoBehaviour
         if (_tagContainer.TryGetValue(tag, out cnt))
         {
             _tagContainer[tag] = cnt + 1;
-            tagTest[(int)tag] = cnt + 1;
+            //tagTest[(int)tag] = cnt + 1;
         }
         else
         {
             _tagContainer.Add(tag, 1);
-            tagTest[(int)tag] = 1;
+            //tagTest[(int)tag] = 1;
         }
     }
     public void RemoveTag(Define.GameplayTag tag)
@@ -122,12 +123,12 @@ public class AbilitySystemComponent : MonoBehaviour
             if (cnt == 1)
             {
                 _tagContainer.Remove(tag);
-                tagTest[(int)tag] = 0;
+                //tagTest[(int)tag] = 0;
             }
             else 
             { 
                 _tagContainer[tag] = cnt - 1;
-                tagTest[(int)tag] = cnt - 1;
+                //tagTest[(int)tag] = cnt - 1;
             }
         }
         else
@@ -140,6 +141,26 @@ public class AbilitySystemComponent : MonoBehaviour
         GameAbility ga = null;
         _abilities.TryGetValue(tag, out ga);
         return ga;
+    }
+    public List<Define.GameplayAbility> GetOwnedAbilities()
+    {
+        List<Define.GameplayAbility> abilities = new List<Define.GameplayAbility>();
+        foreach(Define.GameplayAbility ability in _abilities.Keys)
+        {
+            abilities.Add(ability);
+        }
+        return abilities;
+    }
+    public void Clear()
+    {
+        _tagContainer.Clear();
+        foreach(GameAbility abilityTag in _abilities.Values)
+        {
+            Destroy(abilityTag.gameObject);
+        }
+        _abilities.Clear();
+        _reservedAbilities.Clear();
+        _reservedCancelAbilities.Clear();
     }
     private GameAbility CreateAbility(Define.GameplayAbility tag)
     {

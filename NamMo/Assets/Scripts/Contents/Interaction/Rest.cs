@@ -7,6 +7,9 @@ public class Rest : BaseInteractable
     protected override void HandleInteractionEvent()
     {
         base.HandleInteractionEvent();
-        Debug.Log("ÈŞ½Ä, ÀúÀå");
+        PlayerController player = Managers.Scene.CurrentScene.Player;
+        player.GetPlayerStat().ApplyHeal(player.GetPlayerStat().MaxHp);
+
+        Managers.Data.PlayerData.Save();
     }
 }

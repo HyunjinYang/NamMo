@@ -8,6 +8,7 @@ public class Define
     {
         Unknown,
         PrologueScene,
+        CaveScene,
     }
 
     public enum Sound
