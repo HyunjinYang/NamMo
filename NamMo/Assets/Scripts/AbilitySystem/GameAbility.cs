@@ -21,6 +21,7 @@ public class GameAbility : MonoBehaviour
 
     private bool _isActivated = false;
     private bool _isCoolTime = false;
+    [SerializeField] public bool CanUse = false;
     public Action OnAbilityActivated;
     public Action OnAbilityCanceled;
     public Action OnAbilityEnded;
@@ -67,6 +68,7 @@ public class GameAbility : MonoBehaviour
     }
     protected virtual bool CanActivateAbility()
     {
+        if (CanUse == false) return false;
         if (_isCoolTime) return false;
         foreach(Define.GameplayTag tag in _needTags)
         {

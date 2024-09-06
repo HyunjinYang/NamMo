@@ -88,11 +88,34 @@ public class UI_MainScene : UI_Base
     private void NewGame()
     { 
         Debug.Log("NewGame");
+        if (Managers.Data.PlayerData.isNewData)
+        {
+            // TODO : 처음 씬으로 이동
+            Debug.Log("New Game 1");
+            Managers.Scene.LoadScene(Define.Scene.TestStartScene);
+        }
+        else
+        {
+            // TODO : 게임 데이터 날리고 처음 씬으로 이동
+            Debug.Log("New Game 2");
+            Managers.Data.PlayerData.Clear();
+            Managers.Scene.LoadScene(Define.Scene.TestStartScene);
+        }
     }
 
     private void Continue()
     {
         Debug.Log("Continue");
+        if (Managers.Data.PlayerData.isNewData)
+        {
+            Debug.Log("Continue Game 1");
+            Debug.Log("저장된 데이터가 없습니다.");
+        }
+        else
+        {
+            Debug.Log("Continue Game 2");
+            Managers.Scene.LoadScene(Managers.Data.PlayerData.LocateScene);
+        }
     }
 
     private void Remember()
