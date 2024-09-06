@@ -14,6 +14,8 @@ namespace Enemy.MelEnemy
                 yield break;
             
             _gameObject.EnemyAttack3AttackArea.ActiveAttackArea();
+            yield return new WaitForFixedUpdate();
+            _gameObject.EnemyAttack3AttackArea.DeActiveAttackArea();
             yield return new WaitForSeconds(0.57f);
             _gameObject.OnEndDownAttack.Invoke();
         }

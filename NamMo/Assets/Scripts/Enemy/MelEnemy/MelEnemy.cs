@@ -84,13 +84,11 @@ namespace Enemy.MelEnemy
         {
             _enemyMovement._isAttack = true;
             _enemyMovement.OnWalk(0f);
-            _isAttacking = false;
             _attackCoroutine = StartCoroutine(CoAttack());
         }
 
         public void EndAttack()
         {
-            Debug.Log("End Attack!3");
             _enemyMovement._isAttack = false;
             _isAttacking = false;
             OnEndattack.Invoke();

@@ -9,11 +9,12 @@ namespace Enemy.Boss.MiniBoss.State
         public GroggyState(MiniBossEnemy _miniBossEnemy)
         {
             _MiniBossEnemy = _miniBossEnemy;
+            _MiniBossEnemy.DeActivateAttackArea();
         }
         
         public void Enter()
         {
-            
+            _MiniBossEnemy.Groggy();
         }
 
         public void Update()
@@ -23,7 +24,7 @@ namespace Enemy.Boss.MiniBoss.State
 
         public void Exit()
         {
-            
+            _MiniBossEnemy.EndGroggy();
         }
     }
 }

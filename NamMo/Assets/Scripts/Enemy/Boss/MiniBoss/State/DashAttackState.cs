@@ -1,4 +1,5 @@
 using Enemy.MelEnemy;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Enemy.Boss.MiniBoss.State
@@ -20,6 +21,15 @@ namespace Enemy.Boss.MiniBoss.State
             _MiniBossEnemy.GroggyEnter();
             
             target = Managers.Scene.CurrentScene.Player.transform.position;
+
+            if (target.x <= _MiniBossEnemy.gameObject.transform.position.x)
+            {
+                target.x += 3.5f;
+            }
+            else
+            {
+                target.x -= 3.5f;
+            }
         }
 
         public void Update()
