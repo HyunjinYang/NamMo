@@ -10,6 +10,10 @@ public class Define
         MainScene,
         PrologueScene,
         CaveScene,
+        KatanaZeroScene1,
+        KatanaZeroScene2,
+        KatanaZeroScene3,
+        KatanaZeroScene4,
 
         TestStartScene,
 

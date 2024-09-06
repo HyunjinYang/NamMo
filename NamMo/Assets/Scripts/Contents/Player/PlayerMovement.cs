@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
     protected virtual void FixedUpdate()
     {
         _isGround = CheckGround();
-        _isFrontGround = CheckGround(1);
+        _isFrontGround = CheckGround(0.75f);
         SlopeCheck();
         CheckCurrentState();
         ApplyMove();

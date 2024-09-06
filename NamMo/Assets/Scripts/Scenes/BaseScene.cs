@@ -34,6 +34,22 @@ public abstract class BaseScene : MonoBehaviour
     {
         _pc = pc;
     }
+    protected GameObject SpawnPlayer()
+    {
+        // 플레이어 생성
+        GameObject player = Managers.Resource.Instantiate("Nammo");
+
+        // 플레이어 UI 생성
+        UI_Hud hudUI = Managers.UI.ShowSceneUI<UI_Hud>();
+        hudUI.Init();
+
+        player.GetComponent<PlayerController>().SetPlayerInfoByPlayerData();
+
+        Camera.main.GetComponent<CameraController>().SetTargetInfo(player);
+        Camera.main.GetComponent<CameraController>().CameraMode = Define.CameraMode.FollowTarget;
+
+        return player;
+    }
 
     //IEnumerator LoadSceneAsync(string sceneName)
     //{

@@ -64,6 +64,11 @@ public abstract class BaseAttack : MonoBehaviour
         if (_attacker.GetComponent<PlayerController>())
         {
             CheckEnemy(collision);
+            // tmp
+            if (collision.gameObject.GetComponent<BreakWall>())
+            {
+                collision.gameObject.GetComponent<BreakWall>().Damaged();
+            }
         }
         else
         {
@@ -78,7 +83,6 @@ public abstract class BaseAttack : MonoBehaviour
         if (pc == null && ba == null) return;
         if (ba)
         {
-            // �÷��̾��� ��� ������ ��Ҵٸ� GA_Block�� �ڵ� ����
             if (_blockedCurrentFrame == false)
             {
                 _blockedCurrentFrame = true;
@@ -87,8 +91,6 @@ public abstract class BaseAttack : MonoBehaviour
         }
         if (pc)
         {
-            // �÷��̾��� ������ ��Ҵٸ� ��� ������ ����ִ��� üũ, ����ִٸ� GA_Block�� �ڵ� ����
-            // ���(�и�)�� �켱���� üũ�ؾ� �ϴµ� �� �����ӿ� �������� ��� � ������ ���� ������ �𸣱� ����
             if (_blockedCurrentFrame == false)
             {
                 List<Collider2D> results = new List<Collider2D>();

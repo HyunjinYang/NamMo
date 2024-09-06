@@ -14,6 +14,8 @@ public class BaseInteractable : MonoBehaviour
     protected UI_Interaction _interactionUI = null;
 
     protected PlayerController _player = null;
+
+    private bool _subscribedInput = false;
     void Start()
     {
         Init();
@@ -43,6 +45,7 @@ public class BaseInteractable : MonoBehaviour
         _interactionUI.transform.position = transform.position + new Vector3(_uiOffset.x, _uiOffset.y, 0);
 
         Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed += HandleInteractionEvent;
+        _subscribedInput = true;
     }
     protected virtual void HandleTriggerExitEvent()
     {
@@ -54,6 +57,8 @@ public class BaseInteractable : MonoBehaviour
     }
     private void CloseInteractionUIAndCutOffAction()
     {
+        if (_subscribedInput == false) return;
+        _subscribedInput = false;
         if (Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed != null)
         {
             Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed -= HandleInteractionEvent;

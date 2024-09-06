@@ -10,14 +10,9 @@ public class CaveScene : BaseScene
         base.Init();
         SceneType = Define.Scene.CaveScene;
 
-        // 플레이어 생성
-        GameObject player = Managers.Resource.Instantiate("Nammo");
+        GameObject player = SpawnPlayer();
+
         PlayerData playerData = Managers.Data.PlayerData;
-
-        // 플레이어 UI 생성
-        UI_Hud hudUI = Managers.UI.ShowSceneUI<UI_Hud>();
-        hudUI.Init();
-
         // 리스폰 되어야 할 경우는 저장되어있는 플레이어의 좌표로
         if (PlayerData.Respawn)
         {
@@ -38,10 +33,8 @@ public class CaveScene : BaseScene
                 player.transform.position = playerData.Position;
             }
         }
-        player.GetComponent<PlayerController>().SetPlayerInfoByPlayerData();
 
-        Camera.main.GetComponent<CameraController>().SetTargetInfo(player);
-        Camera.main.GetComponent<CameraController>().CameraMode = Define.CameraMode.FollowTarget;
+        
 
     }
     public override void Clear()

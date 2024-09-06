@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8b3b7b67d9b291459b353c28f3a28d5, type: 3}
-  m_Name: InteractionTextData_SceneChageTest
+  m_Name: InteractionTextData_SceneChageToCave
   m_EditorClassIdentifier: 
   _modelType: 1
   _interactionText: "\uB3D9\uAD74\uC52C"
