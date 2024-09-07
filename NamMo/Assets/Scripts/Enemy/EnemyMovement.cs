@@ -7,8 +7,9 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyMovement : PlayerMovement
+    public class EnemyMovement: MonoBehaviour
     {
+        [SerializeField] protected GameObject _CharacterSprite;
         [SerializeField] protected Transform _point1;
         [SerializeField] protected Transform _point2;
         [SerializeField] private bool _isNextPoint = false;
@@ -21,16 +22,18 @@ namespace Enemy
         private Transform _currentWayPoint;
         private float _distance = 0.1f;
         public Action OnAttack;
+        public Action<float> OnWalk;
         public Transform _playerposition;
         [SerializeField] private int direct = 1;
-        protected override void Awake()
+
+        public float _speed;
+        protected  void Awake()
         {
             Flip();
-            _rb = GetComponent<Rigidbody2D>();
             _currentWayPoint = _point1;
         }
 
-        protected override void FixedUpdate()
+        protected  virtual void FixedUpdate()
         {
             if (_isHit || _isDead)
                 return;
@@ -121,7 +124,7 @@ namespace Enemy
                 
             }
         }
-        protected override void Flip()
+        protected  void Flip()
         {
             Vector3 localScale = _CharacterSprite.transform.localScale;
             localScale.x *= -1f;

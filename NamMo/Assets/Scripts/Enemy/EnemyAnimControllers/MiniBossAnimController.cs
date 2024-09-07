@@ -14,6 +14,8 @@ namespace Enemy.EnemyAnimControllers
             _enemy.GetComponent<MiniBossEnemy>().OnEndAttack2 += OnEndAttack2;
             _enemy.GetComponent<MiniBossEnemy>().OnEndDashAttack += OnEndDashAttack;
             _enemy.GetComponent<MiniBossEnemy>().OnEndLandAttack += OnEndLandAttack;
+            _enemy.GetComponent<MiniBossEnemy>().OnChangePhase += OnChangePhase;
+            _enemy.GetComponent<MiniBossEnemy>().OnEndChangePhase += OnEndChangePhase;
         }
 
 
@@ -45,6 +47,16 @@ namespace Enemy.EnemyAnimControllers
         private void OnEndLandAttack()
         {
             _animator.SetBool("IsLandAttack", false);
+        }
+
+        private void OnChangePhase()
+        {
+            _animator.SetBool("IsChangePhase", true);
+        }
+     
+        private void OnEndChangePhase()
+        {
+            _animator.SetBool("IsChangePhase", false);
         }
     }
 }

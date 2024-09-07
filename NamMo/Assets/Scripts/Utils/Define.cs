@@ -14,7 +14,12 @@ public class Define
         KatanaZeroScene2,
         KatanaZeroScene3,
         KatanaZeroScene4,
-
+        KatanaZeroScene1_KMW,
+        KatanaZeroScene2_KMW,
+        KatanaZeroScene3_KMW,
+        KatanaZeroScene4_KMW,
+        MiniBossScene,
+        
         TestStartScene,
 
     }

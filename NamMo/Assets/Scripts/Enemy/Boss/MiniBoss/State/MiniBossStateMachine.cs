@@ -14,6 +14,7 @@ namespace Enemy.Boss.MiniBoss.State
         public TurmState TurmState;
         public DashAttackState _DashAttackState;
         public LandAttackState _LandAttackState;
+        public ChangePhaseState _ChangePhaseState;
         
         public MiniBossStateMachine(MiniBossEnemy _miniBossEnemy)
         {
@@ -25,6 +26,7 @@ namespace Enemy.Boss.MiniBoss.State
             TurmState = new TurmState(_miniBossEnemy);
             _DashAttackState = new DashAttackState(_miniBossEnemy);
             _LandAttackState = new LandAttackState(_miniBossEnemy);
+            _ChangePhaseState = new ChangePhaseState(_miniBossEnemy);
         }
 
         public void Update()

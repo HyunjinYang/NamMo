@@ -73,12 +73,20 @@ namespace Enemy
 
         private void Groggy()
         {
-            _animator.SetBool("IsGroggy", true);
+            _enemy.GroggyStetCount();
+            
+            if (_enemy.currentgroggyStet >= _enemy.maxGroggyStet)
+            {
+                _enemy.currentgroggyStet = 0f;
+                Debug.Log(_enemy.currentgroggyStet + " " + _enemy.maxGroggyStet);
+                _animator.SetBool("IsGroggy", true);
+            }
         }
 
         private void EndGroggy()
         {
             _animator.SetBool("IsGroggy", false);
         }
+        
     }
 }

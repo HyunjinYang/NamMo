@@ -2,19 +2,18 @@ using Enemy.MelEnemy;
 
 namespace Enemy.Boss.MiniBoss.State
 {
-    public class GroggyState: IStateClass
+    public class ChangePhaseState: IStateClass
     {
         public MiniBossEnemy _MiniBossEnemy;
 
-        public GroggyState(MiniBossEnemy _miniBossEnemy)
+        public ChangePhaseState(MiniBossEnemy _miniBossEnemy)
         {
             _MiniBossEnemy = _miniBossEnemy;
         }
-        
         public void Enter()
         {
-            _MiniBossEnemy.DeActivateAttackArea();
-            _MiniBossEnemy.Groggy();
+            _MiniBossEnemy.ChangePhase();
+            _MiniBossEnemy.phase = 2;
         }
 
         public void Update()
@@ -24,7 +23,7 @@ namespace Enemy.Boss.MiniBoss.State
 
         public void Exit()
         {
-            _MiniBossEnemy.EndGroggy();
+            _MiniBossEnemy.EndChangePhase();
         }
     }
 }

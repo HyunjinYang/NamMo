@@ -37,6 +37,8 @@ namespace Enemy.Boss.MiniBoss
         public int _isMelAttack;
 
         public bool _isAttacking;
+
+        public int phase = 1;
         
         public Action OnAttack2;
         public Action OnDashAttack;
@@ -44,10 +46,12 @@ namespace Enemy.Boss.MiniBoss
         public Action OnEndAttack2;
         public Action OnEndDashAttack;
         public Action OnEndLandAttack;
+        public Action OnChangePhase;
+        public Action OnEndChangePhase;
         
-        
-        private void Start()
+        private void Awake()
         {
+            Debug.Log("ddd");
             _animator = GetComponent<Animator>();
             
             _miniBossStateMachine = new MiniBossStateMachine(this);
@@ -67,8 +71,17 @@ namespace Enemy.Boss.MiniBoss
 
         public override void Behavire(float distance)
         {
-            _miniBossStateMachine.Update();
-            _distance = distance;
+            if (_miniBossStateMachine != null)
+            {
+                if (_hp <= 5 && (_miniBossStateMachine._CurrentState is IdelState) && phase == 1)
+                {
+                    phase = 2;
+                    _miniBossStateMachine.TransitionState(_miniBossStateMachine._ChangePhaseState);
+                }
+                
+                _miniBossStateMachine.Update();
+                _distance = distance;
+            }
         }
 
         public void GroggyEnter()
@@ -78,7 +91,23 @@ namespace Enemy.Boss.MiniBoss
             EnemyMelAttack3AttackArea._groggy += OnGroggy;
             EnemyDashAttackAttackArea._groggy += OnGroggy;
         }
-        
+
+        public override void GroggyStetCount()
+        {
+            if (_miniBossStateMachine._CurrentState is MeleeAttackState)
+            {
+                currentgroggyStet += 0.3f;
+            }
+            else if (_miniBossStateMachine._CurrentState is DashAttackState)
+            {
+                currentgroggyStet += 0.5f;
+            }
+            else if (_miniBossStateMachine._CurrentState is LandAttackState)
+            {
+                currentgroggyStet += 0.5f;
+            }
+        }
+
 
         public void TransitionToIdel()
         {
@@ -144,6 +173,16 @@ namespace Enemy.Boss.MiniBoss
             OnEndLandAttack.Invoke();
         }
 
+        public void ChangePhase()
+        {
+            OnChangePhase.Invoke();
+        }
+
+        public void EndChangePhase()
+        {
+            OnEndChangePhase.Invoke();
+        }
+        
         public void DeActivateAttackArea()
         {
             EnemyDashAttackAttackArea.DeActiveAttackArea();
@@ -154,7 +193,6 @@ namespace Enemy.Boss.MiniBoss
         
         public void MelAttackPatternStart()
         {
-            Debug.Log("MelAttack Start");
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
             StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
         }
@@ -194,7 +232,7 @@ namespace Enemy.Boss.MiniBoss
 
         public IEnumerator CoTurm()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.2f);
             TransitionToIdel();
         }
     }
