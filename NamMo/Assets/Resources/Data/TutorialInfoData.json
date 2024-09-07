@@ -1,0 +1,39 @@
+{
+  "tutorialInfos": [
+    {
+      "tutorialType": "0",
+      "tutorialText": [
+        "A,D로 이동합니다.",
+        ""
+      ]
+    },
+    {
+      "tutorialType": "1",
+      "tutorialText": [
+        "마우스 좌클릭 혹은 키보드 J를 눌러 공격합니다.",
+        ""
+      ]
+    },
+    {
+      "tutorialType": "2",
+      "tutorialText": [
+        "K를 눌러 패링합니다",
+        ""
+      ]
+    },
+    {
+      "tutorialType": "3",
+      "tutorialText": [
+        "스페이스바를 눌러서 점프합니다",
+        ""
+      ]
+    },
+    {
+      "tutorialType": "4",
+      "tutorialText": [
+        "Shift키를 눌러서 회피합니다",
+        ""
+      ]
+    }
+  ]
+} 

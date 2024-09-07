@@ -34,7 +34,8 @@ public class CaveScene : BaseScene
             }
         }
 
-        
+        // bgm
+        Managers.Sound.Play("Cave", Define.Sound.Bgm);
 
     }
     public override void Clear()
