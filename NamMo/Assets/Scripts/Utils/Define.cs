@@ -105,4 +105,12 @@ public class Define
         InteractionText,
 
     }
+    public enum TutorialType
+    {
+        Move,
+        Attack,
+        Parrying,
+        Jump,
+        Dash,
+    }
 }

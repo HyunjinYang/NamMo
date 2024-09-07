@@ -27,6 +27,18 @@ public class AbilitySystemComponent : MonoBehaviour
         ga = CreateAbility(tag);
         _abilities.Add(tag, ga);
     }
+    public void UnlockAbility(Define.GameplayAbility tag)
+    {
+        GameAbility ga = null;
+        if (_abilities.TryGetValue(tag, out ga))
+        {
+            ga.CanUse = true;
+        }
+        else
+        {
+            Debug.Log("Not Exsist Ability");
+        }
+    }
     public void RemoveAbility(Define.GameplayAbility tag)
     {
         GameAbility ga = null;

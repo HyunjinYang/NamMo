@@ -119,6 +119,7 @@ public class GA_WaveDetect : GameAbility
         _waveDetectLight.transform.position = _asc.transform.position;
         yield return new WaitForSeconds(_detectMoment);
 
+        Managers.Sound.Play("Wave");
         _asc.GetPlayerController().GetWaveTrigger().transform.SetParent(null);
         _asc.GetPlayerController().GetWaveTrigger().transform.position = _asc.GetPlayerController().transform.position;
         _asc.GetPlayerController().GetWaveTrigger().OnWaveRangeTriggerEntered -= HandleTriggeredWaveObject;
