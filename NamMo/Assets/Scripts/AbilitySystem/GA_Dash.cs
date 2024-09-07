@@ -15,6 +15,7 @@ public class GA_Dash : GameAbility
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
+        Managers.Sound.Play("Dash");
         _asc.gameObject.GetComponent<PlayerMovement>().Dash(_dashForce, _dashTime, Define.DashType.DefaultDash);
     }
     public override void CancelAbility()

@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PrologueScene : BaseScene
@@ -22,6 +23,7 @@ public class PrologueScene : BaseScene
     [SerializeField] private GameObject _trainingGround;
 
     UI_Conversation _conversationUI;
+    UI_Tutorial _tutorialUI;
     protected override void Init()
     {
         base.Init();
@@ -29,10 +31,10 @@ public class PrologueScene : BaseScene
 
         _heroNammo.SetActive(false);
 
-        UI_PrologueFadeInMessage prologueFadeIn = Managers.UI.ShowUI<UI_PrologueFadeInMessage>();
-        prologueFadeIn.OnPrologueFadeInEnd += StartPrologue;
+        //UI_PrologueFadeInMessage prologueFadeIn = Managers.UI.ShowUI<UI_PrologueFadeInMessage>();
+        //prologueFadeIn.OnPrologueFadeInEnd += StartPrologue;
 
-        //StartPrologue();
+        StartPrologue();
     }
     private void StartPrologue()
     {
@@ -70,9 +72,34 @@ public class PrologueScene : BaseScene
     {
         _conversationUI.HideElements();
         FocusCamera(_trainingGround);
-        Camera.main.DOOrthoSize(10, 1);
+        Camera.main.DOOrthoSize(12, 1);
         Camera.main.gameObject.GetComponent<CameraController>().CameraMode = Define.CameraMode.FollowTarget;
         _heroNammo.SetActive(true);
+
+        _tutorialUI = Managers.UI.ShowUI<UI_Tutorial>();
+        _tutorialUI.Init();
+        _tutorialUI.SetTutorialText(Define.TutorialType.Move);
+
+        Managers.Scene.CurrentScene.Player.GetPlayerMovement().OnWalk += CheckMoveTutorial;
+    }
+    
+    bool _moveLeft = false;
+    bool _moveRight = false;
+    private void CheckMoveTutorial(float value)
+    {
+        if (value == 0) return;
+        if (value < 0) _moveLeft = true;
+        else if (value > 0) _moveRight = true;
+        if(_moveLeft && _moveRight)
+        {
+            Managers.Scene.CurrentScene.Player.GetPlayerMovement().OnWalk -= CheckMoveTutorial;
+            Tutorial_Attack();
+        }
+    }
+    private void Tutorial_Attack()
+    {
+        Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_Attack);
+        _tutorialUI.SetTutorialText(Define.TutorialType.Attack);
     }
     private Vector3 GetSceneLeftEndPos(GameObject scene)
     {

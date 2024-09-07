@@ -91,7 +91,8 @@ public class GA_Attack : GameAbility
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, currComboAttackInfo.attackRate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(currComboAttackInfo.attackRange, currComboAttackInfo.attackOffset);
         _asc.GetPlayerController().GetAttackArea().ActiveAttackArea();
-        
+        Managers.Sound.Play("Attack");
+
         yield return new WaitForFixedUpdate();
 
         _asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();

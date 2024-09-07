@@ -65,4 +65,24 @@ namespace Data
             return dict;
         }
     }
+    [Serializable]
+    public class TutorialInfo
+    {
+        public Define.TutorialType tutorialType;
+        public List<string> tutorialText;
+    }
+    [Serializable]
+    public class TutorialInfoData : ILoader<Define.TutorialType, TutorialInfo>
+    {
+        public List<TutorialInfo> tutorialInfos = new List<TutorialInfo>();
+        public Dictionary<Define.TutorialType, TutorialInfo> MakeDict()
+        {
+            Dictionary<Define.TutorialType, TutorialInfo> dict = new Dictionary<Define.TutorialType, TutorialInfo>();
+            foreach(TutorialInfo tutorialInfo in tutorialInfos)
+            {
+                dict.Add(tutorialInfo.tutorialType, tutorialInfo);
+            }
+            return dict;
+        }
+    }
 }

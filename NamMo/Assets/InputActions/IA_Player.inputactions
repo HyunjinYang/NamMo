@@ -188,7 +188,7 @@
                 {
                     "name": "",
                     "id": "d5115003-2278-4e42-abfd-87886af73f21",
-                    "path": "<XInputController>/buttonEast",
+                    "path": "<XInputController>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Pad",
@@ -214,6 +214,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Parry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81d53c6d-cb06-4a0c-baa8-27e4908bbc19",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
                     "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -254,7 +265,7 @@
                 {
                     "name": "",
                     "id": "892cf1ed-b838-4385-9342-9df5059cdaab",
-                    "path": "<XInputController>/buttonNorth",
+                    "path": "<XInputController>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Pad",
@@ -276,7 +287,7 @@
                 {
                     "name": "",
                     "id": "59b9cb85-ea32-4f6d-a477-43ffe1a3c168",
-                    "path": "<XInputController>/rightShoulder",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Pad",
@@ -291,6 +302,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36b9bee4-b82d-4627-a16e-7427a90090e7",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
                     "action": "Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -324,6 +346,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e0cada5-525e-445f-8096-9b3c1b28ddbd",
+                    "path": "<XInputController>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Pad",
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -12,6 +12,7 @@ public class GA_Jump : GameAbility
     {
         base.ActivateAbility();
         _asc.GetComponent<PlayerMovement>().StartJump();
+        Managers.Sound.Play("Jump");
     }
     public override void CancelAbility()
     {
