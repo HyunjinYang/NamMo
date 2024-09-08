@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TestStartScene.unity
+    guid: c94742fffb9ae2948b676e98cf3c6600
+  - enabled: 1
     path: Assets/Scenes/CaveScene.unity
     guid: 9a1ac232c3ce27c49b03e0fd4b74041a
   - enabled: 1
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: bc62e2f7346ade545bb5f02b8c975f47
-  - enabled: 1
-    path: Assets/Scenes/TestStartScene.unity
-    guid: c94742fffb9ae2948b676e98cf3c6600
   - enabled: 1
     path: Assets/Scenes/KatanaZeroScene1.unity
     guid: b0facbb43642bf148b741a5d964881c0

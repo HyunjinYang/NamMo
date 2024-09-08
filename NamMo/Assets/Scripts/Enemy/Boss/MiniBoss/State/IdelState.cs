@@ -18,21 +18,30 @@ namespace Enemy.Boss.MiniBoss.State
 
         public void Update()
         {
-            if (_MiniBossEnemy._distance <= 5.5f)
+            if (_MiniBossEnemy.IsDead())
             {
-                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine.MeleeAttackState);
+                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._DeadState);   
             }
-            
-            else if (_MiniBossEnemy._distance > 8.5f && _MiniBossEnemy._distance <= 13.5f)
+            else
             {
-                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._DashAttackState);
+                if (_MiniBossEnemy._distance <= 5.5f)
+                {
+                    _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
+                        .MeleeAttackState);
+                }
+
+                else if (_MiniBossEnemy._distance > 8.5f && _MiniBossEnemy._distance <= 13.5f)
+                {
+                    _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
+                        ._DashAttackState);
+                }
+                else if (_MiniBossEnemy._distance > 13.5f)
+                {
+                    _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
+                        ._LandAttackState);
+                }
             }
-            else if (_MiniBossEnemy._distance > 13.5f)
-            {
-                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._LandAttackState);
-            }
-            
-            
+
         }
 
         public void Exit()

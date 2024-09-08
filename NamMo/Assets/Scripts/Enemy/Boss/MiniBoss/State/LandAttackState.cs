@@ -14,7 +14,6 @@ namespace Enemy.Boss.MiniBoss.State
         {
             _MiniBossEnemy._isAttacking = true;
             _MiniBossEnemy.LandAttackPatternStart();
-            _MiniBossEnemy.GroggyEnter();
             
         }
 

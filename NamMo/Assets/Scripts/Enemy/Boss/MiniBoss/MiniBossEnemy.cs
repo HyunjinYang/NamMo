@@ -39,6 +39,8 @@ namespace Enemy.Boss.MiniBoss
         public bool _isAttacking;
 
         public int phase = 1;
+
+        private Coroutine _currentPattern;
         
         public Action OnAttack2;
         public Action OnDashAttack;
@@ -51,7 +53,6 @@ namespace Enemy.Boss.MiniBoss
         
         private void Awake()
         {
-            Debug.Log("ddd");
             _animator = GetComponent<Animator>();
             
             _miniBossStateMachine = new MiniBossStateMachine(this);
@@ -84,13 +85,22 @@ namespace Enemy.Boss.MiniBoss
             }
         }
 
-        public void GroggyEnter()
+        public override void GroggyEnter()
         {
             EnemyMelAttack1AttackArea._groggy += OnGroggy;
             EnemyMelAttack2AttackArea._groggy += OnGroggy;
             EnemyMelAttack3AttackArea._groggy += OnGroggy;
             EnemyDashAttackAttackArea._groggy += OnGroggy;
         }
+
+        public bool IsDead()
+        {
+            if (_hp <= 0)
+                return true;
+            else
+                return false;
+        }
+
 
         public override void GroggyStetCount()
         {
@@ -194,20 +204,28 @@ namespace Enemy.Boss.MiniBoss
         public void MelAttackPatternStart()
         {
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-            StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
+            _currentPattern = StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
         }
 
         public void DashAttackPatternStart()
         {
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-            StartCoroutine(_miniBossDashAttackPattern.Pattern());
+            _currentPattern = StartCoroutine(_miniBossDashAttackPattern.Pattern());
         }
 
         public void LandAttackPatternStart()
         {
-            StartCoroutine(_miniBossLandAttackPattern.Pattern());
+            _currentPattern = StartCoroutine(_miniBossLandAttackPattern.Pattern());
         }
 
+        public void StopPattern()
+        {
+            EndMelAttack();
+            EndDashAttack();
+            EndLandAttack();
+            StopCoroutine(_currentPattern);
+        }
+        
         public void ShootWave()
         {
             GameObject go = Instantiate(_enemyWavePrefab, transform.position, Quaternion.identity);

@@ -78,6 +78,11 @@ namespace Enemy
         {
             
         }
+
+        public virtual void GroggyEnter()
+        {
+            
+        }
         
     }
 }

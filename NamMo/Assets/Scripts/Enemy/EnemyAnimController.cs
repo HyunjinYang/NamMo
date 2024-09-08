@@ -22,6 +22,8 @@ namespace Enemy
             _enemy.OnGroggy += Groggy;
             _enemy.OnEndGroggy += EndGroggy;
             
+            _enemy.GroggyEnter();
+            
             _animator = GetComponent<Animator>();
         }
 
@@ -74,7 +76,7 @@ namespace Enemy
         private void Groggy()
         {
             _enemy.GroggyStetCount();
-            
+            Debug.Log(_enemy.currentgroggyStet);
             if (_enemy.currentgroggyStet >= _enemy.maxGroggyStet)
             {
                 _enemy.currentgroggyStet = 0f;
