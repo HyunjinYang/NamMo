@@ -18,7 +18,6 @@ namespace Enemy.Boss.MiniBoss.State
         {
             _MiniBossEnemy._isAttacking = true;
             _MiniBossEnemy.DashAttackPatternStart();
-            _MiniBossEnemy.GroggyEnter();
             
             target = Managers.Scene.CurrentScene.Player.transform.position;
 

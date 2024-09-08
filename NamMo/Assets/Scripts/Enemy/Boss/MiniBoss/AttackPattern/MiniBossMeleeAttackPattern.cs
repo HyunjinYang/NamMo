@@ -28,6 +28,12 @@ namespace Enemy.Boss.MiniBoss
                 _gameObject.EnemyMelAttack3AttackArea.ActiveAttackArea();
                 yield return new WaitForFixedUpdate();
                 _gameObject.EnemyMelAttack3AttackArea.DeActiveAttackArea();
+
+                if (_gameObject.phase == 2)
+                {
+                    yield return new WaitForSeconds(0.3f);
+                    _gameObject.ShootWave();
+                }
             }
             
             _gameObject.EndMelAttack();

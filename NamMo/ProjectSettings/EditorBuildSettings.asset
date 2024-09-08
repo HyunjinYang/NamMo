@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TestStartScene.unity
+    guid: c94742fffb9ae2948b676e98cf3c6600
+  - enabled: 1
     path: Assets/Scenes/CaveScene.unity
     guid: 9a1ac232c3ce27c49b03e0fd4b74041a
   - enabled: 1
@@ -18,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: bc62e2f7346ade545bb5f02b8c975f47
   - enabled: 1
-    path: Assets/Scenes/TestStartScene.unity
-    guid: c94742fffb9ae2948b676e98cf3c6600
-  - enabled: 1
     path: Assets/Scenes/KatanaZeroScene1.unity
     guid: b0facbb43642bf148b741a5d964881c0
   - enabled: 1
@@ -32,6 +32,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KatanaZeroScene4.unity
     guid: c37f1a17fba44cc43b64279919c13c3a
+  - enabled: 1
+    path: Assets/Scenes/KatanaZeroScene1_KMW.unity
+    guid: bf3006485a2149040b9da2333c255c74
+  - enabled: 1
+    path: Assets/Scenes/KatanaZeroScene2_KMW.unity
+    guid: 953dab4d91f3a8243b79919609fff54a
+  - enabled: 1
+    path: Assets/Scenes/KatanaZeroScene3_KMW.unity
+    guid: 32024169663948e46a5182cb4cfbbb23
+  - enabled: 1
+    path: Assets/Scenes/KatanaZeroScene4_KMW.unity
+    guid: 052baf614f8a6324d9de9b1c4e585cc1
+  - enabled: 1
+    path: Assets/Scenes/MiniBossScene.unity
+    guid: 34dfde3b6b45b3f44a83c047fa2a5dec
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 44ac42c9438cd6a4c9a7430ccfdee075, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9923133d0f0cb3e40b55c47c071aecd8, type: 2}

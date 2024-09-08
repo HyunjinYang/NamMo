@@ -1,4 +1,5 @@
 using System;
+using Enemy.Boss.MiniBoss;
 using UnityEngine;
 
 namespace Enemy
@@ -15,6 +16,9 @@ namespace Enemy
         public Action Dead;
         public Action OnGroggy;
         public Action OnEndGroggy;
+
+        public float maxGroggyStet;
+        public float currentgroggyStet;
         
         public bool _isParingAvailable = false;
         public virtual void Behavire(float distance)
@@ -43,7 +47,9 @@ namespace Enemy
                 OnDead();
                 return;
             }
-            OnHit.Invoke();
+            
+            if(gameObject.GetComponent<MiniBossEnemy>() == null)
+                OnHit.Invoke();
             _enemyMovement._isHit = true;
         }
 
@@ -66,6 +72,16 @@ namespace Enemy
         {
             _enemyMovement._isHit = false;
             OnEndHit.Invoke();
+        }
+
+        public virtual void GroggyStetCount()
+        {
+            
+        }
+
+        public virtual void GroggyEnter()
+        {
+            
         }
         
     }

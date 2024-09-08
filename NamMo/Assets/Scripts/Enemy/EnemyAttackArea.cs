@@ -22,6 +22,7 @@ namespace Enemy
 
         public void Parried(GameObject attacker, GameObject target = null)
         {
+            Debug.Log(gameObject.name);
             _groggy.Invoke();
         }
     }

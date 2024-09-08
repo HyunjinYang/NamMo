@@ -37,6 +37,10 @@ namespace Enemy.Boss.MiniBoss
         public int _isMelAttack;
 
         public bool _isAttacking;
+
+        public int phase = 1;
+
+        private Coroutine _currentPattern;
         
         public Action OnAttack2;
         public Action OnDashAttack;
@@ -44,9 +48,10 @@ namespace Enemy.Boss.MiniBoss
         public Action OnEndAttack2;
         public Action OnEndDashAttack;
         public Action OnEndLandAttack;
+        public Action OnChangePhase;
+        public Action OnEndChangePhase;
         
-        
-        private void Start()
+        private void Awake()
         {
             _animator = GetComponent<Animator>();
             
@@ -67,18 +72,52 @@ namespace Enemy.Boss.MiniBoss
 
         public override void Behavire(float distance)
         {
-            _miniBossStateMachine.Update();
-            _distance = distance;
+            if (_miniBossStateMachine != null)
+            {
+                if (_hp <= 5 && (_miniBossStateMachine._CurrentState is IdelState) && phase == 1)
+                {
+                    phase = 2;
+                    _miniBossStateMachine.TransitionState(_miniBossStateMachine._ChangePhaseState);
+                }
+                
+                _miniBossStateMachine.Update();
+                _distance = distance;
+            }
         }
 
-        public void GroggyEnter()
+        public override void GroggyEnter()
         {
             EnemyMelAttack1AttackArea._groggy += OnGroggy;
             EnemyMelAttack2AttackArea._groggy += OnGroggy;
             EnemyMelAttack3AttackArea._groggy += OnGroggy;
             EnemyDashAttackAttackArea._groggy += OnGroggy;
         }
-        
+
+        public bool IsDead()
+        {
+            if (_hp <= 0)
+                return true;
+            else
+                return false;
+        }
+
+
+        public override void GroggyStetCount()
+        {
+            if (_miniBossStateMachine._CurrentState is MeleeAttackState)
+            {
+                currentgroggyStet += 0.3f;
+            }
+            else if (_miniBossStateMachine._CurrentState is DashAttackState)
+            {
+                currentgroggyStet += 0.5f;
+            }
+            else if (_miniBossStateMachine._CurrentState is LandAttackState)
+            {
+                currentgroggyStet += 0.5f;
+            }
+        }
+
 
         public void TransitionToIdel()
         {
@@ -144,6 +183,16 @@ namespace Enemy.Boss.MiniBoss
             OnEndLandAttack.Invoke();
         }
 
+        public void ChangePhase()
+        {
+            OnChangePhase.Invoke();
+        }
+
+        public void EndChangePhase()
+        {
+            OnEndChangePhase.Invoke();
+        }
+        
         public void DeActivateAttackArea()
         {
             EnemyDashAttackAttackArea.DeActiveAttackArea();
@@ -154,22 +203,29 @@ namespace Enemy.Boss.MiniBoss
         
         public void MelAttackPatternStart()
         {
-            Debug.Log("MelAttack Start");
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-            StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
+            _currentPattern = StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
         }
 
         public void DashAttackPatternStart()
         {
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-            StartCoroutine(_miniBossDashAttackPattern.Pattern());
+            _currentPattern = StartCoroutine(_miniBossDashAttackPattern.Pattern());
         }
 
         public void LandAttackPatternStart()
         {
-            StartCoroutine(_miniBossLandAttackPattern.Pattern());
+            _currentPattern = StartCoroutine(_miniBossLandAttackPattern.Pattern());
         }
 
+        public void StopPattern()
+        {
+            EndMelAttack();
+            EndDashAttack();
+            EndLandAttack();
+            StopCoroutine(_currentPattern);
+        }
+        
         public void ShootWave()
         {
             GameObject go = Instantiate(_enemyWavePrefab, transform.position, Quaternion.identity);
@@ -194,7 +250,7 @@ namespace Enemy.Boss.MiniBoss
 
         public IEnumerator CoTurm()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.2f);
             TransitionToIdel();
         }
     }

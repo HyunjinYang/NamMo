@@ -628,8 +628,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc56320449854359830623eb7496c5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 5
+  _hp: 10
   _enemyMovement: {fileID: 8003821138641897930}
+  maxGroggyStet: 3
+  currentgroggyStet: 0
   _isParingAvailable: 0
   _miniBossDashAttackPattern: {fileID: 1211483485395731205, guid: d43771abfff4b9b4ca6420219b799e5e, type: 3}
   _miniBossMeleeAttackPattern: {fileID: 2384577859146830907, guid: 06c663b9bd030e9429b83c1221670678, type: 3}
@@ -641,12 +643,13 @@ MonoBehaviour:
   _enemyWavePrefab: {fileID: 474019187019507980, guid: 30452cee9bb42e84da45dfa772e98e67, type: 3}
   melAttack1Time: 0.6
   melAttack2Time: 0.4
-  melAttack3Time: 1.1
-  dashAttackTime: 0.5
+  melAttack3Time: 0.9
+  dashAttackTime: 1
   landAttackTime: 0.5
   _distance: 0
   _isMelAttack: 0
   _isAttacking: 0
+  phase: 1
 --- !u!114 &2400573447857047706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,25 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01c6762b8ed4b238ab364772831dd95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundCheck: {fileID: 0}
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
   _CharacterSprite: {fileID: 3787324565052666855}
-  _speed: 0
-  _jumpForce: 0
-  maxSlopeAngle: 0
-  _groundCheckRadius: 0
-  slopeCheckDistance: 0
-  noFriction: {fileID: 0}
-  fullFriction: {fileID: 0}
-  isOnSlope: 0
-  _isGround: 0
-  _isDashing: 0
-  _isJumping: 0
-  _isFalling: 0
-  _isKnockBacking: 0
-  _reserveDash: 0
   _point1: {fileID: 8598824794068793339}
   _point2: {fileID: 6802598981802082019}
   _isNextPoint: 0
@@ -927,3 +912,4 @@ MonoBehaviour:
   _isGroggy: 0
   _playerposition: {fileID: 0}
   direct: 1
+  _speed: 0

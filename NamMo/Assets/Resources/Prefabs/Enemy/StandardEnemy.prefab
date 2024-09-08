@@ -190,11 +190,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 5
   _enemyMovement: {fileID: 4550646516724862641}
+  maxGroggyStet: 0
+  currentgroggyStet: 0
   _isParingAvailable: 0
   _isAttacking: 0
-  EnemyAttack1AttackArea: {fileID: 0}
-  EnemyAttack2AttackArea: {fileID: 0}
-  EnemyAttack3AttackArea: {fileID: 0}
+  EnemyAttack1AttackArea: {fileID: 1246528006709331951}
+  EnemyAttack2AttackArea: {fileID: 1916740574364924482}
+  EnemyAttack3AttackArea: {fileID: 3072556026882875366}
   _patternlist:
   - {fileID: 2603003537774195399, guid: a17b5ee64e75f6045bfca14fd4afa554, type: 3}
   - {fileID: 520734689229591719, guid: 60f0dec6514f70e46bc37da8531d81ec, type: 3}
@@ -631,25 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c67721b51b4ba08df74be64a707899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundCheck: {fileID: 0}
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
   _CharacterSprite: {fileID: 2862817832713176380}
-  _speed: 3
-  _jumpForce: 0
-  maxSlopeAngle: 0
-  _groundCheckRadius: 0
-  slopeCheckDistance: 0
-  noFriction: {fileID: 0}
-  fullFriction: {fileID: 0}
-  isOnSlope: 0
-  _isGround: 0
-  _isDashing: 0
-  _isJumping: 0
-  _isFalling: 0
-  _isKnockBacking: 0
-  _reserveDash: 0
   _point1: {fileID: 4957206472840754091}
   _point2: {fileID: 3767760872071124549}
   _isNextPoint: 0
@@ -661,6 +645,7 @@ MonoBehaviour:
   _isGroggy: 0
   _playerposition: {fileID: 0}
   direct: 1
+  _speed: 3
 --- !u!1 &8640263331236623807
 GameObject:
   m_ObjectHideFlags: 0
