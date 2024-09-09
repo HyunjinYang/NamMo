@@ -456,7 +456,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1048576
   _CharacterSprite: {fileID: 0}
-  _speed: 12
+  _speed: 8
+  _overlappedSpeed: 3
+  _currentSpeed: 0
   _jumpForce: 22
   maxSlopeAngle: 60
   _groundCheckRadius: 0.75
@@ -522,6 +524,7 @@ GameObject:
   - component: {fileID: 5837418660578971458}
   - component: {fileID: 9082223262765091644}
   - component: {fileID: 6326163798438815761}
+  - component: {fileID: 7756615895380042217}
   m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
@@ -642,6 +645,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
+--- !u!50 &7756615895380042217
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111984358466278118}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2569666073083511915
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +904,7 @@ GameObject:
   - component: {fileID: 6731701694605412664}
   - component: {fileID: 3797522672864856625}
   - component: {fileID: 3858142439707803547}
+  - component: {fileID: 79022966288054621}
   m_Layer: 3
   m_Name: AttackArea
   m_TagString: Untagged
@@ -953,6 +984,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e637b20013b564c9932197b03c8ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &79022966288054621
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6157031504481727938}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7354801875043186339
 GameObject:
   m_ObjectHideFlags: 0
