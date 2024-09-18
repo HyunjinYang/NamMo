@@ -69,6 +69,10 @@ public abstract class BaseAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<BreakWall>().Damaged();
             }
+            if (collision.gameObject.GetComponent<TutorialNPC>())
+            {
+                collision.gameObject.GetComponent<TutorialNPC>().Damaged(_attacker.transform.position.x);
+            }
         }
         else
         {

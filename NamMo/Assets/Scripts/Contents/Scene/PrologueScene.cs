@@ -15,6 +15,8 @@ public class PrologueScene : BaseScene
     [SerializeField] private GameObject _liege;
     [SerializeField] private GameObject _king;
     [SerializeField] private GameObject _buddhistMonk;
+
+    [SerializeField] private TutorialNPC _tutorialNPC;
     [Header("Scenes")]
     [SerializeField] private GameObject _scene1;
     [SerializeField] private GameObject _scene2;
@@ -34,7 +36,9 @@ public class PrologueScene : BaseScene
         //UI_PrologueFadeInMessage prologueFadeIn = Managers.UI.ShowUI<UI_PrologueFadeInMessage>();
         //prologueFadeIn.OnPrologueFadeInEnd += StartPrologue;
 
-        StartPrologue();
+        //StartPrologue();
+
+        Tutorial_Move();
     }
     private void StartPrologue()
     {
@@ -70,7 +74,10 @@ public class PrologueScene : BaseScene
     }
     private void Tutorial_Move()
     {
-        _conversationUI.HideElements();
+        if (_conversationUI)
+        {
+            _conversationUI.HideElements();
+        }
         FocusCamera(_trainingGround);
         Camera.main.DOOrthoSize(12, 1);
         Camera.main.gameObject.GetComponent<CameraController>().CameraMode = Define.CameraMode.FollowTarget;
@@ -99,7 +106,53 @@ public class PrologueScene : BaseScene
     private void Tutorial_Attack()
     {
         Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_Attack);
+        Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_AirAttack);
         _tutorialUI.SetTutorialText(Define.TutorialType.Attack);
+        _tutorialNPC.OnDamaged += CheckAttackTutorial;
+    }
+    private void CheckAttackTutorial()
+    {
+        _tutorialNPC.OnDamaged -= CheckAttackTutorial;
+        Tutorial_Parrying();
+    }
+    private void Tutorial_Parrying()
+    {
+        _tutorialNPC.CurrentPhase = NPCPhase.CloseAttack;
+        Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_Block);
+        Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_Parrying);
+        Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_Hurt);
+        Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_Invincible);
+        _tutorialUI.SetTutorialText(Define.TutorialType.Parrying);
+
+        Managers.Scene.CurrentScene.Player.GetASC().GetAbility(Define.GameplayAbility.GA_Parrying).OnAbilityActivated += CheckParryingTutorial;
+    }
+    private void CheckParryingTutorial()
+    {
+        Managers.Scene.CurrentScene.Player.GetASC().GetAbility(Define.GameplayAbility.GA_Parrying).OnAbilityActivated -= CheckParryingTutorial;
+        Tutorial_Jump();
+    }
+    private void Tutorial_Jump()
+    {
+        _tutorialNPC.CurrentPhase = NPCPhase.RangeAttack;
+        Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_Jump);
+        _tutorialUI.SetTutorialText(Define.TutorialType.Jump);
+        Managers.Scene.CurrentScene.Player.GetASC().GetAbility(Define.GameplayAbility.GA_Jump).OnAbilityActivated += CheckJumpTutorial;
+    }
+    private void CheckJumpTutorial()
+    {
+        Managers.Scene.CurrentScene.Player.GetASC().GetAbility(Define.GameplayAbility.GA_Jump).OnAbilityActivated -= CheckJumpTutorial;
+        Tutorial_Dash();
+    }
+    private void Tutorial_Dash()
+    {
+        Managers.Scene.CurrentScene.Player.GetASC().UnlockAbility(Define.GameplayAbility.GA_Dash);
+        _tutorialUI.SetTutorialText(Define.TutorialType.Dash);
+        Managers.Scene.CurrentScene.Player.GetASC().GetAbility(Define.GameplayAbility.GA_Dash).OnAbilityActivated += CheckDashTutorial;
+    }
+    private void CheckDashTutorial()
+    {
+        Managers.Scene.CurrentScene.Player.GetASC().GetAbility(Define.GameplayAbility.GA_Dash).OnAbilityActivated -= CheckDashTutorial;
+        Destroy(_tutorialUI.gameObject);
     }
     private Vector3 GetSceneLeftEndPos(GameObject scene)
     {

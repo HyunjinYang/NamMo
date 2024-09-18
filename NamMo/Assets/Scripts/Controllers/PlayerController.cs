@@ -39,7 +39,10 @@ public partial class PlayerController : MonoBehaviour
             _asc.GiveAbility(ability);
             if (_cheatMode) _asc.GetAbility(ability).CanUse = true;
         }
-        //_ps.OnDead += Dead;
+        if (_cheatMode == false)
+        {
+            _ps.OnDead += Dead;
+        }
         Camera.main.GetComponent<CameraController>().SetTargetInfo(gameObject);
     }
     public AbilitySystemComponent GetASC() { return _asc; }

@@ -15,7 +15,6 @@ public class DataManager
     public Dictionary<int, Data.Conversation> ConversationDict { get; private set; } = new Dictionary<int, Conversation>();
     public Dictionary<int, Data.CharacterInfo> CharacterInfoDict { get; private set; } = new Dictionary<int, Data.CharacterInfo>();
     public Dictionary<Define.TutorialType, Data.TutorialInfo> TutorialInfoDict { get; private set; } = new Dictionary<Define.TutorialType, Data.TutorialInfo>();
-
     public PlayerData PlayerData;
     public void Init()
     {
