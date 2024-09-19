@@ -87,6 +87,7 @@ public partial class PlayerController : MonoBehaviour
 // Handle Input
 public partial class PlayerController : MonoBehaviour
 {
+    public bool BlockInput { get; set; } = false;
     // �̵�
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
@@ -96,6 +97,7 @@ public partial class PlayerController : MonoBehaviour
         }
         else if (context.performed)
         {
+            if (BlockInput) return;
             OnMoveInputChanged.Invoke(value);
         }
         else if (context.canceled)
@@ -111,6 +113,7 @@ public partial class PlayerController : MonoBehaviour
         }
         else if (context.performed)
         {
+            if (BlockInput) return;
             if (_pushDown)
             {
                 if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
@@ -146,6 +149,7 @@ public partial class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            if (BlockInput) return;
             _pushDown = true;
         }
         else if (context.canceled)
@@ -156,6 +160,7 @@ public partial class PlayerController : MonoBehaviour
     // ����
     public void HandleAttackInput(InputAction.CallbackContext context)
     {
+        if (BlockInput) return;
         if (_pm.IsJumping || _pm.IsFalling)
         {
             if (context.performed)
@@ -174,6 +179,7 @@ public partial class PlayerController : MonoBehaviour
     // �ĵ�Ž��
     public void HandleWaveInput(InputAction.CallbackContext context)
     {
+        if (BlockInput) return;
         if (context.performed)
         {
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_WaveDetect);
@@ -182,6 +188,7 @@ public partial class PlayerController : MonoBehaviour
     // �и�
     public void HandleParryingInput(InputAction.CallbackContext context)
     {
+        if (BlockInput) return;
         if (context.performed)
         {
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Block);
@@ -190,6 +197,7 @@ public partial class PlayerController : MonoBehaviour
     // �뽬
     public void HandleDashInput(InputAction.CallbackContext context)
     {
+        if (BlockInput) return;
         if (context.performed)
         {
             if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack) || _asc.IsExsistTag(Define.GameplayTag.Player_Action_AirAttack))
@@ -205,6 +213,7 @@ public partial class PlayerController : MonoBehaviour
     // ��ȣ�ۿ�
     public void HandleInteractionInput(InputAction.CallbackContext context)
     {
+        if (BlockInput) return;
         if (context.performed)
         {
             if (OnInteractionInputPerformed != null) OnInteractionInputPerformed.Invoke();
@@ -213,6 +222,7 @@ public partial class PlayerController : MonoBehaviour
     // ������1
     public void HandleUseItem1Input(InputAction.CallbackContext context)
     {
+        if (BlockInput) return;
         if (context.performed)
         {
             Debug.Log("HandleUseItem1Input");
@@ -221,6 +231,7 @@ public partial class PlayerController : MonoBehaviour
     // ������2
     public void HandleUseItem2Input(InputAction.CallbackContext context)
     {
+        if (BlockInput) return;
         if (context.performed)
         {
             Debug.Log("HandleUseItem2Input");

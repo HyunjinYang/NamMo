@@ -40,6 +40,8 @@ public class UI_Conversation : UI_Base
     private Coroutine _typingCoroutine = null;
     public override void Init()
     {
+        if (_init) return;
+        _init = true;
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Image>(typeof(Images));
         Bind<GameObject>(typeof(GameObjects));
@@ -90,8 +92,8 @@ public class UI_Conversation : UI_Base
                 StopCoroutine(_typingCoroutine);
                 int languageCode = (int)Define.Languages.Kor;
                 string message = Managers.Data.ConversationDict[_currentConversationNum].scripts[languageCode];
-                _typingCoroutine = StartCoroutine(CoTypingConversationText(message, _fastTypingSpeed));
                 _currentTypingState = TypingState.FastTyping;
+                _typingCoroutine = StartCoroutine(CoTypingConversationText(message, _fastTypingSpeed));
             }
         }
     }

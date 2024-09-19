@@ -57,7 +57,6 @@ public abstract class UI_Base : MonoBehaviour
 	protected Text GetText(int idx) { return Get<Text>(idx); }
 	protected Button GetButton(int idx) { return Get<Button>(idx); }
 	protected Image GetImage(int idx) { return Get<Image>(idx); }
-
 	void OnNavigate(InputValue value)
 	{
 		Vector2 vector = value.Get<Vector2>();
@@ -72,7 +71,15 @@ public abstract class UI_Base : MonoBehaviour
 		Define.KeyInput key = Managers.Input.ActionKey("Enter");
 		Input(key);
 	}
-	public static void BindEvent(GameObject go, Action action, Define.UIEvent type = Define.UIEvent.Click)
+    public virtual void ActivateUI()
+    {
+		gameObject.SetActive(true);
+    }
+    public virtual void DeActivateUI()
+    {
+        gameObject.SetActive(false);
+    }
+    public static void BindEvent(GameObject go, Action action, Define.UIEvent type = Define.UIEvent.Click)
 	{
 		UI_EventHandler evt = Util.GetOrAddComponent<UI_EventHandler>(go);
 

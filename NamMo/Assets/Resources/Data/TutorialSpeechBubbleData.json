@@ -1,0 +1,76 @@
+{
+  "conversations": [
+    {
+      "num": "0",
+      "characterId": "1",
+      "scripts": [
+        "자, 남모야. 배웠던 대로 적에게 다가가보거라",
+        "eng"
+      ]
+    },
+    {
+      "num": "1",
+      "characterId": "1",
+      "scripts": [
+        "잘했다. 이제 수련한대로 공격해보거라",
+        "eng"
+      ]
+    },
+    {
+      "num": "2",
+      "characterId": "1",
+      "scripts": [
+        "이제, 적의 반격에 맞서는 단계이다. 적의 공격을 맞받아쳐보거라.",
+        "eng"
+      ]
+    },
+    {
+      "num": "3",
+      "characterId": "1",
+      "scripts": [
+        "적의 공격을 위로 피해야 할 경우도 있다. 적의 공격을 뛰어넘어보거라",
+        "eng"
+      ]
+    },
+    {
+      "num": "4",
+      "characterId": "1",
+      "scripts": [
+        "적의 공격을 빠른 속도로 회피하는 것도 배웠었지. 할 수 있겠느냐?",
+        "eng"
+      ]
+    },
+    {
+      "num": "5",
+      "characterId": "1",
+      "scripts": [
+        "",
+        "eng"
+      ]
+    },
+    {
+      "num": "6",
+      "characterId": "1",
+      "scripts": [
+        "",
+        "eng"
+      ]
+    },
+    {
+      "num": "7",
+      "characterId": "1",
+      "scripts": [
+        "이제 연습 대련의 시간이다!",
+        "eng"
+      ]
+    },
+    {
+      "num": "8",
+      "characterId": "2",
+      "scripts": [
+        "으윽… 역시, 남모님이야…",
+        "eng"
+      ]
+    }
+  ]
+} 

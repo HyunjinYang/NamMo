@@ -8,6 +8,7 @@ public enum NPCPhase
     Idle,
     CloseAttack,
     RangeAttack,
+    FreeFight
 }
 public enum NPCState
 {
@@ -22,19 +23,29 @@ public class TutorialNPC : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private CloseAttack _attackArea;
+    [SerializeField] private GameObject _swordProjectilePrefab;
 
     [SerializeField] private float _speed;
+    [SerializeField] private float _swordProjectileSpeed;
     [SerializeField] private float _knockbackPower;
     [SerializeField] private bool _isFacingRight = false;
 
     [SerializeField] private float _damagedTime;
     [SerializeField] private float _closeAttackInterval;
     [SerializeField] private float _rangeAttackInterval;
+    [SerializeField] private float _lastAttackInterval;
+    [SerializeField] private float _selectAttackTypeInterval;
 
     [SerializeField] private float _closeAttackDistance;
+    [SerializeField] private float _closeAttackRange;
     [SerializeField] private float _rangeAttackDistance;
 
     private float _currentStateTime = 0f;
+    private float _selectAttackTypeTime = 0f;
+    private int _selectedAttackType = 0;
+
+    [SerializeField] private int _maxHp;
+    [SerializeField] private int _hp;
 
     private NPCState _npcState = NPCState.Idle;
     private PlayerController _player = null;
@@ -46,6 +57,7 @@ public class TutorialNPC : MonoBehaviour
     public NPCPhase CurrentPhase = NPCPhase.Idle;
 
     public Action OnDamaged;
+    public Action OnHpZero;
     private void Start()
     {
         _player = Managers.Scene.CurrentScene.Player;
@@ -76,19 +88,10 @@ public class TutorialNPC : MonoBehaviour
     {
         LookPlayer();
         if (CurrentPhase == NPCPhase.Idle) return;
-        if(CurrentPhase == NPCPhase.CloseAttack)
+        if (_currentStateTime > _lastAttackInterval)
         {
-            if (_currentStateTime > _closeAttackInterval)
-            {
-                ChangeState(NPCState.Trace);
-            }
-        }
-        else if(CurrentPhase == NPCPhase.RangeAttack)
-        {
-            if (_currentStateTime > _rangeAttackInterval)
-            {
-                ChangeState(NPCState.Trace);
-            }
+            _selectAttackTypeTime = _selectAttackTypeInterval;
+            ChangeState(NPCState.Trace);
         }
     }
     private void UpdateDamaged()
@@ -101,6 +104,12 @@ public class TutorialNPC : MonoBehaviour
 
         if (_currentStateTime > _damagedTime)
         {
+            if (_hp == 0)
+            {
+                GetComponent<Collider2D>().enabled = false;
+                CurrentPhase = NPCPhase.Idle;
+                OnHpZero.Invoke();
+            }
             ChangeState(NPCState.Idle);
         }
     }
@@ -127,6 +136,33 @@ public class TutorialNPC : MonoBehaviour
         else if (CurrentPhase == NPCPhase.RangeAttack)
         {
             if (distance <= _rangeAttackDistance)
+            {
+                ChangeState(NPCState.RangeAttack);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x + dir * _speed * Time.deltaTime, transform.position.y, transform.position.z);
+            }
+        }
+        else if (CurrentPhase == NPCPhase.FreeFight)
+        {
+            _selectAttackTypeTime += Time.deltaTime;
+            if (_selectAttackTypeTime >= _selectAttackTypeInterval)
+            {
+                _selectAttackTypeTime = 0;
+                _selectedAttackType = UnityEngine.Random.Range(0, 2);
+            }
+
+            if(distance< _closeAttackRange)
+            {
+                _selectedAttackType = 0;
+            }
+
+            if (distance <= _closeAttackDistance)
+            {
+                ChangeState(NPCState.CloseAttack);
+            }
+            else if (distance <= _rangeAttackDistance && _selectedAttackType == 1)
             {
                 ChangeState(NPCState.RangeAttack);
             }
@@ -171,6 +207,7 @@ public class TutorialNPC : MonoBehaviour
     private void ChangeState(NPCState state)
     {
         _currentStateTime = 0;
+        _lastAttackInterval = 0.2f;
         _npcState = state;
         switch (_npcState)
         {
@@ -198,39 +235,48 @@ public class TutorialNPC : MonoBehaviour
                 break;
             case NPCState.RangeAttack:
                 _animator.Play("RangeAttack");
-                // tmp
-                _closeAttackCoroutine = StartCoroutine(CoCloseAttack());
-
-                //_rangeAttackCoroutine = StartCoroutine(CoRangeAttack());
+                _rangeAttackCoroutine = StartCoroutine(CoRangeAttack());
                 break;
         }
     }
-    public void Damaged(float attackerPosX)
+    public void Damaged(float attackerPosX, int damage = 1)
     {
         if (OnDamaged != null)
         {
             OnDamaged.Invoke();
         }
         _attackerPosX = attackerPosX;
+        if (CurrentPhase == NPCPhase.FreeFight)
+        {
+            _hp = Mathf.Clamp(_hp - damage, 0, _maxHp);
+        }
         ChangeState(NPCState.Damaged);
     }
     IEnumerator CoCloseAttack()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         _attackArea.SetAttackInfo(gameObject, 0);
         _attackArea.ActiveAttackArea();
         yield return new WaitForFixedUpdate();
         _attackArea.DeActiveAttackArea();
         yield return new WaitForSeconds(0.4f);
+
         ChangeState(NPCState.Idle);
+        _lastAttackInterval = _closeAttackInterval;
         _closeAttackCoroutine = null;
     }
     IEnumerator CoRangeAttack()
     {
-        yield return new WaitForSeconds(0.15f);
-        // TODO : °Ë±â
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
+
+        LookPlayer();
+        GameObject projectile = Instantiate(_swordProjectilePrefab, transform.position, Quaternion.identity);
+        projectile.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 0f, _swordProjectileSpeed, Managers.Scene.CurrentScene.Player.gameObject);
+
+        yield return new WaitForSeconds(0.4f);
+
         ChangeState(NPCState.Idle);
+        _lastAttackInterval = _rangeAttackInterval;
         _rangeAttackCoroutine = null;
     }
 }
