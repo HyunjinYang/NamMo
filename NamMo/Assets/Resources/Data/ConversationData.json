@@ -311,6 +311,62 @@
         "네!",
         "eng"
       ]
+    },
+    {
+      "num": "39",
+      "characterId": "0",
+      "scripts": [
+        "언니가 어디갔지? 밤중에 절대 혼자 나가지 않는데…",
+        "eng"
+      ]
+    },
+    {
+      "num": "40",
+      "characterId": "0",
+      "scripts": [
+        "언니! 무슨 일이야?",
+        "eng"
+      ]
+    },
+    {
+      "num": "41",
+      "characterId": "8",
+      "scripts": [
+        "…",
+        "eng"
+      ]
+    },
+    {
+      "num": "42",
+      "characterId": "0",
+      "scripts": [
+        "언니! 빨리 돌아가자… 시간이 벌써 자시야…",
+        "eng"
+      ]
+    },
+    {
+      "num": "43",
+      "characterId": "8",
+      "scripts": [
+        "…안 되는 거 알잖아, 남모야",
+        "eng"
+      ]
+    },
+    {
+      "num": "44",
+      "characterId": "0",
+      "scripts": [
+        "언니 무슨 말이야? 왜 그래? 얼굴색이...",
+        "eng"
+      ]
+    },
+    {
+      "num": "45",
+      "characterId": "8",
+      "scripts": [
+        "미안하구나… 남모야…",
+        "eng"
+      ]
     }
   ]
 }

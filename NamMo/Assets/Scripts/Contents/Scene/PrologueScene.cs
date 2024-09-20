@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PrologueScene : BaseScene
 {
@@ -10,6 +12,7 @@ public class PrologueScene : BaseScene
     [SerializeField] private GameObject _nammo;
     [SerializeField] private GameObject _heroNammo;
     [SerializeField] private GameObject _joonjeong;
+    [SerializeField] private GameObject _joonjeong2;
     [SerializeField] private GameObject _hwarang;
     [SerializeField] private GameObject _hwarang_AI;
     [SerializeField] private GameObject _teacher;
@@ -23,7 +26,16 @@ public class PrologueScene : BaseScene
     [SerializeField] private GameObject _scene1_2;
     [SerializeField] private GameObject _scene1_3;
     [SerializeField] private GameObject _scene1_4;
+    [SerializeField] private GameObject _scene2_1;
+    [SerializeField] private GameObject _scene2_2;
+    [SerializeField] private GameObject _scene2_3;
     [SerializeField] private GameObject _trainingGround;
+
+    [Header("Interactions")]
+    [SerializeField] private PrologueFlowInteraction _woljeonggyoInteraction;
+
+    [Header("Volume")]
+    [SerializeField] private Volume _volume;
 
     UI_Conversation _conversationUI;
     UI_Tutorial _tutorialUI;
@@ -56,6 +68,10 @@ public class PrologueScene : BaseScene
         _conversationUI.RegisterFlowAction(18, Tutorial_Move);
         _conversationUI.RegisterFlowAction(22, AppearKing);
         _conversationUI.RegisterFlowAction(31, FadeOutTemple);
+        _conversationUI.RegisterFlowAction(38, ShowPrayCutScene);
+        _conversationUI.RegisterFlowAction(39, FadeOutTown);
+        _conversationUI.RegisterFlowAction(44, WoljeonggyoFlow1);
+        _conversationUI.RegisterFlowAction(45, WoljeonggyoFlow2);
     }
     private void MoveToJoonjeong()
     {
@@ -222,6 +238,100 @@ public class PrologueScene : BaseScene
     {
         _conversationUI.ShowNextInfos();
     }
+    UI_CutScene _praycutSceneUI;
+    private void ShowPrayCutScene()
+    {
+        _conversationUI.HideElements();
+
+        _praycutSceneUI = Managers.UI.ShowUI<UI_CutScene>();
+        _praycutSceneUI.Init();
+        _praycutSceneUI.OnFadeOutBgEnd += (() =>
+        {
+            _nammo.transform.position = GetSceneLeftEndPos(_scene2_1) + Vector3.right * 10f;
+            FocusCamera(_scene2_1);
+            _praycutSceneUI.ShowCutSceneImage(2);
+        });
+        _praycutSceneUI.OnShowCutSceneImageEnd += (() =>
+        {
+            StartCoroutine(CoHidePrayCutScene());
+        });
+        _praycutSceneUI.FadeOutBg(2);
+    }
+    private void HidePrayCutScene()
+    {
+        _praycutSceneUI.OnHideCutSceneImageEnd += (() =>
+        {
+            _praycutSceneUI.FadeInBg(2);
+        });
+        _praycutSceneUI.OnFadeInBgEnd += (() =>
+        {
+            Destroy(_praycutSceneUI.gameObject);
+            NammoRoomFlow();
+        });
+        _praycutSceneUI.HideCutSceneImage(2);
+    }
+    private void NammoRoomFlow()
+    {
+        _conversationUI.ShowNextInfos();
+    }
+    private void FadeOutTown()
+    {
+        _conversationUI.HideElements();
+        UI_PrologueFadeInMessage prologueFadeIn = Managers.UI.ShowUI<UI_PrologueFadeInMessage>();
+        prologueFadeIn.Init();
+        prologueFadeIn.OnFadeOutScreenEnd += (() =>
+        {
+            _heroNammo.transform.position = GetSceneLeftEndPos(_scene2_2) + Vector3.left * 10f;
+            FocusCamera(_scene2_2);
+            Camera.main.gameObject.GetComponent<CameraController>().CameraMode = Define.CameraMode.FollowTarget;
+            prologueFadeIn.FadeInScreen();
+        });
+        prologueFadeIn.OnFadeInScreenEnd += FadeInTown;
+        prologueFadeIn.FadeOutScreen();
+    }
+    private void FadeInTown()
+    {
+        Managers.Scene.CurrentScene.Player.BlockInput = false;
+        _woljeonggyoInteraction.OnInteraction += FadeOutWoljeonggyo;
+    }
+    private void FadeOutWoljeonggyo()
+    {
+        Managers.Scene.CurrentScene.Player.BlockInput = true;
+        _woljeonggyoInteraction.OnInteraction -= FadeOutWoljeonggyo;
+
+        UI_PrologueFadeInMessage prologueFadeIn = Managers.UI.ShowUI<UI_PrologueFadeInMessage>();
+        prologueFadeIn.Init();
+        prologueFadeIn.OnFadeOutScreenEnd += (() =>
+        {
+            _nammo.transform.position = GetSceneLeftEndPos(_scene2_3) + Vector3.right * 3f;
+            _joonjeong2.transform.position = GetSceneRightEndPos(_scene2_3) + Vector3.left * 10f;
+            FocusCamera(_scene2_3);
+            Camera.main.gameObject.GetComponent<CameraController>().CameraMode = Define.CameraMode.None;
+            prologueFadeIn.FadeInScreen();
+        });
+        prologueFadeIn.OnFadeInScreenEnd += FadeInWoljeonggyo;
+        prologueFadeIn.FadeOutScreen();
+    }
+    private void FadeInWoljeonggyo()
+    {
+        _nammo.transform.DOMove(GetSceneLeftEndPos(_scene2_3) + Vector3.right * 10f, 3f).OnComplete(() =>
+        {
+            _conversationUI.ShowNextInfos();
+        });
+    }
+    private void WoljeonggyoFlow1()
+    {
+        Debug.Log("TODO : º£ÀÌ´Â ÀÌÆåÆ®");
+        _conversationUI.ShowNextInfos();
+    }
+    private void WoljeonggyoFlow2()
+    {
+        Debug.Log("TODO : Ç³µ¢");
+        _conversationUI.HideElements();
+        Vignette vignette;
+        _volume.profile.TryGet(out vignette);
+        vignette.intensity.value = 1;
+    }
     private Vector3 GetSceneLeftEndPos(GameObject scene)
     {
         return scene.transform.position + Vector3.left * 25 + Vector3.down * 2.8f;
@@ -252,5 +362,10 @@ public class PrologueScene : BaseScene
         });
         prologueFadeIn.OnFadeInScreenEnd += (() => _conversationUI.ShowNextInfos());
         prologueFadeIn.FadeOutScreen();
+    }
+    IEnumerator CoHidePrayCutScene()
+    {
+        yield return new WaitForSeconds(3f);
+        HidePrayCutScene();
     }
 }
