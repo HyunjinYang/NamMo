@@ -1,3 +1,4 @@
+using Enemy;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] protected GameObject _CharacterSprite;
 
     [SerializeField] protected float _speed;
+    [SerializeField] protected float _overlappedSpeed;
+    [SerializeField] protected float _currentSpeed;
+
     [SerializeField] private float _jumpForce;
     [SerializeField] private float maxSlopeAngle;
     [SerializeField] private float _groundCheckRadius;
@@ -47,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private Coroutine _reserveDashCoroutine = null;
 
     [SerializeField] private bool _reserveDash;
+    private int _overlapEnemyCnt = 0;
     
     public Action<bool> OnFlip;
     public Action OnLandGround;
@@ -86,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
         _pc.OnMoveInputChanged += RefreshHorizontalMoveValue;
 
+        _currentSpeed = _speed;
         _originalGravity = 4f;
 
         colliderSize = GetComponent<CapsuleCollider2D>().size;
@@ -97,6 +103,26 @@ public class PlayerMovement : MonoBehaviour
         SlopeCheck();
         CheckCurrentState();
         ApplyMove();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<DummyEnemy>() == null 
+            && collision.gameObject.GetComponent<Enemy.Enemy>() == null) return;
+        _overlapEnemyCnt++;
+        if (_overlapEnemyCnt > 0)
+        {
+            _currentSpeed = _overlappedSpeed;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<DummyEnemy>() == null
+            && collision.gameObject.GetComponent<Enemy.Enemy>() == null) return;
+        _overlapEnemyCnt--;
+        if (_overlapEnemyCnt == 0)
+        {
+            _currentSpeed = _speed;
+        }
     }
     #endregion
     // -------------------- Private Method --------------------
@@ -210,18 +236,18 @@ public class PlayerMovement : MonoBehaviour
                 if (_canMove == false) horizontalValue = 0f;
                 if (_isJumping || _isFalling || _isKnockBacking)
                 {
-                    float x = Mathf.Lerp(_rb.velocity.x, horizontalValue * _speed, 0.08f);
+                    float x = Mathf.Lerp(_rb.velocity.x, horizontalValue * _currentSpeed, 0.08f);
                     _rb.velocity = new Vector2(x, _rb.velocity.y);
                 }
                 else
                 {
                     if (isOnSlope && canWalkOnSlope)
                     {
-                        _rb.velocity = new Vector2(_speed * slopeNormalPerp.x * -horizontalValue, _speed * slopeNormalPerp.y * -horizontalValue);
+                        _rb.velocity = new Vector2(_currentSpeed * slopeNormalPerp.x * -horizontalValue, _currentSpeed * slopeNormalPerp.y * -horizontalValue);
                     }
                     else
                     {
-                        _rb.velocity = new Vector2(horizontalValue * _speed, _rb.velocity.y);
+                        _rb.velocity = new Vector2(horizontalValue * _currentSpeed, _rb.velocity.y);
                     }
                     
                 }

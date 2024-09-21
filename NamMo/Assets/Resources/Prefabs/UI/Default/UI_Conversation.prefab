@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultTypingSpeed: 1
-  _fastTypingSpeed: 3
+  _fastTypingSpeed: 100
 --- !u!114 &-2688030287394614923
 MonoBehaviour:
   m_ObjectHideFlags: 0

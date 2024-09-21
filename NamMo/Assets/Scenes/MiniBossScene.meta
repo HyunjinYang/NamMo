@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:NamMo/Assets/Resources/Data/TutorialSpeechBubbleData.json.meta
+guid: f036c2a82a25fde4cad2f49d78c18497
+TextScriptImporter:
+========
 guid: 5641ed937d8368a408cf4a5e9e93537e
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> 530006f2d19b49c4f6f018e737d4c3d12993dd6d:NamMo/Assets/Scenes/MiniBossScene.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -17,20 +17,33 @@ public class UI_PrologueFadeInMessage : UI_Base
     {
         Image_Background
     }
-    public Action OnPrologueFadeInEnd;
+    public Action OnFadeOutScreenEnd;
+    public Action OnFadeInScreenEnd;
     public Action<int> OnFadeInScriptComplete;
     public Action<int> OnFadeOutScriptComplete;
+    private bool _detectInput = false;
+    private int _scriptNum = 0;
     public override void Init()
     {
+        if(_init) return;
+        _init = true;
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Image>(typeof(Images));
-        ShowPrologueMessages();
+    }
+    protected override void Input(Define.KeyInput key)
+    {
+        if (key == Define.KeyInput.Enter && _detectInput)
+        {
+            _detectInput = false;
+            FadeOutScript(_scriptNum);
+        }
+    }
+    public void ShowPrologueMessages()
+    {
+        Get<Image>((int)Images.Image_Background).DOFade(1, 0);
         OnFadeInScriptComplete += FadeInScriptComplete;
         OnFadeOutScriptComplete += FadeOutScriptComplete;
-    }
-    private void ShowPrologueMessages()
-    {
-        DelayAction(3.0f, () => FadeInScript(0));
+        DelayAction(2.0f, () => FadeInScript(0));
     }
     private void FadeInScript(int scriptNum)
     {
@@ -46,22 +59,36 @@ public class UI_PrologueFadeInMessage : UI_Base
     {
         Get<TextMeshProUGUI>((int)Texts.Text_Script).DOFade(0, 1).OnComplete(() => OnFadeOutScriptComplete.Invoke(scriptNum));
     }
-    private void FadeOutScreen()
+    public void FadeInScreen(float duration = 1)
     {
-        Get<Image>((int)Images.Image_Background).DOFade(0, 1).OnComplete(
+        Get<Image>((int)Images.Image_Background).DOFade(0, duration).OnComplete(
             () =>
             {
-                if (OnPrologueFadeInEnd != null) 
+                if (OnFadeInScreenEnd != null)
                 {
-                    OnPrologueFadeInEnd.Invoke();
-                    OnPrologueFadeInEnd = null;
+                    OnFadeInScreenEnd.Invoke();
+                    OnFadeInScreenEnd = null;
                 }
                 Destroy(gameObject);
             });
     }
+    public void FadeOutScreen(float duration = 1)
+    {
+        Get<Image>((int)Images.Image_Background).DOFade(1, duration).OnComplete(
+            () =>
+            {
+                if (OnFadeOutScreenEnd != null)
+                {
+                    OnFadeOutScreenEnd.Invoke();
+                    OnFadeOutScreenEnd = null;
+                }
+            });
+    }
     private void FadeInScriptComplete(int scriptNum)
     {
-        DelayAction(2f, () => FadeOutScript(scriptNum));
+        _detectInput = true;
+        _scriptNum = scriptNum;
+        //DelayAction(2f, () => FadeOutScript(scriptNum));
     }
     private void FadeOutScriptComplete(int scriptNum)
     {
@@ -72,7 +99,7 @@ public class UI_PrologueFadeInMessage : UI_Base
         }
         else
         {
-            DelayAction(2f, () => FadeOutScreen());
+            DelayAction(2f, () => FadeInScreen());
         }
     }
     private Coroutine DelayAction(float time, Action action)

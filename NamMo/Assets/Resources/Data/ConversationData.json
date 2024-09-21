@@ -151,6 +151,222 @@
         "청출어람이라는 말씀! 언니 이제부터 잘 봐!",
         "eng"
       ]
+    },
+    {
+      "num": "19",
+      "characterId": "0",
+      "scripts": [
+        "헤헤, 언니! 나 이겼다! 나 정말 강하지!",
+        "eng"
+      ]
+    },
+    {
+      "num": "20",
+      "characterId": "4",
+      "scripts": [
+        "허허허, 정말 강하구나. 역시 신라를 비추는 햇빛과 달빛답구려.",
+        "eng"
+      ]
+    },
+    {
+      "num": "21",
+      "characterId": "1",
+      "scripts": [
+        "전하?!",
+        "eng"
+      ]
+    },
+    {
+      "num": "22",
+      "characterId": "5",
+      "scripts": [
+        "주상 전하 납시오!",
+        "eng"
+      ]
+    },
+    {
+      "num": "23",
+      "characterId": "6",
+      "scripts": [
+        "허허, 둘 다 백성들의 본보기가 되는구나. 참 보기 좋구려.",
+        "eng"
+      ]
+    },
+    {
+      "num": "24",
+      "characterId": "0",
+      "scripts": [
+        "네! 원화는 신라를 밝히는 햇빛이요, 백성들을 지키는 달빛이니까요! 항상 최선을 다해야 합니다!",
+        "eng"
+      ]
+    },
+    {
+      "num": "25",
+      "characterId": "1",
+      "scripts": [
+        "남모야… 전하 앞에서 무례하게…",
+        "eng"
+      ]
+    },
+    {
+      "num": "26",
+      "characterId": "6",
+      "scripts": [
+        "허허, 아닐세. 당돌한 것이 보기 좋구려.",
+        "eng"
+      ]
+    },
+    {
+      "num": "27",
+      "characterId": "6",
+      "scripts": [
+        "신분에 상관없이 백성의 빛이 되어줄 자들을 찾기 위하여 원화 제도를 만든 것인데, 그에 걸맞게 당당하고 올곧은 모습이 아주 자랑스러울세.",
+        "eng"
+      ]
+    },
+    {
+      "num": "28",
+      "characterId": "1",
+      "scripts": [
+        "성은이 망극하옵니다, 전하",
+        "eng"
+      ]
+    },
+    {
+      "num": "29",
+      "characterId": "0",
+      "scripts": [
+        "헤헤, 성은이 망극하옵니다.",
+        "eng"
+      ]
+    },
+    {
+      "num": "30",
+      "characterId": "6",
+      "scripts": [
+        "앞으로도 둘 다 신라를 비추는 빛이 되어주길 바라네.",
+        "eng"
+      ]
+    },
+    {
+      "num": "31",
+      "characterId": "0",
+      "scripts": [
+        "네!",
+        "eng"
+      ]
+    },
+    {
+      "num": "32",
+      "characterId": "7",
+      "scripts": [
+        "나무아미타불 관세음보살",
+        "eng"
+      ]
+    },
+    {
+      "num": "33",
+      "characterId": "7",
+      "scripts": [
+        "아, 오셨습니까.",
+        "eng"
+      ]
+    },
+    {
+      "num": "34",
+      "characterId": "1",
+      "scripts": [
+        "네, 마음을 수련하는 것이 수련의 가장 중요한 부분이니까요.",
+        "eng"
+      ]
+    },
+    {
+      "num": "35",
+      "characterId": "0",
+      "scripts": [
+        "마음을 갈고 닦지 않는 자는 원화가 될 수 없다! 라고 언니가 그랬어요!",
+        "eng"
+      ]
+    },
+    {
+      "num": "36",
+      "characterId": "7",
+      "scripts": [
+        "허허, 부처님도 두 분을 보시고 기뻐하실 겁니다. 나라의 빛이 되어주시는 두 분이시니…",
+        "eng"
+      ]
+    },
+    {
+      "num": "37",
+      "characterId": "1",
+      "scripts": [
+        "자, 남모야. 들어가서 기도를 드리자꾸나.",
+        "eng"
+      ]
+    },
+    {
+      "num": "38",
+      "characterId": "0",
+      "scripts": [
+        "네!",
+        "eng"
+      ]
+    },
+    {
+      "num": "39",
+      "characterId": "0",
+      "scripts": [
+        "언니가 어디갔지? 밤중에 절대 혼자 나가지 않는데…",
+        "eng"
+      ]
+    },
+    {
+      "num": "40",
+      "characterId": "0",
+      "scripts": [
+        "언니! 무슨 일이야?",
+        "eng"
+      ]
+    },
+    {
+      "num": "41",
+      "characterId": "8",
+      "scripts": [
+        "…",
+        "eng"
+      ]
+    },
+    {
+      "num": "42",
+      "characterId": "0",
+      "scripts": [
+        "언니! 빨리 돌아가자… 시간이 벌써 자시야…",
+        "eng"
+      ]
+    },
+    {
+      "num": "43",
+      "characterId": "8",
+      "scripts": [
+        "…안 되는 거 알잖아, 남모야",
+        "eng"
+      ]
+    },
+    {
+      "num": "44",
+      "characterId": "0",
+      "scripts": [
+        "언니 무슨 말이야? 왜 그래? 얼굴색이...",
+        "eng"
+      ]
+    },
+    {
+      "num": "45",
+      "characterId": "8",
+      "scripts": [
+        "미안하구나… 남모야…",
+        "eng"
+      ]
     }
   ]
-} 
+}

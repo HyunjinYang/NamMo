@@ -112,5 +112,8 @@ public class Define
         Parrying,
         Jump,
         Dash,
+        Item,
+        StrongAttack,
+        Fight,
     }
 }
