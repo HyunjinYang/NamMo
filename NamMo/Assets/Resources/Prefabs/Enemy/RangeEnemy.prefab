@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 906190700937687674}
   - component: {fileID: 4521647291276193697}
   - component: {fileID: 2586835065007184429}
+  - component: {fileID: 7829564129375648005}
   m_Layer: 0
   m_Name: Idle1
   m_TagString: Untagged
@@ -460,7 +461,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e5b3cdf1ecca494aa0661a3d4e3d706, type: 2}
+  - {fileID: 2100000, guid: 217ea4065a891534bbaf4b40de980490, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -509,6 +510,7 @@ MonoBehaviour:
   maxGroggyStet: 0
   currentgroggyStet: 0
   _isParingAvailable: 0
+  _isinvincibility: 0
   AttackTime: 0.25
   archr: {fileID: 5158442452074501366, guid: 62b5704ed77ecfb499ceedfc0bff395c, type: 3}
   _enemyAttackArea: {fileID: 942597979863746517}
@@ -593,6 +595,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3, y: 2.45}
   m_EdgeRadius: 0
+--- !u!114 &7829564129375648005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5658804607075136401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07479a91d9c348c6a4d907bbbae9c14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashtime: 0.25
 --- !u!1 &8326785937911066674
 GameObject:
   m_ObjectHideFlags: 0

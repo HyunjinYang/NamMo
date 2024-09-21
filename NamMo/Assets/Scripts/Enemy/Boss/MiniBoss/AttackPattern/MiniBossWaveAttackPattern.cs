@@ -3,19 +3,19 @@ using UnityEngine;
 
 namespace Enemy.Boss.MiniBoss
 {
-    public class MiniBossLandAttackPattern: MiniBossAttackPattern<MiniBossEnemy>
+    public class MiniBossWaveAttackPattern: MiniBossAttackPattern<MiniBossEnemy>
     {
         public override IEnumerator Pattern()
         {
-            _gameObject.LandAttack();
+            _gameObject.WaveAttack();
 
-            yield return new WaitForSeconds(_gameObject.landAttackTime);
+            yield return new WaitForSeconds(_gameObject.waveAttackTime);
             
             _gameObject.ShootWave();
 
             yield return new WaitForSeconds(0.5f);
             
-            _gameObject.EndLandAttack();
+            _gameObject.EndWaveAttack();
         }
     }
 }

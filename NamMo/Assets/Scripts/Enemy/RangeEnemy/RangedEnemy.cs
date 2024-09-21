@@ -19,8 +19,10 @@ namespace Enemy
         private Animator _animator;
         
 
-        private void Awake()
+        protected override void Start()
         {
+            base.Start();
+            
             _animator = GetComponent<Animator>();
             SceneLinkedSMB<RangedEnemy>.Initialise(_animator, this);
             _enemyAttackArea.SetAttackInfo(gameObject, 2);
@@ -39,7 +41,13 @@ namespace Enemy
 
         public void GroggyEnter()
         {
-            _enemyAttackArea._groggy += OnGroggy;
+            _enemyAttackArea._groggy += Groggy;
+        }
+
+        public void Groggy()
+        {
+            OnGroggy.Invoke();
+            _enemyAttackArea.DeActiveAttackArea();
         }
         
         public override void Behavire(float distance)

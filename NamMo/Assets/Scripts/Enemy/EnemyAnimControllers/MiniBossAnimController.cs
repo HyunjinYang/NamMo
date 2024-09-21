@@ -10,12 +10,16 @@ namespace Enemy.EnemyAnimControllers
             base.Start();
             _enemy.GetComponent<MiniBossEnemy>().OnAttack2 += OnAttack2;
             _enemy.GetComponent<MiniBossEnemy>().OnDashAttack += OnDashAttack;
-            _enemy.GetComponent<MiniBossEnemy>().OnLandAttack += OnLandAttack;
+            _enemy.GetComponent<MiniBossEnemy>().OnWaveAttack += OnWaveAttack;
             _enemy.GetComponent<MiniBossEnemy>().OnEndAttack2 += OnEndAttack2;
             _enemy.GetComponent<MiniBossEnemy>().OnEndDashAttack += OnEndDashAttack;
-            _enemy.GetComponent<MiniBossEnemy>().OnEndLandAttack += OnEndLandAttack;
+            _enemy.GetComponent<MiniBossEnemy>().OnEndWaveAttack += OnEndWaveAttack;
             _enemy.GetComponent<MiniBossEnemy>().OnChangePhase += OnChangePhase;
             _enemy.GetComponent<MiniBossEnemy>().OnEndChangePhase += OnEndChangePhase;
+            _enemy.GetComponent<MiniBossEnemy>().OnHealthRecovery += OnHealthRecovery;
+            _enemy.GetComponent<MiniBossEnemy>().OnEndHealthRecovery += OnEndHealthRecovery;
+            _enemy.GetComponent<MiniBossEnemy>().OnLandAttack += OnLandAttack;
+            _enemy.GetComponent<MiniBossEnemy>().OnEndLandAttack += OnEndLandAttack;
         }
 
 
@@ -29,7 +33,7 @@ namespace Enemy.EnemyAnimControllers
             _animator.SetBool("IsDashAttack", true);
         }
 
-        private void OnLandAttack()
+        private void OnWaveAttack()
         {
             _animator.SetBool("IsLandAttack", true);
         }
@@ -44,7 +48,7 @@ namespace Enemy.EnemyAnimControllers
             _animator.SetBool("IsDashAttack", false);
         }
 
-        private void OnEndLandAttack()
+        private void OnEndWaveAttack()
         {
             _animator.SetBool("IsLandAttack", false);
         }
@@ -57,6 +61,25 @@ namespace Enemy.EnemyAnimControllers
         private void OnEndChangePhase()
         {
             _animator.SetBool("IsChangePhase", false);
+        }
+
+        private void OnHealthRecovery()
+        {
+            _animator.SetBool("IsHealthRecovery", true);
+        }
+        private void OnEndHealthRecovery()
+        {
+            _animator.SetBool("IsHealthRecovery", false);
+        }
+
+        private void OnLandAttack()
+        {
+            _animator.SetBool("IsLandAttack", true);
+        }
+
+        private void OnEndLandAttack()
+        {
+            _animator.SetBool("IsLandAttack", false);
         }
     }
 }

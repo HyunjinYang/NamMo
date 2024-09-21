@@ -38,7 +38,7 @@ namespace Enemy.Boss.MiniBoss.State
                 else if (_MiniBossEnemy._distance > 13.5f)
                 {
                     _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
-                        ._LandAttackState);
+                        .WaveAttackState);
                 }
             }
 

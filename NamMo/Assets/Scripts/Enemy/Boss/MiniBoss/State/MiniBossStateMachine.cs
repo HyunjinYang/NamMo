@@ -13,9 +13,11 @@ namespace Enemy.Boss.MiniBoss.State
         public IdelState IdelState;
         public TurmState TurmState;
         public DashAttackState _DashAttackState;
-        public LandAttackState _LandAttackState;
+        public WaveAttackState WaveAttackState;
         public ChangePhaseState _ChangePhaseState;
         public DeadState _DeadState;
+        public HealthRecoveryState _HealthRecoveryState;
+        public LandAttackState _LandAttackState;
         
         public MiniBossStateMachine(MiniBossEnemy _miniBossEnemy)
         {
@@ -26,9 +28,11 @@ namespace Enemy.Boss.MiniBoss.State
             IdelState = new IdelState(_miniBossEnemy);
             TurmState = new TurmState(_miniBossEnemy);
             _DashAttackState = new DashAttackState(_miniBossEnemy);
-            _LandAttackState = new LandAttackState(_miniBossEnemy);
+            WaveAttackState = new WaveAttackState(_miniBossEnemy);
             _ChangePhaseState = new ChangePhaseState(_miniBossEnemy);
             _DeadState = new DeadState(_miniBossEnemy);
+            _HealthRecoveryState = new HealthRecoveryState(_miniBossEnemy);
+            _LandAttackState = new LandAttackState(_miniBossEnemy);
         }
 
         public void Update()
