@@ -41,8 +41,10 @@ namespace Enemy.MelEnemy
         public float Attack1Time2;
         public float Attack2Time;
         public float _distance;
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+            
             _animator = GetComponent<Animator>();
             SceneLinkedSMB<MelEnemy>.Initialise(_animator, this);
             

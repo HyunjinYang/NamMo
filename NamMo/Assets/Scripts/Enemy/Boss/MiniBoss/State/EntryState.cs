@@ -13,7 +13,7 @@ namespace Enemy.Boss.MiniBoss.State
         
         public void Enter()
         {
-            
+            _MiniBossEnemy._isinvincibility = true;
         }
 
         public void Update()
@@ -23,7 +23,7 @@ namespace Enemy.Boss.MiniBoss.State
 
         public void Exit()
         {
-            
+            _MiniBossEnemy._isinvincibility = false;
         }
     }
 }

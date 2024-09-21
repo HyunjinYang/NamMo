@@ -2,19 +2,20 @@ using Enemy.MelEnemy;
 
 namespace Enemy.Boss.MiniBoss.State
 {
-    public class ChangePhaseState: IStateClass
+    public class HealthRecoveryState: IStateClass
     {
         public MiniBossEnemy _MiniBossEnemy;
+        public int chargeHp = 4;
 
-        public ChangePhaseState(MiniBossEnemy _miniBossEnemy)
+        public HealthRecoveryState(MiniBossEnemy _miniBossEnemy)
         {
             _MiniBossEnemy = _miniBossEnemy;
         }
+        
         public void Enter()
         {
-            _MiniBossEnemy._isinvincibility = true;
-            _MiniBossEnemy.ChangePhase();
-            _MiniBossEnemy.phase = 2;
+            _MiniBossEnemy.RecoveryPatternStart();
+            _MiniBossEnemy.HP += chargeHp;
         }
 
         public void Update()
@@ -24,8 +25,7 @@ namespace Enemy.Boss.MiniBoss.State
 
         public void Exit()
         {
-            _MiniBossEnemy.EndChangePhase();
-            _MiniBossEnemy._isinvincibility = false;
+            
         }
     }
 }

@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 4282920376373425894}
   - component: {fileID: 6151776520862158515}
   - component: {fileID: 3698495189023396685}
+  - component: {fileID: 5236481680873547192}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -123,7 +124,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e5b3cdf1ecca494aa0661a3d4e3d706, type: 2}
+  - {fileID: 2100000, guid: 217ea4065a891534bbaf4b40de980490, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -193,6 +194,7 @@ MonoBehaviour:
   maxGroggyStet: 0
   currentgroggyStet: 0
   _isParingAvailable: 0
+  _isinvincibility: 0
   _isAttacking: 0
   EnemyAttack1AttackArea: {fileID: 1246528006709331951}
   EnemyAttack2AttackArea: {fileID: 1916740574364924482}
@@ -264,6 +266,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &5236481680873547192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862817832713176380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07479a91d9c348c6a4d907bbbae9c14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashtime: 0.25
 --- !u!1 &4669371881638549504
 GameObject:
   m_ObjectHideFlags: 0
