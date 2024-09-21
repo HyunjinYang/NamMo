@@ -1,3 +1,4 @@
+using System;
 using Enemy.MelEnemy;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace Enemy.Boss.MiniBoss.State
         public MiniBossEnemy _MiniBossEnemy;
 
         private Vector2 target;
+
+        private float _speed;
         public DashAttackState(MiniBossEnemy _miniBossEnemy)
         {
             _MiniBossEnemy = _miniBossEnemy;
@@ -29,6 +32,9 @@ namespace Enemy.Boss.MiniBoss.State
             {
                 target.x -= 3.5f;
             }
+
+            _speed = Math.Abs(Vector2.Distance(_MiniBossEnemy.transform.position, target)) / 1.4f;
+
         }
 
         public void Update()
@@ -39,7 +45,7 @@ namespace Enemy.Boss.MiniBoss.State
             }
             
             Vector2 _curr = _MiniBossEnemy.gameObject.transform.position;
-            _curr.x = Mathf.MoveTowards(_curr.x, target.x, 6 * Time.deltaTime);
+            _curr.x = Mathf.MoveTowards(_curr.x, target.x, _speed * Time.deltaTime);
             _MiniBossEnemy.transform.position = _curr;
             
         }

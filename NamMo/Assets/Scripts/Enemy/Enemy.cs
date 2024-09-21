@@ -7,6 +7,19 @@ namespace Enemy
     public class Enemy : MonoBehaviour
     {
         [SerializeField] protected int _hp;
+
+        public int HP
+        {
+            get
+            {
+                return _hp;
+            }
+            set
+            {
+                _hp += value;
+            }
+        }
+        
         protected GameObject _player;
         [SerializeField] protected EnemyMovement _enemyMovement;
         public Action Onattack;
@@ -21,6 +34,15 @@ namespace Enemy
         public float currentgroggyStet;
         
         public bool _isParingAvailable = false;
+        public bool _isinvincibility;
+
+        private EnemyDamageFlash _enemyDamageFlash;
+
+        protected virtual void Start()
+        {
+            _enemyDamageFlash = GetComponent<EnemyDamageFlash>();
+        }
+
         public virtual void Behavire(float distance)
         {
             
@@ -40,8 +62,12 @@ namespace Enemy
 
         public void Hit(int damage)
         {
+            if (_isinvincibility)
+                return;
+            
             _hp -= damage;
-
+            _enemyDamageFlash.CallDamageFlash();
+            
             if (_hp <= 0)
             {
                 OnDead();
@@ -73,6 +99,12 @@ namespace Enemy
             _enemyMovement._isHit = false;
             OnEndHit.Invoke();
         }
+
+        public int GetHp()
+        {
+            return _hp;
+        }
+
 
         public virtual void GroggyStetCount()
         {

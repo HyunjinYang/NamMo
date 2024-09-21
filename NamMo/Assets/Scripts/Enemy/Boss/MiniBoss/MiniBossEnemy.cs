@@ -3,7 +3,9 @@ using System.Collections;
 using Enemy.Boss.MiniBoss.State;
 using Enemy.WaveAttack;
 using NamMo;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 namespace Enemy.Boss.MiniBoss
@@ -13,7 +15,9 @@ namespace Enemy.Boss.MiniBoss
         public MiniBossStateMachine _miniBossStateMachine;
         [SerializeField] private MiniBossDashAttackPattern _miniBossDashAttackPattern;
         [SerializeField] private MiniBossMeleeAttackPattern _miniBossMeleeAttackPattern;
-        [SerializeField] private MiniBossLandAttackPattern _miniBossLandAttackPattern;
+        [FormerlySerializedAs("_miniBossLandAttackPattern")] [SerializeField] private MiniBossWaveAttackPattern miniBossWaveAttackPattern;
+        [SerializeField] private MiniBossRecoveryPattern _miniBossRecoveryPattern;
+        [SerializeField] private MinBossLandAttackPattern _minBossLandAttackPattern;
         
         [SerializeField] public EnemyAttackArea EnemyMelAttack1AttackArea;
         [SerializeField] public EnemyAttackArea EnemyMelAttack2AttackArea;
@@ -26,6 +30,7 @@ namespace Enemy.Boss.MiniBoss
         public float melAttack2Time;
         public float melAttack3Time;
         public float dashAttackTime;
+        public float waveAttackTime;
         public float landAttackTime;
         
         private Animator _animator;
@@ -44,12 +49,16 @@ namespace Enemy.Boss.MiniBoss
         
         public Action OnAttack2;
         public Action OnDashAttack;
-        public Action OnLandAttack;
+        public Action OnWaveAttack;
         public Action OnEndAttack2;
         public Action OnEndDashAttack;
-        public Action OnEndLandAttack;
+        public Action OnEndWaveAttack;
         public Action OnChangePhase;
         public Action OnEndChangePhase;
+        public Action OnHealthRecovery;
+        public Action OnEndHealthRecovery;
+        public Action OnLandAttack;
+        public Action OnEndLandAttack;
         
         private void Awake()
         {
@@ -61,7 +70,7 @@ namespace Enemy.Boss.MiniBoss
             SceneLinkedSMB<MiniBossEnemy>.Initialise(_animator, this);
             
             _miniBossDashAttackPattern.Initialise(this);
-            _miniBossLandAttackPattern.Initialise(this);
+            miniBossWaveAttackPattern.Initialise(this);
             _miniBossMeleeAttackPattern.Initialise(this);
             
             EnemyMelAttack1AttackArea.SetAttackInfo(gameObject, 2);
@@ -77,6 +86,7 @@ namespace Enemy.Boss.MiniBoss
                 if (_hp <= 5 && (_miniBossStateMachine._CurrentState is IdelState) && phase == 1)
                 {
                     phase = 2;
+                    _hp = 5;
                     _miniBossStateMachine.TransitionState(_miniBossStateMachine._ChangePhaseState);
                 }
                 
@@ -112,7 +122,7 @@ namespace Enemy.Boss.MiniBoss
             {
                 currentgroggyStet += 0.5f;
             }
-            else if (_miniBossStateMachine._CurrentState is LandAttackState)
+            else if (_miniBossStateMachine._CurrentState is WaveAttackState)
             {
                 currentgroggyStet += 0.5f;
             }
@@ -129,6 +139,8 @@ namespace Enemy.Boss.MiniBoss
             _miniBossStateMachine.TransitionState(_miniBossStateMachine._GroggyState);
         }
 
+        #region Animation
+        
         public void Groggy()
         {
             _enemyMovement._isGroggy = true;
@@ -173,14 +185,14 @@ namespace Enemy.Boss.MiniBoss
             OnEndDashAttack.Invoke();
         }
 
-        public void LandAttack()
+        public void WaveAttack()
         {
-            OnLandAttack.Invoke();
+            OnWaveAttack.Invoke();
         }
 
-        public void EndLandAttack()
+        public void EndWaveAttack()
         {
-            OnEndLandAttack.Invoke();
+            OnEndWaveAttack.Invoke();
         }
 
         public void ChangePhase()
@@ -192,7 +204,16 @@ namespace Enemy.Boss.MiniBoss
         {
             OnEndChangePhase.Invoke();
         }
-        
+
+        public void HealthRecovery()
+        {
+            OnHealthRecovery.Invoke();
+        }
+        public void EndHealthRecovery()
+        {
+            OnEndHealthRecovery.Invoke();
+        }
+        #endregion
         public void DeActivateAttackArea()
         {
             EnemyDashAttackAttackArea.DeActiveAttackArea();
@@ -200,6 +221,8 @@ namespace Enemy.Boss.MiniBoss
             EnemyMelAttack2AttackArea.DeActiveAttackArea();
             EnemyMelAttack3AttackArea.DeActiveAttackArea();
         }
+
+        #region Pattern
         
         public void MelAttackPatternStart()
         {
@@ -213,18 +236,31 @@ namespace Enemy.Boss.MiniBoss
             _currentPattern = StartCoroutine(_miniBossDashAttackPattern.Pattern());
         }
 
-        public void LandAttackPatternStart()
+        public void RecoveryPatternStart()
         {
-            _currentPattern = StartCoroutine(_miniBossLandAttackPattern.Pattern());
+            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _currentPattern = StartCoroutine(_miniBossRecoveryPattern.Pattern());
         }
 
+        public void WaveAttackPatternStart()
+        {
+            _currentPattern = StartCoroutine(miniBossWaveAttackPattern.Pattern());
+        }
+
+        public void LandAttackPatternStart()
+        {
+            _currentPattern = StartCoroutine(_minBossLandAttackPattern.Pattern());
+        }
+        
         public void StopPattern()
         {
             EndMelAttack();
             EndDashAttack();
-            EndLandAttack();
+            EndWaveAttack();
             StopCoroutine(_currentPattern);
         }
+        #endregion
+
         
         public void ShootWave()
         {
