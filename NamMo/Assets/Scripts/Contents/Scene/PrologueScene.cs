@@ -229,10 +229,10 @@ public class PrologueScene : BaseScene
             _joonjeong.transform.position = GetSceneLeftEndPos(_scene1_4) + Vector3.right * 8f;
             _buddhistMonk.transform.position = GetSceneRightEndPos(_scene1_4) - Vector3.right * 8f;
             FocusCamera(_scene1_4);
-            prologueFadeIn.FadeInScreen();
+            prologueFadeIn.FadeInScreen(2);
         });
         prologueFadeIn.OnFadeInScreenEnd += FadeInTemple;
-        prologueFadeIn.FadeOutScreen();
+        prologueFadeIn.FadeOutScreen(2);
     }
     private void FadeInTemple()
     {
@@ -284,10 +284,10 @@ public class PrologueScene : BaseScene
             _heroNammo.transform.position = GetSceneLeftEndPos(_scene2_2) + Vector3.left * 10f;
             FocusCamera(_scene2_2);
             Camera.main.gameObject.GetComponent<CameraController>().CameraMode = Define.CameraMode.FollowTarget;
-            prologueFadeIn.FadeInScreen();
+            prologueFadeIn.FadeInScreen(2);
         });
         prologueFadeIn.OnFadeInScreenEnd += FadeInTown;
-        prologueFadeIn.FadeOutScreen();
+        prologueFadeIn.FadeOutScreen(2);
     }
     private void FadeInTown()
     {
@@ -307,10 +307,10 @@ public class PrologueScene : BaseScene
             _joonjeong2.transform.position = GetSceneRightEndPos(_scene2_3) + Vector3.left * 10f;
             FocusCamera(_scene2_3);
             Camera.main.gameObject.GetComponent<CameraController>().CameraMode = Define.CameraMode.None;
-            prologueFadeIn.FadeInScreen();
+            prologueFadeIn.FadeInScreen(2);
         });
         prologueFadeIn.OnFadeInScreenEnd += FadeInWoljeonggyo;
-        prologueFadeIn.FadeOutScreen();
+        prologueFadeIn.FadeOutScreen(2);
     }
     private void FadeInWoljeonggyo()
     {
@@ -358,10 +358,10 @@ public class PrologueScene : BaseScene
             _nammo.transform.position = GetSceneLeftEndPos(_scene1_3) + Vector3.right * 10f;
             _joonjeong.transform.position = GetSceneLeftEndPos(_scene1_3) + Vector3.right * 8f;
             FocusCamera(_scene1_3);
-            prologueFadeIn.FadeInScreen();
+            prologueFadeIn.FadeInScreen(2);
         });
         prologueFadeIn.OnFadeInScreenEnd += (() => _conversationUI.ShowNextInfos());
-        prologueFadeIn.FadeOutScreen();
+        prologueFadeIn.FadeOutScreen(2);
     }
     IEnumerator CoHidePrayCutScene()
     {
