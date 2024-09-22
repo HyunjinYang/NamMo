@@ -14,6 +14,8 @@ namespace Enemy.Boss.MiniBoss
             _gameObject.EnemyDashAttackAttackArea.ActiveAttackArea();
 
             yield return new WaitForFixedUpdate();
+            
+            _gameObject.EnemyDashAttackAttackArea.DeActiveAttackArea();
 
             if (_gameObject.phase == 2)
             {

@@ -13,7 +13,7 @@ namespace Enemy.Boss.MiniBoss.State
         public IdelState IdelState;
         public TurmState TurmState;
         public DashAttackState _DashAttackState;
-        public WaveAttackState WaveAttackState;
+        public WaveAttackState _WaveAttackState;
         public ChangePhaseState _ChangePhaseState;
         public DeadState _DeadState;
         public HealthRecoveryState _HealthRecoveryState;
@@ -28,7 +28,7 @@ namespace Enemy.Boss.MiniBoss.State
             IdelState = new IdelState(_miniBossEnemy);
             TurmState = new TurmState(_miniBossEnemy);
             _DashAttackState = new DashAttackState(_miniBossEnemy);
-            WaveAttackState = new WaveAttackState(_miniBossEnemy);
+            _WaveAttackState = new WaveAttackState(_miniBossEnemy);
             _ChangePhaseState = new ChangePhaseState(_miniBossEnemy);
             _DeadState = new DeadState(_miniBossEnemy);
             _HealthRecoveryState = new HealthRecoveryState(_miniBossEnemy);

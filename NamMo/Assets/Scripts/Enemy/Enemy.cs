@@ -16,7 +16,10 @@ namespace Enemy
             }
             set
             {
-                _hp += value;
+                if (_hp + value >= 10)
+                    _hp = 10;
+                else
+                    _hp += value;
             }
         }
         
@@ -29,6 +32,7 @@ namespace Enemy
         public Action Dead;
         public Action OnGroggy;
         public Action OnEndGroggy;
+        public Action<float> OnWalk;
 
         public float maxGroggyStet;
         public float currentgroggyStet;

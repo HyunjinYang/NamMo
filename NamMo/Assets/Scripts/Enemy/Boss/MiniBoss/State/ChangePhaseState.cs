@@ -15,6 +15,7 @@ namespace Enemy.Boss.MiniBoss.State
             _MiniBossEnemy._isinvincibility = true;
             _MiniBossEnemy.ChangePhase();
             _MiniBossEnemy.phase = 2;
+            _MiniBossEnemy.HP = 5;
         }
 
         public void Update()
