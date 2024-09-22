@@ -131,23 +131,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_dashCoroutine != null || _reserveDash || _canMove == false)
         {
+            if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Charge))
+            {
+                CheckFlip(value);
+            }
             _reservedInputAction = () =>
             {
                 _horizontalMoveValue = value;
-                CheckFlip();
+                CheckFlip(_horizontalMoveValue);
             };
             return;
         }
         _horizontalMoveValue = value;
-        CheckFlip();
+        CheckFlip(_horizontalMoveValue);
     }
-    private void CheckFlip()
+    private void CheckFlip(float horizontalMoveValue)
     {
-        if (!_isFacingRight && _horizontalMoveValue > 0f)
+        if (!_isFacingRight && horizontalMoveValue > 0f)
         {
             Flip();
         }
-        else if (_isFacingRight && _horizontalMoveValue < 0f)
+        else if (_isFacingRight && horizontalMoveValue < 0f)
         {
             Flip();
         }

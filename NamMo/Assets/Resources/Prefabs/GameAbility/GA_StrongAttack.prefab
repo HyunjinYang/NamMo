@@ -175,9 +175,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8300942791578328635}
-  - component: {fileID: 2484015359255291804}
+  - component: {fileID: 8441268321895474664}
   m_Layer: 0
-  m_Name: GA_WaveDetect
+  m_Name: GA_StrongAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,7 @@ Transform:
   - {fileID: 7448901945203682290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2484015359255291804
+--- !u!114 &8441268321895474664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,21 +209,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4755638558363654381}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19eefe8251c96c041941b2146a99af41, type: 3}
+  m_Script: {fileID: 11500000, guid: ee59b7b65639d494da98f3fbe3c8b2b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _canOverlapAbility: 0
-  _tagsToAdd: 03000000
+  _tagsToAdd: 0e000000
   _needTags: 
-  _blockTags: 000000000100000006000000020000000a000000
+  _blockTags: 
   _cancelAbilities: 0a000000
   _coolTime: 0
   CanUse: 0
-  _scaleChangeTime: 3
-  _detectMoment: 0.5
-  _motionTime: 1.5
-  _waveDetectEffectPrefab: {fileID: 1243250658357058128, guid: 78d6a161a8b7f244d901ba7a9c91b3df, type: 3}
-  _remainUseCnt: 4
-  _waveDetectLight: {fileID: 1489081750304997150}
-  _lightRemainingTime: 5
-  _reviseValue: 1.2
+  _attackTime: 1

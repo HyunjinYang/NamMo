@@ -12,7 +12,7 @@ public class GA_DownJump : GameAbility
         _asc.gameObject.GetComponent<PlayerMovement>().OnLandGround += EndAbility;
         Managers.Sound.Play("Jump");
     }
-    protected override bool CanActivateAbility()
+    public override bool CanActivateAbility()
     {
         if (base.CanActivateAbility() == false) return false;
         _floor = _asc.gameObject.GetComponent<PlayerMovement>().GetGroundFloor();

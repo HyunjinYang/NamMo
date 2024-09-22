@@ -35,7 +35,7 @@ public class GA_Attack : GameAbility
             _reserveNextAttack = true;
         }
     }
-    protected override bool CanActivateAbility()
+    public override bool CanActivateAbility()
     {
         if (base.CanActivateAbility() == false) return false;
         if (_overlapCnt >= _comboAttackInfos.Count) return false;

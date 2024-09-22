@@ -66,7 +66,7 @@ public class GameAbility : MonoBehaviour
         }
         if (OnAbilityActivated != null) OnAbilityActivated.Invoke();
     }
-    protected virtual bool CanActivateAbility()
+    public virtual bool CanActivateAbility()
     {
         if (CanUse == false) return false;
         if (_isCoolTime) return false;
