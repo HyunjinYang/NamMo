@@ -9,7 +9,10 @@ public class DefaultProjectile : BaseProjectile, IParryingable
     {
         base.SetAttackInfo(attacker, damage, speed, target);
         _target = target;
-        _direction = (target.transform.position - transform.position).normalized;
+        if (_target)
+        {
+            _direction = (target.transform.position - transform.position).normalized;
+        }
     }
 
     protected override void UpdateAttack()
@@ -19,8 +22,7 @@ public class DefaultProjectile : BaseProjectile, IParryingable
 
     public void Parried(GameObject attacker, GameObject target = null)
     {
-        _attacker = attacker;
-        _target = target;
+        SetAttackInfo(attacker, _damage, _speed, target);
         _direction *= -1;
     }
 }

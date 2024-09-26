@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     PlayerController _pc;
     protected Rigidbody2D _rb;
 
+    private float _targetHorizontalValue = 0;
     private float _horizontalMoveValue;
     private float _originalGravity;
     private float _dashForce;
@@ -65,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsDashing { get { return _isDashing; } }
     public bool IsFalling { get { return _isFalling; } }
     public bool IsGround { get { return _isGround; } }
+    public bool IsFacingRight { get { return _isFacingRight; } }
     public bool CanMove
     {
         get
@@ -89,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (_pc == null) _pc = GetComponent<PlayerController>();
         _rb = GetComponent<Rigidbody2D>();
 
-        _pc.OnMoveInputChanged += RefreshHorizontalMoveValue;
+        _pc.OnMoveInputChanged += RefreshHorizontalMoveTargetValue;
 
         _currentSpeed = _speed;
         _originalGravity = 4f;
@@ -100,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _isGround = CheckGround();
         _isFrontGround = CheckGround(0.75f);
+        RefreshHorizontalValue();
         SlopeCheck();
         CheckCurrentState();
         ApplyMove();
@@ -127,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
     #endregion
     // -------------------- Private Method --------------------
     #region Private Method
-    private void RefreshHorizontalMoveValue(float value)
+    private void RefreshHorizontalMoveTargetValue(float value)
     {
         if (_dashCoroutine != null || _reserveDash || _canMove == false)
         {
@@ -137,13 +140,26 @@ public class PlayerMovement : MonoBehaviour
             }
             _reservedInputAction = () =>
             {
-                _horizontalMoveValue = value;
-                CheckFlip(_horizontalMoveValue);
+                //_horizontalMoveValue = value;
+                _targetHorizontalValue = value;
+                CheckFlip(_targetHorizontalValue);
             };
             return;
         }
-        _horizontalMoveValue = value;
-        CheckFlip(_horizontalMoveValue);
+        //_horizontalMoveValue = value;
+        _targetHorizontalValue = value;
+        CheckFlip(_targetHorizontalValue);
+    }
+    private void RefreshHorizontalValue()
+    {
+        if(_targetHorizontalValue == 0)
+        {
+            _horizontalMoveValue = 0;
+        }
+        else
+        {
+            _horizontalMoveValue = Mathf.Lerp(_horizontalMoveValue, _targetHorizontalValue, 0.1f);
+        }
     }
     private void CheckFlip(float horizontalMoveValue)
     {

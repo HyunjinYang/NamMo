@@ -56,7 +56,7 @@ MonoBehaviour:
   _attack2Rate: 1
   _attack1Moment: 0.1
   _attack2Moment: 0.25
-  _attackRange1: {x: 2, y: 1}
+  _attackRange1: {x: 3, y: 2}
   _attackOffset1: {x: 0.5, y: 0}
-  _attackRange2: {x: 2, y: 1}
+  _attackRange2: {x: 3, y: 2}
   _attackOffset2: {x: 0.5, y: 0}
