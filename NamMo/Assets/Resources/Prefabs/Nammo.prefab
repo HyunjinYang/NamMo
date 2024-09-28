@@ -415,6 +415,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9f5240bf-278b-40fc-8de1-a6e3cd011134
     m_ActionName: Player/Crouch[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1450137098402320303}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: HandleChargeAttackInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cd3071c4-4bef-41fe-96f6-15e3368f2c73
+    m_ActionName: Player/ChargeAttack[/Keyboard/c]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

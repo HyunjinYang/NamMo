@@ -186,8 +186,7 @@ public partial class PlayerController : MonoBehaviour
             }
         }
     }
-    // �ĵ�Ž��
-    public void HandleWaveInput(InputAction.CallbackContext context)
+    public void HandleChargeAttackInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
@@ -203,7 +202,7 @@ public partial class PlayerController : MonoBehaviour
             _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Charge);
             if (_waveInputPushTime < _intersactionWaveInputTime)
             {
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_WaveDetect);
+                //_asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_WaveDetect);
             }
             else
             {
@@ -211,6 +210,15 @@ public partial class PlayerController : MonoBehaviour
             }
             _waveInputPushTime = 0;
             _waveInputDetect = false;
+        }
+    }
+    // �ĵ�Ž��
+    public void HandleWaveInput(InputAction.CallbackContext context)
+    {
+        if (BlockInput) return;
+        if (context.performed)
+        {
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_WaveDetect);
         }
     }
     // �и�

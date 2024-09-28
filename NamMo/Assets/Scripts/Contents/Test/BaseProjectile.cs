@@ -32,7 +32,7 @@ public class BaseProjectile : BaseAttack
         }
         if (collision.gameObject == _attacker) return;
 
-        if (_attacker.GetComponent<PlayerController>())
+        if (_attackerType == AttackerType.Player)
         {
             TryHit(collision.gameObject);
         }

@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ChargeAttack",
+                    "type": "Button",
+                    "id": "cd3071c4-4bef-41fe-96f6-15e3368f2c73",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Wave",
                     "type": "Button",
                     "id": "facbfa15-4f5c-4569-869f-dac427c124cc",
@@ -358,6 +367,17 @@
                     "processors": "",
                     "groups": "Pad",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed9e9601-5552-432b-982d-5d19d6e7697b",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "ChargeAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
