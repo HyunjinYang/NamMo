@@ -97,9 +97,6 @@ namespace Enemy.MelEnemy
             OnEndDownAttack.Invoke();
             StopCoroutine(_attackCoroutine);
             _pattern = null;
-            EnemyAttack1AttackArea.DeActiveAttackArea();
-            EnemyAttack2AttackArea.DeActiveAttackArea();
-            EnemyAttack3AttackArea.DeActiveAttackArea();
         }
         
         public void Patrol()
@@ -153,9 +150,6 @@ namespace Enemy.MelEnemy
                 _isAttacking = true;
                 _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
                 yield return StartCoroutine(_pattern.Pattern());
-                EnemyAttack1AttackArea.DeActiveAttackArea();
-                EnemyAttack2AttackArea.DeActiveAttackArea();
-                EnemyAttack3AttackArea.DeActiveAttackArea();
                 yield return new WaitForSeconds(2f);
             }
         }

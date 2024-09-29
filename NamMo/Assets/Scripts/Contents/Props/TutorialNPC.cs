@@ -218,7 +218,6 @@ public class TutorialNPC : MonoBehaviour
                 if (_closeAttackCoroutine != null)
                 {
                     StopCoroutine(_closeAttackCoroutine);
-                    _attackArea.DeActiveAttackArea();
                 }
                 if (_rangeAttackCoroutine != null)
                 {
@@ -256,9 +255,8 @@ public class TutorialNPC : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         _attackArea.SetAttackInfo(gameObject, 0);
-        _attackArea.ActiveAttackArea();
+        _attackArea.Attack();
         yield return new WaitForFixedUpdate();
-        _attackArea.DeActiveAttackArea();
         yield return new WaitForSeconds(0.4f);
 
         ChangeState(NPCState.Idle);

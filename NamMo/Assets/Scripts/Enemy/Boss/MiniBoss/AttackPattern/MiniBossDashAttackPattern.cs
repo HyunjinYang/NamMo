@@ -11,9 +11,10 @@ namespace Enemy.Boss.MiniBoss
 
             yield return new WaitForSeconds(_gameObject.dashAttackTime);
             
-            _gameObject.EnemyDashAttackAttackArea.ActiveAttackArea();
+            _gameObject.EnemyDashAttackAttackArea.Attack();
 
             yield return new WaitForFixedUpdate();
+            
 
             if (_gameObject.phase == 2)
             {

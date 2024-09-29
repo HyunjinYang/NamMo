@@ -14,6 +14,7 @@ namespace Enemy
         {
             _em.OnWalk += Walk;
 
+            _enemy.OnWalk += Walk;
             _enemy.Onattack += Attack;
             _enemy.OnEndattack += EndAttack;
             _enemy.OnHit += Hit;

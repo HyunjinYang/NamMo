@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Contents.Scene;
 using Enemy.Boss.MiniBoss.State;
 using Enemy.WaveAttack;
 using NamMo;
@@ -23,7 +24,11 @@ namespace Enemy.Boss.MiniBoss
         [SerializeField] public EnemyAttackArea EnemyMelAttack2AttackArea;
         [SerializeField] public EnemyAttackArea EnemyMelAttack3AttackArea;
         [SerializeField] public EnemyAttackArea EnemyDashAttackAttackArea;
-
+        [SerializeField] public EnemyAttackArea EnemyLandAttackArea;
+        
+        
+        public GameObject _teleport;
+        
         public GameObject _enemyWavePrefab;
         
         public float melAttack1Time;
@@ -40,12 +45,15 @@ namespace Enemy.Boss.MiniBoss
         private Random _rand = new Random();
 
         public int _isMelAttack;
+        public int _attack1count;
+        public int _attack2count;
 
         public bool _isAttacking;
 
         public int phase = 1;
 
         private Coroutine _currentPattern;
+        private Coroutine _TurmCoroutine;
         
         public Action OnAttack2;
         public Action OnDashAttack;
@@ -59,6 +67,8 @@ namespace Enemy.Boss.MiniBoss
         public Action OnEndHealthRecovery;
         public Action OnLandAttack;
         public Action OnEndLandAttack;
+
+        public bool idelTurm = true;
         
         private void Awake()
         {
@@ -72,10 +82,13 @@ namespace Enemy.Boss.MiniBoss
             _miniBossDashAttackPattern.Initialise(this);
             miniBossWaveAttackPattern.Initialise(this);
             _miniBossMeleeAttackPattern.Initialise(this);
+            _minBossLandAttackPattern.Initialise(this);
+            _miniBossRecoveryPattern.Initialise(this);
             
             EnemyMelAttack1AttackArea.SetAttackInfo(gameObject, 2);
             EnemyMelAttack2AttackArea.SetAttackInfo(gameObject, 2);
             EnemyMelAttack3AttackArea.SetAttackInfo(gameObject, 2);
+            EnemyLandAttackArea.SetAttackInfo(gameObject,2);
             EnemyDashAttackAttackArea.SetAttackInfo(gameObject, 2);
         }
 
@@ -83,7 +96,7 @@ namespace Enemy.Boss.MiniBoss
         {
             if (_miniBossStateMachine != null)
             {
-                if (_hp <= 5 && (_miniBossStateMachine._CurrentState is IdelState) && phase == 1)
+                if (_hp <= 5 && (_miniBossStateMachine._CurrentState is IdelState || _miniBossStateMachine._CurrentState is TurmState) && phase == 1)
                 {
                     phase = 2;
                     _hp = 5;
@@ -156,12 +169,30 @@ namespace Enemy.Boss.MiniBoss
             var next = _rand.Next(0, 2);
 
             _isMelAttack = next;
+
+            if (_attack1count >= 2)
+            {
+                _isMelAttack = 1;
+                next = 1;
+                _attack1count = 0;
+            }
+
+            if (_attack2count >= 2)
+            {
+                _isMelAttack = 0;
+                next = 0;
+                _attack2count = 0;
+            }
+            
+            
             if (next == 0)
             {
+                _attack1count++;
                 Onattack.Invoke();
             }
             else
             {
+                _attack2count++;
                 OnAttack2.Invoke();
             }
         }
@@ -213,13 +244,19 @@ namespace Enemy.Boss.MiniBoss
         {
             OnEndHealthRecovery.Invoke();
         }
+
+        public void Walk()
+        {
+            OnWalk.Invoke(1f);
+        }
+        public void EndWalk()
+        {
+            OnWalk.Invoke(0f);   
+        }
         #endregion
         public void DeActivateAttackArea()
         {
-            EnemyDashAttackAttackArea.DeActiveAttackArea();
-            EnemyMelAttack1AttackArea.DeActiveAttackArea();
-            EnemyMelAttack2AttackArea.DeActiveAttackArea();
-            EnemyMelAttack3AttackArea.DeActiveAttackArea();
+            
         }
 
         #region Pattern
@@ -259,6 +296,32 @@ namespace Enemy.Boss.MiniBoss
             EndWaveAttack();
             StopCoroutine(_currentPattern);
         }
+
+        public void PatternSelect()
+        {
+            var next = _rand.Next(0, 2);
+
+            if (next == 1)
+            {
+                _miniBossStateMachine.TransitionState(_miniBossStateMachine._LandAttackState);
+            }
+            else
+            {
+                _miniBossStateMachine.TransitionState(_miniBossStateMachine._WaveAttackState);
+            }
+        }
+
+        public bool HealSelect()
+        {
+            var next = _rand.Next(0, 2);
+
+            if (next == 0)
+                return false;
+            
+            _miniBossStateMachine.TransitionState(_miniBossStateMachine._HealthRecoveryState);
+            return true;
+        }
+        
         #endregion
 
         
@@ -278,15 +341,52 @@ namespace Enemy.Boss.MiniBoss
         {
             return gameObject.transform;
         }
+
+        public void PositionTransition()
+        {
+            if (Math.Abs(Vector2.Distance(gameObject.transform.position,
+                    Managers.Scene.CurrentScene.GetComponent<MiniBossScene>()._leftPoint.position)) <
+                Math.Abs(Vector2.Distance(gameObject.transform.position,
+                    Managers.Scene.CurrentScene.GetComponent<MiniBossScene>()._rightPoint.position)))
+            {
+                gameObject.transform.position = Managers.Scene.CurrentScene.GetComponent<MiniBossScene>()._rightPoint.position;
+            }
+            else
+            {
+                gameObject.transform.position = Managers.Scene.CurrentScene.GetComponent<MiniBossScene>()._leftPoint.position;
+            }
+        }
         
         public void StartTurm()
         {
-            StartCoroutine(CoTurm());
+            _TurmCoroutine = StartCoroutine(CoTurm());
         }
 
+        public void StopTurm()
+        {
+            StopCoroutine(_TurmCoroutine);
+            _TurmCoroutine = null;
+        }
+
+        public void Direct()
+        {
+            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+        }
+
+        public void StartIdelTurm()
+        {
+            StartCoroutine(CoIdelTurm());
+        }
+
+        private IEnumerator CoIdelTurm()
+        {
+            yield return new WaitForSeconds(0.2f);
+            idelTurm = false;
+        }
+        
         public IEnumerator CoTurm()
         {
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(3f);
             TransitionToIdel();
         }
     }

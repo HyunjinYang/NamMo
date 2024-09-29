@@ -1,4 +1,5 @@
 using Enemy.MelEnemy;
+using UnityEngine;
 
 namespace Enemy.Boss.MiniBoss.State
 {
@@ -14,6 +15,7 @@ namespace Enemy.Boss.MiniBoss.State
         public void Enter()
         {
             _MiniBossEnemy._isAttacking = true;
+            _MiniBossEnemy.transform.position = new Vector2(Managers.Scene.CurrentScene.Player.transform.position.x , _MiniBossEnemy.transform.position.y);
             _MiniBossEnemy.LandAttackPatternStart();
         }
 
