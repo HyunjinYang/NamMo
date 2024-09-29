@@ -59,7 +59,7 @@ public class GA_WaveDetect : GameAbility
         if (OnRemainUseCntChanged != null) OnRemainUseCntChanged.Invoke(_remainUseCnt);
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
     }
-    protected override bool CanActivateAbility()
+    public override bool CanActivateAbility()
     {
         if (base.CanActivateAbility() == false) return false;
         if (_asc.gameObject.GetComponent<PlayerMovement>().IsGround == false) return false;

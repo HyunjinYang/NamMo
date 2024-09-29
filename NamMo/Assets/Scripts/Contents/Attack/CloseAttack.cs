@@ -2,19 +2,108 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class CloseAttack : BaseAttack
 {
-    private BoxCollider2D _boxCollider;
-    protected override void Init()
+    public enum AttackShape
     {
-        base.Init();
-        _boxCollider = _collider as BoxCollider2D;
-        _boxCollider.enabled = false;
+        Box,
+        Circle,
     }
-    public void SetAttackRange(Vector2 range, Vector2 offset)
+    
+    [Header("공격판정 관련")]
+    [SerializeField] private Vector2 _offset;
+    [SerializeField] private Vector2 _size;
+    [SerializeField] private float _radius;
+    private AttackShape _attackShape = AttackShape.Box;
+    private Collider2D[] _hits;
+
+    bool _isAttackerFacingRight = false;
+    protected override void UpdateAttack()
     {
-        _boxCollider.size = range;
-        _boxCollider.offset = offset;
+        if (_attacker == null) return;
+        if (_attackerType == AttackerType.Player)
+        {
+            _isAttackerFacingRight = _attacker.GetComponent<PlayerController>().GetPlayerMovement().IsFacingRight;
+        }
+        else if (_attackerType == AttackerType.Enemy)
+        {
+            // TODO
+        }
+    }
+    public void SetAttackShape(AttackShape attackShape) { _attackShape = attackShape; }
+    public void SetAttackRange(Vector2 offset, Vector2 size)
+    {
+        _offset = offset;
+        _size = size;
+    }
+    public void SetAttackRange(Vector2 offset, float radius)
+    {
+        _offset = offset;
+        _radius = radius;
+    }
+    public void Attack()
+    {
+        Vector2 offset = _offset;
+        if (!_isAttackerFacingRight) offset = -_offset;
+
+        if (_attackShape == AttackShape.Box)
+        {
+            _hits = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y) + offset, _size, 0);
+        }
+        else if (_attackShape == AttackShape.Circle)
+        {
+            _hits = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y) + offset, _radius);
+        }
+
+        if (_attackerType == AttackerType.Player)
+        {
+            foreach (Collider2D collision in _hits)
+            {
+                if (collision.gameObject == _attacker) continue;
+                TryHit(collision.gameObject);
+            }
+        }
+        else
+        {
+            PlayerController pc = null;
+            BlockArea ba = null;
+            foreach (Collider2D collision in _hits)
+            {
+                if (collision.gameObject == _attacker) continue;
+                if (collision.gameObject.GetComponent<PlayerController>()) pc = collision.gameObject.GetComponent<PlayerController>();
+                if (collision.gameObject.GetComponent<BlockArea>()) ba = collision.gameObject.GetComponent<BlockArea>();
+            }
+            // 방어 영역, 플레이어 영역 두 부분 다 맞은 경우
+            if (pc != null && ba != null)
+            {
+                // TODO : 공격 위치에 따라 방어 성공 or 실패
+                TryHit(pc.gameObject);
+            }
+            // 방어영역만 맞은 경우
+            else if (pc == null && ba != null)
+            {
+                ba.OnBlockAreaTriggerEntered.Invoke(gameObject);
+            }
+            // 플레이어만 맞은 경우
+            else if (pc != null && ba == null)
+            {
+                TryHit(pc.gameObject);
+            }
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Vector2 offset = _offset;
+        if (!_isAttackerFacingRight) offset = -_offset;
+
+        Gizmos.color = UnityEngine.Color.blue;
+        if (_attackShape == AttackShape.Box)
+        {
+            Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y) + offset, _size);
+        }
+        else if (_attackShape == AttackShape.Circle)
+        {
+            Gizmos.DrawWireSphere(new Vector2(transform.position.x, transform.position.y) + offset, _radius);
+        }
     }
 }

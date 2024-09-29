@@ -46,24 +46,24 @@ public class GA_AirAttack : GameAbility
         yield return new WaitForSeconds(_attack1Moment);
 
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, _attack1Rate);
-        _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackRange1, _attackOffset1);
-        _asc.GetPlayerController().GetAttackArea().ActiveAttackArea();
+        _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackOffset1, _attackRange1);
+        _asc.GetPlayerController().GetAttackArea().Attack();
         Managers.Sound.Play("Attack");
 
         yield return new WaitForFixedUpdate();
 
-        _asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
+        //_asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
 
         yield return new WaitForSeconds(_attack2Moment - _attack1Moment);
 
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, _attack2Rate);
-        _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackRange2, _attackOffset2);
-        _asc.GetPlayerController().GetAttackArea().ActiveAttackArea();
+        _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackOffset2, _attackRange2);
+        _asc.GetPlayerController().GetAttackArea().Attack();
         Managers.Sound.Play("Attack");
 
         yield return new WaitForFixedUpdate();
 
-        _asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
+        //_asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
 
         yield return new WaitForSeconds(_attackTime - _attack2Moment);
         _asc.FlushReservedAbility();
