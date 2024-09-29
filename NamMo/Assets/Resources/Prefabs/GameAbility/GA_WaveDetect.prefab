@@ -216,8 +216,9 @@ MonoBehaviour:
   _tagsToAdd: 03000000
   _needTags: 
   _blockTags: 000000000100000006000000020000000a000000
-  _cancelAbilities: 
-  _coolTime: 5
+  _cancelAbilities: 0a000000
+  _coolTime: 0
+  CanUse: 0
   _scaleChangeTime: 3
   _detectMoment: 0.5
   _motionTime: 1.5

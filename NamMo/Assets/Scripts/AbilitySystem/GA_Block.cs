@@ -35,7 +35,7 @@ public class GA_Block : GameAbility
             _reserveNextCombo = true;
         }
     }
-    protected override bool CanActivateAbility()
+    public override bool CanActivateAbility()
     {
         if (base.CanActivateAbility() == false) return false;
         if (_reserveNextCombo) return false;

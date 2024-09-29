@@ -35,7 +35,7 @@ public class GA_Attack : GameAbility
             _reserveNextAttack = true;
         }
     }
-    protected override bool CanActivateAbility()
+    public override bool CanActivateAbility()
     {
         if (base.CanActivateAbility() == false) return false;
         if (_overlapCnt >= _comboAttackInfos.Count) return false;
@@ -89,13 +89,13 @@ public class GA_Attack : GameAbility
         yield return new WaitForSeconds(currComboAttackInfo.attackMoment);
 
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, currComboAttackInfo.attackRate);
-        _asc.GetPlayerController().GetAttackArea().SetAttackRange(currComboAttackInfo.attackRange, currComboAttackInfo.attackOffset);
-        _asc.GetPlayerController().GetAttackArea().ActiveAttackArea();
+        _asc.GetPlayerController().GetAttackArea().SetAttackRange(currComboAttackInfo.attackOffset, currComboAttackInfo.attackRange);
+        _asc.GetPlayerController().GetAttackArea().Attack();
         Managers.Sound.Play("Attack");
 
         yield return new WaitForFixedUpdate();
 
-        _asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
+        //_asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
         
         yield return new WaitForSeconds(currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment);
 

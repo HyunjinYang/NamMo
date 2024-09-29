@@ -16,8 +16,8 @@ namespace Enemy
         protected override void Init()
         {
             base.Init();
-            _boxCollider = _collider as BoxCollider2D;
-            _boxCollider.enabled = false;
+            //_boxCollider = _collider as BoxCollider2D;
+            //_boxCollider.enabled = false;
         }
 
         public void Parried(GameObject attacker, GameObject target = null)

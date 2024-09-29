@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     PlayerController _pc;
     protected Rigidbody2D _rb;
 
+    private float _targetHorizontalValue = 0;
     private float _horizontalMoveValue;
     private float _originalGravity;
     private float _dashForce;
@@ -65,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsDashing { get { return _isDashing; } }
     public bool IsFalling { get { return _isFalling; } }
     public bool IsGround { get { return _isGround; } }
+    public bool IsFacingRight { get { return _isFacingRight; } }
     public bool CanMove
     {
         get
@@ -89,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (_pc == null) _pc = GetComponent<PlayerController>();
         _rb = GetComponent<Rigidbody2D>();
 
-        _pc.OnMoveInputChanged += RefreshHorizontalMoveValue;
+        _pc.OnMoveInputChanged += RefreshHorizontalMoveTargetValue;
 
         _currentSpeed = _speed;
         _originalGravity = 4f;
@@ -100,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _isGround = CheckGround();
         _isFrontGround = CheckGround(0.75f);
+        RefreshHorizontalValue();
         SlopeCheck();
         CheckCurrentState();
         ApplyMove();
@@ -127,27 +130,44 @@ public class PlayerMovement : MonoBehaviour
     #endregion
     // -------------------- Private Method --------------------
     #region Private Method
-    private void RefreshHorizontalMoveValue(float value)
+    private void RefreshHorizontalMoveTargetValue(float value)
     {
         if (_dashCoroutine != null || _reserveDash || _canMove == false)
         {
+            if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Charge))
+            {
+                CheckFlip(value);
+            }
             _reservedInputAction = () =>
             {
-                _horizontalMoveValue = value;
-                CheckFlip();
+                //_horizontalMoveValue = value;
+                _targetHorizontalValue = value;
+                CheckFlip(_targetHorizontalValue);
             };
             return;
         }
-        _horizontalMoveValue = value;
-        CheckFlip();
+        //_horizontalMoveValue = value;
+        _targetHorizontalValue = value;
+        CheckFlip(_targetHorizontalValue);
     }
-    private void CheckFlip()
+    private void RefreshHorizontalValue()
     {
-        if (!_isFacingRight && _horizontalMoveValue > 0f)
+        if(_targetHorizontalValue == 0)
+        {
+            _horizontalMoveValue = 0;
+        }
+        else
+        {
+            _horizontalMoveValue = Mathf.Lerp(_horizontalMoveValue, _targetHorizontalValue, 0.1f);
+        }
+    }
+    private void CheckFlip(float horizontalMoveValue)
+    {
+        if (!_isFacingRight && horizontalMoveValue > 0f)
         {
             Flip();
         }
-        else if (_isFacingRight && _horizontalMoveValue < 0f)
+        else if (_isFacingRight && horizontalMoveValue < 0f)
         {
             Flip();
         }
@@ -163,7 +183,8 @@ public class PlayerMovement : MonoBehaviour
         {
             offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0) * offset;
         }
-        Collider2D col = Physics2D.OverlapCircle(_groundCheck.position + offsetV, _groundCheckRadius, _groundLayer);
+        //Collider2D col = Physics2D.OverlapCircle(_groundCheck.position + offsetV, _groundCheckRadius, _groundLayer);
+        Collider2D col = Physics2D.OverlapBox(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f), 0, _groundLayer);
         if (col == null)
         {
             return false;
@@ -464,8 +485,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
-        Vector3 offsetV;
+        Vector3 offsetV = Vector3.zero;
+        //Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
+        Gizmos.DrawWireCube(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f));
+        
         if (_isFacingRight)
         {
             offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0)  * -1;
@@ -474,6 +497,7 @@ public class PlayerMovement : MonoBehaviour
         {
             offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0);
         }
-        Gizmos.DrawWireSphere(_groundCheck.position + offsetV, _groundCheckRadius);
+        //Gizmos.DrawWireSphere(_groundCheck.position + offsetV, _groundCheckRadius);
+        Gizmos.DrawWireCube(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f));
     }
 }

@@ -30,7 +30,8 @@ public class PlayerCombatComponent : MonoBehaviour
         else
         {
             // ³Ë¹é, ÇÇ°Ýability
-            if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Wave) == false)
+            if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Wave) == false &&
+                _pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_StrongAttack) == false)
             {
                 float force = 1;
                 if (transform.position.x < attackPos.x) force = -1;

@@ -16,6 +16,8 @@ public class PlayerAnimController : MonoBehaviour
     //private bool _isBlocking = false;
     private bool _isParrying = false;
     private bool _isHurting = false;
+    private bool _isCharging = false;
+    private bool _isStrongAttacking = false;
 
     private float _moveDir = 0;
     private int _attackCombo = -1;
@@ -55,6 +57,12 @@ public class PlayerAnimController : MonoBehaviour
 
             asc.GetAbility(Define.GameplayAbility.GA_Hurt).OnAbilityActivated += HurtingStart;
             asc.GetAbility(Define.GameplayAbility.GA_Hurt).OnAbilityEnded += HurtingEnd;
+
+            asc.GetAbility(Define.GameplayAbility.GA_Charge).OnAbilityActivated += ChargeStart;
+            asc.GetAbility(Define.GameplayAbility.GA_Charge).OnAbilityEnded += ChargeEnd;
+
+            asc.GetAbility(Define.GameplayAbility.GA_StrongAttack).OnAbilityActivated += StrongAttackStart;
+            asc.GetAbility(Define.GameplayAbility.GA_StrongAttack).OnAbilityEnded += StrongAttackEnd;
         }
     }
     private void StartJump()
@@ -174,6 +182,26 @@ public class PlayerAnimController : MonoBehaviour
     {
         _isHurting = false;
         _animator.SetBool("IsHurting", _isHurting);
+    }
+    private void ChargeStart()
+    {
+        _isCharging = true;
+        _animator.SetBool("IsCharging", _isCharging);
+    }
+    private void ChargeEnd()
+    {
+        _isCharging = false;
+        _animator.SetBool("IsCharging", _isCharging);
+    }
+    private void StrongAttackStart()
+    {
+        _isStrongAttacking = true;
+        _animator.SetBool("IsStrongAttacking", _isStrongAttacking);
+    }
+    private void StrongAttackEnd()
+    {
+        _isStrongAttacking = false;
+        _animator.SetBool("IsStrongAttacking", _isStrongAttacking);
     }
     IEnumerator CoDelayAction(Action action)
     {

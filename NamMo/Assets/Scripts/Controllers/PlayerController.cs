@@ -12,6 +12,7 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private List<Define.GameplayAbility> _abilities;
     [SerializeField] private GameObject _playerSprite;
     [SerializeField] private WaveTrigger _waveTrigger;
+    [SerializeField] private float _intersactionWaveInputTime;
     [Header("CheatMode")]
     [SerializeField] private bool _cheatMode = false;
 
@@ -24,6 +25,8 @@ public partial class PlayerController : MonoBehaviour
     private PlayerCombatComponent _pcc;
     
     private bool _pushDown = false;
+    private bool _waveInputDetect = false;
+    private float _waveInputPushTime = 0;
     private void Awake()
     {
         Managers.Scene.CurrentScene.SetPlayerController(this);
@@ -44,6 +47,13 @@ public partial class PlayerController : MonoBehaviour
             _ps.OnDead += Dead;
         }
         Camera.main.GetComponent<CameraController>().SetTargetInfo(gameObject);
+    }
+    private void Update()
+    {
+        if (_waveInputDetect)
+        {
+            _waveInputPushTime += Time.deltaTime;
+        }
     }
     public AbilitySystemComponent GetASC() { return _asc; }
     public PlayerMovement GetPlayerMovement() { return _pm; }
@@ -174,6 +184,32 @@ public partial class PlayerController : MonoBehaviour
             {
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
             }
+        }
+    }
+    public void HandleChargeAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (BlockInput) return;
+            if (_asc.GetAbility(Define.GameplayAbility.GA_Charge).CanActivateAbility() == false) return;
+            _waveInputPushTime = 0;
+            _waveInputDetect = true;
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Charge);
+        }
+        else if (context.canceled)
+        {
+            if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Charge) == false) return;
+            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Charge);
+            if (_waveInputPushTime < _intersactionWaveInputTime)
+            {
+                //_asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_WaveDetect);
+            }
+            else
+            {
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_StrongAttack);
+            }
+            _waveInputPushTime = 0;
+            _waveInputDetect = false;
         }
     }
     // �ĵ�Ž��

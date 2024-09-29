@@ -68,6 +68,9 @@ public class Define
         Player_State_Invincible,
         Player_State_Hurt,
 
+        Player_Action_Charge,
+        Player_Action_StrongAttack,
+
         MaxCount
     }
     public enum GameplayAbility
@@ -81,7 +84,9 @@ public class Define
         GA_Block,
         GA_Parrying,
         GA_Hurt,
-        GA_Invincible
+        GA_Invincible,
+        GA_Charge,
+        GA_StrongAttack
     }
     public enum CameraMode
     {
