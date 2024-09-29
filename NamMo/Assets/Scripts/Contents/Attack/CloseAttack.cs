@@ -45,7 +45,7 @@ public class CloseAttack : BaseAttack
     public void Attack()
     {
         Vector2 offset = _offset;
-        if (!_isAttackerFacingRight) offset = -_offset;
+        if (!_isAttackerFacingRight) offset.x = -_offset.x;
 
         if (_attackShape == AttackShape.Box)
         {
@@ -78,7 +78,8 @@ public class CloseAttack : BaseAttack
             if (pc != null && ba != null)
             {
                 // TODO : ���� ��ġ�� ���� ��� ���� or ����
-                TryHit(pc.gameObject);
+                ba.OnBlockAreaTriggerEntered.Invoke(gameObject);
+                //TryHit(pc.gameObject);
             }
             // ������ ���� ���
             else if (pc == null && ba != null)
@@ -95,7 +96,7 @@ public class CloseAttack : BaseAttack
     private void OnDrawGizmos()
     {
         Vector2 offset = _offset;
-        if (!_isAttackerFacingRight) offset = -_offset;
+        if (!_isAttackerFacingRight) offset.x = -_offset.x;
 
         Gizmos.color = UnityEngine.Color.blue;
         if (_attackShape == AttackShape.Box)

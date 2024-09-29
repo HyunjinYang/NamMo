@@ -49,7 +49,6 @@ namespace Enemy.Boss.MiniBoss.State
                 }
                 
             }
-
         }
 
         public void Exit()
