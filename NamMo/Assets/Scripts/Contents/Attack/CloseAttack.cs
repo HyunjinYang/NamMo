@@ -10,7 +10,7 @@ public class CloseAttack : BaseAttack
         Circle,
     }
     
-    [Header("°ø°ÝÆÇÁ¤ °ü·Ã")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private Vector2 _offset;
     [SerializeField] private Vector2 _size;
     [SerializeField] private float _radius;
@@ -28,6 +28,7 @@ public class CloseAttack : BaseAttack
         else if (_attackerType == AttackerType.Enemy)
         {
             // TODO
+            _isAttackerFacingRight = _attacker.GetComponent<Enemy.Enemy>().IsFacingRight;
         }
     }
     public void SetAttackShape(AttackShape attackShape) { _attackShape = attackShape; }
@@ -73,18 +74,18 @@ public class CloseAttack : BaseAttack
                 if (collision.gameObject.GetComponent<PlayerController>()) pc = collision.gameObject.GetComponent<PlayerController>();
                 if (collision.gameObject.GetComponent<BlockArea>()) ba = collision.gameObject.GetComponent<BlockArea>();
             }
-            // ¹æ¾î ¿µ¿ª, ÇÃ·¹ÀÌ¾î ¿µ¿ª µÎ ºÎºÐ ´Ù ¸ÂÀº °æ¿ì
+            // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             if (pc != null && ba != null)
             {
-                // TODO : °ø°Ý À§Ä¡¿¡ µû¶ó ¹æ¾î ¼º°ø or ½ÇÆÐ
+                // TODO : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ or ï¿½ï¿½ï¿½ï¿½
                 TryHit(pc.gameObject);
             }
-            // ¹æ¾î¿µ¿ª¸¸ ¸ÂÀº °æ¿ì
+            // ï¿½ï¿½î¿µï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             else if (pc == null && ba != null)
             {
                 ba.OnBlockAreaTriggerEntered.Invoke(gameObject);
             }
-            // ÇÃ·¹ÀÌ¾î¸¸ ¸ÂÀº °æ¿ì
+            // ï¿½Ã·ï¿½ï¿½Ì¾î¸¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             else if (pc != null && ba == null)
             {
                 TryHit(pc.gameObject);

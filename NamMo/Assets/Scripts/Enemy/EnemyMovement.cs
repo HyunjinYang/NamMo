@@ -128,6 +128,14 @@ namespace Enemy
         {
             Vector3 localScale = _CharacterSprite.transform.localScale;
             localScale.x *= -1f;
+            if (localScale.x < 0)
+            {
+                _CharacterSprite.GetComponent<Enemy>().IsFacingRight = true;
+            }
+            else
+            {
+                _CharacterSprite.GetComponent<Enemy>().IsFacingRight = false;
+            }
             direct *= -1;
             _CharacterSprite.transform.localScale = localScale;
         }

@@ -11,12 +11,10 @@ namespace Enemy.Boss.MiniBoss
             
             yield return  new WaitForSeconds(_gameObject.landAttackTime);
             
-            _gameObject.EnemyLandAttackArea.ActiveAttackArea();
+            _gameObject.EnemyLandAttackArea.Attack();
 
             yield return new WaitForFixedUpdate();
             
-            _gameObject.EnemyLandAttackArea.DeActiveAttackArea();
-
             yield return new WaitForSeconds(0.7f);
 
             

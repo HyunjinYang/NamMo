@@ -256,10 +256,7 @@ namespace Enemy.Boss.MiniBoss
         #endregion
         public void DeActivateAttackArea()
         {
-            EnemyDashAttackAttackArea.DeActiveAttackArea();
-            EnemyMelAttack1AttackArea.DeActiveAttackArea();
-            EnemyMelAttack2AttackArea.DeActiveAttackArea();
-            EnemyMelAttack3AttackArea.DeActiveAttackArea();
+            
         }
 
         #region Pattern

@@ -47,7 +47,6 @@ namespace Enemy
         public void Groggy()
         {
             OnGroggy.Invoke();
-            _enemyAttackArea.DeActiveAttackArea();
         }
         
         public override void Behavire(float distance)
@@ -165,7 +164,7 @@ namespace Enemy
         IEnumerator CoAttack()
         {
             yield return new WaitForSeconds(AttackTime);
-            _enemyAttackArea.ActiveAttackArea();
+            _enemyAttackArea.Attack();
         }
 
     }

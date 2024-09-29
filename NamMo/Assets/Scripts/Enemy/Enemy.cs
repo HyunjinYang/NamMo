@@ -34,6 +34,20 @@ namespace Enemy
         public Action OnEndGroggy;
         public Action<float> OnWalk;
 
+        private bool _isFacing = true;
+        public bool IsFacingRight
+        {
+            get
+            {
+                return _isFacing;
+            }
+            set
+            {
+                _isFacing = value;
+            }
+        }
+        
+
         public float maxGroggyStet;
         public float currentgroggyStet;
         

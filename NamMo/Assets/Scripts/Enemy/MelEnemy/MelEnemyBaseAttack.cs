@@ -13,7 +13,7 @@ namespace Enemy.MelEnemy
             if (!_gameObject._isAttacking)
                 yield break;
             
-            _gameObject.EnemyAttack1AttackArea.ActiveAttackArea();
+            _gameObject.EnemyAttack1AttackArea.Attack();
 
             //yield return new WaitForFixedUpdate();
             
@@ -22,7 +22,7 @@ namespace Enemy.MelEnemy
             if (!_gameObject._isAttacking)
                 yield break;
             
-            _gameObject.EnemyAttack2AttackArea.ActiveAttackArea();
+            _gameObject.EnemyAttack2AttackArea.Attack();
             yield return new WaitForFixedUpdate();
             _gameObject.OnEndattack.Invoke();
         }

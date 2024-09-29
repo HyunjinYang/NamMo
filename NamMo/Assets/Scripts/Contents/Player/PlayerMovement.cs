@@ -228,13 +228,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CheckCurrentState()
     {
-        // ³«ÇÏ
+        // ë‚™í•˜
         if (_rb.velocity.y <= 0f && !_isFalling && !_isGround)
         {
             _isFalling = true;
             if (OnStartFall != null) OnStartFall.Invoke();
         }
-        // ÂøÁö
+        // ì°©ì§€
         if ((_isFalling || _isJumping) && _rb.velocity.y <= 1f)
         {
             if (_isGround)

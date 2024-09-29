@@ -103,7 +103,5 @@ public abstract partial class BaseAttack : MonoBehaviour
             target.GetComponent<TutorialNPC>().Damaged(_attacker.transform.position.x);
         }
     }
-
-    public void ActiveAttackArea() { }
-    public void DeActiveAttackArea() { }
+    
 }
