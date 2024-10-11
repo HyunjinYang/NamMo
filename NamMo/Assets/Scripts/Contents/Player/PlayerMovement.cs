@@ -183,8 +183,8 @@ public class PlayerMovement : MonoBehaviour
         {
             offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0) * offset;
         }
-        //Collider2D col = Physics2D.OverlapCircle(_groundCheck.position + offsetV, _groundCheckRadius, _groundLayer);
-        Collider2D col = Physics2D.OverlapBox(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f), 0, _groundLayer);
+        Collider2D col = Physics2D.OverlapCircle(_groundCheck.position + offsetV, _groundCheckRadius, _groundLayer);
+        //Collider2D col = Physics2D.OverlapBox(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f), 0, _groundLayer);
         if (col == null)
         {
             return false;
@@ -486,8 +486,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Vector3 offsetV = Vector3.zero;
-        //Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
-        Gizmos.DrawWireCube(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f));
+        Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
+        //Gizmos.DrawWireCube(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f));
         
         if (_isFacingRight)
         {
@@ -497,7 +497,7 @@ public class PlayerMovement : MonoBehaviour
         {
             offsetV = new Vector3(slopeNormalPerp.x, slopeNormalPerp.y, 0);
         }
-        //Gizmos.DrawWireSphere(_groundCheck.position + offsetV, _groundCheckRadius);
-        Gizmos.DrawWireCube(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f));
+        Gizmos.DrawWireSphere(_groundCheck.position + offsetV, _groundCheckRadius);
+        //Gizmos.DrawWireCube(_groundCheck.position + Vector3.down * 0.15f + offsetV, new Vector2(0.3f, 0.3f));
     }
 }
