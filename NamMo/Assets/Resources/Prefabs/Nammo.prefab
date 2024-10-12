@@ -478,7 +478,7 @@ MonoBehaviour:
   _currentSpeed: 0
   _jumpForce: 22
   maxSlopeAngle: 60
-  _groundCheckRadius: 0.75
+  _groundCheckRadius: 0.3
   slopeCheckDistance: 0.5
   noFriction: {fileID: 6200000, guid: 860a17ef4527bc648839415c920be6e1, type: 2}
   fullFriction: {fileID: 6200000, guid: a0236f3ac8125ae4eb031a168ddd13b3, type: 2}

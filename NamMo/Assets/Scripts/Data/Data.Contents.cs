@@ -46,6 +46,7 @@ namespace Data
         }
     }
     #endregion
+    #region Characters
     [Serializable]
     public class CharacterInfo
     {
@@ -65,6 +66,7 @@ namespace Data
             return dict;
         }
     }
+    #endregion
     [Serializable]
     public class TutorialInfo
     {
@@ -85,4 +87,56 @@ namespace Data
             return dict;
         }
     }
+    #region Enemy
+    [Serializable]
+    public class Enemy
+    {
+        public int id;
+        public string name;
+        public string prefabPath;
+    }
+    public class EnemyData : ILoader<int, Enemy>
+    {
+        public List<Enemy> enemies = new List<Enemy>();
+        public Dictionary<int, Enemy> MakeDict()
+        {
+            Dictionary<int, Enemy> dict = new Dictionary<int, Enemy>();
+            foreach(Enemy enemy in enemies)
+            {
+                dict.Add(enemy.id, enemy);
+            }
+            return dict;
+        }
+    }
+    #endregion
+    #region Stage
+    [Serializable]
+    public class EachEnemyInfo
+    {
+        public int managedId;
+        public int enemyId;
+        public float posX;
+        public float posY;
+        public bool alive;
+    }
+    [Serializable]
+    public class StageEnemy
+    {
+        public Define.Scene scene;
+        public List<EachEnemyInfo> enemies = new List<EachEnemyInfo>();
+    }
+    public class StageEnemyData : ILoader<Define.Scene, StageEnemy>
+    {
+        public List<StageEnemy> enemies = new List<StageEnemy>();
+        public Dictionary<Define.Scene, StageEnemy> MakeDict()
+        {
+            Dictionary<Define.Scene, StageEnemy> dict = new Dictionary<Define.Scene, StageEnemy>();
+            foreach (StageEnemy enemy in enemies)
+            {
+                dict.Add(enemy.scene, enemy);
+            }
+            return dict;
+        }
+    }
+    #endregion
 }

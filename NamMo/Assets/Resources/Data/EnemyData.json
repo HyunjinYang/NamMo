@@ -1,0 +1,14 @@
+{
+  "enemies": [
+    {
+      "id": "0",
+      "name": "StandardEnemy",
+      "prefabPath": "Enemy/StandardEnemy"
+    },
+    {
+      "id": "1",
+      "name": "RangeEnemy",
+      "prefabPath": "Enemy/RangeEnemy"
+    }
+  ]
+} 

@@ -10,6 +10,7 @@ public class Rest : BaseInteractable
         PlayerController player = Managers.Scene.CurrentScene.Player;
         player.GetPlayerStat().ApplyHeal(player.GetPlayerStat().MaxHp);
 
-        Managers.Data.PlayerData.Save();
+        //Managers.Data.PlayerData.Save();
+        Managers.Data.SaveAllData();
     }
 }

@@ -22,6 +22,7 @@ public class Define
         
         TestStartScene,
 
+        MaxCount
     }
 
     public enum Sound
