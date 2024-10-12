@@ -24,7 +24,8 @@ public class TestStartScene : BaseScene
             if (playerData.isNewData)
             {
                 player.transform.position = _spawnPos1.position;
-                playerData.Save();
+                Managers.Data.SaveAllData();
+                //playerData.Save();
             }
             else if (Managers.Scene.LastLocatedScene == Define.Scene.CaveScene
                 || Managers.Scene.LastLocatedScene == Define.Scene.KatanaZeroScene1)
