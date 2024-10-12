@@ -1,0 +1,30 @@
+{
+  "enemies": [
+    {
+      "scene": "4",
+      "enemies": [
+        {
+          "managedId": "0",
+          "enemyId": "0",
+          "posX": "11.5",
+          "posY": "3.05",
+          "alive" : true
+        },
+        {
+          "managedId": "1",
+          "enemyId": "0",
+          "posX": "18.5",
+          "posY": "13.05",
+          "alive": true
+        },
+        {
+          "managedId": "2",
+          "enemyId": "0",
+          "posX": "25.6",
+          "posY": "13.05",
+          "alive": true
+        }
+      ]
+    }
+  ]
+} 
