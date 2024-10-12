@@ -468,10 +468,14 @@ MonoBehaviour:
   currentgroggyStet: 0
   _isParingAvailable: 0
   _isinvincibility: 0
-  AttackTime: 0.25
   archr: {fileID: 5158442452074501366, guid: 62b5704ed77ecfb499ceedfc0bff395c, type: 3}
   _enemyAttackArea: {fileID: 942597979863746517}
-  _state: 3
+  _melAttackPattern: {fileID: 2365539227851408287, guid: 32257adb14f8b5c4e9c1215dfcef7d9b, type: 3}
+  _rangeAttackPattern: {fileID: 6464888935510997004, guid: f86befd7d9b97c842a74021fd13238c5, type: 3}
+  _distance: 0
+  _AttackTime1: 0.52
+  _AttackTime2: 0.25
+  _isAttacking: 0
 --- !u!95 &906190700937687674
 Animator:
   serializedVersion: 5

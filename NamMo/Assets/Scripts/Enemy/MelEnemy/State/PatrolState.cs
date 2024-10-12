@@ -13,7 +13,6 @@ namespace Enemy.MelEnemy
         public void Enter()
         {
             Debug.Log("PatrolState");
-           _melEnemy.Patrol();
         }
 
         public void Update()
@@ -32,6 +31,9 @@ namespace Enemy.MelEnemy
             }
             else
             {
+                
+                _melEnemy.Tracking();
+                
                 if (_melEnemy._distance <= 3f)
                 {
                     _melEnemy.stateMachine.TransitionState(_melEnemy.stateMachine._AttackState);
@@ -41,7 +43,7 @@ namespace Enemy.MelEnemy
 
         public void Exit()
         {
-            _melEnemy.EndPatrol();
+            
         }
     }
 }

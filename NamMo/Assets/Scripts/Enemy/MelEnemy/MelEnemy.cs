@@ -34,6 +34,7 @@ namespace Enemy.MelEnemy
         private Random _rand = new Random();
 
         private Coroutine _attackCoroutine;
+        private Coroutine _currentPattern;
 
         public bool isTest = false;
         
@@ -96,12 +97,18 @@ namespace Enemy.MelEnemy
             OnEndattack.Invoke();
             OnEndDownAttack.Invoke();
             StopCoroutine(_attackCoroutine);
+            StopCoroutine(_currentPattern);
             _pattern = null;
         }
         
         public void Patrol()
         {
-            _enemyMovement._isPatrol = true;
+            _enemyMovement.Patrol();
+        }
+
+        public void Tracking()
+        {
+            _enemyMovement.PlayerTracking();
         }
 
         public void EndPatrol()
@@ -149,7 +156,7 @@ namespace Enemy.MelEnemy
                 _pattern.Initialise(this);
                 _isAttacking = true;
                 _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-                yield return StartCoroutine(_pattern.Pattern());
+                yield return _currentPattern = StartCoroutine(_pattern.Pattern());
                 yield return new WaitForSeconds(2f);
             }
         }

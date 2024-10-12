@@ -25,23 +25,22 @@ namespace Enemy.Boss.MiniBoss.State
             _MiniBossEnemy.Direct();
             _MiniBossEnemy.Walk();
         }
-
+        
         public void Update()
         {
             
             
             Vector2 _curr = _MiniBossEnemy.transform.position;
             _target = Managers.Scene.CurrentScene.Player.transform.position;
-
             
+            if (_MiniBossEnemy.HP < 7 && _MiniBossEnemy.HealSelect())
+            {
+                return;
+            }
             
             if (Math.Abs(Vector2.Distance(_curr, _target)) > 4.5f)
             {
-                _MiniBossEnemy.Walk();
-                _MiniBossEnemy.Direct();
-                _curr.x = Mathf.MoveTowards(_curr.x, _target.x, 3.5f * Time.deltaTime);
-                
-                _MiniBossEnemy.transform.position = _curr;
+                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._PatrolState);
             }
             else
             {

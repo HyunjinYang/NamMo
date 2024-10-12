@@ -54,6 +54,7 @@ namespace Enemy.Boss.MiniBoss
 
         private Coroutine _currentPattern;
         private Coroutine _TurmCoroutine;
+        private Coroutine _TrackingCoroutine;
         
         public Action OnAttack2;
         public Action OnDashAttack;
@@ -368,6 +369,17 @@ namespace Enemy.Boss.MiniBoss
             _TurmCoroutine = null;
         }
 
+        public void StartTracking()
+        {
+            _TrackingCoroutine = StartCoroutine(CoTracking());
+        }
+
+        public void StopTracking()
+        {
+            StopCoroutine(_TrackingCoroutine);
+            _TrackingCoroutine = null;
+        }
+
         public void Direct()
         {
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
@@ -386,7 +398,13 @@ namespace Enemy.Boss.MiniBoss
         
         public IEnumerator CoTurm()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
+            TransitionToIdel();
+        }
+
+        public IEnumerator CoTracking()
+        {
+            yield return new WaitForSeconds(2f);
             TransitionToIdel();
         }
     }
