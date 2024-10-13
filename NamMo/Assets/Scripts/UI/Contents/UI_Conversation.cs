@@ -32,6 +32,7 @@ public class UI_Conversation : UI_Base
         FastTyping,
         NoTyping
     }
+    private Dictionary<int, Conversation> _conversationDict;
     private Dictionary<int, Action> _flowActions = new Dictionary<int, Action>();
     private TypingState _currentTypingState = TypingState.EndTyping;
     private int _currentConversationNum = 0;
@@ -56,7 +57,7 @@ public class UI_Conversation : UI_Base
         Get<GameObject>((int)GameObjects.Elements).gameObject.SetActive(true);
         _typingCursor = 0;
         _currentConversation.Clear();
-        int characterInfoId = Managers.Data.ConversationDict[_currentConversationNum].characterId;
+        int characterInfoId = _conversationDict[_currentConversationNum].characterId;
         SetCharacterPortrait(characterInfoId);
         SetCharacterName(characterInfoId);
         ShowConversationText();
@@ -76,7 +77,7 @@ public class UI_Conversation : UI_Base
     {
         _currentTypingState = TypingState.DefaultTyping;
         int languageCode = (int)Define.Languages.Kor;
-        string message = Managers.Data.ConversationDict[_currentConversationNum].scripts[languageCode];
+        string message = _conversationDict[_currentConversationNum].scripts[languageCode];
         _typingCoroutine = StartCoroutine(CoTypingConversationText(message, _defaultTypingSpeed));
     }
     private void PushButton(Define.KeyInput key)
@@ -91,7 +92,7 @@ public class UI_Conversation : UI_Base
             {
                 StopCoroutine(_typingCoroutine);
                 int languageCode = (int)Define.Languages.Kor;
-                string message = Managers.Data.ConversationDict[_currentConversationNum].scripts[languageCode];
+                string message = _conversationDict[_currentConversationNum].scripts[languageCode];
                 _currentTypingState = TypingState.FastTyping;
                 _typingCoroutine = StartCoroutine(CoTypingConversationText(message, _fastTypingSpeed));
             }
@@ -108,12 +109,23 @@ public class UI_Conversation : UI_Base
         else
         {
             Conversation conversation = null;
-            if (Managers.Data.ConversationDict.TryGetValue(_currentConversationNum + 1, out conversation) == false)
+            if (_conversationDict.TryGetValue(_currentConversationNum + 1, out conversation) == false)
             {
                 Debug.Log("End Conversation");
                 return;
             }
             ShowNextInfos();
+        }
+    }
+    public void SetConversationType(Define.ConversationType conversationType)
+    {
+        if (conversationType == Define.ConversationType.Prologe)
+        {
+            _conversationDict = Managers.Data.ConversationDict;
+        }
+        else if (conversationType == Define.ConversationType.SpawnMonsterTest)
+        {
+            _conversationDict = Managers.Data.NPCConversationDict_Test;
         }
     }
     public void RegisterFlowAction(int num, Action action)

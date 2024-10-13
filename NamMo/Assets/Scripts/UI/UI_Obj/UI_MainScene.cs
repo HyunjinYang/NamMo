@@ -98,7 +98,7 @@ public class UI_MainScene : UI_Base
         {
             // TODO : 게임 데이터 날리고 처음 씬으로 이동
             Debug.Log("New Game 2");
-            Managers.Data.PlayerData.Clear();
+            Managers.Data.ClearAllData();
             Managers.Scene.LoadScene(Define.Scene.TestStartScene);
         }
     }

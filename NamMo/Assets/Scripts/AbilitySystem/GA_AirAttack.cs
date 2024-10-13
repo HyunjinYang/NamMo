@@ -48,7 +48,8 @@ public class GA_AirAttack : GameAbility
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, _attack1Rate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackOffset1, _attackRange1);
         _asc.GetPlayerController().GetAttackArea().Attack();
-        Managers.Sound.Play("Attack");
+        //Managers.Sound.Play("Attack");
+        _asc.GetPlayerController().GetPlayerSound().PlayAttackSound();
 
         yield return new WaitForFixedUpdate();
 
@@ -59,7 +60,8 @@ public class GA_AirAttack : GameAbility
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, _attack2Rate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackOffset2, _attackRange2);
         _asc.GetPlayerController().GetAttackArea().Attack();
-        Managers.Sound.Play("Attack");
+        //Managers.Sound.Play("Attack");
+        _asc.GetPlayerController().GetPlayerSound().PlayAttackSound();
 
         yield return new WaitForFixedUpdate();
 

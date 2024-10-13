@@ -14,7 +14,8 @@ public class GA_Parrying : GameAbility
         base.ActivateAbility();
         _parryingCoroutine = StartCoroutine(CoParrying());
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
-        Managers.Sound.Play("Parrying1");
+        //Managers.Sound.Play("Parrying1");
+        _asc.GetPlayerController().GetPlayerSound().PlayParryingSound();
         // TODO : 패링 
         Camera.main.transform.DOShakePosition(0.15f, new Vector3(0.25f, 0.25f, 0), 50);
         Camera.main.DOOrthoSize(10, 0.5f);

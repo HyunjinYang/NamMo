@@ -1,8 +1,8 @@
 using Enemy;
+using Enemy.Boss.MiniBoss;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Enemy.Boss.MiniBoss;
 using UnityEngine;
 using static Define;
 
@@ -111,9 +111,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<DummyEnemy>() == null 
-            && collision.gameObject.GetComponent<Enemy.Enemy>() == null) return;
-        if (collision.gameObject.GetComponentInChildren<MiniBossEnemy>())
-            return;
+            && collision.gameObject.GetComponentInChildren<Enemy.Enemy>() == null) return;
+        if (collision.gameObject.GetComponentInChildren<MiniBossEnemy>()) return;
         _overlapEnemyCnt++;
         if (_overlapEnemyCnt > 0)
         {
@@ -123,9 +122,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<DummyEnemy>() == null
-            && collision.gameObject.GetComponent<Enemy.Enemy>() == null) return;
-        if (collision.gameObject.GetComponentInChildren<MiniBossEnemy>())
-            return;
+            && collision.gameObject.GetComponentInChildren<Enemy.Enemy>() == null) return;
+        if (collision.gameObject.GetComponentInChildren<MiniBossEnemy>()) return;
         _overlapEnemyCnt--;
         if (_overlapEnemyCnt == 0)
         {
@@ -247,7 +245,8 @@ public class PlayerMovement : MonoBehaviour
                 _isJumping = false;
                 _isFalling = false;
                 if (OnLandGround != null) OnLandGround.Invoke();
-                Managers.Sound.Play("Land");
+                //Managers.Sound.Play("Land");
+                _pc.GetPlayerSound().PlayLandSound();
             }
         }
 
