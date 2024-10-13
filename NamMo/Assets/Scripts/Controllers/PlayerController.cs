@@ -97,7 +97,16 @@ public partial class PlayerController : MonoBehaviour
 // Handle Input
 public partial class PlayerController : MonoBehaviour
 {
-    public bool BlockInput { get; set; } = false;
+    private bool _blockInput = false;
+    public bool BlockInput
+    {
+        get { return _blockInput; }
+        set
+        {
+            _blockInput = value;
+            OnMoveInputChanged.Invoke(0);
+        }
+    }
     // �̵�
     public void HandleMoveInput(InputAction.CallbackContext context)
     {

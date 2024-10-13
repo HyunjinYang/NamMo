@@ -63,6 +63,7 @@ public class PrologueScene : BaseScene
     private void StartPrologue()
     {
         _conversationUI = Managers.UI.ShowUI<UI_Conversation>();
+        _conversationUI.SetConversationType(Define.ConversationType.Prologe);
         _conversationUI.RegisterFlowAction(0, MoveToJoonjeong);
         _conversationUI.RegisterFlowAction(8, MoveToScene1Left);
         _conversationUI.RegisterFlowAction(18, Tutorial_Move);

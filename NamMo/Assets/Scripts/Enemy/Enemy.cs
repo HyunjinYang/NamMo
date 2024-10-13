@@ -103,7 +103,10 @@ namespace Enemy
         {
             _enemyMovement._isDead = true;
             Dead.Invoke();
-            Managers.Data.EnemyData.KillEnemy(Managers.Scene.CurrentScene.SceneType, ManagedId);
+            if (ManagedId != -1)
+            {
+                Managers.Data.EnemyData.KillEnemy(Managers.Scene.CurrentScene.SceneType, ManagedId);
+            }
         }
 
         public bool ReturnIsHit()
