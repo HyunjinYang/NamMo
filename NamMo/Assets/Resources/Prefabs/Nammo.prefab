@@ -537,12 +537,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099302753238082764}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.54
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -640,11 +640,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 16119281059444656}
   _attackSound: {fileID: 8300000, guid: 56fb3865b881b5747acb9b205400329e, type: 3}
-  _hittedSound: {fileID: 8300000, guid: 5f5994d17d1bc7b48b06ec5a7c93d049, type: 3}
+  _hittedSound: {fileID: 8300000, guid: ee25c4ac09d0147f89d929e0a50b4cf5, type: 3}
   _dashSound: {fileID: 8300000, guid: bf92bc4d2f3bfcf40a00bc196fd26b6a, type: 3}
   _jumpSound: {fileID: 8300000, guid: df78bbe2eb8555a4aa060496c44ad35c, type: 3}
   _landSound: {fileID: 8300000, guid: 0fbb79af362aebe4aad247be2c9660e9, type: 3}
-  _parryingSound: {fileID: 8300000, guid: 8d974f68db898ba42810b3cfe6526776, type: 3}
+  _parryingSound: {fileID: 8300000, guid: 4014b45fbff23406d8af720ff309cfeb, type: 3}
   _waveSound: {fileID: 8300000, guid: 23e49294b0ad38640a2595b54e7003fd, type: 3}
 --- !u!1 &1111984358466278118
 GameObject:
