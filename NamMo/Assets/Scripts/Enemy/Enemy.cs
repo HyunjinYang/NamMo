@@ -7,7 +7,7 @@ namespace Enemy
     public class Enemy : MonoBehaviour
     {
         [SerializeField] protected int _hp;
-
+        [SerializeField] protected int maxhp;
         public int HP
         {
             get

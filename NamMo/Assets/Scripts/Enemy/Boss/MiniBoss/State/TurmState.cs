@@ -11,6 +11,7 @@ namespace Enemy.Boss.MiniBoss.State
         public MiniBossEnemy _MiniBossEnemy;
 
         private Vector2 _target;
+        private bool _isHeal = false;
         public TurmState(MiniBossEnemy _miniBossEnemy)
         {
             _MiniBossEnemy = _miniBossEnemy;
@@ -22,7 +23,8 @@ namespace Enemy.Boss.MiniBoss.State
                 _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._DeadState);
                 return;
             }
-            
+
+            _isHeal = _MiniBossEnemy.HealSelect();
             _MiniBossEnemy.StartTurm();
             _MiniBossEnemy.Direct();
             _MiniBossEnemy.Walk();
@@ -35,7 +37,7 @@ namespace Enemy.Boss.MiniBoss.State
             Vector2 _curr = _MiniBossEnemy.transform.position;
             _target = Managers.Scene.CurrentScene.Player.transform.position;
             _MiniBossEnemy.Direct();
-            if (_MiniBossEnemy.HP < 7 && _MiniBossEnemy.HealSelect())
+            if (_MiniBossEnemy.HP < 7 && _isHeal)
             {
                 return;
             }
