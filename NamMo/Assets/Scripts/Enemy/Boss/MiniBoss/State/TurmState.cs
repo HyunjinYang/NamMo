@@ -1,7 +1,9 @@
 using System.Collections;
 using Enemy.MelEnemy;
 using System;
-using UnityEngine;
+using System.Numerics;
+using Vector2 = UnityEngine.Vector2;
+
 namespace Enemy.Boss.MiniBoss.State
 {
     public class TurmState: IStateClass
@@ -25,23 +27,26 @@ namespace Enemy.Boss.MiniBoss.State
             _MiniBossEnemy.Direct();
             _MiniBossEnemy.Walk();
         }
-
+        
         public void Update()
         {
             
             
             Vector2 _curr = _MiniBossEnemy.transform.position;
             _target = Managers.Scene.CurrentScene.Player.transform.position;
-
-            
-            
-            if (Math.Abs(Vector2.Distance(_curr, _target)) > 4.5f)
+            _MiniBossEnemy.Direct();
+            if (_MiniBossEnemy.HP < 7 && _MiniBossEnemy.HealSelect())
             {
-                _MiniBossEnemy.Walk();
-                _MiniBossEnemy.Direct();
-                _curr.x = Mathf.MoveTowards(_curr.x, _target.x, 3.5f * Time.deltaTime);
-                
-                _MiniBossEnemy.transform.position = _curr;
+                return;
+            }
+            
+            if (Math.Abs(Vector2.Distance(_curr, _target)) > 7.5f && Math.Abs(Vector2.Distance(_curr, _target)) <= 10.5f)
+            {
+                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine.IdelState);
+            }
+            else if (Math.Abs(Vector2.Distance(_curr, _target)) > 10.5f)
+            {
+                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._PatrolState);
             }
             else
             {

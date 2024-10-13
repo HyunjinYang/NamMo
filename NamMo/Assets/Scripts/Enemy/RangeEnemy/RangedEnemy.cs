@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemy.MelEnemy;
+using Enemy.State;
 using NamMo;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -12,12 +14,25 @@ namespace Enemy
         public Action OnRangeAttack;
         public Action OnEndRangeAttack;
         
-        [SerializeField] private float AttackTime;
         
         [SerializeField] private GameObject archr;
-        [SerializeField] private EnemyAttackArea _enemyAttackArea;
+        [SerializeField] public EnemyAttackArea _enemyAttackArea;
+
+        [SerializeField] private RangeEnemyAttackPattern<RangedEnemy> _melAttackPattern;
+        [SerializeField] private RangeEnemyAttackPattern<RangedEnemy> _rangeAttackPattern;
+
+        private Coroutine _currentPattern;
+        private Coroutine _TurmCoroutine;
+        
         private Animator _animator;
         
+        public RangeEnemyStateMachine stateMachine;
+
+        public float _distance;
+        public float _AttackTime1;
+        public float _AttackTime2;
+
+        public bool _isAttacking = false;
 
         protected override void Start()
         {
@@ -25,20 +40,14 @@ namespace Enemy
             
             _animator = GetComponent<Animator>();
             SceneLinkedSMB<RangedEnemy>.Initialise(_animator, this);
+
+            stateMachine = new RangeEnemyStateMachine(this);
+            stateMachine.Initialize(stateMachine._IdelState);
+            
             _enemyAttackArea.SetAttackInfo(gameObject, 2);
-
+            
         }
-
-        enum State
-        {
-            Patrol,
-            RangeAttack,
-            MelAttack,
-            None
-        }
-
-        [SerializeField] private State _state = State.None;
-
+        
         public void GroggyEnter()
         {
             _enemyAttackArea._groggy += Groggy;
@@ -48,28 +57,55 @@ namespace Enemy
         {
             OnGroggy.Invoke();
         }
-        
-        public override void Behavire(float distance)
+
+        public void MelAttackAnim()
         {
-            if (distance >= 6.5f)
-            {
-                Patrol();
-                _state = State.Patrol;
-            }
-            else if (distance < 6.5f && distance >= 3.5f)
-            {
-                RangeAttackInit();
-                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-            }
-            else if (distance < 3.5f)
-            {
-                MelAttackInit();
-                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-            }
+            Debug.Log(gameObject.name);
+            Onattack.Invoke();
         }
 
+        public void EndMelAttackAnim()
+        {
+            OnEndattack.Invoke();
+        }
+
+        public void RangeAttackAnim()
+        {
+            OnRangeAttack.Invoke();
+        }
+
+        public void EndRangeAttackAnim()
+        {
+            OnEndRangeAttack.Invoke();
+        }
+        public override void Behavire(float distance)
+        {
+            _distance = distance;
+            stateMachine.Update();
+        }
+        
+        
+        public void MelAttack()
+        {
+            _enemyMovement.OnWalk(0f);
+            _melAttackPattern.Initialise(this);
+            _currentPattern = StartCoroutine(_melAttackPattern.Pattern());
+        }
 
         public void RangeAttack()
+        {
+            _enemyMovement.OnWalk(0f);
+            _rangeAttackPattern.Initialise(this);
+            _currentPattern = StartCoroutine(_rangeAttackPattern.Pattern());
+        }
+
+        public void StopPattern()
+        {
+            EndMelAttackAnim();
+            EndRangeAttackAnim();
+            StopCoroutine(_currentPattern);
+        }
+        public void CreateRangeAttack()
         {
             GameObject cur =Instantiate(archr, gameObject.transform.position, transform.rotation);
             cur.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 1f, 4, Managers.Scene.CurrentScene.Player.gameObject);
@@ -83,72 +119,53 @@ namespace Enemy
         }
         
 
-        private void RangeAttackInit()
+        public void MelAttackPatternStart()
         {
-            if (_state == State.RangeAttack)
-                return;
-            _state = State.RangeAttack;
-            Debug.Log("RangeAttack!");
-            OnRangeAttack.Invoke();
-            _enemyMovement.OnWalk(0f);
-            _enemyMovement._isPatrol = false;
-            _enemyMovement._isAttack = true;
+            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            MelAttack();
         }
 
-        private void MelAttackInit()
+        public void RangeAttackPatternStart()
         {
-            if (_enemyMovement._isPatrol)
-                return;
-            if (_state == State.MelAttack)
-            {
-                if (!_enemyMovement._isAttack)
-                {
-                    _enemyMovement._isAttack = true;
-                    _enemyMovement.OnWalk(0f);
-                }
-
-                return;
-            }
-            GroggyEnter();
-            Onattack.Invoke();
-            _enemyMovement.OnWalk(0f);
-            _enemyMovement._isPatrol = false;
-            _enemyMovement._isAttack = true;
-            _state = State.MelAttack;
-            Debug.Log("MelAttack");
+            _enemyMovement.DirectCheck(gameObject.transform.position.x,Managers.Scene.CurrentScene.Player.transform.position.x);
+            RangeAttack();
         }
 
-        public void MelAttack()
-        {
-            StartCoroutine(CoAttack());
-        }
         public void Patrol()
         {
-            if (_state == State.Patrol)
-                return;
-            OnEndattack.Invoke();
-            _enemyMovement._isPatrol = true;
+            _enemyMovement.Patrol();
         }
 
-
-        public void SetRangeAttack(bool isActivate)
+        public void Tracking()
         {
-            if (_state != State.RangeAttack)
-            {
-                _enemyMovement._isAttack = isActivate;
-                OnEndRangeAttack.Invoke();
-            }
+            _enemyMovement.PlayerTracking();
         }
 
-        public void SetMelAttack(bool isActivate)
+        public void EndWalk()
         {
-            //_enemyBlockArea.DeActiveBlockArea();
-            if (_state != State.MelAttack)
-            {
-                _enemyMovement._isAttack = isActivate;
-                OnEndattack.Invoke();
-            }
+            _enemyMovement.OnWalk(0f);
         }
+
+        public void TransitionHit()
+        {
+            stateMachine.TransitionState(stateMachine._HitState);
+        }
+
+        public void TransitionEndHit()
+        {
+            stateMachine.TransitionState(stateMachine._PatrolState);
+        }
+
+        public void TransitionGroggy()
+        {
+            stateMachine.TransitionState(stateMachine._GroggyState);
+        }
+
+        public void TranstionIdel()
+        {
+            stateMachine.TransitionState(stateMachine._IdelState);
+        }
+        
         public void SetHit(bool isActivate)
         {
             _enemyMovement._isHit = isActivate;
@@ -160,11 +177,20 @@ namespace Enemy
             Destroy(_enemyMovement.gameObject);
         }
 
-
-        IEnumerator CoAttack()
+        public void StartTurm()
         {
-            yield return new WaitForSeconds(AttackTime);
-            _enemyAttackArea.Attack();
+            _TurmCoroutine = StartCoroutine(CoTurm());
+        }
+
+        public void StopTurm()
+        {
+            StopCoroutine(_TurmCoroutine);
+        }
+
+        private IEnumerator CoTurm()
+        {
+            yield return new WaitForSeconds(3f);
+            stateMachine.TransitionState(stateMachine._IdelState);
         }
 
     }

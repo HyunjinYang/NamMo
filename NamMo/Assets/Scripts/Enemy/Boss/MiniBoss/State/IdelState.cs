@@ -7,7 +7,7 @@ namespace Enemy.Boss.MiniBoss.State
     public class IdelState: IStateClass
     {
         public MiniBossEnemy _MiniBossEnemy;
-        
+        private bool _isHeal = false;
         public IdelState(MiniBossEnemy _miniBossEnemy)
         {
             _MiniBossEnemy = _miniBossEnemy;
@@ -15,6 +15,7 @@ namespace Enemy.Boss.MiniBoss.State
         public void Enter()
         {
             _MiniBossEnemy.StartIdelTurm();
+            _isHeal = _MiniBossEnemy.HealSelect();
             Debug.Log("IdelState!");
         }
 
@@ -27,18 +28,18 @@ namespace Enemy.Boss.MiniBoss.State
             {
                 _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._DeadState);   
             }
-            else if (_MiniBossEnemy.HP < 7 && _MiniBossEnemy.HealSelect())
+            else if (_MiniBossEnemy.HP < 7 && _isHeal)
             {
-                
+                _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._HealthRecoveryState);
             }
             else
             {
-                if (_MiniBossEnemy._distance <= 5.5f)
+                if (_MiniBossEnemy._distance <= 6.5f)
                 {
                     _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
                         .MeleeAttackState);
                 }
-                else if (_MiniBossEnemy._distance > 8.5f && _MiniBossEnemy._distance <= 13.5f)
+                else if (_MiniBossEnemy._distance > 6.5f && _MiniBossEnemy._distance <= 13.5f)
                 {
                     _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
                         ._DashAttackState);

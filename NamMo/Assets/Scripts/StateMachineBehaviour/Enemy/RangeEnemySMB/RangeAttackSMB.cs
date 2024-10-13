@@ -12,7 +12,7 @@ namespace NamMo
         }
 
         public override void OnSLStatePostEnter(Animator animator,AnimatorStateInfo stateInfo,int layerIndex) {
-            _monoBehaviour.RangeAttack();   
+            //_monoBehaviour.RangeAttack();   
         }
         public override void OnSLStateNoTransitionUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex,
             AnimatorControllerPlayable controller)
@@ -21,7 +21,7 @@ namespace NamMo
         }
         public override void OnSLStateExit (Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            _monoBehaviour.SetRangeAttack(false);
+            _monoBehaviour._isAttacking = false;
         }
     }
 }

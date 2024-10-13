@@ -4,7 +4,7 @@ namespace Enemy
 {
     public class MiniBossMovement: EnemyMovement
     {
-        protected override void FixedUpdate()
+        /*protected override void FixedUpdate()
         {
             if (_isHit || _isDead)
                 return;
@@ -25,6 +25,6 @@ namespace Enemy
                 _curr.x = Mathf.MoveTowards(_curr.x, _playerposition.position.x, _speed * Time.deltaTime);
                 _CharacterSprite.transform.position = _curr;
             }
-        }
+        }*/
     }
 }

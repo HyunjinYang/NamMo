@@ -24,7 +24,8 @@ namespace Enemy.MelEnemy
                 _MelEnemy.stateMachine.TransitionState(_MelEnemy.stateMachine._patrolstate);
                 return;
             }
-            
+            Debug.Log("Idel 상태 업데이트 실행중 =");
+            _MelEnemy.Patrol();
         }
 
         public void Exit()
