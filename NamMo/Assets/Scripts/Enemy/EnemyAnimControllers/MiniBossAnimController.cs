@@ -20,6 +20,9 @@ namespace Enemy.EnemyAnimControllers
             _enemy.GetComponent<MiniBossEnemy>().OnEndHealthRecovery += OnEndHealthRecovery;
             _enemy.GetComponent<MiniBossEnemy>().OnLandAttack += OnLandAttack;
             _enemy.GetComponent<MiniBossEnemy>().OnEndLandAttack += OnEndLandAttack;
+            _enemy.GetComponent<MiniBossEnemy>().OnGrapAttack += OnGrapAttack;
+            _enemy.GetComponent<MiniBossEnemy>().OnEndGrapAttack += OnEndGrapAttack;
+
         }
 
 
@@ -80,6 +83,15 @@ namespace Enemy.EnemyAnimControllers
         private void OnEndLandAttack()
         {
             _animator.SetBool("IsLandAttack", false);
+        }
+
+        private void OnGrapAttack()
+        {
+            _animator.SetBool("IsGrapAttack", true);
+        }
+        private void OnEndGrapAttack()
+        {
+            _animator.SetBool("IsGrapAttack", false);
         }
     }
 }

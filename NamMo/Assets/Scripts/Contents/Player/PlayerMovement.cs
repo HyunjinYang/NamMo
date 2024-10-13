@@ -2,6 +2,7 @@ using Enemy;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enemy.Boss.MiniBoss;
 using UnityEngine;
 using static Define;
 
@@ -111,6 +112,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<DummyEnemy>() == null 
             && collision.gameObject.GetComponent<Enemy.Enemy>() == null) return;
+        if (collision.gameObject.GetComponentInChildren<MiniBossEnemy>())
+            return;
         _overlapEnemyCnt++;
         if (_overlapEnemyCnt > 0)
         {
@@ -121,6 +124,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<DummyEnemy>() == null
             && collision.gameObject.GetComponent<Enemy.Enemy>() == null) return;
+        if (collision.gameObject.GetComponentInChildren<MiniBossEnemy>())
+            return;
         _overlapEnemyCnt--;
         if (_overlapEnemyCnt == 0)
         {

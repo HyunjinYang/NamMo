@@ -25,8 +25,8 @@ namespace Enemy.Boss.MiniBoss
         [SerializeField] public EnemyAttackArea EnemyMelAttack3AttackArea;
         [SerializeField] public EnemyAttackArea EnemyDashAttackAttackArea;
         [SerializeField] public EnemyAttackArea EnemyLandAttackArea;
-        
-        
+        //[SerializeField] public EnemyAttackArea EnemyGrapAttackArea;
+
         public GameObject _teleport;
         
         public GameObject _enemyWavePrefab;
@@ -37,6 +37,7 @@ namespace Enemy.Boss.MiniBoss
         public float dashAttackTime;
         public float waveAttackTime;
         public float landAttackTime;
+        public float grapAttackTime;
         
         private Animator _animator;
         
@@ -68,6 +69,8 @@ namespace Enemy.Boss.MiniBoss
         public Action OnEndHealthRecovery;
         public Action OnLandAttack;
         public Action OnEndLandAttack;
+        public Action OnGrapAttack;
+        public Action OnEndGrapAttack;
 
         public bool idelTurm = true;
         
@@ -91,6 +94,7 @@ namespace Enemy.Boss.MiniBoss
             EnemyMelAttack3AttackArea.SetAttackInfo(gameObject, 2);
             EnemyLandAttackArea.SetAttackInfo(gameObject,2);
             EnemyDashAttackAttackArea.SetAttackInfo(gameObject, 2);
+            //EnemyGrapAttackArea.SetAttackInfo(gameObject, 2);
         }
 
         public override void Behavire(float distance)
@@ -103,9 +107,8 @@ namespace Enemy.Boss.MiniBoss
                     _hp = 5;
                     _miniBossStateMachine.TransitionState(_miniBossStateMachine._ChangePhaseState);
                 }
-                
-                _miniBossStateMachine.Update();
                 _distance = distance;
+                _miniBossStateMachine.Update();
             }
         }
 
@@ -314,13 +317,15 @@ namespace Enemy.Boss.MiniBoss
 
         public bool HealSelect()
         {
+            Debug.Log("111");
             var next = _rand.Next(0, 2);
 
             if (next == 0)
-                return false;
-            
-            _miniBossStateMachine.TransitionState(_miniBossStateMachine._HealthRecoveryState);
-            return true;
+            {
+                return true;
+            }
+
+            return false;
         }
         
         #endregion
@@ -365,7 +370,8 @@ namespace Enemy.Boss.MiniBoss
 
         public void StopTurm()
         {
-            StopCoroutine(_TurmCoroutine);
+            if(_TurmCoroutine != null)
+                StopCoroutine(_TurmCoroutine);
             _TurmCoroutine = null;
         }
 
@@ -398,7 +404,7 @@ namespace Enemy.Boss.MiniBoss
         
         public IEnumerator CoTurm()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
             TransitionToIdel();
         }
 

@@ -55,7 +55,7 @@ public class GA_WaveDetect : GameAbility
         base.ActivateAbility();
         StartCoroutine(CoWaveDetect());
         StartCoroutine(CoEndAbility());
-        _remainUseCnt--;
+        //_remainUseCnt--;
         if (OnRemainUseCntChanged != null) OnRemainUseCntChanged.Invoke(_remainUseCnt);
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
     }

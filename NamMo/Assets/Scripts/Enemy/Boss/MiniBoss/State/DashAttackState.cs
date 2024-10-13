@@ -26,11 +26,11 @@ namespace Enemy.Boss.MiniBoss.State
 
             if (target.x <= _MiniBossEnemy.gameObject.transform.position.x)
             {
-                target.x += 3.5f;
+                target.x += 4.5f;
             }
             else
             {
-                target.x -= 3.5f;
+                target.x -= 4.5f;
             }
 
             _speed = Math.Abs(Vector2.Distance(_MiniBossEnemy.transform.position, target)) / 1.4f;
