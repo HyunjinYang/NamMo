@@ -50,6 +50,20 @@ public abstract class BaseScene : MonoBehaviour
 
         return player;
     }
+    protected void SpawnEnemies()
+    {
+        Dictionary<int, Data.Enemy> enemyDict = Managers.Data.EnemyDict;
+        Data.StageEnemy stageEnemy = Managers.Data.EnemyData.stageEnemies[(int)SceneType];
+        foreach (var enemy in stageEnemy.enemies)
+        {
+            if (enemy.alive == false) continue;
+            string prefabPath = enemyDict[enemy.enemyId].prefabPath;
+            GameObject go = Managers.Resource.Instantiate(prefabPath);
+            go.transform.position = new Vector2(enemy.posX, enemy.posY);
+
+            go.GetComponentInChildren<Enemy.Enemy>().ManagedId = enemy.managedId;
+        }
+    }
 
     //IEnumerator LoadSceneAsync(string sceneName)
     //{

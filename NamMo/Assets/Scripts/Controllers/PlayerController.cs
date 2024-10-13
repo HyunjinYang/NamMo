@@ -86,6 +86,7 @@ public partial class PlayerController : MonoBehaviour
     {
         // 리스폰 전 사전 작업 ex) UI 띄우기 등
         Managers.Data.PlayerData = GameData.Load<PlayerData>();
+        Managers.Data.EnemyData = GameData.Load<EnemyData>();
         Respawn();
     }
     private void Respawn()

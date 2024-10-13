@@ -48,4 +48,7 @@ MonoBehaviour:
   _tagsToAdd: 020000000b000000
   _needTags: 
   _blockTags: 
-  _parryingTime: 0.7
+  _cancelAbilities: 
+  _coolTime: 0
+  CanUse: 0
+  _parryingTime: 0.23
