@@ -245,7 +245,8 @@ public class PlayerMovement : MonoBehaviour
                 _isJumping = false;
                 _isFalling = false;
                 if (OnLandGround != null) OnLandGround.Invoke();
-                Managers.Sound.Play("Land");
+                //Managers.Sound.Play("Land");
+                _pc.GetPlayerSound().PlayLandSound();
             }
         }
 

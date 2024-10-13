@@ -23,6 +23,7 @@ public partial class PlayerController : MonoBehaviour
     private PlayerMovement _pm;
     private PlayerStat _ps;
     private PlayerCombatComponent _pcc;
+    private PlayerSound _playerSound;
     
     private bool _pushDown = false;
     private bool _waveInputDetect = false;
@@ -34,8 +35,10 @@ public partial class PlayerController : MonoBehaviour
         _pm = gameObject.GetComponent<PlayerMovement>();
         _ps = gameObject.GetComponent<PlayerStat>();
         _pcc = gameObject.GetComponent<PlayerCombatComponent>();
+        _playerSound = gameObject.GetComponent<PlayerSound>();
         _ps.SetPlayerController(this);
         _pcc.SetPlayerController(this);
+        _playerSound.SetPlayerController(this);
         if (_asc == null) _asc = GetComponent<AbilitySystemComponent>();
         foreach(var ability in _abilities)
         {
@@ -59,6 +62,7 @@ public partial class PlayerController : MonoBehaviour
     public PlayerMovement GetPlayerMovement() { return _pm; }
     public PlayerStat GetPlayerStat() { return _ps; }
     public PlayerCombatComponent GetPlayerCombatComponent() { return _pcc; }
+    public PlayerSound GetPlayerSound() { return _playerSound; }
     public BlockArea GetBlockArea() { return _blockArea; }
     public CloseAttack GetAttackArea() { return _attackArea; }
     public GameObject GetPlayerSprite() { return _playerSprite; }
