@@ -10,7 +10,7 @@ namespace Enemy.MelEnemy
         }
         public void Enter()
         {
-            
+            _MelEnemy.EndAttack();
         }
 
         public void Update()

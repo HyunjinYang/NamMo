@@ -184,11 +184,13 @@ namespace Enemy
 
         public void StopTurm()
         {
-            StopCoroutine(_TurmCoroutine);
+            if(_TurmCoroutine != null)
+                StopCoroutine(_TurmCoroutine);
         }
 
         private IEnumerator CoTurm()
         {
+            
             yield return new WaitForSeconds(3f);
             stateMachine.TransitionState(stateMachine._IdelState);
         }
