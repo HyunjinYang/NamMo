@@ -13,7 +13,8 @@ public class GA_Hurt : GameAbility
 
         _asc.GetPlayerController().GetPlayerMovement().CanMove = false;
         _asc.GetPlayerController().GetPlayerMovement().KnockBack(_dir);
-        Managers.Sound.Play("Attacked1");
+        //Managers.Sound.Play("Attacked1");
+        _asc.GetPlayerController().GetPlayerSound().PlayHittedSound();
         StartCoroutine(CoHurt());
     }
     protected override void EndAbility()

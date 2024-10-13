@@ -10,7 +10,8 @@ public class GA_DownJump : GameAbility
         base.ActivateAbility();
         _floor.GetComponent<DownJumpFloor>().ChangeColliderMaskShortTime();
         _asc.gameObject.GetComponent<PlayerMovement>().OnLandGround += EndAbility;
-        Managers.Sound.Play("Jump");
+        //Managers.Sound.Play("Jump");
+        _asc.GetPlayerController().GetPlayerSound().PlayJumpSound();
     }
     public override bool CanActivateAbility()
     {

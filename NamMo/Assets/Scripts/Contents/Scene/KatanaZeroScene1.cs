@@ -45,6 +45,8 @@ public class KatanaZeroScene1 : BaseScene
             string prefabPath = enemyDict[enemy.enemyId].prefabPath;
             GameObject go = Managers.Resource.Instantiate(prefabPath);
             go.transform.position = new Vector2(enemy.posX, enemy.posY);
+
+            go.GetComponentInChildren<Enemy.Enemy>().ManagedId = enemy.managedId;
         }
     }
     public override void Clear()

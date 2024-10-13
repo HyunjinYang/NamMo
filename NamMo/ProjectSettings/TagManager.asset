@@ -44,7 +44,7 @@ TagManager:
   - name: Dummy(Not Use)
     uniqueID: 1907124881
     locked: 0
-  - name: Enemy
+  - name: Creature
     uniqueID: 1322050693
     locked: 0
   - name: CameraSortingLayer

@@ -122,4 +122,9 @@ public class Define
         StrongAttack,
         Fight,
     }
+    public enum ConversationType
+    {
+        Prologe,
+        SpawnMonsterTest,
+    }
 }

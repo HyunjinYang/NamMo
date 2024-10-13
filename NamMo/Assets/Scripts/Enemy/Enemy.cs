@@ -34,6 +34,8 @@ namespace Enemy
         public Action OnEndGroggy;
         public Action<float> OnWalk;
 
+        public int ManagedId { get; set; } = -1;
+
         private bool _isFacing = true;
         public bool IsFacingRight
         {
@@ -101,6 +103,10 @@ namespace Enemy
         {
             _enemyMovement._isDead = true;
             Dead.Invoke();
+            if (ManagedId != -1)
+            {
+                Managers.Data.EnemyData.KillEnemy(Managers.Scene.CurrentScene.SceneType, ManagedId);
+            }
         }
 
         public bool ReturnIsHit()

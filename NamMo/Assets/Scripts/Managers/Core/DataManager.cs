@@ -13,6 +13,7 @@ public class DataManager
 {
     public Dictionary<int, Data.PrologueFadeInScript> PrologueFadeInScriptDict { get; private set; } = new Dictionary<int, PrologueFadeInScript>();
     public Dictionary<int, Data.Conversation> ConversationDict { get; private set; } = new Dictionary<int, Conversation>();
+    public Dictionary<int, Data.Conversation> NPCConversationDict_Test { get; private set; } = new Dictionary<int, Conversation>();
     public Dictionary<int, Data.Conversation> TutorialSpeechBubbleDict { get; private set; } = new Dictionary<int, Conversation>();
     public Dictionary<int, Data.CharacterInfo> CharacterInfoDict { get; private set; } = new Dictionary<int, Data.CharacterInfo>();
     public Dictionary<Define.TutorialType, Data.TutorialInfo> TutorialInfoDict { get; private set; } = new Dictionary<Define.TutorialType, Data.TutorialInfo>();
@@ -25,6 +26,8 @@ public class DataManager
         PrologueFadeInScriptDict = LoadJson<Data.PrologueFadeInScriptData, int, Data.PrologueFadeInScript>("PrologueFadeInScriptData").MakeDict();
 
         ConversationDict = LoadJson<Data.ConversationData, int, Data.Conversation>("ConversationData").MakeDict();
+        NPCConversationDict_Test = LoadJson<Data.ConversationData, int, Data.Conversation>("NPCConversationData_Test").MakeDict();
+
         TutorialSpeechBubbleDict = LoadJson<Data.ConversationData, int, Data.Conversation>("TutorialSpeechBubbleData").MakeDict();
 
         CharacterInfoDict = LoadJson<Data.CharacterInfoData, int, Data.CharacterInfo>("CharacterInfoData").MakeDict();
