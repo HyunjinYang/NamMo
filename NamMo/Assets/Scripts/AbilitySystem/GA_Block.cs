@@ -78,6 +78,7 @@ public class GA_Block : GameAbility
             if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke(_overlapCnt);
         }
     }
+    private int _attackStrength = 1;
     private void HandleTriggeredObject(GameObject go)
     {
         if (_isPerfectParryingTiming)
@@ -87,6 +88,7 @@ public class GA_Block : GameAbility
                 IParryingable parryingable = go.GetComponent<IParryingable>();
                 if (parryingable != null)
                 {
+                    _attackStrength = Math.Max(_attackStrength, go.GetComponent<BaseAttack>().AttackStrength);
                     parryingable.Parried(_asc.GetPlayerController().gameObject, null);
                     if (_reserveParrying == false)
                     {
@@ -128,8 +130,21 @@ public class GA_Block : GameAbility
         yield return new WaitForEndOfFrame();
         _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         RefreshCoolTime();
-        _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = 0.2f;
+
+        float dir = 1;
+        if (go.transform.position.x > _asc.GetPlayerController().transform.position.x) dir = -1;
+
+        Debug.Log(_attackStrength);
+        _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = _attackStrength * 0.1f;
+        Managers.Scene.CurrentScene.Player.GetPlayerMovement().KnockBack(_attackStrength * dir);
+        //if (_attackStrength == 1)
+        //{
+        //    _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = 0.1f;
+        //    Managers.Scene.CurrentScene.Player.GetPlayerMovement().KnockBack(1 * dir);
+        //}
+        
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _reserveParrying = false;
+        _attackStrength = 1;
     }
 }

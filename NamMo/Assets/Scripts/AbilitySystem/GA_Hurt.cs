@@ -6,13 +6,13 @@ using UnityEngine;
 public class GA_Hurt : GameAbility
 {
     [SerializeField] private float _hurtTime;
-    private float _dir = 0;
+    private float _knockBackforce = 0;
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
 
         _asc.GetPlayerController().GetPlayerMovement().CanMove = false;
-        _asc.GetPlayerController().GetPlayerMovement().KnockBack(_dir);
+        _asc.GetPlayerController().GetPlayerMovement().KnockBack(_knockBackforce);
         //Managers.Sound.Play("Attacked1");
         _asc.GetPlayerController().GetPlayerSound().PlayHittedSound();
         StartCoroutine(CoHurt());
@@ -23,9 +23,9 @@ public class GA_Hurt : GameAbility
 
         _asc.GetPlayerController().GetPlayerMovement().CanMove = true;
     }
-    public void SetKnockBackDirection(float dir)
+    public void SetKnockBackForce(float force)
     {
-        _dir = dir;
+        _knockBackforce = force;
     }
     IEnumerator CoHurt()
     {

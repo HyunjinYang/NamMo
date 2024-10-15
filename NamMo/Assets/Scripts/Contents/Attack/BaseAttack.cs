@@ -15,12 +15,14 @@ public abstract partial class BaseAttack : MonoBehaviour
     }
     protected GameObject _attacker;
     protected float _damage;
+    protected int _attackStrength = 1;
 
     protected AttackerType _attackerType;
 
     public Action<GameObject> OnHitted;
     public GameObject Attakcer { get { return _attacker; } }
     public float Damage { get { return _damage; } }
+    public int AttackStrength { get { return _attackStrength; } }
     private void Start()
     {
         Init();
@@ -39,16 +41,16 @@ public abstract partial class BaseAttack : MonoBehaviour
         OnHitted = null;
     }
     // public
-    public virtual void SetAttackInfo(GameObject attacker, float damage, float speed = 0, GameObject target = null)
+    public virtual void SetAttackInfo(GameObject attacker, float damage, int attackStrength = 1, float speed = 0, GameObject target = null)
     {
         _attacker = attacker;
         _damage = damage;
+        _attackStrength = attackStrength;
 
         if (attacker.GetComponent<PlayerController>()) _attackerType = AttackerType.Player;
         else if (attacker.GetComponent<Enemy.Enemy>()) _attackerType = AttackerType.Enemy;
         else _attackerType = AttackerType.Others;
     }
-
     // protected
     protected virtual void Init() { }
     protected virtual void UpdateAttack() { }
@@ -80,7 +82,7 @@ public abstract partial class BaseAttack : MonoBehaviour
         {
             PlayerController pc = target.GetComponent<PlayerController>();
             if (pc.GetASC().IsExsistTag(Define.GameplayTag.Player_State_Invincible)) return false;
-            pc.GetPlayerCombatComponent().GetDamaged(_damage, transform.position);
+            pc.GetPlayerCombatComponent().GetDamaged(_damage, transform.position, _attackStrength);
             return true;
         }
         return false;

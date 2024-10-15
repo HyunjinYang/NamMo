@@ -9,7 +9,7 @@ public class PlayerCombatComponent : MonoBehaviour
     {
         _pc = pc;
     }
-    public bool GetDamaged(/*TODO*/float damage, Vector3 attackPos)
+    public bool GetDamaged(/*TODO*/float damage, Vector3 attackPos, int attackStrength = 1)
     {
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_State_Invincible))
         {
@@ -35,7 +35,8 @@ public class PlayerCombatComponent : MonoBehaviour
             {
                 float force = 1;
                 if (transform.position.x < attackPos.x) force = -1;
-                (_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackDirection(force);
+                force *= attackStrength;
+                (_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackForce(force);
                 _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
             }
         }
