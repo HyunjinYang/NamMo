@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dd757a44174743ad2e256d6c2b7d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: -1, y: 0.5}
-  _size: {x: 1, y: 2}
+  _offset: {x: -1.46, y: 0.5}
+  _size: {x: 1.24, y: 2}
   _radius: 0
   _isHit: 0
 --- !u!1 &1256053923007017048
@@ -463,6 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 5
+  maxhp: 0
   _enemyMovement: {fileID: 471647164062134601}
   maxGroggyStet: 0
   currentgroggyStet: 0

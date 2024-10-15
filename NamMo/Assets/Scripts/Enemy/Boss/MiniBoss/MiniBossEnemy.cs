@@ -101,7 +101,7 @@ namespace Enemy.Boss.MiniBoss
         {
             if (_miniBossStateMachine != null)
             {
-                if (_hp <= 5 && (_miniBossStateMachine._CurrentState is IdelState || _miniBossStateMachine._CurrentState is TurmState) && phase == 1)
+                if (_hp <= maxhp / 2 && (_miniBossStateMachine._CurrentState is IdelState || _miniBossStateMachine._CurrentState is TurmState) && phase == 1)
                 {
                     phase = 2;
                     _hp = 5;

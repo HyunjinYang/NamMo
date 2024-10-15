@@ -28,7 +28,7 @@ namespace Enemy.Boss.MiniBoss.State
             {
                 _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._DeadState);   
             }
-            else if (_MiniBossEnemy.HP < 7 && _isHeal)
+            else if (_MiniBossEnemy.HP < 24 && _isHeal)
             {
                 _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine._HealthRecoveryState);
             }

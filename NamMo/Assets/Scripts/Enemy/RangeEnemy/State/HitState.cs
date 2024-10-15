@@ -15,7 +15,7 @@ namespace Enemy.State
         public void Enter()
         {
             Debug.Log("RangeEnemy Hit State");   
-
+            _RangedEnemy.StopPattern();
         }
 
         public void Update()
