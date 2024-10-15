@@ -42,7 +42,7 @@ public class GA_Attack : GameAbility
         if (_reserveNextAttack) return false;
         return true;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         if (_reserveNextAttack)

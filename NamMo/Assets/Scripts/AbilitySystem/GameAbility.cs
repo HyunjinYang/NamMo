@@ -18,6 +18,7 @@ public class GameAbility : MonoBehaviour
     [SerializeField] protected float _coolTime;
     protected AbilitySystemComponent _asc;
     protected int _overlapCnt = 0;
+    protected bool _blockCancelAbility = false;
 
     private bool _isActivated = false;
     private bool _isCoolTime = false;
@@ -28,6 +29,8 @@ public class GameAbility : MonoBehaviour
     public Action<float> OnCooltimeStart;
     public Action<float> OnCooltimeStart_Combo;
     public bool IsActivated { get { return _isActivated; } }
+    public bool BlockCancelAbility { get { return _blockCancelAbility; } }
+    public float BlockCancelTime = 0f;
     private void Start()
     {
         Init();
@@ -45,6 +48,11 @@ public class GameAbility : MonoBehaviour
         }
         ActivateAbility();
         return;
+    }
+    public void TryCancelAbility()
+    {
+        if(CanCancelAbility() == false) return;
+        CancelAbility();
     }
     protected virtual void Init()
     {
@@ -78,11 +86,23 @@ public class GameAbility : MonoBehaviour
         {
             if (_asc.IsExsistTag(tag)) return false;
         }
+        foreach(Define.GameplayAbility abilityTag in _cancelAbilities)
+        {
+            GameAbility ability = _asc.GetAbility(abilityTag);
+            if (ability)
+            {
+                if (ability.IsActivated && ability.BlockCancelAbility) return false;
+            }
+        }
         if (_canOverlapAbility == false)
         {
             if (_isActivated) return false;
         }
         return true;
+    }
+    public virtual bool CanCancelAbility()
+    {
+        return !_blockCancelAbility;
     }
     protected virtual void EndAbility()
     {
@@ -100,7 +120,7 @@ public class GameAbility : MonoBehaviour
         }
         if (OnAbilityEnded != null) OnAbilityEnded.Invoke();
     }
-    public virtual void CancelAbility()
+    protected virtual void CancelAbility()
     {
         if (OnAbilityCanceled != null) OnAbilityCanceled.Invoke();
     }
@@ -118,9 +138,16 @@ public class GameAbility : MonoBehaviour
             _coolTime = 0;
         }
     }
-    IEnumerator CoCaculateCoolTime()
+    private IEnumerator CoCaculateCoolTime()
     {
         yield return new WaitForSeconds(_coolTime);
         _isCoolTime = false;
+    }
+    protected IEnumerator CoBlockCancelAbility()
+    {
+        _blockCancelAbility = true;
+        yield return new WaitForSeconds(BlockCancelTime);
+        _blockCancelAbility = false;
+        BlockCancelTime = 0f;
     }
 }

@@ -51,4 +51,4 @@ MonoBehaviour:
   _cancelAbilities: 
   _coolTime: 0
   CanUse: 0
-  _parryingTime: 0.23
+  _parryingTime: 0.35

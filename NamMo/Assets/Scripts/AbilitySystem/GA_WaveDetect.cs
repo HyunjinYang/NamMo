@@ -66,7 +66,7 @@ public class GA_WaveDetect : GameAbility
         if (_remainUseCnt <= 0) return false;
         return true;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         EndAbility();

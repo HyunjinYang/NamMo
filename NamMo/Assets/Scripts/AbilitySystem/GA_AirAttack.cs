@@ -22,7 +22,7 @@ public class GA_AirAttack : GameAbility
         _asc.GetPlayerController().GetAttackArea().OnHitted += HandleTriggeredObject;
 
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         if (_airAttackCoroutine != null)

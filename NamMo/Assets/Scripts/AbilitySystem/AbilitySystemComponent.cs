@@ -93,7 +93,7 @@ public class AbilitySystemComponent : MonoBehaviour
         GameAbility ga = null;
         if (_abilities.TryGetValue(tag, out ga))
         {
-            if (ga.IsActivated) ga.CancelAbility();
+            if (ga.IsActivated) ga.TryCancelAbility();
             else
             {
                 //Debug.Log("Not Activated Ability");

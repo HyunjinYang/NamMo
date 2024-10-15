@@ -41,7 +41,7 @@ public class GA_Block : GameAbility
         if (_reserveNextCombo) return false;
         return true;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         if (_reserveNextCombo)
         {
@@ -128,6 +128,7 @@ public class GA_Block : GameAbility
         yield return new WaitForEndOfFrame();
         _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         RefreshCoolTime();
+        _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = 0.2f;
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _reserveParrying = false;
     }
