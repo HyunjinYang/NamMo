@@ -134,13 +134,10 @@ public class GA_Block : GameAbility
         float dir = 1;
         if (go.transform.position.x > _asc.GetPlayerController().transform.position.x) dir = -1;
 
-        _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = _attackStrength * 0.1f;
-        Managers.Scene.CurrentScene.Player.GetPlayerMovement().KnockBack(_attackStrength * dir);
-        //if (_attackStrength == 1)
-        //{
-        //    _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = 0.1f;
-        //    Managers.Scene.CurrentScene.Player.GetPlayerMovement().KnockBack(1 * dir);
-        //}
+        float knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].knockbackPower;
+        float blockCancelTime = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].bindTime;
+        _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = blockCancelTime;
+        Managers.Scene.CurrentScene.Player.GetPlayerMovement().KnockBack(knockbackPower * dir);
         
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _reserveParrying = false;
