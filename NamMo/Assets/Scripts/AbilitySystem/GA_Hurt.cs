@@ -12,7 +12,7 @@ public class GA_Hurt : GameAbility
         base.ActivateAbility();
 
         _asc.GetPlayerController().GetPlayerMovement().CanMove = false;
-        _asc.GetPlayerController().GetPlayerMovement().KnockBack(_knockBackforce);
+        //_asc.GetPlayerController().GetPlayerMovement().KnockBack(_knockBackforce);
         //Managers.Sound.Play("Attacked1");
         _asc.GetPlayerController().GetPlayerSound().PlayHittedSound();
         StartCoroutine(CoHurt());

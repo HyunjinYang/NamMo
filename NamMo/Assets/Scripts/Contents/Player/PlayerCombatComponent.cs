@@ -16,6 +16,10 @@ public class PlayerCombatComponent : MonoBehaviour
             // 무적상태일때 공격이 들어왔을 경우
             return false;
         }
+
+        float force = 1;
+        if (transform.position.x < attackPos.x) force = -1;
+        force *= attackStrength;
         if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Block))
         {
             GA_Block blockAbility = _pc.GetASC().GetAbility(Define.GameplayAbility.GA_Block) as GA_Block;
@@ -33,16 +37,16 @@ public class PlayerCombatComponent : MonoBehaviour
             if (_pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_Wave) == false &&
                 _pc.GetASC().IsExsistTag(Define.GameplayTag.Player_Action_StrongAttack) == false)
             {
-                float force = 1;
-                if (transform.position.x < attackPos.x) force = -1;
-                force *= attackStrength;
-                (_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackForce(force);
+                
+                //(_pc.GetASC().GetAbility(Define.GameplayAbility.GA_Hurt) as GA_Hurt).SetKnockBackForce(force);
                 _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Hurt);
             }
         }
         _pc.GetASC().TryActivateAbilityByTag(Define.GameplayAbility.GA_Invincible);
         StartCoroutine(CoShowAttackedEffect());
         _pc.GetPlayerStat().ApplyDamage(damage);
+
+        _pc.GetPlayerMovement().KnockBack(force);
         return true;
     }
     IEnumerator CoHurtShortTime()

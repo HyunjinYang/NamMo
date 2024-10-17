@@ -215,10 +215,12 @@ MonoBehaviour:
   _canOverlapAbility: 0
   _tagsToAdd: 03000000
   _needTags: 
-  _blockTags: 000000000100000006000000020000000a000000
+  _blockTags: 000000000100000006000000020000000a00000007000000090000000d000000080000000e000000
   _cancelAbilities: 0a000000
+  _ignoreBlockCancelAbilities: 
   _coolTime: 0
   CanUse: 0
+  BlockCancelTime: 0
   _scaleChangeTime: 3
   _detectMoment: 0.5
   _motionTime: 1.5

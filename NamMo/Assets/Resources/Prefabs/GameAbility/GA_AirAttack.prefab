@@ -49,13 +49,16 @@ MonoBehaviour:
   _needTags: 
   _blockTags: 01000000030000000a000000090000000d0000000e000000
   _cancelAbilities: 0100000007000000
+  _ignoreBlockCancelAbilities: 0600000008000000
   _coolTime: 0
   CanUse: 0
+  BlockCancelTime: 0
   _attackTime: 0.4
   _attack1Rate: 1
   _attack2Rate: 1
   _attack1Moment: 0.1
   _attack2Moment: 0.25
+  _blockCancelTime: 0.3
   _attackRange1: {x: 3, y: 2}
   _attackOffset1: {x: 0.5, y: 0}
   _attackRange2: {x: 3, y: 2}

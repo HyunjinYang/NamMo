@@ -134,7 +134,6 @@ public class GA_Block : GameAbility
         float dir = 1;
         if (go.transform.position.x > _asc.GetPlayerController().transform.position.x) dir = -1;
 
-        Debug.Log(_attackStrength);
         _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = _attackStrength * 0.1f;
         Managers.Scene.CurrentScene.Player.GetPlayerMovement().KnockBack(_attackStrength * dir);
         //if (_attackStrength == 1)

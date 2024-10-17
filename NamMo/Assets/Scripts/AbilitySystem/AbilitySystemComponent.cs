@@ -8,8 +8,8 @@ public class AbilitySystemComponent : MonoBehaviour
 
     private Dictionary<Define.GameplayTag, int> _tagContainer = new Dictionary<Define.GameplayTag, int>();
     private Dictionary<Define.GameplayAbility, GameAbility> _abilities = new Dictionary<Define.GameplayAbility, GameAbility>();
-    private List<Define.GameplayAbility> _reservedAbilities = new List<Define.GameplayAbility>();
-    private List<Define.GameplayAbility> _reservedCancelAbilities = new List<Define.GameplayAbility>();
+    //private List<Define.GameplayAbility> _reservedAbilities = new List<Define.GameplayAbility>();
+    //private List<Define.GameplayAbility> _reservedCancelAbilities = new List<Define.GameplayAbility>();
     public PlayerController GetPlayerController()
     {
         return gameObject.GetComponent<PlayerController>();
@@ -64,36 +64,36 @@ public class AbilitySystemComponent : MonoBehaviour
             Debug.Log("Not Exsist Ability");
         }
     }
-    public void ReserveAbilityByTag(Define.GameplayAbility tag)
-    {
-        if (_reservedAbilities.Contains(tag)) return;
-        _reservedAbilities.Add(tag);
-    }
-    public void ReserveCancelAbilityByTag(Define.GameplayAbility tag)
-    {
-        if (_reservedAbilities.Contains(tag) == false) return;
-        if (_reservedCancelAbilities.Contains(tag)) return;
-        _reservedCancelAbilities.Add(tag);
-    }
-    public void FlushReservedAbility()
-    {
-        foreach(Define.GameplayAbility ability in _reservedAbilities)
-        {
-            TryActivateAbilityByTag(ability);
-        }
-        foreach (Define.GameplayAbility ability in _reservedCancelAbilities)
-        {
-            TryCancelAbilityByTag(ability);
-        }
-        _reservedAbilities.Clear();
-        _reservedCancelAbilities.Clear();
-    }
-    public void TryCancelAbilityByTag(Define.GameplayAbility tag)
+    //public void ReserveAbilityByTag(Define.GameplayAbility tag)
+    //{
+    //    if (_reservedAbilities.Contains(tag)) return;
+    //    _reservedAbilities.Add(tag);
+    //}
+    //public void ReserveCancelAbilityByTag(Define.GameplayAbility tag)
+    //{
+    //    if (_reservedAbilities.Contains(tag) == false) return;
+    //    if (_reservedCancelAbilities.Contains(tag)) return;
+    //    _reservedCancelAbilities.Add(tag);
+    //}
+    //public void FlushReservedAbility()
+    //{
+    //    foreach(Define.GameplayAbility ability in _reservedAbilities)
+    //    {
+    //        TryActivateAbilityByTag(ability);
+    //    }
+    //    foreach (Define.GameplayAbility ability in _reservedCancelAbilities)
+    //    {
+    //        TryCancelAbilityByTag(ability);
+    //    }
+    //    _reservedAbilities.Clear();
+    //    _reservedCancelAbilities.Clear();
+    //}
+    public void TryCancelAbilityByTag(Define.GameplayAbility tag, Define.GameplayAbility canceler = Define.GameplayAbility.None)
     {
         GameAbility ga = null;
         if (_abilities.TryGetValue(tag, out ga))
         {
-            if (ga.IsActivated) ga.TryCancelAbility();
+            if (ga.IsActivated) ga.TryCancelAbility(canceler);
             else
             {
                 //Debug.Log("Not Activated Ability");
@@ -170,14 +170,15 @@ public class AbilitySystemComponent : MonoBehaviour
         {
             TryCancelAbilityByTag(abilityTag);
         }
-        _reservedAbilities.Clear();
-        _reservedCancelAbilities.Clear();
+        //_reservedAbilities.Clear();
+        //_reservedCancelAbilities.Clear();
     }
     private GameAbility CreateAbility(Define.GameplayAbility tag)
     {
         GameObject go = Managers.Resource.Instantiate("GameAbility/" + Enum.GetName(typeof(Define.GameplayAbility), tag));
         GameAbility ga = go.GetComponent<GameAbility>();
         go.transform.SetParent(transform);
+        ga.AbilityTag = tag;
         ga.SetASC(this);
         return ga;
     }

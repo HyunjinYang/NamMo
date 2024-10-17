@@ -85,10 +85,7 @@ public class CloseAttack : BaseAttack
                 {
                     ba.OnBlockAreaTriggerEntered.Invoke(gameObject);
                 }
-                else
-                {
-                    TryHit(pc.gameObject);
-                }
+                TryHit(pc.gameObject);
             }
             // ������ ���� ���
             else if (pc == null && ba != null)

@@ -13,8 +13,10 @@ public class GameAbility : MonoBehaviour
     [SerializeField] protected List<Define.GameplayTag> _needTags;
     // 발동할 때 있으면 안되는 태그
     [SerializeField] protected List<Define.GameplayTag> _blockTags;
-    // 발동될 때 취소할 능력
+    // 발동될 때 취소할 능력 
     [SerializeField] protected List<Define.GameplayAbility> _cancelAbilities;
+    // Block캔슬 상태를 무시하는 능력
+    [SerializeField] protected List<Define.GameplayAbility> _ignoreBlockCancelAbilities;
     [SerializeField] protected float _coolTime;
     protected AbilitySystemComponent _asc;
     protected int _overlapCnt = 0;
@@ -22,15 +24,17 @@ public class GameAbility : MonoBehaviour
 
     private bool _isActivated = false;
     private bool _isCoolTime = false;
+    private Coroutine _blockCancelAbilityCoroutine = null;
     [SerializeField] public bool CanUse = false;
     public Action OnAbilityActivated;
     public Action OnAbilityCanceled;
     public Action OnAbilityEnded;
     public Action<float> OnCooltimeStart;
     public Action<float> OnCooltimeStart_Combo;
+    public float BlockCancelTime = 0f;
     public bool IsActivated { get { return _isActivated; } }
     public bool BlockCancelAbility { get { return _blockCancelAbility; } }
-    public float BlockCancelTime = 0f;
+    public Define.GameplayAbility AbilityTag { get; set; }
     private void Start()
     {
         Init();
@@ -49,9 +53,9 @@ public class GameAbility : MonoBehaviour
         ActivateAbility();
         return;
     }
-    public void TryCancelAbility()
+    public void TryCancelAbility(Define.GameplayAbility canceler)
     {
-        if(CanCancelAbility() == false) return;
+        if(CanCancelAbility(canceler) == false) return;
         CancelAbility();
     }
     protected virtual void Init()
@@ -64,7 +68,7 @@ public class GameAbility : MonoBehaviour
         _overlapCnt++;
         foreach(Define.GameplayAbility ga in _cancelAbilities)
         {
-            _asc.TryCancelAbilityByTag(ga);
+            _asc.TryCancelAbilityByTag(ga, AbilityTag);
         }
         if(_coolTime > 0 && _canOverlapAbility == false)
         {
@@ -86,12 +90,12 @@ public class GameAbility : MonoBehaviour
         {
             if (_asc.IsExsistTag(tag)) return false;
         }
-        foreach(Define.GameplayAbility abilityTag in _cancelAbilities)
+        foreach(Define.GameplayAbility abilityTag in _asc.GetOwnedAbilities())
         {
             GameAbility ability = _asc.GetAbility(abilityTag);
             if (ability)
             {
-                if (ability.IsActivated && ability.BlockCancelAbility) return false;
+                if (ability.IsActivated && ability.CanCancelAbility(AbilityTag) == false) return false;
             }
         }
         if (_canOverlapAbility == false)
@@ -100,9 +104,18 @@ public class GameAbility : MonoBehaviour
         }
         return true;
     }
-    public virtual bool CanCancelAbility()
+    public virtual bool CanCancelAbility(Define.GameplayAbility otherAbilityTag)
     {
-        return !_blockCancelAbility;
+        if (_blockCancelAbility == false)
+        {
+            return true;
+        }
+        if (otherAbilityTag == Define.GameplayAbility.None) return false;
+        foreach(Define.GameplayAbility ignoreCancelAbility in _ignoreBlockCancelAbilities)
+        {
+            if (ignoreCancelAbility == otherAbilityTag) return true;
+        }
+        return false;
     }
     protected virtual void EndAbility()
     {
@@ -123,6 +136,12 @@ public class GameAbility : MonoBehaviour
     protected virtual void CancelAbility()
     {
         if (OnAbilityCanceled != null) OnAbilityCanceled.Invoke();
+        if (_blockCancelAbilityCoroutine != null)
+        {
+            StopCoroutine(_blockCancelAbilityCoroutine);
+            _blockCancelAbility = false;
+            BlockCancelTime = 0f;
+        }
     }
     private void RemoveTags()
     {
@@ -138,6 +157,10 @@ public class GameAbility : MonoBehaviour
             _coolTime = 0;
         }
     }
+    protected void ApplyBlockCancelAbility()
+    {
+        _blockCancelAbilityCoroutine = StartCoroutine(CoBlockCancelAbility());
+    }
     private IEnumerator CoCaculateCoolTime()
     {
         yield return new WaitForSeconds(_coolTime);
@@ -149,5 +172,6 @@ public class GameAbility : MonoBehaviour
         yield return new WaitForSeconds(BlockCancelTime);
         _blockCancelAbility = false;
         BlockCancelTime = 0f;
+        _blockCancelAbilityCoroutine = null;
     }
 }

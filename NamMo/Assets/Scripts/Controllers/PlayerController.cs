@@ -140,32 +140,35 @@ public partial class PlayerController : MonoBehaviour
             if (BlockInput) return;
             if (_pushDown)
             {
-                if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
-                {
-                    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_DownJump);
-                }
-                else
-                {
-                    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
-                }
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
+                //if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
+                //{
+                //    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_DownJump);
+                //}
+                //else
+                //{
+                //    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
+                //}
             }
             else
             {
-                if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
-                {
-                    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_Jump);
-                }
-                else
-                {
-                    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
-                }
+                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+                //if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
+                //{
+                //    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_Jump);
+                //}
+                //else
+                //{
+                //    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
+                //}
             }
 
         }
         else if (context.canceled)
         {
-            _asc.ReserveCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
+            //_asc.ReserveCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
             _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
+            _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_DownJump);
         }
     }
     // �ϴ�
@@ -250,14 +253,15 @@ public partial class PlayerController : MonoBehaviour
         if (BlockInput) return;
         if (context.performed)
         {
-            if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack) || _asc.IsExsistTag(Define.GameplayTag.Player_Action_AirAttack))
-            {
-                _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_Dash);
-            }
-            else
-            {
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
-            }
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
+            //if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack) || _asc.IsExsistTag(Define.GameplayTag.Player_Action_AirAttack))
+            //{
+            //    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_Dash);
+            //}
+            //else
+            //{
+            //    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
+            //}
         }
     }
     // ��ȣ�ۿ�
