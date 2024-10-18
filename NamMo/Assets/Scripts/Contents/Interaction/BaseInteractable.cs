@@ -59,6 +59,7 @@ public class BaseInteractable : MonoBehaviour
     {
         if (_subscribedInput == false) return;
         _subscribedInput = false;
+        if (Managers.Scene.CurrentScene == null) return;
         if (Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed != null)
         {
             Managers.Scene.CurrentScene.Player.OnInteractionInputPerformed -= HandleInteractionEvent;

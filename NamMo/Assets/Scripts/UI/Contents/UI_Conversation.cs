@@ -39,6 +39,7 @@ public class UI_Conversation : UI_Base
     private int _typingCursor = 0;
     private StringBuilder _currentConversation = new StringBuilder();
     private Coroutine _typingCoroutine = null;
+    public bool BlockInput { get; set; } = false;
     public override void Init()
     {
         if (_init) return;
@@ -140,9 +141,16 @@ public class UI_Conversation : UI_Base
             _flowActions.Add(num, action);
         }
     }
-    public void ShowNextInfos()
+    public void ShowNextInfos(int nextConversationNum = -1)
     {
-        _currentConversationNum++;
+        if (nextConversationNum == -1)
+        {
+            _currentConversationNum++;
+        }
+        else
+        {
+            _currentConversationNum = nextConversationNum;
+        }
         ShowInfos();
     }
     public void HideElements()
