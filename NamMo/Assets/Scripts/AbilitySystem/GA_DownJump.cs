@@ -21,7 +21,7 @@ public class GA_DownJump : GameAbility
         if (_floor.GetComponent<DownJumpFloor>() == null) return false;
         return true;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         EndAbility();

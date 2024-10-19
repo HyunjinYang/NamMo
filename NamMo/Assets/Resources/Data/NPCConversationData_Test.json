@@ -4,7 +4,39 @@
       "num": "0",
       "characterId": "0",
       "scripts": [
-        "몬스터 소환",
+        "저기요",
+        "eng"
+      ]
+    },
+    {
+      "num": "1",
+      "characterId": "0",
+      "scripts": [
+        "저 좀 도와주세요",
+        "eng"
+      ]
+    },
+    {
+      "num": "100",
+      "characterId": "0",
+      "scripts": [
+        "감사합니다.",
+        "eng"
+      ]
+    },
+    {
+      "num": "101",
+      "characterId": "0",
+      "scripts": [
+        "저 앞까지 데려다주세요.",
+        "eng"
+      ]
+    },
+    {
+      "num": "200",
+      "characterId": "0",
+      "scripts": [
+        "흑흑..",
         "eng"
       ]
     }

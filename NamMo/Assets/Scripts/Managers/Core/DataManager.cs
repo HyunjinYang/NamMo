@@ -19,6 +19,7 @@ public class DataManager
     public Dictionary<Define.TutorialType, Data.TutorialInfo> TutorialInfoDict { get; private set; } = new Dictionary<Define.TutorialType, Data.TutorialInfo>();
     public Dictionary<int, Data.Enemy> EnemyDict { get; private set; } = new Dictionary<int, Data.Enemy>();
     public Dictionary<Define.Scene, Data.StageEnemy> StageEnemyDict { get; private set; } = new Dictionary<Define.Scene, Data.StageEnemy>();
+    public Dictionary<Define.GameplayAbility, Data.EnemyAttackReact> EnemyAttackReactDict { get; private set; } = new Dictionary<Define.GameplayAbility, Data.EnemyAttackReact>();
     public PlayerData PlayerData;
     public EnemyData EnemyData;
     public void Init()
@@ -34,6 +35,7 @@ public class DataManager
         TutorialInfoDict = LoadJson<Data.TutorialInfoData, Define.TutorialType, Data.TutorialInfo>("TutorialInfoData").MakeDict();
         EnemyDict = LoadJson<Data.EnemyData, int, Data.Enemy>("EnemyData").MakeDict();
         StageEnemyDict = LoadJson<Data.StageEnemyData, Define.Scene, Data.StageEnemy>("StageEnemyData").MakeDict();
+        EnemyAttackReactDict = LoadJson<Data.EnemyAttackReactData, Define.GameplayAbility, Data.EnemyAttackReact>("EnemyAttackReactData").MakeDict();
 
         PlayerData = GameData.Load<PlayerData>();
         EnemyData = GameData.Load<EnemyData>();

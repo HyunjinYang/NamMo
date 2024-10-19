@@ -269,7 +269,7 @@ public class TutorialNPC : MonoBehaviour
 
         LookPlayer();
         GameObject projectile = Instantiate(_swordProjectilePrefab, transform.position, Quaternion.identity);
-        projectile.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 0f, _swordProjectileSpeed, Managers.Scene.CurrentScene.Player.gameObject);
+        projectile.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 0f, 1, _swordProjectileSpeed, Managers.Scene.CurrentScene.Player.gameObject);
 
         yield return new WaitForSeconds(0.4f);
 

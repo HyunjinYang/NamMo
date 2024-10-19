@@ -1,0 +1,67 @@
+{
+  "enemyAttackReacts": [
+    {
+      "reactAbility": 1000,
+      "reactValues": [
+        {
+          "knockbackPower": "0",
+          "bindTime": "0"
+        },
+        {
+          "knockbackPower": "1",
+          "bindTime": "0"
+        },
+        {
+          "knockbackPower": "2",
+          "bindTime": "0"
+        },
+        {
+          "knockbackPower": "3",
+          "bindTime": "0"
+        }
+      ]
+    },
+    {
+      "reactAbility": 6,
+      "reactValues": [
+        {
+          "knockbackPower": "0",
+          "bindTime": "0"
+        },
+        {
+          "knockbackPower": "1",
+          "bindTime": "0"
+        },
+        {
+          "knockbackPower": "2",
+          "bindTime": "0"
+        },
+        {
+          "knockbackPower": "3",
+          "bindTime": "0"
+        }
+      ]
+    },
+    {
+      "reactAbility": 7,
+      "reactValues": [
+        {
+          "knockbackPower": "0",
+          "bindTime": "0"
+        },
+        {
+          "knockbackPower": "1",
+          "bindTime": "0.1"
+        },
+        {
+          "knockbackPower": "2",
+          "bindTime": "0.2"
+        },
+        {
+          "knockbackPower": "3",
+          "bindTime": "0.3"
+        }
+      ]
+    }
+  ]
+} 

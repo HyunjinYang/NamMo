@@ -87,7 +87,9 @@ public class Define
         GA_Hurt,
         GA_Invincible,
         GA_Charge,
-        GA_StrongAttack
+        GA_StrongAttack,
+
+        None = 1000
     }
     public enum CameraMode
     {

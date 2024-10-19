@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Pipeline;
 using UnityEngine;
 
 namespace Data
@@ -67,6 +68,7 @@ namespace Data
         }
     }
     #endregion
+    #region Tutorial
     [Serializable]
     public class TutorialInfo
     {
@@ -87,6 +89,7 @@ namespace Data
             return dict;
         }
     }
+    #endregion
     #region Enemy
     [Serializable]
     public class Enemy
@@ -134,6 +137,33 @@ namespace Data
             foreach (StageEnemy enemy in enemies)
             {
                 dict.Add(enemy.scene, enemy);
+            }
+            return dict;
+        }
+    }
+    #endregion
+    #region AttackStrength
+    [Serializable]
+    public class EnemyAttackReactValue
+    {
+        public float knockbackPower;
+        public float bindTime;
+    }
+    [Serializable]
+    public class EnemyAttackReact
+    {
+        public Define.GameplayAbility reactAbility;
+        public List<EnemyAttackReactValue> reactValues = new List<EnemyAttackReactValue>();
+    }
+    public class EnemyAttackReactData : ILoader<Define.GameplayAbility, EnemyAttackReact>
+    {
+        public List<EnemyAttackReact> enemyAttackReacts = new List<EnemyAttackReact>();
+        public Dictionary<Define.GameplayAbility, EnemyAttackReact> MakeDict()
+        {
+            Dictionary<Define.GameplayAbility, EnemyAttackReact> dict = new Dictionary<Define.GameplayAbility, EnemyAttackReact>();
+            foreach (EnemyAttackReact react in enemyAttackReacts)
+            {
+                dict.Add(react.reactAbility, react);
             }
             return dict;
         }

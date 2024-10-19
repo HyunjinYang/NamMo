@@ -15,7 +15,7 @@ public class GA_Charge : GameAbility
         if (_asc.gameObject.GetComponent<PlayerMovement>().IsGround == false) return false;
         return true;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         EndAbility();

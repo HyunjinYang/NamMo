@@ -5,9 +5,9 @@ using UnityEngine;
 public class GuidedProjectile : BaseProjectile, IParryingable
 {
     private Vector2 _direction;
-    public override void SetAttackInfo(GameObject attacker, float damage, float speed = 0, GameObject target = null)
+    public override void SetAttackInfo(GameObject attacker, float damage, int attackStrength = 1, float speed = 0, GameObject target = null)
     {
-        base.SetAttackInfo(attacker, damage, speed, target);
+        base.SetAttackInfo(attacker, damage, attackStrength, speed, target);
         _target = target;
         _direction = (target.transform.position - transform.position).normalized;
     }
