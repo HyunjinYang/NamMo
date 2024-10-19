@@ -20,6 +20,7 @@ namespace Enemy
         public bool _isPatrol = false;
         public bool _isGroggy = false;
         private Transform _currentWayPoint;
+        private Rigidbody2D _rb;
         private float _distance = 0.1f;
         public Action OnAttack;
         public Action<float> OnWalk;
@@ -30,6 +31,7 @@ namespace Enemy
         protected  void Awake()
         {
             Flip();
+            _rb = GetComponent<Rigidbody2D>();
             _currentWayPoint = _point1;
         }
         public void Patrol()

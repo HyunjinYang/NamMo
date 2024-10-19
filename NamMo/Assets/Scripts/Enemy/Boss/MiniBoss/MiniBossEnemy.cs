@@ -91,7 +91,7 @@ namespace Enemy.Boss.MiniBoss
             
             EnemyMelAttack1AttackArea.SetAttackInfo(gameObject, 2);
             EnemyMelAttack2AttackArea.SetAttackInfo(gameObject, 2);
-            EnemyMelAttack3AttackArea.SetAttackInfo(gameObject, 2);
+            EnemyMelAttack3AttackArea.SetAttackInfo(gameObject, 2, 3);
             EnemyLandAttackArea.SetAttackInfo(gameObject,2);
             EnemyDashAttackAttackArea.SetAttackInfo(gameObject, 2);
             //EnemyGrapAttackArea.SetAttackInfo(gameObject, 2);
