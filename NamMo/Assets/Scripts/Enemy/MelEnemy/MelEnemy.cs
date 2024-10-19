@@ -101,6 +101,10 @@ namespace Enemy.MelEnemy
             _pattern = null;
         }
         
+        public void Direct()
+        {
+            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+        }
         public void Patrol()
         {
             _enemyMovement.Patrol();
@@ -157,7 +161,7 @@ namespace Enemy.MelEnemy
                 _isAttacking = true;
                 _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
                 yield return _currentPattern = StartCoroutine(_pattern.Pattern());
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.5f);
             }
         }
 
