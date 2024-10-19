@@ -35,6 +35,7 @@ namespace Enemy.MelEnemy
 
         private Coroutine _attackCoroutine;
         private Coroutine _currentPattern;
+        private Coroutine _turmCoroutine;
 
         public bool isTest = false;
         
@@ -83,6 +84,17 @@ namespace Enemy.MelEnemy
             Destroy(_enemyMovement.gameObject);
         }
 
+        public void Turm()
+        {
+            _turmCoroutine = StartCoroutine(CoTurm());
+        }
+
+        public void StopTurm()
+        {
+            if(_turmCoroutine != null)
+                StopCoroutine(_turmCoroutine);
+        }
+
         public void Attack()
         {
             _enemyMovement._isAttack = true;
@@ -96,8 +108,12 @@ namespace Enemy.MelEnemy
             _isAttacking = false;
             OnEndattack.Invoke();
             OnEndDownAttack.Invoke();
-            StopCoroutine(_attackCoroutine);
-            StopCoroutine(_currentPattern);
+            if(_attackCoroutine != null)
+                StopCoroutine(_attackCoroutine);
+            if(_currentPattern != null)
+                StopCoroutine(_currentPattern);
+            if(_turmCoroutine != null)
+                StopCoroutine(_turmCoroutine);
             _pattern = null;
         }
         
@@ -152,17 +168,21 @@ namespace Enemy.MelEnemy
         
         private IEnumerator CoAttack()
         {
-            while (true)
-            {
-                var next = _rand.Next(0, 2);
+            var next = _rand.Next(0, 2);
 
-                _pattern = _patternlist[next];
-                _pattern.Initialise(this);
-                _isAttacking = true;
-                _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-                yield return _currentPattern = StartCoroutine(_pattern.Pattern());
-                yield return new WaitForSeconds(1.5f);
-            }
+            _pattern = _patternlist[next];
+            _pattern.Initialise(this);
+            _isAttacking = true;
+            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            yield return _currentPattern = StartCoroutine(_pattern.Pattern());
+            
+            stateMachine.TransitionState(stateMachine._TurmState);
+        }
+
+        private IEnumerator CoTurm()
+        {
+            yield return new WaitForSeconds(1.5f);
+            stateMachine.TransitionState(stateMachine._patrolstate);
         }
 
     }

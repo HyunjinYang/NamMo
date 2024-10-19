@@ -11,6 +11,7 @@ namespace Enemy.MelEnemy
         public HitState _HitState;
         public GroggyState _GroggyState;
         public DeadState _DeadState;
+        public TurmState _TurmState;
         public StateMachine(MelEnemy _enemy)
         {
             _patrolstate = new PatrolState(_enemy);
@@ -20,6 +21,7 @@ namespace Enemy.MelEnemy
             _HitState = new HitState(_enemy);
             _GroggyState = new GroggyState(_enemy);
             _DeadState = new DeadState(_enemy);
+            _TurmState = new TurmState(_enemy);
         }
 
         public void Update()
