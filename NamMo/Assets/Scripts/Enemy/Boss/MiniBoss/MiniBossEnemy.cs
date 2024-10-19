@@ -317,7 +317,6 @@ namespace Enemy.Boss.MiniBoss
 
         public bool HealSelect()
         {
-            Debug.Log("111");
             var next = _rand.Next(0, 2);
 
             if (next == 0)

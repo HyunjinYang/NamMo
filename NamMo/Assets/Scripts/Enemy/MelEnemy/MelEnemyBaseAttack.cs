@@ -12,7 +12,10 @@ namespace Enemy.MelEnemy
             
             if (!_gameObject._isAttacking)
                 yield break;
-            
+
+            if (_gameObject.ReturnIsDead())
+                yield break;
+            _gameObject.Direct();
             _gameObject.EnemyAttack1AttackArea.Attack();
 
             //yield return new WaitForFixedUpdate();
