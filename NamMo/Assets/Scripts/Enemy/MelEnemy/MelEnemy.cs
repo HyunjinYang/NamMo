@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NamMo;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Animator = UnityEngine.Animator;
 using Random = System.Random;
 
 namespace Enemy.MelEnemy
@@ -29,6 +30,7 @@ namespace Enemy.MelEnemy
         [SerializeField] public EnemyAttackArea EnemyAttack2AttackArea;
         [SerializeField] public EnemyAttackArea EnemyAttack3AttackArea;
         [SerializeField] private List<MelEnemyAttackPattern<MelEnemy>> _patternlist = new List<MelEnemyAttackPattern<MelEnemy>>();
+        
         private Animator _animator;
         private MelEnemyAttackPattern<MelEnemy> _pattern;
         private Random _rand = new Random();
@@ -56,7 +58,6 @@ namespace Enemy.MelEnemy
             EnemyAttack1AttackArea.SetAttackInfo(gameObject, 2);
             EnemyAttack2AttackArea.SetAttackInfo(gameObject, 2);
             EnemyAttack3AttackArea.SetAttackInfo(gameObject, 2);
-
         }
 
         public void GroggyEnter()
