@@ -12,6 +12,7 @@ struct AttackInfo
     public float attackRate;
     public float dashForce;
     public float dashTime;
+    public float blockCancelTime;
     public Vector2 attackRange;
     public Vector2 attackOffset;
 }
@@ -42,7 +43,7 @@ public class GA_Attack : GameAbility
         if (_reserveNextAttack) return false;
         return true;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         if (_reserveNextAttack)
@@ -84,8 +85,11 @@ public class GA_Attack : GameAbility
 
         AttackInfo currComboAttackInfo = _comboAttackInfos[currCombo];
         float additionalGravityTime = currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment - currComboAttackInfo.dashTime;
-        _asc.gameObject.GetComponent<PlayerMovement>().ReserveDash(currComboAttackInfo.attackMoment, currComboAttackInfo.dashForce, currComboAttackInfo.dashTime, Define.DashType.AttackDash, additionalGravityTime);      
-        
+        _asc.gameObject.GetComponent<PlayerMovement>().ReserveDash(currComboAttackInfo.attackMoment, currComboAttackInfo.dashForce, currComboAttackInfo.dashTime, Define.DashType.AttackDash, additionalGravityTime);
+
+        BlockCancelTime = currComboAttackInfo.blockCancelTime;
+        ApplyBlockCancelAbility();
+
         yield return new WaitForSeconds(currComboAttackInfo.attackMoment);
 
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, currComboAttackInfo.attackRate);
@@ -100,7 +104,7 @@ public class GA_Attack : GameAbility
         
         yield return new WaitForSeconds(currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment);
 
-        _asc.FlushReservedAbility();
+        //_asc.FlushReservedAbility();
 
         _attackCoroutine = null;
         EndAbility();

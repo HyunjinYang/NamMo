@@ -15,12 +15,14 @@ public abstract partial class BaseAttack : MonoBehaviour
     }
     protected GameObject _attacker;
     protected float _damage;
+    protected int _attackStrength = 1;
 
     protected AttackerType _attackerType;
 
     public Action<GameObject> OnHitted;
     public GameObject Attakcer { get { return _attacker; } }
     public float Damage { get { return _damage; } }
+    public int AttackStrength { get { return _attackStrength; } }
     private void Start()
     {
         Init();
@@ -39,69 +41,83 @@ public abstract partial class BaseAttack : MonoBehaviour
         OnHitted = null;
     }
     // public
-    public virtual void SetAttackInfo(GameObject attacker, float damage, float speed = 0, GameObject target = null)
+    public virtual void SetAttackInfo(GameObject attacker, float damage, int attackStrength = 1, float speed = 0, GameObject target = null)
     {
         _attacker = attacker;
         _damage = damage;
+        _attackStrength = attackStrength;
 
         if (attacker.GetComponent<PlayerController>()) _attackerType = AttackerType.Player;
         else if (attacker.GetComponent<Enemy.Enemy>()) _attackerType = AttackerType.Enemy;
         else _attackerType = AttackerType.Others;
     }
-
     // protected
     protected virtual void Init() { }
     protected virtual void UpdateAttack() { }
     protected virtual void FixedUpdateAttack() { }
     protected void TryHit(GameObject target)
     {
+        bool _hitted = false;
         if(_attackerType == AttackerType.Player)
         {
-            TryHitEnemy(target);
-            TryHitObject(target);
+            _hitted |= TryHitEnemy(target);
+            _hitted |= TryHitObject(target);
         }
         else if(_attackerType == AttackerType.Enemy)
         {
-            TryHitPlayer(target);
+            _hitted |= TryHitPlayer(target);
         }
         else if(_attackerType == AttackerType.Others)
         {
-            TryHitPlayer(target);
+            _hitted |= TryHitPlayer(target);
         }
-        if (OnHitted != null) OnHitted.Invoke(target);
+        if (_hitted)
+        {
+            if (OnHitted != null) OnHitted.Invoke(target);
+        }
     }
-    private void TryHitPlayer(GameObject target)
+    private bool TryHitPlayer(GameObject target)
     {
         if (target.GetComponent<PlayerController>())
         {
             PlayerController pc = target.GetComponent<PlayerController>();
-            if (pc.GetASC().IsExsistTag(Define.GameplayTag.Player_State_Invincible)) return;
-            pc.GetPlayerCombatComponent().GetDamaged(_damage, transform.position);
+            if (pc.GetASC().IsExsistTag(Define.GameplayTag.Player_State_Invincible)) return false;
+            pc.GetPlayerCombatComponent().GetDamaged(_damage, transform.position, _attackStrength);
+            return true;
         }
+        return false;
     }
-    private void TryHitEnemy(GameObject target)
+    private bool TryHitEnemy(GameObject target)
     {
+        bool res = false;
         if (target.GetComponent<Enemy.Enemy>())
         {
             Enemy.Enemy enemy = target.GetComponent<Enemy.Enemy>();
             enemy.Hit((int)_damage);
+            res = true;
         }
         // tmp
         else if (target.GetComponent<DummyEnemy>())
         {
             target.GetComponent<DummyEnemy>().Damaged(_damage);
+            res = true;
         }
+        return res;
     }
-    private void TryHitObject(GameObject target)
+    private bool TryHitObject(GameObject target)
     {
+        bool res = false;
         if (target.GetComponent<BreakWall>())
         {
             target.GetComponent<BreakWall>().Damaged();
+            res = true;
         }
         if (target.GetComponent<TutorialNPC>())
         {
             target.GetComponent<TutorialNPC>().Damaged(_attacker.transform.position.x);
+            res = true;
         }
+        return res;
     }
     
 }

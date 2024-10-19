@@ -13,9 +13,9 @@ public class BaseProjectile : BaseAttack
 
     private bool _blockedCurrentFrame = false;
     public float Speed { get { return _speed; } }
-    public override void SetAttackInfo(GameObject attacker, float damage, float speed = 0, GameObject target = null)
+    public override void SetAttackInfo(GameObject attacker, float damage, int attackStrength = 1, float speed = 0, GameObject target = null)
     {
-        base.SetAttackInfo(attacker, damage);
+        base.SetAttackInfo(attacker, damage, attackStrength);
         _speed = speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)

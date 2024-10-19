@@ -108,7 +108,7 @@ namespace Enemy
         public void CreateRangeAttack()
         {
             GameObject cur =Instantiate(archr, gameObject.transform.position, transform.rotation);
-            cur.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 1f, 4, Managers.Scene.CurrentScene.Player.gameObject);
+            cur.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 1f, 1, 4, Managers.Scene.CurrentScene.Player.gameObject);
             cur.GetComponent<BaseProjectile>().OnHitted += ((go) =>
             {
                 if (cur)

@@ -13,6 +13,7 @@ public class GA_Parrying : GameAbility
     {
         base.ActivateAbility();
         _parryingCoroutine = StartCoroutine(CoParrying());
+        StartCoroutine(CoBlockCancelAbility());
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
         //Managers.Sound.Play("Parrying1");
         _asc.GetPlayerController().GetPlayerSound().PlayParryingSound();
@@ -21,7 +22,7 @@ public class GA_Parrying : GameAbility
         Camera.main.DOOrthoSize(10, 0.5f);
         Time.timeScale = 0.5f;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         EndAbility();

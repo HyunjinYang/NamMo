@@ -18,7 +18,7 @@ public class GA_StrongAttack : GameAbility
         if (_asc.gameObject.GetComponent<PlayerMovement>().IsGround == false) return false;
         return true;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         if (_strongAttackCoroutine != null) StopCoroutine(_strongAttackCoroutine);

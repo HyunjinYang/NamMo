@@ -77,7 +77,11 @@ public class PrologueScene : BaseScene
     private void MoveToJoonjeong()
     {
         _conversationUI.HideElements();
-        _nammo.transform.DOMoveX(_joonjeong.transform.position.x - 1, 3.0f).SetEase(Ease.Linear).OnComplete(_conversationUI.ShowNextInfos);
+        _nammo.transform.DOMoveX(_joonjeong.transform.position.x - 1, 3.0f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            _conversationUI.ShowNextInfos();
+        });
+            
     }
     private void MoveToScene1Left()
     {
@@ -97,7 +101,10 @@ public class PrologueScene : BaseScene
         _joonjeong.transform.position = GetSceneLeftEndPos(_scene1_2) + Vector3.left;
         _nammo.GetComponent<SpriteRenderer>().flipX = true;
         _nammo.transform.DOMoveX(GetSceneLeftEndPos(_scene1_2).x + 10f, 1.5f).SetEase(Ease.Linear);
-        _joonjeong.transform.DOMoveX(GetSceneLeftEndPos(_scene1_2).x + 9f, 1.5f).SetEase(Ease.Linear).OnComplete(_conversationUI.ShowNextInfos);
+        _joonjeong.transform.DOMoveX(GetSceneLeftEndPos(_scene1_2).x + 9f, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            _conversationUI.ShowNextInfos();
+        });
     }
     private void Tutorial_Move()
     {

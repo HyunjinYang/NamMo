@@ -36,6 +36,8 @@ public class KatanaZeroScene3 : BaseScene
                 player.transform.position = playerData.Position;
             }
         }
+
+        SpawnEnemies();
     }
     public override void Clear()
     {

@@ -8,7 +8,7 @@
           "enemyId": "0",
           "posX": "11.5",
           "posY": "3.05",
-          "alive" : true
+          "alive": true
         },
         {
           "managedId": "1",
@@ -22,6 +22,168 @@
           "enemyId": "0",
           "posX": "25.6",
           "posY": "13.05",
+          "alive": true
+        }
+      ]
+    },
+    {
+      "scene": "5",
+      "enemies": [
+        {
+          "managedId": "0",
+          "enemyId": "0",
+          "posX": "-6.1",
+          "posY": "-7",
+          "alive": true
+        },
+        {
+          "managedId": "1",
+          "enemyId": "0",
+          "posX": "31.4",
+          "posY": "3.04",
+          "alive": true
+        },
+        {
+          "managedId": "2",
+          "enemyId": "0",
+          "posX": "38.6",
+          "posY": "3.04",
+          "alive": true
+        },
+        {
+          "managedId": "3",
+          "enemyId": "0",
+          "posX": "19.22",
+          "posY": "23",
+          "alive": true
+        },
+        {
+          "managedId": "4",
+          "enemyId": "1",
+          "posX": "-19.36",
+          "posY": "13.8",
+          "alive": true
+        },
+        {
+          "managedId": "5",
+          "enemyId": "1",
+          "posX": "-3.16",
+          "posY": "23.64",
+          "alive": true
+        },
+        {
+          "managedId": "6",
+          "enemyId": "1",
+          "posX": "35.17",
+          "posY": "23.69",
+          "alive": true
+        },
+        {
+          "managedId": "7",
+          "enemyId": "1",
+          "posX": "30.75",
+          "posY": "23.69",
+          "alive": true
+        }
+      ]
+    },
+    {
+      "scene": "6",
+      "enemies": [
+        {
+          "managedId": "0",
+          "enemyId": "0",
+          "posX": "12.23",
+          "posY": "5.99",
+          "alive": true
+        },
+        {
+          "managedId": "1",
+          "enemyId": "1",
+          "posX": "-18.78",
+          "posY": "6.71",
+          "alive": true
+        },
+        {
+          "managedId": "2",
+          "enemyId": "1",
+          "posX": "17.44",
+          "posY": "6.66",
+          "alive": true
+        },
+        {
+          "managedId": "3",
+          "enemyId": "1",
+          "posX": "22.33",
+          "posY": "6.66",
+          "alive": true
+        },
+        {
+          "managedId": "4",
+          "enemyId": "1",
+          "posX": "58.23",
+          "posY": "-6.29",
+          "alive": true
+        }
+      ]
+    },
+    {
+      "scene": "7",
+      "enemies": [
+        {
+          "managedId": "0",
+          "enemyId": "0",
+          "posX": "-0.41",
+          "posY": "-6.96",
+          "alive": true
+        },
+        {
+          "managedId": "1",
+          "enemyId": "0",
+          "posX": "27.98375",
+          "posY": "-7.07",
+          "alive": true
+        },
+        {
+          "managedId": "2",
+          "enemyId": "0",
+          "posX": "43.43",
+          "posY": "-7.07",
+          "alive": true
+        },
+        {
+          "managedId": "3",
+          "enemyId": "1",
+          "posX": "10.35336",
+          "posY": "-6.34",
+          "alive": true
+        },
+        {
+          "managedId": "4",
+          "enemyId": "1",
+          "posX": "14.01",
+          "posY": "-6.34",
+          "alive": true
+        },
+        {
+          "managedId": "5",
+          "enemyId": "1",
+          "posX": "76.71182",
+          "posY": "-3.35",
+          "alive": true
+        },
+        {
+          "managedId": "6",
+          "enemyId": "1",
+          "posX": "88.97",
+          "posY": "-3.35",
+          "alive": true
+        },
+        {
+          "managedId": "7",
+          "enemyId": "1",
+          "posX": "83.53",
+          "posY": "-3.35",
           "alive": true
         }
       ]

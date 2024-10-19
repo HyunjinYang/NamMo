@@ -15,7 +15,7 @@ public class GA_Jump : GameAbility
         //Managers.Sound.Play("Jump");
         _asc.GetPlayerController().GetPlayerSound().PlayJumpSound();
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         base.CancelAbility();
         _asc.GetComponent<PlayerMovement>().EndJump();

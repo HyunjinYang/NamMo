@@ -41,7 +41,7 @@ public class GA_Block : GameAbility
         if (_reserveNextCombo) return false;
         return true;
     }
-    public override void CancelAbility()
+    protected override void CancelAbility()
     {
         if (_reserveNextCombo)
         {
@@ -78,6 +78,7 @@ public class GA_Block : GameAbility
             if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke(_overlapCnt);
         }
     }
+    private int _attackStrength = 1;
     private void HandleTriggeredObject(GameObject go)
     {
         if (_isPerfectParryingTiming)
@@ -87,6 +88,7 @@ public class GA_Block : GameAbility
                 IParryingable parryingable = go.GetComponent<IParryingable>();
                 if (parryingable != null)
                 {
+                    _attackStrength = Math.Max(_attackStrength, go.GetComponent<BaseAttack>().AttackStrength);
                     parryingable.Parried(_asc.GetPlayerController().gameObject, null);
                     if (_reserveParrying == false)
                     {
@@ -128,7 +130,17 @@ public class GA_Block : GameAbility
         yield return new WaitForEndOfFrame();
         _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         RefreshCoolTime();
+
+        float dir = 1;
+        if (go.transform.position.x > _asc.GetPlayerController().transform.position.x) dir = -1;
+
+        float knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].knockbackPower;
+        float blockCancelTime = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].bindTime;
+        _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = blockCancelTime;
+        Managers.Scene.CurrentScene.Player.GetPlayerMovement().KnockBack(knockbackPower * dir);
+        
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _reserveParrying = false;
+        _attackStrength = 1;
     }
 }

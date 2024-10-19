@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private Action _reservedInputAction = null;
     private Coroutine _dashCoroutine = null;
     private Coroutine _reserveDashCoroutine = null;
+    private Coroutine _knockBackCoroutine = null;
 
     [SerializeField] private bool _reserveDash;
     private int _overlapEnemyCnt = 0;
@@ -434,8 +435,9 @@ public class PlayerMovement : MonoBehaviour
     public void KnockBack(float force, float power = 5)
     {
         _rb.velocity = new Vector2(0, _rb.velocity.y);
-        _rb.AddForce(new Vector2(force, 1f) * power, ForceMode2D.Impulse);
-        StartCoroutine(CoKnockBack(0.5f));
+        _rb.AddForce(new Vector2(force, 0f) * power, ForceMode2D.Impulse);
+        if (_knockBackCoroutine != null) StopCoroutine(_knockBackCoroutine);
+        _knockBackCoroutine = StartCoroutine(CoKnockBack(0.5f));
     }
     //public bool IsGround(float offset = 0)
     //{
