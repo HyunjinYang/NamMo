@@ -45,6 +45,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Density: 1
+    - _RandomValue: 1
+    - _Speed: 1
+    - _Speed2: 5.87
     - _ViewRange: 0
     m_Colors:
     - _ViewRangeX: {r: 0.3, g: 0.5, b: 0, a: 0}
