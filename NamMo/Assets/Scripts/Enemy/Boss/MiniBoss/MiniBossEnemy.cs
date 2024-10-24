@@ -19,12 +19,14 @@ namespace Enemy.Boss.MiniBoss
         [FormerlySerializedAs("_miniBossLandAttackPattern")] [SerializeField] private MiniBossWaveAttackPattern miniBossWaveAttackPattern;
         [SerializeField] private MiniBossRecoveryPattern _miniBossRecoveryPattern;
         [SerializeField] private MinBossLandAttackPattern _minBossLandAttackPattern;
+        [SerializeField] private MiniBossAxeAttackPattern _miniBossAxeAttackPattern;
         
         [SerializeField] public EnemyAttackArea EnemyMelAttack1AttackArea;
         [SerializeField] public EnemyAttackArea EnemyMelAttack2AttackArea;
         [SerializeField] public EnemyAttackArea EnemyMelAttack3AttackArea;
         [SerializeField] public EnemyAttackArea EnemyDashAttackAttackArea;
         [SerializeField] public EnemyAttackArea EnemyLandAttackArea;
+        [SerializeField] public EnemyAttackArea EnemyAxeAttackArea;
         //[SerializeField] public EnemyAttackArea EnemyGrapAttackArea;
 
         public GameObject _teleport;
@@ -38,6 +40,7 @@ namespace Enemy.Boss.MiniBoss
         public float waveAttackTime;
         public float landAttackTime;
         public float grapAttackTime;
+        public float attack4Time;
         
         private Animator _animator;
         
@@ -71,6 +74,8 @@ namespace Enemy.Boss.MiniBoss
         public Action OnEndLandAttack;
         public Action OnGrapAttack;
         public Action OnEndGrapAttack;
+        public Action OnAxeAttack;
+        public Action OnEndAxeAttack;
 
         public bool idelTurm = true;
         
@@ -88,12 +93,14 @@ namespace Enemy.Boss.MiniBoss
             _miniBossMeleeAttackPattern.Initialise(this);
             _minBossLandAttackPattern.Initialise(this);
             _miniBossRecoveryPattern.Initialise(this);
+            _miniBossAxeAttackPattern.Initialise(this);
             
             EnemyMelAttack1AttackArea.SetAttackInfo(gameObject, 2);
             EnemyMelAttack2AttackArea.SetAttackInfo(gameObject, 2);
             EnemyMelAttack3AttackArea.SetAttackInfo(gameObject, 2, 3);
             EnemyLandAttackArea.SetAttackInfo(gameObject,2);
             EnemyDashAttackAttackArea.SetAttackInfo(gameObject, 2);
+            EnemyAxeAttackArea.SetAttackInfo(gameObject, 2);
             //EnemyGrapAttackArea.SetAttackInfo(gameObject, 2);
         }
 
@@ -118,6 +125,7 @@ namespace Enemy.Boss.MiniBoss
             EnemyMelAttack2AttackArea._groggy += OnGroggy;
             EnemyMelAttack3AttackArea._groggy += OnGroggy;
             EnemyDashAttackAttackArea._groggy += OnGroggy;
+            EnemyAxeAttackArea._groggy += OnGroggy;
         }
 
         public bool IsDead()
@@ -257,6 +265,16 @@ namespace Enemy.Boss.MiniBoss
         {
             OnWalk.Invoke(0f);   
         }
+
+        public void AxeAttack()
+        {
+            OnAxeAttack.Invoke();
+        }
+
+        public void EndAxeAttack()
+        {
+            OnEndAxeAttack.Invoke();
+        }
         #endregion
         public void DeActivateAttackArea()
         {
@@ -269,6 +287,12 @@ namespace Enemy.Boss.MiniBoss
         {
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
             _currentPattern = StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
+        }
+
+        public void AxeAttackPatternStart()
+        {
+            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _currentPattern = StartCoroutine(_miniBossAxeAttackPattern.Pattern());
         }
 
         public void DashAttackPatternStart()
@@ -298,6 +322,7 @@ namespace Enemy.Boss.MiniBoss
             EndMelAttack();
             EndDashAttack();
             EndWaveAttack();
+            EndAxeAttack();
             StopCoroutine(_currentPattern);
         }
 
@@ -317,7 +342,7 @@ namespace Enemy.Boss.MiniBoss
 
         public bool HealSelect()
         {
-            var next = _rand.Next(0, 2);
+            var next = _rand.Next(0, 4);
 
             if (next == 0)
             {

@@ -31,6 +31,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6222308932394865674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1059992857700055299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6900556138554714345}
+  - component: {fileID: 8064638711110076274}
+  m_Layer: 0
+  m_Name: BlockArea (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6900556138554714345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059992857700055299}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.15, y: 0.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6226886783928908929}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8064638711110076274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059992857700055299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07dd757a44174743ad2e256d6c2b7d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: -5.46, y: -0.65}
+  _size: {x: 6.7, y: 3.08}
+  _radius: 0
+  _isHit: 0
 --- !u!1 &1126622701753098525
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,8 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dd757a44174743ad2e256d6c2b7d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: -2.61, y: -0.81}
-  _size: {x: 4.33, y: 3.95}
+  _offset: {x: -2.86, y: -0.81}
+  _size: {x: 6.54, y: 3.95}
   _radius: 0
   _isHit: 0
 --- !u!1 &1961705469872489041
@@ -365,6 +413,7 @@ Transform:
   - {fileID: 1047547420006084390}
   - {fileID: 4465811850678174011}
   - {fileID: 1934269399840495457}
+  - {fileID: 6900556138554714345}
   - {fileID: 4951772381021072894}
   - {fileID: 2345089964728021240}
   - {fileID: 2294972450547271051}
@@ -505,7 +554,7 @@ MonoBehaviour:
   _hp: 30
   maxhp: 30
   _enemyMovement: {fileID: 8003821138641897930}
-  maxGroggyStet: 3
+  maxGroggyStet: 0
   currentgroggyStet: 0
   _isParingAvailable: 0
   _isinvincibility: 0
@@ -514,20 +563,23 @@ MonoBehaviour:
   miniBossWaveAttackPattern: {fileID: 4915344849129392731, guid: 5b3cf3966e8a1f64fa76d0dafaf61950, type: 3}
   _miniBossRecoveryPattern: {fileID: 7293384556344022296, guid: 6e52fcd756976f74eba44dd73138d966, type: 3}
   _minBossLandAttackPattern: {fileID: 4433860972039462524, guid: 5e1557618bbc9244f9e0b187390f47a2, type: 3}
+  _miniBossAxeAttackPattern: {fileID: 4250903008096931236, guid: 2d39f4d1001d0ab45bf8e384793a3ff4, type: 3}
   EnemyMelAttack1AttackArea: {fileID: 5645320982892072475}
   EnemyMelAttack2AttackArea: {fileID: 6825885832670054707}
   EnemyMelAttack3AttackArea: {fileID: 3709623385506558826}
   EnemyDashAttackAttackArea: {fileID: 2766970362779768196}
   EnemyLandAttackArea: {fileID: 4203618173483034262}
+  EnemyAxeAttackArea: {fileID: 8064638711110076274}
   _teleport: {fileID: 1483444501670920117}
   _enemyWavePrefab: {fileID: 474019187019507980, guid: 30452cee9bb42e84da45dfa772e98e67, type: 3}
   melAttack1Time: 0.6
   melAttack2Time: 0.4
   melAttack3Time: 0.9
-  dashAttackTime: 1
+  dashAttackTime: 1.08
   waveAttackTime: 0
   landAttackTime: 0.5
   grapAttackTime: 0
+  attack4Time: 0.45
   _distance: 0
   _isMelAttack: 0
   _attack1count: 0
