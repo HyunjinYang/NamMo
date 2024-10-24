@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.U2D.Animation;
 
 public class SpriteViewRangeDeform : MonoBehaviour
@@ -13,17 +14,21 @@ public class SpriteViewRangeDeform : MonoBehaviour
     [SerializeField] private float _detectRevision;
     [SerializeField] private Vector2 _randomMove;
 
+    [Header("Light")]
+    [SerializeField] private Light2D _light;
+
     private List<Transform> _viewRangeTransforms = new List<Transform>();
     private List<Transform> _viewRangeOriginTransforms = new List<Transform>();
     private List<bool> _detectCheck = new List<bool>();
-    private List<Vector3> _targetPoses = new List<Vector3>();
+    private Vector3[] _targetPoses;
     void Start()
     {
+        _targetPoses = new Vector3[_spriteSkin.boneTransforms.Length];
         for (int i = 0; i < _spriteSkin.boneTransforms.Length; i++)
         {
             _viewRangeTransforms.Add(_spriteSkin.boneTransforms[i]);
             _detectCheck.Add(false);
-            _targetPoses.Add(Vector3.zero);
+            _targetPoses[i] = Vector3.zero;
         }
         for (int i = 0; i < _viewRangeTransforms.Count; i++)
         {
@@ -88,5 +93,6 @@ public class SpriteViewRangeDeform : MonoBehaviour
 
             _viewRangeTransforms[i].position = Vector3.Lerp(currPos, targetPos, _deformSpeed);
         }
+        //_light.SetShapePath(_targetPoses);
     }
 }

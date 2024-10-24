@@ -1406,6 +1406,7 @@ MonoBehaviour:
   _noDetectRevision: 6
   _detectRevision: 0.3
   _randomMove: {x: 0.1, y: 0.1}
+  _light: {fileID: 5054055518224325822}
 --- !u!114 &7374471690493340157
 MonoBehaviour:
   m_ObjectHideFlags: 0
