@@ -89,12 +89,13 @@ public class GA_Block : GameAbility
                 if (parryingable != null)
                 {
                     _attackStrength = Math.Max(_attackStrength, go.GetComponent<BaseAttack>().AttackStrength);
-                    parryingable.Parried(_asc.GetPlayerController().gameObject, null);
+                    
                     if (_reserveParrying == false)
                     {
                         _reserveParrying = true;
                         StartCoroutine(CoCancelAbility(go));
                     }
+                    parryingable.Parried(_asc.GetPlayerController().gameObject, null);
                 }
                 else
                 {
@@ -127,12 +128,12 @@ public class GA_Block : GameAbility
     }
     IEnumerator CoCancelAbility(GameObject go)
     {
+        float dir = 1;
+        if (go.transform.position.x > _asc.GetPlayerController().transform.position.x) dir = -1;
+
         yield return new WaitForEndOfFrame();
         _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         RefreshCoolTime();
-
-        float dir = 1;
-        if (go.transform.position.x > _asc.GetPlayerController().transform.position.x) dir = -1;
 
         float knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].knockbackPower;
         float blockCancelTime = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].bindTime;

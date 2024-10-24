@@ -123,18 +123,18 @@ public partial class PlayerController : MonoBehaviour
     // �̵�
     public void HandleMoveInput(InputAction.CallbackContext context)
     {
-        float value = context.ReadValue<float>();
+        Vector2 value = context.ReadValue<Vector2>();
         if (context.started)
         {
         }
         else if (context.performed)
         {
             if (BlockInput) return;
-            OnMoveInputChanged.Invoke(value);
+            OnMoveInputChanged.Invoke(value.x);
         }
         else if (context.canceled)
         {
-            OnMoveInputChanged.Invoke(value);
+            OnMoveInputChanged.Invoke(value.y);
         }
     }
     // ����
@@ -149,32 +149,15 @@ public partial class PlayerController : MonoBehaviour
             if (_pushDown)
             {
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
-                //if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
-                //{
-                //    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_DownJump);
-                //}
-                //else
-                //{
-                //    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_DownJump);
-                //}
             }
             else
             {
                 _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
-                //if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack))
-                //{
-                //    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_Jump);
-                //}
-                //else
-                //{
-                //    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Jump);
-                //}
             }
 
         }
         else if (context.canceled)
         {
-            //_asc.ReserveCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
             _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Jump);
             _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_DownJump);
         }
@@ -262,14 +245,6 @@ public partial class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
-            //if (_asc.IsExsistTag(Define.GameplayTag.Player_Action_Attack) || _asc.IsExsistTag(Define.GameplayTag.Player_Action_AirAttack))
-            //{
-            //    _asc.ReserveAbilityByTag(Define.GameplayAbility.GA_Dash);
-            //}
-            //else
-            //{
-            //    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Dash);
-            //}
         }
     }
     // ��ȣ�ۿ�

@@ -9,7 +9,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "e45841c1-e1a0-4bab-878d-7a44fe8c60f0",
-                    "expectedControlType": "Analog",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -109,7 +109,7 @@
                 {
                     "name": "AD",
                     "id": "b88fc96d-0587-4f7d-9341-f7de54b22860",
-                    "path": "1DAxis",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -118,7 +118,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "left",
                     "id": "893d4965-1bb4-4404-896d-a726bc207660",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -129,9 +129,31 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "right",
                     "id": "842d4b5c-42bf-494e-882e-6dc52e826a78",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "18f4e58c-3304-469e-b0d5-e70982b4a906",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "219714cb-aae2-4a95-a270-224157e86a4a",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
