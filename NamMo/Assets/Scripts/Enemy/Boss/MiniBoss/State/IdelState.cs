@@ -1,6 +1,7 @@
 using Enemy.MelEnemy;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Enemy.Boss.MiniBoss.State
 {
@@ -36,8 +37,24 @@ namespace Enemy.Boss.MiniBoss.State
             {
                 if (_MiniBossEnemy._distance <= 6.5f)
                 {
-                    _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
-                        .MeleeAttackState);
+                    Random rm = new Random();
+                    var _lan = rm.Next(0, 9); 
+                    Debug.Log(_lan);
+                    if(_lan >= 0 && _lan <= 2)
+                    {
+                        _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
+                            ._AxeAttackState);   
+                    }
+                    else if(_lan >= 3 && _lan <= 5)
+                    {
+                        _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
+                            .MeleeAttackState);
+                    }
+                    else
+                    {
+                        _MiniBossEnemy._miniBossStateMachine.TransitionState(_MiniBossEnemy._miniBossStateMachine
+                            ._DashAttackState);   
+                    }
                 }
                 else if (_MiniBossEnemy._distance > 6.5f && _MiniBossEnemy._distance <= 13.5f)
                 {
