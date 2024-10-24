@@ -22,6 +22,9 @@ namespace Enemy.EnemyAnimControllers
             _enemy.GetComponent<MiniBossEnemy>().OnEndLandAttack += OnEndLandAttack;
             _enemy.GetComponent<MiniBossEnemy>().OnGrapAttack += OnGrapAttack;
             _enemy.GetComponent<MiniBossEnemy>().OnEndGrapAttack += OnEndGrapAttack;
+            _enemy.GetComponent<MiniBossEnemy>().OnAxeAttack += OnAxeAttack;
+            _enemy.GetComponent<MiniBossEnemy>().OnEndAxeAttack += OnEndAxeAttack;
+
 
         }
 
@@ -93,5 +96,15 @@ namespace Enemy.EnemyAnimControllers
         {
             _animator.SetBool("IsGrapAttack", false);
         }
+
+        private void OnAxeAttack()
+        {
+            _animator.SetBool("IsAttack3", true);
+        }
+        private void OnEndAxeAttack()
+        {
+            _animator.SetBool("IsAttack3", false);
+        }
+
     }
 }

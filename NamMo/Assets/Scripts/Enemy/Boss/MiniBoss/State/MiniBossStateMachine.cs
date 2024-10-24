@@ -18,7 +18,7 @@ namespace Enemy.Boss.MiniBoss.State
         public DeadState _DeadState;
         public HealthRecoveryState _HealthRecoveryState;
         public LandAttackState _LandAttackState;
-        
+        public AxeAttackState _AxeAttackState;
         public MiniBossStateMachine(MiniBossEnemy _miniBossEnemy)
         {
             _EntryState = new EntryState(_miniBossEnemy);
@@ -33,6 +33,7 @@ namespace Enemy.Boss.MiniBoss.State
             _DeadState = new DeadState(_miniBossEnemy);
             _HealthRecoveryState = new HealthRecoveryState(_miniBossEnemy);
             _LandAttackState = new LandAttackState(_miniBossEnemy);
+            _AxeAttackState = new AxeAttackState(_miniBossEnemy);
         }
 
         public void Update()

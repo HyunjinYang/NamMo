@@ -15,6 +15,7 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private float _intersactionWaveInputTime;
     [Header("CheatMode")]
     [SerializeField] private bool _cheatMode = false;
+    [SerializeField] private bool _bossCheatMode = false;
 
     public Action<float> OnMoveInputChanged;
     public Action OnAttackInputPerformed;
@@ -49,6 +50,8 @@ public partial class PlayerController : MonoBehaviour
         {
             _ps.OnDead += Dead;
         }
+
+        if (_bossCheatMode) _ps.OnDead += BossDeadTest;
         Camera.main.GetComponent<CameraController>().SetTargetInfo(gameObject);
     }
     private void Update()
@@ -88,6 +91,11 @@ public partial class PlayerController : MonoBehaviour
         Managers.Data.PlayerData = GameData.Load<PlayerData>();
         Managers.Data.EnemyData = GameData.Load<EnemyData>();
         Respawn();
+    }
+
+    private void BossDeadTest()
+    {
+        Time.timeScale = 0;
     }
     private void Respawn()
     {
