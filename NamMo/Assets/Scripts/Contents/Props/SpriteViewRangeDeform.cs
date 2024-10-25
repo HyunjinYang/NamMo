@@ -14,21 +14,44 @@ public class SpriteViewRangeDeform : MonoBehaviour
     [SerializeField] private float _detectRevision;
     [SerializeField] private Vector2 _randomMove;
 
+    [SerializeField] private float _limitDistance;
+
     [Header("Light")]
     [SerializeField] private Light2D _light;
+    [SerializeField] private Light2D _enemyLight;
+    [SerializeField] private Light2D _circleLight;
+
+    [Header("Enemy Light")]
+    [SerializeField] private float _detectReviseValue;
+    [SerializeField] private float _noDetectReviseValue;
 
     private List<Transform> _viewRangeTransforms = new List<Transform>();
     private List<Transform> _viewRangeOriginTransforms = new List<Transform>();
     private List<bool> _detectCheck = new List<bool>();
     private Vector3[] _targetPoses;
+    private Vector3[] _lightPoses;
+    private Vector3[] _targetLightPoses;
+    private Vector3[] _targetLightPoses_Enemy;
+    private Vector3[] _circleLightPoses;
     void Start()
     {
+        //_light.transform.SetParent(null);
+        //_light.transform.position = Vector3.zero;
+
+        _circleLightPoses = _circleLight.shapePath;
+
         _targetPoses = new Vector3[_spriteSkin.boneTransforms.Length];
+        _lightPoses = new Vector3[_spriteSkin.boneTransforms.Length];
+        _targetLightPoses = new Vector3[_spriteSkin.boneTransforms.Length];
+        _targetLightPoses_Enemy = new Vector3[_spriteSkin.boneTransforms.Length];
         for (int i = 0; i < _spriteSkin.boneTransforms.Length; i++)
         {
             _viewRangeTransforms.Add(_spriteSkin.boneTransforms[i]);
             _detectCheck.Add(false);
             _targetPoses[i] = Vector3.zero;
+            _lightPoses[i] = _circleLightPoses[i];
+            _targetLightPoses[i] = _circleLightPoses[i];
+            _targetLightPoses_Enemy[i] = _circleLightPoses[i];
         }
         for (int i = 0; i < _viewRangeTransforms.Count; i++)
         {
@@ -54,12 +77,25 @@ public class SpriteViewRangeDeform : MonoBehaviour
                 Debug.DrawLine(transform.position, hit.point + new Vector2(direction.x, direction.y) * _detectRevision, Color.yellow);
                 Debug.DrawLine(transform.position, hit.point, Color.green);
                 _targetPoses[i] = hit.point + new Vector2(direction.x, direction.y) * _detectRevision;
+                _targetLightPoses[i] = transform.InverseTransformPoint(hit.point) / 5;
+                _targetLightPoses_Enemy[i] = transform.InverseTransformPoint(hit.point) / _detectReviseValue;
                 _detectCheck[i] = true;
+                if (_targetLightPoses[i].magnitude < _limitDistance)
+                {
+                    Vector3 dir = (_viewRangeOriginTransforms[i].position - transform.position).normalized;
+                    //_targetPoses[i] = transform.position; /* + dir * _noDetectRevision / 5;*/
+                    _targetLightPoses[i] = _circleLightPoses[i] / 10f;
+                    _targetLightPoses_Enemy[i] = _circleLightPoses[i] / _detectReviseValue / 2f;
+                }
             }
             else
             {
                 Debug.DrawLine(transform.position, transform.position + direction * _rayDist, Color.red);
-                _targetPoses[i] = transform.position + direction * _noDetectRevision;
+                Vector3 dir = (_viewRangeOriginTransforms[i].position - transform.position).normalized;
+                _targetPoses[i] = _viewRangeOriginTransforms[i].position + dir * _noDetectRevision;
+                //_lightPoses[i] = (/*transform.position / 5 + */_circleLightPoses[((32 - i + 8) + 32) % 32]);
+                _targetLightPoses[i] = _circleLightPoses[i];
+                _targetLightPoses_Enemy[i] = _circleLightPoses[i] * _noDetectReviseValue;
                 _detectCheck[i] = false;
             }
             float randX = Random.Range(-_randomMove.x, _randomMove.x);
@@ -70,7 +106,9 @@ public class SpriteViewRangeDeform : MonoBehaviour
             if (_detectCheck[i])
             {
                 Vector3 currPos = _viewRangeTransforms[i].position;
+                Vector3 currLightPos = _lightPoses[i];
                 _viewRangeTransforms[i].position = Vector3.Lerp(currPos, _targetPoses[i], _deformSpeed);
+                _lightPoses[i] = Vector3.Lerp(currLightPos, _targetLightPoses[i], _deformSpeed);
             }
         }
         for (int i = 0; i < _viewRangeOriginTransforms.Count; i++)
@@ -80,9 +118,11 @@ public class SpriteViewRangeDeform : MonoBehaviour
             int leftIdx = (i - 1 + cnt) % cnt;
             int rightIdx = (i + 1) % cnt;
             Vector3 currPos = _viewRangeTransforms[i].position;
-            if ((_detectCheck[leftIdx] == false && _detectCheck[rightIdx] == false) || i != 0)
+            Vector3 currLightPos = _lightPoses[i];
+            if ((_detectCheck[leftIdx] == false && _detectCheck[rightIdx] == false))
             {
                 _viewRangeTransforms[i].position = Vector3.Lerp(currPos, _targetPoses[i], _deformSpeed);
+                _lightPoses[i] = Vector3.Lerp(currLightPos, _targetLightPoses[i], _deformSpeed);
                 continue;
             }
 
@@ -92,7 +132,9 @@ public class SpriteViewRangeDeform : MonoBehaviour
             Vector3 targetPos = (leftPos + rightPos) / 2;
 
             _viewRangeTransforms[i].position = Vector3.Lerp(currPos, targetPos, _deformSpeed);
+            _lightPoses[i] = Vector3.Lerp(currLightPos, _targetLightPoses[i], _deformSpeed);
         }
-        //_light.SetShapePath(_targetPoses);
+        _light.SetShapePath(_targetLightPoses);
+        _enemyLight.SetShapePath(_targetLightPoses_Enemy);
     }
 }
