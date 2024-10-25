@@ -31,6 +31,7 @@ public class SpriteViewRangeDeform : MonoBehaviour
     private Vector3[] _targetPoses;
     private Vector3[] _lightPoses;
     private Vector3[] _targetLightPoses;
+    private Vector3[] _lightPoses_Enemy;
     private Vector3[] _targetLightPoses_Enemy;
     private Vector3[] _circleLightPoses;
     void Start()
@@ -43,6 +44,7 @@ public class SpriteViewRangeDeform : MonoBehaviour
         _targetPoses = new Vector3[_spriteSkin.boneTransforms.Length];
         _lightPoses = new Vector3[_spriteSkin.boneTransforms.Length];
         _targetLightPoses = new Vector3[_spriteSkin.boneTransforms.Length];
+        _lightPoses_Enemy = new Vector3[_spriteSkin.boneTransforms.Length];
         _targetLightPoses_Enemy = new Vector3[_spriteSkin.boneTransforms.Length];
         for (int i = 0; i < _spriteSkin.boneTransforms.Length; i++)
         {
@@ -51,6 +53,7 @@ public class SpriteViewRangeDeform : MonoBehaviour
             _targetPoses[i] = Vector3.zero;
             _lightPoses[i] = _circleLightPoses[i];
             _targetLightPoses[i] = _circleLightPoses[i];
+            _lightPoses_Enemy[i] = _circleLightPoses[i];
             _targetLightPoses_Enemy[i] = _circleLightPoses[i];
         }
         for (int i = 0; i < _viewRangeTransforms.Count; i++)
@@ -76,13 +79,24 @@ public class SpriteViewRangeDeform : MonoBehaviour
             {
                 Debug.DrawLine(transform.position, hit.point + new Vector2(direction.x, direction.y) * _detectRevision, Color.yellow);
                 Debug.DrawLine(transform.position, hit.point, Color.green);
+                Vector3 dir = (_viewRangeOriginTransforms[i].position - transform.position).normalized;
+
                 _targetPoses[i] = hit.point + new Vector2(direction.x, direction.y) * _detectRevision;
                 _targetLightPoses[i] = transform.InverseTransformPoint(hit.point) / 5;
-                _targetLightPoses_Enemy[i] = transform.InverseTransformPoint(hit.point) / _detectReviseValue;
+
+                Vector3 enemyLightV = (new Vector3(hit.point.x, hit.point.y) - transform.position);
+                if(enemyLightV.magnitude > 4f)
+                {
+                    _targetLightPoses_Enemy[i] = _circleLightPoses[i] * _noDetectReviseValue;
+                }
+                else
+                {
+                    _targetLightPoses_Enemy[i] = _circleLightPoses[i] * enemyLightV.magnitude / _detectReviseValue;
+                }
+
                 _detectCheck[i] = true;
                 if (_targetLightPoses[i].magnitude < _limitDistance)
                 {
-                    Vector3 dir = (_viewRangeOriginTransforms[i].position - transform.position).normalized;
                     //_targetPoses[i] = transform.position; /* + dir * _noDetectRevision / 5;*/
                     _targetLightPoses[i] = _circleLightPoses[i] / 10f;
                     _targetLightPoses_Enemy[i] = _circleLightPoses[i] / _detectReviseValue / 2f;
@@ -107,8 +121,10 @@ public class SpriteViewRangeDeform : MonoBehaviour
             {
                 Vector3 currPos = _viewRangeTransforms[i].position;
                 Vector3 currLightPos = _lightPoses[i];
+                Vector3 currEnemyLightPos = _lightPoses_Enemy[i];
                 _viewRangeTransforms[i].position = Vector3.Lerp(currPos, _targetPoses[i], _deformSpeed);
                 _lightPoses[i] = Vector3.Lerp(currLightPos, _targetLightPoses[i], _deformSpeed);
+                _lightPoses_Enemy[i] = Vector3.Lerp(currEnemyLightPos, _targetLightPoses_Enemy[i], _deformSpeed);
             }
         }
         for (int i = 0; i < _viewRangeOriginTransforms.Count; i++)
@@ -119,10 +135,12 @@ public class SpriteViewRangeDeform : MonoBehaviour
             int rightIdx = (i + 1) % cnt;
             Vector3 currPos = _viewRangeTransforms[i].position;
             Vector3 currLightPos = _lightPoses[i];
+            Vector3 currEnemyLightPos = _lightPoses_Enemy[i];
             if ((_detectCheck[leftIdx] == false && _detectCheck[rightIdx] == false))
             {
                 _viewRangeTransforms[i].position = Vector3.Lerp(currPos, _targetPoses[i], _deformSpeed);
                 _lightPoses[i] = Vector3.Lerp(currLightPos, _targetLightPoses[i], _deformSpeed);
+                _lightPoses_Enemy[i] = Vector3.Lerp(currEnemyLightPos, _targetLightPoses_Enemy[i], _deformSpeed);
                 continue;
             }
 
@@ -133,8 +151,9 @@ public class SpriteViewRangeDeform : MonoBehaviour
 
             _viewRangeTransforms[i].position = Vector3.Lerp(currPos, targetPos, _deformSpeed);
             _lightPoses[i] = Vector3.Lerp(currLightPos, _targetLightPoses[i], _deformSpeed);
+            _lightPoses_Enemy[i] = Vector3.Lerp(currEnemyLightPos, _targetLightPoses_Enemy[i], _deformSpeed);
         }
         _light.SetShapePath(_targetLightPoses);
-        _enemyLight.SetShapePath(_targetLightPoses_Enemy);
+        _enemyLight.SetShapePath(_lightPoses_Enemy);
     }
 }

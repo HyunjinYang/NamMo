@@ -3198,7 +3198,7 @@ MonoBehaviour:
   _light: {fileID: 7862435662124989927}
   _enemyLight: {fileID: 3615597697780463459}
   _circleLight: {fileID: 3664304079680117528}
-  _detectReviseValue: 2
+  _detectReviseValue: 2.5
   _noDetectReviseValue: 1.5
 --- !u!114 &7374471690493340157
 MonoBehaviour:
