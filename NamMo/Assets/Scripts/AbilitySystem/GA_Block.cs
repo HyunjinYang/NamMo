@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GA_Block : GameAbility
 {
     [SerializeField] private float _perfectParryingTime;
@@ -16,6 +17,7 @@ public class GA_Block : GameAbility
     private Coroutine _blockCoroutine = null;
 
     private bool _reserveParrying = false;
+    private Define.Direction _blockDirection = Define.Direction.Right;
     public bool ReserveParrying { get { return _reserveParrying; } }
     protected override void Init()
     {
@@ -78,6 +80,61 @@ public class GA_Block : GameAbility
             if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke(_overlapCnt);
         }
     }
+    public void SetBlockDirection(Vector2 dir)
+    {
+        if (dir.x > 0.5f)
+        {
+            if (dir.y > 0.5f)
+            {
+                _blockDirection = Define.Direction.RightUp;
+            }
+            else if (dir.y < -0.5f)
+            {
+                _blockDirection = Define.Direction.RightDown;
+            }
+            else
+            {
+                _blockDirection = Define.Direction.Right;
+            }
+        }
+        else if (dir.x < -0.5f)
+        {
+            if (dir.y > 0.5f)
+            {
+                _blockDirection = Define.Direction.LeftUp;
+            }
+            else if (dir.y < -0.5f)
+            {
+                _blockDirection = Define.Direction.LeftDown;
+            }
+            else
+            {
+                _blockDirection= Define.Direction.Left;
+            }
+        }
+        else
+        {
+            if (dir.y > 0.5f)
+            {
+                _blockDirection = Define.Direction.Up;
+            }
+            else if (dir.y < -0.5f)
+            {
+                _blockDirection = Define.Direction.Down;
+            }
+            else
+            {
+                if (_asc.GetPlayerController().GetPlayerMovement().IsFacingRight)
+                {
+                    _blockDirection = Define.Direction.Right;
+                }
+                else
+                {
+                    _blockDirection = Define.Direction.Left;
+                }
+            }
+        }
+    }
     private int _attackStrength = 1;
     private void HandleTriggeredObject(GameObject go)
     {
@@ -110,6 +167,7 @@ public class GA_Block : GameAbility
         _reserveNextCombo = false;
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
         //_asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
+        _asc.GetPlayerController().GetBlockArea().SetDirection(_blockDirection);
         _asc.GetPlayerController().GetBlockArea().ActiveBlockArea();
         Debug.Log($"Block Combo : {(_overlapCnt - 1) % 3 + 1}");
         if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke((_overlapCnt - 1) % 3 + 1);
