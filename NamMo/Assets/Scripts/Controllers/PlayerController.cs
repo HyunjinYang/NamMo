@@ -29,6 +29,8 @@ public partial class PlayerController : MonoBehaviour
     private bool _pushDown = false;
     private bool _waveInputDetect = false;
     private float _waveInputPushTime = 0;
+
+    private Vector2 _moveVec = Vector2.zero;
     private void Awake()
     {
         Managers.Scene.CurrentScene.SetPlayerController(this);
@@ -51,7 +53,7 @@ public partial class PlayerController : MonoBehaviour
             _ps.OnDead += Dead;
         }
 
-        if (_bossCheatMode) _ps.OnDead += BossDeadTest;
+        if (_bossCheatMode) _ps.OnDead += Dead;
         Camera.main.GetComponent<CameraController>().SetTargetInfo(gameObject);
     }
     private void Update()
@@ -131,10 +133,12 @@ public partial class PlayerController : MonoBehaviour
         {
             if (BlockInput) return;
             OnMoveInputChanged.Invoke(value.x);
+            _moveVec = value;
         }
         else if (context.canceled)
         {
             OnMoveInputChanged.Invoke(value.y);
+            _moveVec = value;
         }
     }
     // ����
@@ -235,6 +239,11 @@ public partial class PlayerController : MonoBehaviour
         if (BlockInput) return;
         if (context.performed)
         {
+            GA_Block blockAbility = _asc.GetAbility(Define.GameplayAbility.GA_Block) as GA_Block;
+            if (blockAbility)
+            {
+                blockAbility.SetBlockDirection(_moveVec);
+            }
             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Block);
         }
     }

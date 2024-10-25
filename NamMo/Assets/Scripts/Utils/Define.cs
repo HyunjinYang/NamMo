@@ -129,4 +129,15 @@ public class Define
         Prologe,
         SpawnMonsterTest,
     }
+    public enum Direction
+    {
+        Up,
+        RightUp,
+        Right,
+        RightDown,
+        Down,
+        LeftDown,
+        Left,
+        LeftUp,
+    }
 }

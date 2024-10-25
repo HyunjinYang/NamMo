@@ -77,11 +77,13 @@ public class CloseAttack : BaseAttack
             // ��� ����, �÷��̾� ���� �� �κ� �� ���� ���
             if (pc != null && ba != null)
             {
-                float blockAreaPosX = ba.transform.position.x;
-                float playerPosX = pc.transform.position.x;
-                float attackerPosX = _attacker.transform.position.x;
-                if((blockAreaPosX > playerPosX && blockAreaPosX < attackerPosX)
-                    || (blockAreaPosX > attackerPosX && blockAreaPosX < playerPosX))
+                Vector2 blockAreaPos = ba.transform.position;
+                Vector2 playerPos = pc.transform.position;
+                Vector2 attackerPos = _attacker.transform.position;
+                if(    ((blockAreaPos.x > playerPos.x) && (blockAreaPos.x <= attackerPos.x))
+                    || ((blockAreaPos.x < playerPos.x) && (blockAreaPos.x >= attackerPos.x))
+                    || ((blockAreaPos.y > playerPos.y) && (blockAreaPos.y <= attackerPos.y))
+                    || ((blockAreaPos.y < playerPos.y) && (blockAreaPos.y >= attackerPos.y)))
                 {
                     ba.OnBlockAreaTriggerEntered.Invoke(gameObject);
                 }
