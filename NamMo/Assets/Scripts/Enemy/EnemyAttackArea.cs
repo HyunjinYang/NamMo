@@ -1,3 +1,4 @@
+using Enemy.Boss.MiniBoss;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +24,11 @@ namespace Enemy
         public void Parried(GameObject attacker, GameObject target = null)
         {
             Debug.Log(gameObject.name);
+            Enemy enemy = _attacker.GetComponent<Enemy>();
+            if(enemy as MiniBossEnemy == null)
+            {
+                enemy.Hit(1000);
+            }
             _groggy.Invoke();
         }
     }

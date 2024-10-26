@@ -2253,7 +2253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1450137098402320303, guid: c8a8c418614ce37409f48880f5a69a3e, type: 3}
       propertyPath: _bossCheatMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6049724050287212753, guid: c8a8c418614ce37409f48880f5a69a3e, type: 3}
       propertyPath: m_LocalPosition.x
