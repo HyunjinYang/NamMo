@@ -342,6 +342,7 @@ namespace Enemy.Boss.MiniBoss
 
         public bool HealSelect()
         {
+            Debug.Log("실행됨");
             var next = _rand.Next(0, 4);
 
             if (next == 0)
@@ -386,18 +387,6 @@ namespace Enemy.Boss.MiniBoss
                 gameObject.transform.position = Managers.Scene.CurrentScene.GetComponent<MiniBossScene>()._leftPoint.position;
             }
         }
-        
-        public void StartTurm()
-        {
-            _TurmCoroutine = StartCoroutine(CoTurm());
-        }
-
-        public void StopTurm()
-        {
-            if(_TurmCoroutine != null)
-                StopCoroutine(_TurmCoroutine);
-            _TurmCoroutine = null;
-        }
 
         public void StartTracking()
         {
@@ -426,7 +415,7 @@ namespace Enemy.Boss.MiniBoss
             idelTurm = false;
         }
         
-        public IEnumerator CoTurm()
+        public override IEnumerator CoTurm()
         {
             yield return new WaitForSeconds(1.5f);
             TransitionToIdel();

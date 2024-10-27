@@ -28,11 +28,7 @@ namespace Enemy.State
             
             _RangedEnemy.Tracking();
             
-            if (_RangedEnemy._distance < 3f)
-            {
-                _RangedEnemy.stateMachine.TransitionState(_RangedEnemy.stateMachine._AttackState);   
-            }
-            else if(_RangedEnemy._distance >=3f && _RangedEnemy._distance <= 6.5f)
+            if(_RangedEnemy._distance <= 6.5f)
             {
                 _RangedEnemy.stateMachine.TransitionState(_RangedEnemy.stateMachine._RangeAttackState);
             }

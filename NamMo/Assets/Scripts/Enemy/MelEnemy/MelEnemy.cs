@@ -40,7 +40,7 @@ namespace Enemy.MelEnemy
         private Coroutine _turmCoroutine;
 
         public bool isTest = false;
-        
+        public bool Test = false;
         public float Attack1Time1;
         public float Attack1Time2;
         public float Attack2Time;
@@ -53,14 +53,17 @@ namespace Enemy.MelEnemy
             SceneLinkedSMB<MelEnemy>.Initialise(_animator, this);
             
             stateMachine = new StateMachine(this);
-            stateMachine.Initialize(stateMachine._IdelState);
-            
-            EnemyAttack1AttackArea.SetAttackInfo(gameObject, 2);
-            EnemyAttack2AttackArea.SetAttackInfo(gameObject, 2);
-            EnemyAttack3AttackArea.SetAttackInfo(gameObject, 2);
+            if(Test)
+                stateMachine.Initialize(stateMachine._patrolstate);
+            else
+                stateMachine.Initialize(stateMachine._IdelState);
+            _distance = Int64.MaxValue;
+            EnemyAttack1AttackArea.SetAttackInfo(gameObject, 1);
+            EnemyAttack2AttackArea.SetAttackInfo(gameObject, 1);
+            EnemyAttack3AttackArea.SetAttackInfo(gameObject, 1);
         }
 
-        public void GroggyEnter()
+        public override void GroggyEnter()
         {
             EnemyAttack1AttackArea._groggy += OnGroggy;
             EnemyAttack2AttackArea._groggy += OnGroggy;
@@ -76,26 +79,20 @@ namespace Enemy.MelEnemy
 
         public override void Behavire(float distance)
         {
-            stateMachine.Update();
+            //stateMachine.Update();
             _distance = distance;
         }
-        
+
+        public void Update()
+        {
+            stateMachine.Update();
+        }
+
         public void Dead()
         {
             Destroy(_enemyMovement.gameObject);
         }
-
-        public void Turm()
-        {
-            _turmCoroutine = StartCoroutine(CoTurm());
-        }
-
-        public void StopTurm()
-        {
-            if(_turmCoroutine != null)
-                StopCoroutine(_turmCoroutine);
-        }
-
+        
         public void Attack()
         {
             _enemyMovement._isAttack = true;
@@ -121,20 +118,6 @@ namespace Enemy.MelEnemy
         public void Direct()
         {
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
-        }
-        public void Patrol()
-        {
-            _enemyMovement.Patrol();
-        }
-
-        public void Tracking()
-        {
-            _enemyMovement.PlayerTracking();
-        }
-
-        public void EndPatrol()
-        {
-            _enemyMovement._isPatrol = false;
         }
 
         public void Groggy()
@@ -171,7 +154,7 @@ namespace Enemy.MelEnemy
         {
             var next = _rand.Next(0, 2);
 
-            _pattern = _patternlist[next];
+            _pattern = _patternlist[1];
             _pattern.Initialise(this);
             _isAttacking = true;
             _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
@@ -180,7 +163,7 @@ namespace Enemy.MelEnemy
             stateMachine.TransitionState(stateMachine._TurmState);
         }
 
-        private IEnumerator CoTurm()
+        public override IEnumerator CoTurm()
         {
             yield return new WaitForSeconds(1.5f);
             stateMachine.TransitionState(stateMachine._patrolstate);

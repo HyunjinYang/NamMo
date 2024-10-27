@@ -25,4 +25,4 @@ namespace Enemy.Boss.MiniBoss
 
         }
     }
-}
+}   

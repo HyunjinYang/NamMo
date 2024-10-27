@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Enemy.Boss.MiniBoss;
 using UnityEngine;
 
@@ -33,7 +34,10 @@ namespace Enemy
         public Action OnGroggy;
         public Action OnEndGroggy;
         public Action<float> OnWalk;
+        
+        protected Coroutine _TurmCoroutine;
 
+        
         public int ManagedId { get; set; } = -1;
 
         private bool _isFacing = true;
@@ -129,7 +133,33 @@ namespace Enemy
             return _hp;
         }
 
+        public void StartTurm()
+        {
+            _TurmCoroutine = StartCoroutine(CoTurm());
+        }
 
+        public void StopTurm()
+        {
+            if(_TurmCoroutine != null)
+                StopCoroutine(_TurmCoroutine);
+            _TurmCoroutine = null;
+        }
+
+        public virtual IEnumerator CoTurm()
+        {
+            return null;
+        }
+
+        public void Patrol()
+        {
+            _enemyMovement.Patrol();
+        }
+
+        public void Tracking()
+        {
+            _enemyMovement.PlayerTracking();
+        }
+        
         public virtual void GroggyStetCount()
         {
             
@@ -139,6 +169,8 @@ namespace Enemy
         {
             
         }
+        
+        
         
     }
 }
