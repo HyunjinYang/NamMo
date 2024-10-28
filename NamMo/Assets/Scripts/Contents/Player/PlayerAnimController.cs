@@ -18,6 +18,7 @@ public class PlayerAnimController : MonoBehaviour
     private bool _isHurting = false;
     private bool _isCharging = false;
     private bool _isStrongAttacking = false;
+    private bool _isDashAttacking = false;
 
     private float _moveDir = 0;
     private int _attackCombo = -1;
@@ -63,6 +64,9 @@ public class PlayerAnimController : MonoBehaviour
 
             asc.GetAbility(Define.GameplayAbility.GA_StrongAttack).OnAbilityActivated += StrongAttackStart;
             asc.GetAbility(Define.GameplayAbility.GA_StrongAttack).OnAbilityEnded += StrongAttackEnd;
+
+            asc.GetAbility(Define.GameplayAbility.GA_Attack2).OnAbilityActivated += DashAttackStart;
+            asc.GetAbility(Define.GameplayAbility.GA_Attack2).OnAbilityEnded += DashAttackEnd;
         }
     }
     private void StartJump()
@@ -202,6 +206,16 @@ public class PlayerAnimController : MonoBehaviour
     {
         _isStrongAttacking = false;
         _animator.SetBool("IsStrongAttacking", _isStrongAttacking);
+    }
+    private void DashAttackStart()
+    {
+        _isDashAttacking = true;
+        _animator.SetBool("IsDashAttacking", _isDashAttacking);
+    }
+    private void DashAttackEnd()
+    {
+        _isDashAttacking = false;
+        _animator.SetBool("IsDashAttacking", _isDashAttacking);
     }
     IEnumerator CoDelayAction(Action action)
     {

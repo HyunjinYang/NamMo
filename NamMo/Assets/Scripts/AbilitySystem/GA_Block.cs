@@ -196,7 +196,7 @@ public class GA_Block : GameAbility
         float knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].knockbackPower;
         float blockCancelTime = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].bindTime;
         _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = blockCancelTime;
-        Managers.Scene.CurrentScene.Player.GetPlayerMovement().AddForce(new Vector2(dir, 0), knockbackPower);
+        Managers.Scene.CurrentScene.Player.GetPlayerMovement().AddForce(new Vector2(dir, 0), knockbackPower, 0.2f);
         
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _reserveParrying = false;

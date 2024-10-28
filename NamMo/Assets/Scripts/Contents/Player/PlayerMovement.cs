@@ -449,9 +449,10 @@ public class PlayerMovement : MonoBehaviour
     }
     public void AddForce(Vector2 dir, float power, float blockMoveTime = 0.5f)
     {
-        _rb.velocity = new Vector2(0, _rb.velocity.y);
-        //_rb.velocity = Vector2.zero;
-        _rb.AddForce(dir * power, ForceMode2D.Impulse);
+        //_rb.velocity = new Vector2(0, _rb.velocity.y);
+        _rb.velocity = Vector2.zero;
+        //_rb.AddForce(dir * power, ForceMode2D.Impulse);
+        _rb.velocity = dir * power;
         CancelAddForceBlockMove();
         _blockMoveCoroutine = StartCoroutine(CoKnockBack(blockMoveTime));
     }
@@ -461,6 +462,8 @@ public class PlayerMovement : MonoBehaviour
         {
             StopCoroutine(_blockMoveCoroutine);
             CanMove = true;
+            _rb.gravityScale = _originalGravity;
+            _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Min(_rb.velocity.y, _rb.velocity.y / 2));
             _blockMoveCoroutine = null;
         }
     }
@@ -511,8 +514,11 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator CoKnockBack(float time)
     {
         CanMove = false;
+        _rb.gravityScale = 0;
         yield return new WaitForSeconds(time);
         CanMove = true;
+        _rb.gravityScale = _originalGravity;
+        _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Min(_rb.velocity.y, _rb.velocity.y / 2));
         _blockMoveCoroutine = null;
     }
     private void OnDrawGizmos()
