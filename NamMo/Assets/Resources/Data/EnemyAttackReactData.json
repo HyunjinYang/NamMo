@@ -8,15 +8,15 @@
           "bindTime": "0"
         },
         {
-          "knockbackPower": "1",
+          "knockbackPower": "5",
           "bindTime": "0"
         },
         {
-          "knockbackPower": "2",
+          "knockbackPower": "10",
           "bindTime": "0"
         },
         {
-          "knockbackPower": "3",
+          "knockbackPower": "15",
           "bindTime": "0"
         }
       ]
@@ -29,15 +29,15 @@
           "bindTime": "0"
         },
         {
-          "knockbackPower": "1",
+          "knockbackPower": "5",
           "bindTime": "0"
         },
         {
-          "knockbackPower": "2",
+          "knockbackPower": "10",
           "bindTime": "0"
         },
         {
-          "knockbackPower": "3",
+          "knockbackPower": "15",
           "bindTime": "0"
         }
       ]
@@ -50,15 +50,15 @@
           "bindTime": "0"
         },
         {
-          "knockbackPower": "1",
+          "knockbackPower": "5",
           "bindTime": "0.1"
         },
         {
-          "knockbackPower": "2",
+          "knockbackPower": "10",
           "bindTime": "0.2"
         },
         {
-          "knockbackPower": "3",
+          "knockbackPower": "15",
           "bindTime": "0.3"
         }
       ]
