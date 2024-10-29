@@ -49,12 +49,17 @@ public class GA_Attack2 : GameAbility
     {
         _asc.GetPlayerController().GetPlayerSound().PlayAttackSound();
         Vector2 dir = _attackDirection;
-        //_asc.GetPlayerController().GetAttackArea().SetAttackRange
+        _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, 1);
+        _asc.GetPlayerController().GetAttackArea().SetDirection(dir);
+        _asc.GetPlayerController().GetAttackArea().Attack();
         // 땅에 있을 때
         if (_asc.GetPlayerController().GetPlayerMovement().IsGround || _canAirDash)
         {
             _canAirDash = false;
-            if (dir.y < 0) dir.y = 0;
+            if (_asc.GetPlayerController().GetPlayerMovement().IsGround)
+            {
+                if (dir.y < 0) dir.y = 0;
+            }
             if (dir.y > 0.7f)
             {
                 _asc.GetPlayerController().GetPlayerMovement().AddForce(dir, _attackForce * dir.magnitude, 0.1f + Mathf.Abs(dir.x / 14f));
