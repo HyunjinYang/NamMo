@@ -47,7 +47,7 @@ MonoBehaviour:
   _canOverlapAbility: 0
   _tagsToAdd: 0f000000
   _needTags: 
-  _blockTags: 030000000a000000090000000d0000000e000000
+  _blockTags: 030000000a000000090000000d0000000e00000006000000
   _cancelAbilities: 0500000007000000
   _ignoreBlockCancelAbilities: 
   _coolTime: 0.3
