@@ -169,6 +169,11 @@ namespace Enemy
         {
             
         }
+
+        public virtual void PlayerTrackingState()
+        {
+            
+        }
         
         
         

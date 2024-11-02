@@ -76,7 +76,6 @@ namespace Enemy.MelEnemy
             EnemyAttack2AttackArea._groggy -= OnGroggy;
             EnemyAttack3AttackArea._groggy -= OnGroggy;   
         }
-
         public override void Behavire(float distance)
         {
             //stateMachine.Update();
@@ -149,7 +148,12 @@ namespace Enemy.MelEnemy
         {
             stateMachine.TransitionState(stateMachine._patrolstate);
         }
-        
+
+        public override void PlayerTrackingState()
+        {
+            stateMachine.TransitionState(stateMachine._patrolstate);
+        }
+
         private IEnumerator CoAttack()
         {
             var next = _rand.Next(0, 2);

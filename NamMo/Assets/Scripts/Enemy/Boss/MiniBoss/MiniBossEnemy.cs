@@ -57,7 +57,6 @@ namespace Enemy.Boss.MiniBoss
         public int phase = 1;
 
         private Coroutine _currentPattern;
-        private Coroutine _TurmCoroutine;
         private Coroutine _TrackingCoroutine;
         
         public Action OnAttack2;

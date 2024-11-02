@@ -156,7 +156,12 @@ namespace Enemy
         {
             stateMachine.TransitionState(stateMachine._IdelState);
         }
-        
+
+        public override void PlayerTrackingState()
+        {
+            stateMachine.TransitionState(stateMachine._PatrolState);
+        }
+
         public void SetHit(bool isActivate)
         {
             _enemyMovement._isHit = isActivate;

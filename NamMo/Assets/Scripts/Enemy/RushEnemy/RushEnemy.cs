@@ -141,6 +141,12 @@ namespace Enemy.RushEnemy
         {
             _statemachine.TransitionState(_statemachine._PatrolState);
         }
+
+        public override void PlayerTrackingState()
+        {
+            _statemachine.TransitionState(_statemachine._PatrolState);
+        }
+
         #endregion
 
         public void Direction()
