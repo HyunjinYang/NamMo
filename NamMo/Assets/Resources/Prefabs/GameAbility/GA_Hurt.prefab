@@ -48,7 +48,9 @@ MonoBehaviour:
   _tagsToAdd: 0a000000
   _needTags: 
   _blockTags: 
-  _cancelAbilities: 0000000001000000020000000400000005000000060000000a000000
+  _cancelAbilities: 0000000001000000020000000400000005000000060000000a0000000c000000
+  _ignoreBlockCancelAbilities: 
   _coolTime: 0
   CanUse: 0
+  BlockCancelTime: 0
   _hurtTime: 0.2

@@ -71,6 +71,7 @@ public class Define
 
         Player_Action_Charge,
         Player_Action_StrongAttack,
+        Player_Action_Attack2,
 
         MaxCount
     }
@@ -88,6 +89,7 @@ public class Define
         GA_Invincible,
         GA_Charge,
         GA_StrongAttack,
+        GA_Attack2,
 
         None = 1000
     }

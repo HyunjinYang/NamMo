@@ -183,20 +183,29 @@ public partial class PlayerController : MonoBehaviour
     public void HandleAttackInput(InputAction.CallbackContext context)
     {
         if (BlockInput) return;
-        if (_pm.IsJumping || _pm.IsFalling)
+        if (context.performed)
         {
-            if (context.performed)
+            GA_Attack2 attackAbility = _asc.GetAbility(Define.GameplayAbility.GA_Attack2) as GA_Attack2;
+            if (attackAbility)
             {
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_AirAttack);
+                attackAbility.SetAttackDirection(_moveVec);
             }
+            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack2);
         }
-        else
-        {
-            if (context.performed)
-            {
-                _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
-            }
-        }
+        //if (_pm.IsJumping || _pm.IsFalling)
+        //{
+        //    if (context.performed)
+        //    {
+        //        _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_AirAttack);
+        //    }
+        //}
+        //else
+        //{
+        //    if (context.performed)
+        //    {
+        //        _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack);
+        //    }
+        //}
     }
     public void HandleChargeAttackInput(InputAction.CallbackContext context)
     {

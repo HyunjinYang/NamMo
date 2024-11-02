@@ -40,6 +40,7 @@ public class SpriteViewRangeDeform : MonoBehaviour
         //_light.transform.position = Vector3.zero;
 
         _circleLightPoses = _circleLight.shapePath;
+        _enemyLight.SetShapePath(_circleLightPoses);
 
         _targetPoses = new Vector3[_spriteSkin.boneTransforms.Length];
         _lightPoses = new Vector3[_spriteSkin.boneTransforms.Length];
@@ -154,6 +155,6 @@ public class SpriteViewRangeDeform : MonoBehaviour
             _lightPoses_Enemy[i] = Vector3.Lerp(currEnemyLightPos, _targetLightPoses_Enemy[i], _deformSpeed);
         }
         _light.SetShapePath(_targetLightPoses);
-        _enemyLight.SetShapePath(_lightPoses_Enemy);
+        //_enemyLight.SetShapePath(_lightPoses_Enemy);
     }
 }

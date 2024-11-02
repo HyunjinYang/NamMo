@@ -31,7 +31,7 @@ public class KatanaZeroScene4 : BaseScene
                 player.transform.position = playerData.Position;
             }
         }
-
+        Camera.main.GetComponent<CameraController>().SetTargetInfo(player);
         SpawnEnemies();
     }
     public override void Clear()

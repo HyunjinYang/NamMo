@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,51 +7,40 @@ public class CameraController : MonoBehaviour
 {
     
     [SerializeField] private Camera _camera;
-    [SerializeField] private GameObject _target;
-    [SerializeField] 
-    [Range(0, 1)] private float _followSpeed_Horizontal;
-    [SerializeField]
-    [Range(0, 1)] private float _followSpeed_Vertical;
-    [SerializeField] private Vector2 _posOffset;
+    [SerializeField] private CinemachineVirtualCamera _vCam;
+    [SerializeField] private LockCameraY _lockCamY;
+    [SerializeField] private float _yOffset;
     [SerializeField] public Define.CameraMode CameraMode;
-    private PlayerMovement _pm;
-    private float _flipOffset;
+    private GameObject _target;
+    private CinemachineFramingTransposer _vCam_Transposer;
+    private PlayerController _pc;
+    private float _targetPosY;
+    private float _currPosY;
     private void Awake()
     {
         if (_camera == null) _camera = Camera.main;
-        _flipOffset = 2f;
+
+        _vCam_Transposer = _vCam.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        if (CameraMode == Define.CameraMode.FollowTarget) FollowTarget();
+        if (_pc.GetPlayerMovement().IsFacingRight) _vCam_Transposer.m_TrackedObjectOffset = Vector3.right;
+        else _vCam_Transposer.m_TrackedObjectOffset = Vector3.left;
+
+        _currPosY = Mathf.Lerp(_currPosY, _targetPosY, 0.01f);
+        _lockCamY.PosY = _currPosY + _yOffset;
     }
     public void SetTargetInfo(GameObject target)
     {
         _target = target;
-        _pm = _target.GetComponent<PlayerMovement>();
-        if (_pm)
-        {
-            _pm.OnFlip += RefreshFlipOffset;
-        }
-    }
-    private void FollowTarget()
-    {
-        if (_target == null) return;
-        Vector2 targetPos = new Vector2(_target.transform.position.x, _target.transform.position.y) 
-            + _posOffset + new Vector2(_flipOffset, 0);
-        float currX = _camera.transform.position.x;
-        float currY = _camera.transform.position.y;
-        float targetX = targetPos.x;
-        float targetY = targetPos.y;
+        _pc = _target.GetComponent<PlayerController>();
+        _vCam.Follow = _target.transform;
 
-        float posX = Mathf.Lerp(currX, targetX, _followSpeed_Horizontal);
-        float posY = Mathf.Lerp(currY, targetY, _followSpeed_Vertical);
-
-        _camera.transform.position = new Vector3(posX, posY, -10f);
+        _targetPosY = _target.GetComponentInChildren<FloorDivideDetector>().transform.position.y;
+        _currPosY = _targetPosY;
     }
-    private void RefreshFlipOffset(bool isFacingRight)
+    public void SetCameraOffsetY(float posY)
     {
-        if (isFacingRight) _flipOffset = 2f;
-        else _flipOffset = -2f;
+        _targetPosY = posY;
     }
 }
