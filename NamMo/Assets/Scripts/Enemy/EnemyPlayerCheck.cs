@@ -11,6 +11,8 @@ namespace Enemy
         [SerializeField] private LayerMask _layerMask;
         private Collider2D _hitCollider;
         [SerializeField] private Enemy _enemy;
+
+        private bool isAlert = false;
         private void Awake()
         {
             _CheckObject.layerMask = _layerMask;
@@ -25,6 +27,10 @@ namespace Enemy
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.gameObject.layer == 3)
+            {
+                AlertNearbyEnemies();
+            }
         }
 
         private void OnTriggerStay2D(Collider2D other)
@@ -37,16 +43,30 @@ namespace Enemy
             }
         }
 
+        
 
-        private void PlayerCheck()
+        private void AlertNearbyEnemies()
         {
             var hitCount = Physics2D.OverlapCircle(transform.position, 10.5f, _CheckObject, ResultObj);
+            isAlert = true;
             for (var i = 0; i < hitCount; i++)
             {
                 _hitCollider = ResultObj[i];
-                float distance = Vector2.Distance(_hitCollider.gameObject.transform.position, transform.position);
-                _enemy.Behavire(distance);
+                EnemyPlayerCheck _enemycheck = _hitCollider.GetComponent<EnemyPlayerCheck>();
+
+                if (_enemycheck != null && !_enemycheck.isAlert)
+                {
+                    _enemycheck.FindPlayer();
+                }
+                
             }
+            
+            
+        }
+
+        public void FindPlayer()
+        {
+            _enemy.PlayerTrackingState();
         }
     }
 }

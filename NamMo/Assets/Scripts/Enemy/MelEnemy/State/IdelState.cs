@@ -14,7 +14,6 @@ namespace Enemy.MelEnemy
         public void Enter()
         {
             Debug.Log("Idel State");
-            
         }
 
         public void Update()
@@ -30,7 +29,7 @@ namespace Enemy.MelEnemy
 
         public void Exit()
         {
-            
+                       
         }
     }
 }

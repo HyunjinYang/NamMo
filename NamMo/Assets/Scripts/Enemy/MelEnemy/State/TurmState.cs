@@ -11,7 +11,7 @@ namespace Enemy.MelEnemy
         
         public void Enter()
         {
-            _MelEnemy.Turm();   
+            _MelEnemy.StartTurm();   
         }
 
         public void Update()

@@ -22,7 +22,6 @@ namespace Enemy
         [SerializeField] private RangeEnemyAttackPattern<RangedEnemy> _rangeAttackPattern;
 
         private Coroutine _currentPattern;
-        private Coroutine _TurmCoroutine;
         
         private Animator _animator;
         
@@ -131,15 +130,7 @@ namespace Enemy
             RangeAttack();
         }
 
-        public void Patrol()
-        {
-            _enemyMovement.Patrol();
-        }
-
-        public void Tracking()
-        {
-            _enemyMovement.PlayerTracking();
-        }
+        
 
         public void EndWalk()
         {
@@ -165,7 +156,12 @@ namespace Enemy
         {
             stateMachine.TransitionState(stateMachine._IdelState);
         }
-        
+
+        public override void PlayerTrackingState()
+        {
+            stateMachine.TransitionState(stateMachine._PatrolState);
+        }
+
         public void SetHit(bool isActivate)
         {
             _enemyMovement._isHit = isActivate;
@@ -177,18 +173,8 @@ namespace Enemy
             Destroy(_enemyMovement.gameObject);
         }
 
-        public void StartTurm()
-        {
-            _TurmCoroutine = StartCoroutine(CoTurm());
-        }
 
-        public void StopTurm()
-        {
-            if(_TurmCoroutine != null)
-                StopCoroutine(_TurmCoroutine);
-        }
-
-        private IEnumerator CoTurm()
+        public override IEnumerator CoTurm()
         {
             
             yield return new WaitForSeconds(2f);
