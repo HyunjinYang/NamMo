@@ -45,16 +45,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool _isDashing = false;
     [SerializeField] private bool _isJumping = false;
     [SerializeField] private bool _isFalling = false;
-    [SerializeField] private bool _isKnockBacking = false;
+    //[SerializeField] private bool _isKnockBacking = false;
     private bool _canMove = true;
 
     private Action _reservedInputAction = null;
     private Coroutine _dashCoroutine = null;
     private Coroutine _reserveDashCoroutine = null;
-    private Coroutine _knockBackCoroutine = null;
+    private Coroutine _blockMoveCoroutine = null;
 
     [SerializeField] private bool _reserveDash;
     private int _overlapEnemyCnt = 0;
+    private int _blockMoveCnt = 0;
     
     public Action<bool> OnFlip;
     public Action OnLandGround;
@@ -77,7 +78,12 @@ public class PlayerMovement : MonoBehaviour
         }
         set
         {
-            _canMove = value;
+            if (value) _blockMoveCnt--;
+            else _blockMoveCnt++;
+
+            if (_blockMoveCnt == 0) _canMove = true;
+            else _canMove = false;
+
             //_rb.velocity = new Vector2(0, _rb.velocity.y);
             if (_reservedInputAction != null && _reserveDash == false)
             {
@@ -254,13 +260,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ApplyMove()
     {
-        
         if (_dashCoroutine == null && _reserveDash == false)
         {
             {
                 float horizontalValue = _horizontalMoveValue;
                 if (_canMove == false) horizontalValue = 0f;
-                if (_isJumping || _isFalling || _isKnockBacking)
+                if (_isJumping || _isFalling || _blockMoveCoroutine != null)
                 {
                     float x = Mathf.Lerp(_rb.velocity.x, horizontalValue * _currentSpeed, 0.08f);
                     _rb.velocity = new Vector2(x, _rb.velocity.y);
@@ -280,7 +285,17 @@ public class PlayerMovement : MonoBehaviour
             }
             if (_isJumping == false && _isFalling == false)
             {
-                if (OnWalk != null) OnWalk.Invoke(_horizontalMoveValue);
+                if (OnWalk != null)
+                {
+                    if (CanMove)
+                    {
+                        OnWalk.Invoke(_horizontalMoveValue);
+                    }
+                    else
+                    {
+                        OnWalk.Invoke(0);
+                    }
+                } 
             }
         }
 
@@ -432,12 +447,25 @@ public class PlayerMovement : MonoBehaviour
             if (OnDashCanceled != null) OnDashCanceled.Invoke();
         }
     }
-    public void KnockBack(float force, float power = 5)
+    public void AddForce(Vector2 dir, float power, float blockMoveTime = 0.5f)
     {
-        _rb.velocity = new Vector2(0, _rb.velocity.y);
-        _rb.AddForce(new Vector2(force, 0f) * power, ForceMode2D.Impulse);
-        if (_knockBackCoroutine != null) StopCoroutine(_knockBackCoroutine);
-        _knockBackCoroutine = StartCoroutine(CoKnockBack(0.5f));
+        //_rb.velocity = new Vector2(0, _rb.velocity.y);
+        _rb.velocity = Vector2.zero;
+        //_rb.AddForce(dir * power, ForceMode2D.Impulse);
+        _rb.velocity = dir * power;
+        CancelAddForceBlockMove();
+        _blockMoveCoroutine = StartCoroutine(CoKnockBack(blockMoveTime));
+    }
+    public void CancelAddForceBlockMove()
+    {
+        if (_blockMoveCoroutine != null)
+        {
+            StopCoroutine(_blockMoveCoroutine);
+            CanMove = true;
+            _rb.gravityScale = _originalGravity;
+            _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Min(_rb.velocity.y, _rb.velocity.y / 2));
+            _blockMoveCoroutine = null;
+        }
     }
     //public bool IsGround(float offset = 0)
     //{
@@ -485,9 +513,13 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator CoKnockBack(float time)
     {
-        _isKnockBacking = true;
+        CanMove = false;
+        _rb.gravityScale = 0;
         yield return new WaitForSeconds(time);
-        _isKnockBacking = false;
+        CanMove = true;
+        _rb.gravityScale = _originalGravity;
+        _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Min(_rb.velocity.y, _rb.velocity.y / 2));
+        _blockMoveCoroutine = null;
     }
     private void OnDrawGizmos()
     {

@@ -37,6 +37,7 @@ public class TestStartScene : BaseScene
                 player.transform.position = playerData.Position;
             }
         }
+        Camera.main.GetComponent<CameraController>().SetTargetInfo(player);
     }
     public override void Clear()
     {

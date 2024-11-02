@@ -13,6 +13,8 @@ public class CloseAttack : BaseAttack
     [Header("�������� ����")]
     [SerializeField] private Vector2 _offset;
     [SerializeField] private Vector2 _size;
+    [SerializeField] private float _angle;
+    [SerializeField] private bool _isAttackRotate = false;
     [SerializeField] private float _radius;
     private AttackShape _attackShape = AttackShape.Box;
     private Collider2D[] _hits;
@@ -37,6 +39,13 @@ public class CloseAttack : BaseAttack
         _offset = offset;
         _size = size;
     }
+    private Vector2 _dir;
+    public void SetDirection(Vector2 dir)
+    {
+        _dir = dir;
+        _angle = Vector2.SignedAngle(Vector2.right, dir);
+        if (_angle < 0) _angle += 360f;
+    }
     public void SetAttackRange(Vector2 offset, float radius)
     {
         _offset = offset;
@@ -45,11 +54,21 @@ public class CloseAttack : BaseAttack
     public void Attack()
     {
         Vector2 offset = _offset;
-        if (!_isAttackerFacingRight) offset.x = -_offset.x;
+        if (_isAttackRotate == false)
+        {
+            if (!_isAttackerFacingRight) offset.x = -_offset.x;
+        }
 
         if (_attackShape == AttackShape.Box)
         {
-            _hits = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y) + offset, _size, 0);
+            if (_isAttackRotate)
+            {
+                _hits = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y) + offset.x * _dir, _size, _angle);
+            }
+            else
+            {
+                _hits = Physics2D.OverlapBoxAll(new Vector2(transform.position.x, transform.position.y) + offset, _size, 0);
+            }
         }
         else if (_attackShape == AttackShape.Circle)
         {
@@ -104,12 +123,33 @@ public class CloseAttack : BaseAttack
     private void OnDrawGizmos()
     {
         Vector2 offset = _offset;
-        if (!_isAttackerFacingRight) offset.x = -_offset.x;
+        if (_isAttackRotate == false)
+        {
+            if (!_isAttackerFacingRight) offset.x = -_offset.x;
+        }
 
         Gizmos.color = UnityEngine.Color.blue;
         if (_attackShape == AttackShape.Box)
         {
-            Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y) + offset, _size);
+            if (_isAttackRotate)
+            {
+                float angle = _angle;
+
+                if (!_isAttackerFacingRight)
+                {
+                    float centerAngle = 90f;
+                    if (_angle > 180) centerAngle = 270f;
+
+                    angle = (centerAngle - _angle) * 2 + _angle;
+                }
+
+                Gizmos.matrix = transform.localToWorldMatrix * Matrix4x4.Rotate(Quaternion.Euler(new Vector3(0, 0, angle)));
+                Gizmos.DrawWireCube(Vector2.zero + offset / 4, _size / 4);
+            }
+            else
+            {
+                Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y) + offset, _size);
+            }
         }
         else if (_attackShape == AttackShape.Circle)
         {

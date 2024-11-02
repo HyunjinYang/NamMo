@@ -62,14 +62,14 @@ public class PlayerCombatComponent : MonoBehaviour
         if (damagedType == DamagedType.Default)
         {
             knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.None].reactValues[attackStrength].knockbackPower;
-            knockbackPower *= dir;
-            _pc.GetPlayerMovement().KnockBack(knockbackPower);
+            //knockbackPower *= dir;
+            _pc.GetPlayerMovement().AddForce(new Vector2(dir, 0), knockbackPower, 0.2f);
         }
         else if (damagedType == DamagedType.Block)
         {
             knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Block].reactValues[attackStrength].knockbackPower;
-            knockbackPower *= dir;
-            _pc.GetPlayerMovement().KnockBack(knockbackPower);
+            //knockbackPower *= dir;
+            _pc.GetPlayerMovement().AddForce(new Vector2(dir, 0), knockbackPower, 0.2f);
         }
         return true;
     }

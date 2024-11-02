@@ -45,7 +45,7 @@ public abstract class BaseScene : MonoBehaviour
 
         player.GetComponent<PlayerController>().SetPlayerInfoByPlayerData();
 
-        Camera.main.GetComponent<CameraController>().SetTargetInfo(player);
+        //Camera.main.GetComponent<CameraController>().SetTargetInfo(player);
         Camera.main.GetComponent<CameraController>().CameraMode = Define.CameraMode.FollowTarget;
 
         return player;

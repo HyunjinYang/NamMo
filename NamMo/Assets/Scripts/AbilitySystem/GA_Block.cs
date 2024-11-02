@@ -18,6 +18,7 @@ public class GA_Block : GameAbility
 
     private bool _reserveParrying = false;
     private Define.Direction _blockDirection = Define.Direction.Right;
+    private int _canMoveCnt = 0;
     public bool ReserveParrying { get { return _reserveParrying; } }
     protected override void Init()
     {
@@ -73,7 +74,11 @@ public class GA_Block : GameAbility
         else
         {
             base.EndAbility();
-            _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
+            for (int i = 0; i < _canMoveCnt; i++)
+            {
+                _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
+            }
+            _canMoveCnt = 0;
             //_asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered -= HandleTriggeredObject;
             _asc.GetPlayerController().GetBlockArea().DeActiveBlockArea();
 
@@ -166,6 +171,7 @@ public class GA_Block : GameAbility
     {
         _reserveNextCombo = false;
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
+        _canMoveCnt++;
         //_asc.GetPlayerController().GetBlockArea().OnBlockAreaTriggerEntered += HandleTriggeredObject;
         _asc.GetPlayerController().GetBlockArea().SetDirection(_blockDirection);
         _asc.GetPlayerController().GetBlockArea().ActiveBlockArea();
@@ -196,7 +202,7 @@ public class GA_Block : GameAbility
         float knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].knockbackPower;
         float blockCancelTime = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].bindTime;
         _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = blockCancelTime;
-        Managers.Scene.CurrentScene.Player.GetPlayerMovement().KnockBack(knockbackPower * dir);
+        Managers.Scene.CurrentScene.Player.GetPlayerMovement().AddForce(new Vector2(dir, 0), knockbackPower, 0.2f);
         
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _reserveParrying = false;

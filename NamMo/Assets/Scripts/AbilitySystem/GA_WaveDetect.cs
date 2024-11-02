@@ -129,7 +129,7 @@ public class GA_WaveDetect : GameAbility
         if (_turnOffLightCoroutine != null) StopCoroutine(_turnOffLightCoroutine);
         if (_sizeUpWaveCoroutine != null) StopCoroutine(_sizeUpWaveCoroutine);
         ClearInWaveEnemies();
-        _waveDetectLight.GetComponent<Light2D>().intensity = 0.01f;
+        _waveDetectLight.GetComponent<Light2D>().intensity = 0.0015f;
         _asc.GetPlayerController().GetWaveTrigger().SetRadius(0);
 
         ShowWaveVFX();
@@ -145,7 +145,7 @@ public class GA_WaveDetect : GameAbility
         {
             _waveDetectLight.GetComponent<Light2D>().intensity = 0f;
             yield return new WaitForSeconds(0.2f);
-            _waveDetectLight.GetComponent<Light2D>().intensity = 0.01f;
+            _waveDetectLight.GetComponent<Light2D>().intensity = 0.0015f;
             yield return new WaitForSeconds(0.2f);
         }
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
