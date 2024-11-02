@@ -137,7 +137,7 @@ public partial class PlayerController : MonoBehaviour
         }
         else if (context.canceled)
         {
-            OnMoveInputChanged.Invoke(value.y);
+            OnMoveInputChanged.Invoke(value.x);
             _moveVec = value;
         }
     }

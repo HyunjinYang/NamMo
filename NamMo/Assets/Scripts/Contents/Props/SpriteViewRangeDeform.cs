@@ -155,6 +155,6 @@ public class SpriteViewRangeDeform : MonoBehaviour
             _lightPoses_Enemy[i] = Vector3.Lerp(currEnemyLightPos, _targetLightPoses_Enemy[i], _deformSpeed);
         }
         _light.SetShapePath(_targetLightPoses);
-        //_enemyLight.SetShapePath(_lightPoses_Enemy);
+        _enemyLight.SetShapePath(_lightPoses_Enemy);
     }
 }
