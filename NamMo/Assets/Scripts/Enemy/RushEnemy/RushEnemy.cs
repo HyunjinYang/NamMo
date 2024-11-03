@@ -23,7 +23,6 @@ namespace Enemy.RushEnemy
         
         public float _jumpdistance;
         
-        public float _distance;
         public float AttackTime;
         
         protected override void Start()
@@ -151,7 +150,7 @@ namespace Enemy.RushEnemy
 
         public void Direction()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
         }
         public void Dead()
         {

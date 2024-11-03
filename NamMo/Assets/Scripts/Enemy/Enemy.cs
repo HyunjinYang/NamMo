@@ -9,6 +9,7 @@ namespace Enemy
     {
         [SerializeField] protected int _hp;
         [SerializeField] protected int maxhp;
+        public float _distance;
         public int HP
         {
             get

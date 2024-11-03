@@ -60,7 +60,6 @@ namespace Enemy
         }
         private void Attack()
         {
-            Debug.Log(_animator.gameObject.name);
             _animator.SetBool("IsAttack", true);
         }
 

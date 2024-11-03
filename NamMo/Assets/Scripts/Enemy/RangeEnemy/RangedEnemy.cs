@@ -27,7 +27,6 @@ namespace Enemy
         
         public RangeEnemyStateMachine stateMachine;
 
-        public float _distance;
         public float _AttackTime1;
         public float _AttackTime2;
 
@@ -42,12 +41,18 @@ namespace Enemy
 
             stateMachine = new RangeEnemyStateMachine(this);
             stateMachine.Initialize(stateMachine._IdelState);
-            
+
+            _distance = Int64.MaxValue;
             _enemyAttackArea.SetAttackInfo(gameObject, 2);
             
         }
-        
-        public void GroggyEnter()
+
+        private void Update()
+        {
+            stateMachine.Update();
+        }
+
+        public override void GroggyEnter()
         {
             _enemyAttackArea._groggy += Groggy;
         }
@@ -120,13 +125,13 @@ namespace Enemy
 
         public void MelAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             MelAttack();
         }
 
         public void RangeAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x,Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             RangeAttack();
         }
 

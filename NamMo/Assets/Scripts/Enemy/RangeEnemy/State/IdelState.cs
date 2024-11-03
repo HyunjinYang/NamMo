@@ -15,14 +15,18 @@ namespace Enemy.State
         public void Enter()
         {
             Debug.Log("RangeEnemy Idel State");   
+            
         }
 
         public void Update()
         {
+            Debug.Log("ㅁㅇㅁㅇ");
             if (_RangedEnemy._distance <= 10f)
             {
                 _RangedEnemy.stateMachine.TransitionState(_RangedEnemy.stateMachine._PatrolState);
             }
+            
+            _RangedEnemy.Patrol();
         }
 
         public void Exit()

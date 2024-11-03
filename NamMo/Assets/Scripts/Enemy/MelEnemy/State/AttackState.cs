@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.MelEnemy
 {
@@ -14,6 +16,8 @@ namespace Enemy.MelEnemy
         public void Enter()
         {
             Debug.Log("AttackState Start");
+            _MelEnemy.GetComponent<NavMeshAgent>().isStopped = true;
+            _MelEnemy.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
             _MelEnemy.Attack();
             _MelEnemy.GroggyEnter();
         }

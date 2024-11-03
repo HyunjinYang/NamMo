@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.MelEnemy
 {
@@ -13,6 +14,7 @@ namespace Enemy.MelEnemy
         public void Enter()
         {
             Debug.Log("PatrolState");
+            _melEnemy.GetComponent<NavMeshAgent>().isStopped = false;
         }
 
         public void Update()

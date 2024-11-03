@@ -44,8 +44,6 @@ namespace Enemy.Boss.MiniBoss
         
         private Animator _animator;
         
-        public float _distance;
-        
         private Random _rand = new Random();
 
         public int _isMelAttack;
@@ -84,7 +82,7 @@ namespace Enemy.Boss.MiniBoss
             
             _miniBossStateMachine = new MiniBossStateMachine(this);
             _miniBossStateMachine.Initalizze(_miniBossStateMachine._EntryState);
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             SceneLinkedSMB<MiniBossEnemy>.Initialise(_animator, this);
             
             _miniBossDashAttackPattern.Initialise(this);
@@ -284,25 +282,25 @@ namespace Enemy.Boss.MiniBoss
         
         public void MelAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             _currentPattern = StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
         }
 
         public void AxeAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             _currentPattern = StartCoroutine(_miniBossAxeAttackPattern.Pattern());
         }
 
         public void DashAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             _currentPattern = StartCoroutine(_miniBossDashAttackPattern.Pattern());
         }
 
         public void RecoveryPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             _currentPattern = StartCoroutine(_miniBossRecoveryPattern.Pattern());
         }
 
@@ -400,7 +398,7 @@ namespace Enemy.Boss.MiniBoss
 
         public void Direct()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
         }
 
         public void StartIdelTurm()

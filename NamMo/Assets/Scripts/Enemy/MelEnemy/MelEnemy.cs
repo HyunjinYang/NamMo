@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NamMo;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.PlayerLoop;
 using Animator = UnityEngine.Animator;
 using Random = System.Random;
@@ -44,7 +45,6 @@ namespace Enemy.MelEnemy
         public float Attack1Time1;
         public float Attack1Time2;
         public float Attack2Time;
-        public float _distance;
         protected override void Start()
         {
             base.Start();
@@ -116,7 +116,7 @@ namespace Enemy.MelEnemy
         
         public void Direct()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
         }
 
         public void Groggy()
@@ -161,7 +161,7 @@ namespace Enemy.MelEnemy
             _pattern = _patternlist[1];
             _pattern.Initialise(this);
             _isAttacking = true;
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             yield return _currentPattern = StartCoroutine(_pattern.Pattern());
             
             stateMachine.TransitionState(stateMachine._TurmState);

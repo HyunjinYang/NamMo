@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 4282920376373425894}
   - component: {fileID: 6151776520862158515}
   - component: {fileID: 3698495189023396685}
+  - component: {fileID: 3566315328044413092}
   - component: {fileID: 5236481680873547192}
   m_Layer: 0
   m_Name: Enemy
@@ -193,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 2
   maxhp: 0
+  _distance: 0
   _enemyMovement: {fileID: 4550646516724862641}
   maxGroggyStet: 0
   currentgroggyStet: 0
@@ -206,10 +208,10 @@ MonoBehaviour:
   - {fileID: 7744193481856485240}
   - {fileID: 8215829311615799970}
   isTest: 0
+  Test: 0
   Attack1Time1: 1.6
   Attack1Time2: 0.7
   Attack2Time: 0.71
-  _distance: 0
 --- !u!114 &6151776520862158515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +261,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.3}
     oldSize: {x: 7.1, y: 4}
     newSize: {x: 7.1, y: 4}
     adaptiveTilingThreshold: 0.5
@@ -269,6 +271,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
+--- !u!195 &3566315328044413092
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862817832713176380}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 3.55
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 4
+  m_BaseOffset: 2
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &5236481680873547192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: {x: -1.53, y: 0}
   _size: {x: 1.82, y: 2}
+  _angle: 0
+  _isAttackRotate: 0
   _radius: 0
   _isHit: 0
 --- !u!50 &2468632328889613553
@@ -500,6 +526,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: {x: -2.3, y: 0}
   _size: {x: 3.46, y: 2}
+  _angle: 0
+  _isAttackRotate: 0
   _radius: 0
   _isHit: 0
 --- !u!50 &5219568782989529569
@@ -703,6 +731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: {x: -1.73, y: 0}
   _size: {x: 2.06, y: 2}
+  _angle: 0
+  _isAttackRotate: 0
   _radius: 0
   _isHit: 0
 --- !u!50 &7916661807555178702

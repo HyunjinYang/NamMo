@@ -1,5 +1,6 @@
 using Enemy.MelEnemy;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.RushEnemy.State
 {
@@ -14,7 +15,9 @@ namespace Enemy.RushEnemy.State
         
         public void Enter()
         {
-            Debug.Log("PatrolState");   
+            Debug.Log("PatrolState");
+            
+            _RushEnemy.GetComponent<NavMeshAgent>().isStopped = false;
         }
 
         public void Update()
