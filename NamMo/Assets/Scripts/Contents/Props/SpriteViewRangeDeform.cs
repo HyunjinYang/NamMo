@@ -94,14 +94,13 @@ public class SpriteViewRangeDeform : MonoBehaviour
                 {
                     _targetLightPoses_Enemy[i] = _circleLightPoses[i] * enemyLightV.magnitude / _detectReviseValue;
                 }
-
-                _detectCheck[i] = true;
                 if (_targetLightPoses[i].magnitude < _limitDistance)
                 {
                     //_targetPoses[i] = transform.position; /* + dir * _noDetectRevision / 5;*/
                     _targetLightPoses[i] = _circleLightPoses[i] / 10f;
                     _targetLightPoses_Enemy[i] = _circleLightPoses[i] / _detectReviseValue / 2f;
                 }
+                _detectCheck[i] = true;
             }
             else
             {
