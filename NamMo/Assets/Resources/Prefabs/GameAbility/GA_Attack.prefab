@@ -47,7 +47,7 @@ MonoBehaviour:
   _canOverlapAbility: 1
   _tagsToAdd: 01000000
   _needTags: 
-  _blockTags: 03000000070000000a000000090000000d0000000e000000
+  _blockTags: 03000000070000000a000000090000000d0000000e00000006000000
   _cancelAbilities: 010000000500000007000000
   _ignoreBlockCancelAbilities: 060000000800000002000000
   _coolTime: 0
@@ -60,21 +60,21 @@ MonoBehaviour:
     dashForce: 5
     dashTime: 0.07
     blockCancelTime: 0.3
-    attackRange: {x: 2.5, y: 2}
-    attackOffset: {x: 0.5, y: 0}
+    attackRange: {x: 3, y: 2}
+    attackOffset: {x: 1.5, y: 0}
   - attackTime: 0.35
     attackMoment: 0.05
     attackRate: 1
     dashForce: 5
     dashTime: 0.07
     blockCancelTime: 0.25
-    attackRange: {x: 2.5, y: 2}
-    attackOffset: {x: 0.5, y: 0}
+    attackRange: {x: 3, y: 2}
+    attackOffset: {x: 1.5, y: 0}
   - attackTime: 0.65
     attackMoment: 0.05
     attackRate: 1
     dashForce: 5
     dashTime: 0.07
     blockCancelTime: 0.4
-    attackRange: {x: 4.5, y: 1}
-    attackOffset: {x: 2, y: 0}
+    attackRange: {x: 5, y: 1}
+    attackOffset: {x: 2.5, y: 0}
