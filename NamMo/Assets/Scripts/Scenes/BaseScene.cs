@@ -11,6 +11,24 @@ public abstract class BaseScene : MonoBehaviour
     public Define.Scene SceneType { get; protected set; } = Define.Scene.Unknown;
     public PlayerController Player { get { return _pc; } }
 
+    private float _timeScale = 1f;
+    private float _slowStartTime = 0f;
+    private float _lastSlowRemainTime;
+    private Coroutine _timeSlowCoroutine = null;
+    public float TimeScale
+    {
+        get { return _timeScale; }
+        set
+        {
+            _timeScale = value;
+            Time.timeScale = _timeScale;
+            Time.fixedDeltaTime = 0.02f * _timeScale;
+            if (Player)
+            {
+                Player.SetPlayerSpeed(_timeScale);
+            }
+        }
+    }
 	void Awake()
 	{
 		Init();
@@ -21,6 +39,7 @@ public abstract class BaseScene : MonoBehaviour
         Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
         if (obj == null)
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
+        TimeScale = 1;
     }
 
     public abstract void Clear();
@@ -63,6 +82,39 @@ public abstract class BaseScene : MonoBehaviour
 
             go.GetComponentInChildren<Enemy.Enemy>().ManagedId = enemy.managedId;
         }
+    }
+    public void ApplyTimeSlow(float timeScale, float remainTime)
+    {
+        if (_timeSlowCoroutine != null)
+        {
+            float currTime = Time.time;
+            float additionalTime = _slowStartTime + _lastSlowRemainTime - currTime;
+            StopCoroutine(_timeSlowCoroutine);
+            _timeSlowCoroutine = StartCoroutine(CoApplyTimeSlow(timeScale, remainTime + additionalTime));
+        }
+        else
+        {
+            _timeSlowCoroutine = StartCoroutine(CoApplyTimeSlow(timeScale, remainTime));
+        }
+    }
+    public void StopTimeSlow()
+    {
+        if (_timeSlowCoroutine == null) return;
+        StopCoroutine(_timeSlowCoroutine);
+        _timeSlowCoroutine = null;
+
+        TimeScale = 1f;
+    }
+    IEnumerator CoApplyTimeSlow(float timeScale, float remainTime)
+    {
+        _slowStartTime = Time.time;
+        _lastSlowRemainTime = remainTime;
+
+        TimeScale = timeScale;
+        yield return new WaitForSeconds(remainTime);
+
+        TimeScale = 1f;
+        _timeSlowCoroutine = null;
     }
 
     //IEnumerator LoadSceneAsync(string sceneName)

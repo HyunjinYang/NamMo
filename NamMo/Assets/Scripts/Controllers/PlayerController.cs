@@ -71,7 +71,14 @@ public partial class PlayerController : MonoBehaviour
     public BlockArea GetBlockArea() { return _blockArea; }
     public CloseAttack GetAttackArea() { return _attackArea; }
     public GameObject GetPlayerSprite() { return _playerSprite; }
+    public Animator GetPlayerAnimator() { return _playerSprite.GetComponent<Animator>(); }
     public WaveTrigger GetWaveTrigger() { return _waveTrigger; }
+    public void SetPlayerSpeed(float timeScale)
+    {
+        float timeSpeed = 1f / timeScale;
+        GetPlayerAnimator().speed = timeSpeed;
+    }
+    public float GetPlayerSpeed() { return 1f / Managers.Scene.CurrentScene.TimeScale; }
     public void SetPlayerInfoByPlayerData()
     {
         PlayerData playerData = Managers.Data.PlayerData;

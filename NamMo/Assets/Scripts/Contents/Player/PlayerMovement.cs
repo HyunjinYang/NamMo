@@ -263,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
         if (_dashCoroutine == null && _reserveDash == false)
         {
             {
-                float horizontalValue = _horizontalMoveValue;
+                float horizontalValue = _horizontalMoveValue * _pc.GetPlayerSpeed();
                 if (_canMove == false) horizontalValue = 0f;
                 if (_isJumping || _isFalling || _blockMoveCoroutine != null)
                 {
@@ -309,11 +309,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (_isFacingRight)
                 {
-                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce * -1;
+                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce * -1 * _pc.GetPlayerSpeed();
                 }
                 else
                 {
-                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce;
+                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce * _pc.GetPlayerSpeed();
                 }
             }
         }
