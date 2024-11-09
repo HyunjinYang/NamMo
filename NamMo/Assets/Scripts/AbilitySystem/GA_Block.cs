@@ -87,6 +87,7 @@ public class GA_Block : GameAbility
     }
     public void SetBlockDirection(Vector2 dir)
     {
+        /*
         if (dir.x > 0.5f)
         {
             if (dir.y > 0.5f)
@@ -137,6 +138,21 @@ public class GA_Block : GameAbility
                 {
                     _blockDirection = Define.Direction.Left;
                 }
+            }
+        }*/
+        if (dir.y > 0.5f)
+        {
+            _blockDirection = Define.Direction.Up;
+        }
+        else
+        {
+            if (_asc.GetPlayerController().GetPlayerMovement().IsFacingRight)
+            {
+                _blockDirection = Define.Direction.Right;
+            }
+            else
+            {
+                _blockDirection = Define.Direction.Left;
             }
         }
     }

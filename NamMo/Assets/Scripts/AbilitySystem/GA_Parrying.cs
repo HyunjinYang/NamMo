@@ -18,9 +18,10 @@ public class GA_Parrying : GameAbility
         //Managers.Sound.Play("Parrying1");
         _asc.GetPlayerController().GetPlayerSound().PlayParryingSound();
         // TODO : 패링 
-        Camera.main.transform.DOShakePosition(0.15f, new Vector3(0.25f, 0.25f, 0), 50);
-        Camera.main.DOOrthoSize(10, 0.5f);
-        Time.timeScale = 0.5f;
+
+        //Camera.main.transform.DOShakePosition(0.15f, new Vector3(0.25f, 0.25f, 0), 50);
+        //Camera.main.DOOrthoSize(10, 0.5f);
+        //Time.timeScale = 0.5f;
     }
     protected override void CancelAbility()
     {
@@ -38,7 +39,7 @@ public class GA_Parrying : GameAbility
         }
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
         Camera.main.DOOrthoSize(12, 0.5f);
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
     }
     IEnumerator CoParrying()
     {

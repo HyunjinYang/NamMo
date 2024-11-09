@@ -25,7 +25,7 @@ namespace Enemy
             Enemy enemy = _attacker.GetComponent<Enemy>();
             if(enemy as MiniBossEnemy == null)
             {
-                enemy.Hit(1000);
+                //enemy.Hit(1000);
             }
             _groggy.Invoke();
         }

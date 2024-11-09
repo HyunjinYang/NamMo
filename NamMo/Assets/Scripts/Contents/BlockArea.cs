@@ -28,29 +28,29 @@ public class BlockArea : MonoBehaviour
         switch (direction)
         {
             case Define.Direction.Up:
-                _localPos = new Vector3(0, 1.2f);
-                break;
-            case Define.Direction.RightUp:
-                _localPos = new Vector3(0.72f, 0.72f);
-                break;
-            case Define.Direction.Right:
-                _localPos = new Vector3(0.8f, 0);
-                break;
-            case Define.Direction.RightDown:
-                _localPos = new Vector3(0.72f, -0.72f);
-                break;
-            case Define.Direction.Down:
-                _localPos = new Vector3(0, -1.2f);
-                break;
-            case Define.Direction.LeftDown:
-                _localPos = new Vector3(-0.72f, -0.72f);
+                _localPos = new Vector3(0, 0.9f);
                 break;
             case Define.Direction.Left:
-                _localPos = new Vector3(-0.8f, 0);
+                _localPos = new Vector3(-0.8f, -0.2f);
                 break;
-            case Define.Direction.LeftUp:
-                _localPos = new Vector3(-0.72f, 0.72f);
+            case Define.Direction.Right:
+                _localPos = new Vector3(0.8f, -0.2f);
                 break;
+            //case Define.Direction.RightUp:
+            //    _localPos = new Vector3(0.72f, 0.72f);
+            //    break;
+            //case Define.Direction.RightDown:
+            //    _localPos = new Vector3(0.72f, -0.72f);
+            //    break;
+            //case Define.Direction.Down:
+            //    _localPos = new Vector3(0, -1.2f);
+            //    break;
+            //case Define.Direction.LeftDown:
+            //    _localPos = new Vector3(-0.72f, -0.72f);
+            //    break;
+            //case Define.Direction.LeftUp:
+            //    _localPos = new Vector3(-0.72f, 0.72f);
+            //    break;
         }
         float rot = 90f + (int)direction * 45f;
         _localRot = new Vector3(0, 0, rot);
