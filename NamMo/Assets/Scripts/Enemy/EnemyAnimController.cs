@@ -19,7 +19,7 @@ namespace Enemy
             _enemy.OnEndattack += EndAttack;
             _enemy.OnHit += Hit;
             _enemy.OnEndHit += EndHit;
-            _enemy.Dead += Dead;
+            _enemy.DeadEvent += Dead;
             _enemy.OnGroggy += Groggy;
             _enemy.OnEndGroggy += EndGroggy;
             
@@ -76,11 +76,9 @@ namespace Enemy
         private void Groggy()
         {
             _enemy.GroggyStetCount();
-            Debug.Log(_enemy.currentgroggyStet);
             if (_enemy.currentgroggyStet >= _enemy.maxGroggyStet)
             {
                 _enemy.currentgroggyStet = 0f;
-                Debug.Log(_enemy.currentgroggyStet + " " + _enemy.maxGroggyStet);
                 _animator.SetBool("IsGroggy", true);
             }
         }

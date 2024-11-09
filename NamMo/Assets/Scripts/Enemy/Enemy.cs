@@ -31,7 +31,7 @@ namespace Enemy
         public Action OnEndattack;
         public Action OnHit;
         public Action OnEndHit;
-        public Action Dead;
+        public Action DeadEvent;
         public Action OnGroggy;
         public Action OnEndGroggy;
         public Action<float> OnWalk;
@@ -107,7 +107,7 @@ namespace Enemy
         public void OnDead()
         {
             _enemyMovement._isDead = true;
-            Dead.Invoke();
+            DeadEvent.Invoke();
             if (ManagedId != -1)
             {
                 Managers.Data.EnemyData.KillEnemy(Managers.Scene.CurrentScene.SceneType, ManagedId);

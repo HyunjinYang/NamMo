@@ -104,6 +104,10 @@ namespace Enemy
 
         public void DirectCheck()
         {
+            Debug.Log(_agent.velocity.x);
+            if (_agent.velocity.x == 0)
+                return;
+            
             if (0 < _agent.velocity.x)
             {
                 if (direct == 1)
@@ -161,7 +165,6 @@ namespace Enemy
         }
         protected  void Flip()
         {
-            Debug.Log("씨행");
             Vector3 localScale = _CharacterSprite.transform.localScale;
             localScale.x *= -1f;
             if (localScale.x < 0)
