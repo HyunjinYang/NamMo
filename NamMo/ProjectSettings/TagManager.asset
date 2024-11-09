@@ -47,6 +47,9 @@ TagManager:
   - name: Creature
     uniqueID: 1322050693
     locked: 0
+  - name: Ground
+    uniqueID: 1133904665
+    locked: 0
   - name: CameraSortingLayer
     uniqueID: 1419683457
     locked: 0
