@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
         if (_pc.GetPlayerMovement().IsFacingRight) _vCam_Transposer.m_TrackedObjectOffset = Vector3.right;
         else _vCam_Transposer.m_TrackedObjectOffset = Vector3.left;
 
-        _currPosY = Mathf.Lerp(_currPosY, _targetPosY, 0.01f);
+        _currPosY = Mathf.Lerp(_currPosY, _targetPosY, 0.02f);
         _lockCamY.PosY = _currPosY + _yOffset;
     }
     public void SetTargetInfo(GameObject target)

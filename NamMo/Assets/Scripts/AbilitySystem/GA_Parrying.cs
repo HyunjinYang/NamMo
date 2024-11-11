@@ -22,7 +22,7 @@ public class GA_Parrying : GameAbility
         //Camera.main.transform.DOShakePosition(0.15f, new Vector3(0.25f, 0.25f, 0), 50);
         //Camera.main.DOOrthoSize(10, 0.5f);
         //Time.timeScale = 0.5f;
-        Managers.Scene.CurrentScene.ApplyTimeSlow(0.5f, 1f);
+        Managers.Scene.CurrentScene.ApplyTimeSlow(0.5f, 0.5f);
     }
     protected override void CancelAbility()
     {
@@ -39,12 +39,12 @@ public class GA_Parrying : GameAbility
             _parryingCoroutine = null;
         }
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
-        Camera.main.DOOrthoSize(12, 0.5f);
+        //Camera.main.DOOrthoSize(12, 0.5f);
         //Time.timeScale = 1.0f;
     }
     IEnumerator CoParrying()
     {
-        yield return new WaitForSeconds(_parryingTime);
+        yield return new WaitForSecondsRealtime(_parryingTime);
         EndAbility();
     }
 }

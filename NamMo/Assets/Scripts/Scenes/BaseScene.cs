@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,6 +16,7 @@ public abstract class BaseScene : MonoBehaviour
     private float _slowStartTime = 0f;
     private float _lastSlowRemainTime;
     private Coroutine _timeSlowCoroutine = null;
+    public Action<float> OnTimeScaleChanged;
     public float TimeScale
     {
         get { return _timeScale; }
@@ -27,6 +29,10 @@ public abstract class BaseScene : MonoBehaviour
             {
                 Player.SetPlayerSpeed(_timeScale);
             }
+            if (OnTimeScaleChanged != null)
+            {
+                OnTimeScaleChanged.Invoke(_timeScale);
+            }
         }
     }
 	void Awake()
@@ -36,7 +42,7 @@ public abstract class BaseScene : MonoBehaviour
 
 	protected virtual void Init()
     {
-        Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
+        UnityEngine.Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
         if (obj == null)
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
         TimeScale = 1;
@@ -111,7 +117,7 @@ public abstract class BaseScene : MonoBehaviour
         _lastSlowRemainTime = remainTime;
 
         TimeScale = timeScale;
-        yield return new WaitForSeconds(remainTime);
+        yield return new WaitForSecondsRealtime(remainTime);
 
         TimeScale = 1f;
         _timeSlowCoroutine = null;

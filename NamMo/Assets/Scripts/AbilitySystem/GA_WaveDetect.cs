@@ -117,7 +117,7 @@ public class GA_WaveDetect : GameAbility
     IEnumerator CoWaveDetect()
     {
         _waveDetectLight.transform.position = _asc.transform.position;
-        yield return new WaitForSeconds(_detectMoment);
+        yield return new WaitForSecondsRealtime(_detectMoment);
 
         //Managers.Sound.Play("Wave");
         _asc.GetPlayerController().GetPlayerSound().PlayWaveSound();
@@ -140,13 +140,13 @@ public class GA_WaveDetect : GameAbility
     
     IEnumerator CoTurnOffDetectLight()
     {
-        yield return new WaitForSeconds(_scaleChangeTime + _lightRemainingTime - 2f);
+        yield return new WaitForSecondsRealtime(_scaleChangeTime + _lightRemainingTime - 2f);
         for(int i = 0; i < 5; i++)
         {
             _waveDetectLight.GetComponent<Light2D>().intensity = 0f;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSecondsRealtime(0.2f);
             _waveDetectLight.GetComponent<Light2D>().intensity = 0.0015f;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSecondsRealtime(0.2f);
         }
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
         _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = 0;
@@ -161,7 +161,7 @@ public class GA_WaveDetect : GameAbility
             _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = size;
             _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = size;
             _asc.GetPlayerController().GetWaveTrigger().SetRadius(size);
-            yield return new WaitForSeconds(0.04f);
+            yield return new WaitForSecondsRealtime(0.04f);
         }
         _asc.GetPlayerController().GetWaveTrigger().OnWaveRangeTriggerEntered -= HandleTriggeredWaveObject;
         ClearInWaveEnemies();
@@ -171,7 +171,7 @@ public class GA_WaveDetect : GameAbility
     }
     IEnumerator CoEndAbility()
     {
-        yield return new WaitForSeconds(_motionTime);
+        yield return new WaitForSecondsRealtime(_motionTime);
         EndAbility();
     }
 }

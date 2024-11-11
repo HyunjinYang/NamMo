@@ -14,7 +14,7 @@ public class DownJumpFloor : MonoBehaviour
     }
     IEnumerator CoChangeColliderMaskShortTime()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.8f);
         _ignoreGroundCheck = false;
         GetComponent<PlatformEffector2D>().colliderMask = -1;
     }

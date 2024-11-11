@@ -194,7 +194,7 @@ public class GA_Block : GameAbility
         Debug.Log($"Block Combo : {(_overlapCnt - 1) % 3 + 1}");
         if (OnBlockComboChanged != null) OnBlockComboChanged.Invoke((_overlapCnt - 1) % 3 + 1);
 
-        yield return new WaitForSeconds(_blockTime);
+        yield return new WaitForSecondsRealtime(_blockTime);
 
         _blockCoroutine = null;
         EndAbility();
@@ -202,7 +202,7 @@ public class GA_Block : GameAbility
     IEnumerator CoChangeParryingTypeByTimeFlow()
     {
         _isPerfectParryingTiming = true;
-        yield return new WaitForSeconds(_perfectParryingTime);
+        yield return new WaitForSecondsRealtime(_perfectParryingTime);
         _isPerfectParryingTiming = false;
         _cacluateParryingTimingCoroutine = null;
     }

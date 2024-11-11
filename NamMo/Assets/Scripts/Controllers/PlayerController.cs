@@ -60,7 +60,7 @@ public partial class PlayerController : MonoBehaviour
     {
         if (_waveInputDetect)
         {
-            _waveInputPushTime += Time.deltaTime;
+            _waveInputPushTime += Time.unscaledDeltaTime;
         }
     }
     public AbilitySystemComponent GetASC() { return _asc; }
@@ -77,6 +77,9 @@ public partial class PlayerController : MonoBehaviour
     {
         float timeSpeed = 1f / timeScale;
         GetPlayerAnimator().speed = timeSpeed;
+        GetComponent<Rigidbody2D>().gravityScale = 4 * timeSpeed * timeSpeed;
+        GetComponent<Rigidbody2D>().mass = timeSpeed * timeSpeed;
+        GetComponent<Rigidbody2D>().velocity /= 2;
     }
     public float GetPlayerSpeed() { return 1f / Managers.Scene.CurrentScene.TimeScale; }
     public void SetPlayerInfoByPlayerData()

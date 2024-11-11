@@ -48,7 +48,7 @@ public class GA_AirAttack : GameAbility
         BlockCancelTime = _blockCancelTime;
         ApplyBlockCancelAbility();
 
-        yield return new WaitForSeconds(_attack1Moment);
+        yield return new WaitForSecondsRealtime(_attack1Moment);
 
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, _attack1Rate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackOffset1, _attackRange1);
@@ -57,11 +57,9 @@ public class GA_AirAttack : GameAbility
 
         _asc.GetPlayerController().GetPlayerSound().PlayAttackSound();
 
-        yield return new WaitForFixedUpdate();
-
         //_asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
 
-        yield return new WaitForSeconds(_attack2Moment - _attack1Moment);
+        yield return new WaitForSecondsRealtime(_attack2Moment - _attack1Moment);
 
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, _attack2Rate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(_attackOffset2, _attackRange2);
@@ -69,11 +67,9 @@ public class GA_AirAttack : GameAbility
         //Managers.Sound.Play("Attack");
         _asc.GetPlayerController().GetPlayerSound().PlayAttackSound();
 
-        yield return new WaitForFixedUpdate();
-
         //_asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
 
-        yield return new WaitForSeconds(_attackTime - _attack2Moment);
+        yield return new WaitForSecondsRealtime(_attackTime - _attack2Moment);
         //_asc.FlushReservedAbility();
         _airAttackCoroutine = null;
         EndAbility();
