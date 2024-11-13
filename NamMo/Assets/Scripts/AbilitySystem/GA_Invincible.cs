@@ -19,7 +19,7 @@ public class GA_Invincible : GameAbility
     }
     IEnumerator CoInvincible()
     {
-        yield return new WaitForSeconds(_invincibleTime);
+        yield return new WaitForSecondsRealtime(_invincibleTime);
         EndAbility();
     }
 }

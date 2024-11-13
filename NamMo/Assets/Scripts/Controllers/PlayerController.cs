@@ -60,7 +60,7 @@ public partial class PlayerController : MonoBehaviour
     {
         if (_waveInputDetect)
         {
-            _waveInputPushTime += Time.deltaTime;
+            _waveInputPushTime += Time.unscaledDeltaTime;
         }
     }
     public AbilitySystemComponent GetASC() { return _asc; }
@@ -71,7 +71,17 @@ public partial class PlayerController : MonoBehaviour
     public BlockArea GetBlockArea() { return _blockArea; }
     public CloseAttack GetAttackArea() { return _attackArea; }
     public GameObject GetPlayerSprite() { return _playerSprite; }
+    public Animator GetPlayerAnimator() { return _playerSprite.GetComponent<Animator>(); }
     public WaveTrigger GetWaveTrigger() { return _waveTrigger; }
+    public void SetPlayerSpeed(float timeScale)
+    {
+        float timeSpeed = 1f / timeScale;
+        GetPlayerAnimator().speed = timeSpeed;
+        GetComponent<Rigidbody2D>().gravityScale = 4 * timeSpeed * timeSpeed;
+        GetComponent<Rigidbody2D>().mass = timeSpeed * timeSpeed;
+        GetComponent<Rigidbody2D>().velocity /= 2;
+    }
+    public float GetPlayerSpeed() { return 1f / Managers.Scene.CurrentScene.TimeScale; }
     public void SetPlayerInfoByPlayerData()
     {
         PlayerData playerData = Managers.Data.PlayerData;
@@ -192,6 +202,32 @@ public partial class PlayerController : MonoBehaviour
         //    }
         //    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack2);
         //}
+        GA_Parrying parryingAbility = _asc.GetAbility(Define.GameplayAbility.GA_Parrying) as GA_Parrying;
+        if (parryingAbility)
+        {
+            if (parryingAbility.IsActivated)
+            {
+                if (context.performed)
+                {
+                    foreach (BaseAttack parriedAttack in parryingAbility.ParriedAttacks)
+                    {
+                        if (parriedAttack == null) continue;
+                        if (parriedAttack as CloseAttack == null) continue;
+                        if (parriedAttack.Attacker == null) continue;
+                        GameObject attacker = parriedAttack.Attacker;
+                        if (attacker.GetComponent<Enemy.Enemy>() == null) continue;
+
+                        GA_ParryingAttack parryingAttackAbility = _asc.GetAbility(Define.GameplayAbility.GA_ParryingAttack) as GA_ParryingAttack;
+                        if (parryingAttackAbility)
+                        {
+                            parryingAttackAbility.TargetEnemy = attacker.GetComponent<Enemy.Enemy>();
+                            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_ParryingAttack);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
         if (_pm.IsJumping || _pm.IsFalling)
         {
             if (context.performed)

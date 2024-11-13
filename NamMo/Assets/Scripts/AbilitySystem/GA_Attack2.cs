@@ -24,7 +24,7 @@ public class GA_Attack2 : GameAbility
     protected override void CancelAbility()
     {
         base.CancelAbility();
-        _asc.GetPlayerController().GetPlayerMovement().CancelAddForceBlockMove();
+        //_asc.GetPlayerController().GetPlayerMovement().CancelAddForceBlockMove();
         EndAbility();
     }
     protected override void EndAbility()

@@ -163,13 +163,13 @@ public class GameAbility : MonoBehaviour
     }
     private IEnumerator CoCaculateCoolTime()
     {
-        yield return new WaitForSeconds(_coolTime);
+        yield return new WaitForSecondsRealtime(_coolTime);
         _isCoolTime = false;
     }
     protected IEnumerator CoBlockCancelAbility()
     {
         _blockCancelAbility = true;
-        yield return new WaitForSeconds(BlockCancelTime);
+        yield return new WaitForSecondsRealtime(BlockCancelTime);
         _blockCancelAbility = false;
         BlockCancelTime = 0f;
         _blockCancelAbilityCoroutine = null;

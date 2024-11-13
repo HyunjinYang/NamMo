@@ -47,7 +47,7 @@ public class GA_Dash : GameAbility
     IEnumerator CoApplyInvincible()
     {
         _asc.AddTag(Define.GameplayTag.Player_State_Invincible);
-        yield return new WaitForSeconds(_invincibleTime);
+        yield return new WaitForSecondsRealtime(_invincibleTime);
         _asc.RemoveTag(Define.GameplayTag.Player_State_Invincible);
         _invincibleCoroutine = null;
     }

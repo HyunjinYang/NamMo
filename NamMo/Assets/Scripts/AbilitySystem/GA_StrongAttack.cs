@@ -31,7 +31,7 @@ public class GA_StrongAttack : GameAbility
     }
     IEnumerator CoStrongAttack()
     {
-        yield return new WaitForSeconds(_attackTime);
+        yield return new WaitForSecondsRealtime(_attackTime);
         _strongAttackCoroutine = null;
         EndAbility();
     }

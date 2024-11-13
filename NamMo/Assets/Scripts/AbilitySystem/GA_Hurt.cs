@@ -29,7 +29,7 @@ public class GA_Hurt : GameAbility
     }
     IEnumerator CoHurt()
     {
-        yield return new WaitForSeconds(_hurtTime);
+        yield return new WaitForSecondsRealtime(_hurtTime);
         EndAbility();
     }
 }

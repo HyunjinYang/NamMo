@@ -222,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(_reserveDash == false)
         {
-            _rb.gravityScale = _originalGravity;
+            _rb.gravityScale = _originalGravity * _pc.GetPlayerSpeed() * _pc.GetPlayerSpeed();
         }
         _isDashing = false;
         if (_reservedInputAction != null && _reserveDash == false)
@@ -263,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
         if (_dashCoroutine == null && _reserveDash == false)
         {
             {
-                float horizontalValue = _horizontalMoveValue;
+                float horizontalValue = _horizontalMoveValue * _pc.GetPlayerSpeed();
                 if (_canMove == false) horizontalValue = 0f;
                 if (_isJumping || _isFalling || _blockMoveCoroutine != null)
                 {
@@ -309,11 +309,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (_isFacingRight)
                 {
-                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce * -1;
+                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce * -1 * _pc.GetPlayerSpeed();
                 }
                 else
                 {
-                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce;
+                    _rb.velocity = new Vector2(slopeNormalPerp.x, slopeNormalPerp.y) * _dashForce * _pc.GetPlayerSpeed();
                 }
             }
         }
@@ -404,10 +404,10 @@ public class PlayerMovement : MonoBehaviour
     public void StartJump()
     {
         _isJumping = true;
-        float jumForce = _jumpForce;
+        float jumForce = _jumpForce * _pc.GetPlayerSpeed();
         if (_isDashing)
         {
-            _rb.gravityScale = _originalGravity;
+            _rb.gravityScale = _originalGravity * _pc.GetPlayerSpeed() * _pc.GetPlayerSpeed();
         }
         _rb.velocity = new Vector2(_rb.velocity.x, jumForce);
         if (OnStartJump != null) OnStartJump.Invoke();
@@ -429,7 +429,7 @@ public class PlayerMovement : MonoBehaviour
             _reserveDash = false;
             StopCoroutine(_reserveDashCoroutine);
             _reserveDashCoroutine = null;
-            _rb.gravityScale = _originalGravity;
+            _rb.gravityScale = _originalGravity *_pc.GetPlayerSpeed() * _pc.GetPlayerSpeed();
         }
         else
         {
@@ -452,7 +452,7 @@ public class PlayerMovement : MonoBehaviour
         //_rb.velocity = new Vector2(0, _rb.velocity.y);
         _rb.velocity = Vector2.zero;
         //_rb.AddForce(dir * power, ForceMode2D.Impulse);
-        _rb.velocity = dir * power;
+        _rb.velocity = dir * power * _pc.GetPlayerSpeed();
         CancelAddForceBlockMove();
         _blockMoveCoroutine = StartCoroutine(CoKnockBack(blockMoveTime));
     }
@@ -462,7 +462,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StopCoroutine(_blockMoveCoroutine);
             CanMove = true;
-            _rb.gravityScale = _originalGravity;
+            _rb.gravityScale = _originalGravity * _pc.GetPlayerSpeed() * _pc.GetPlayerSpeed();
             _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Min(_rb.velocity.y, _rb.velocity.y / 2));
             _blockMoveCoroutine = null;
         }
@@ -496,18 +496,18 @@ public class PlayerMovement : MonoBehaviour
         _isDashing = true;
         if (_reserveDash) _reserveDash = false;
         _rb.gravityScale = 0f;
-        yield return new WaitForSeconds(dashTime);
+        yield return new WaitForSecondsRealtime(dashTime);
         _isDashing = false;
         if (!(_isJumping || _isFalling))
         {
             _rb.velocity = Vector2.zero;
         }
-        yield return new WaitForSeconds(additionalNoGravityTime);
+        yield return new WaitForSecondsRealtime(additionalNoGravityTime);
         EndDash(dashType);
     }
     IEnumerator CoReserveDash(float delayTime, float dashForce, float dashTime, Define.DashType dashType, float additionalNoGravityTime = 0)
     {
-        yield return new WaitForSeconds(delayTime);
+        yield return new WaitForSecondsRealtime(delayTime);
         _reserveDashCoroutine = null;
         Dash(dashForce, dashTime, dashType, additionalNoGravityTime);
     }
@@ -515,10 +515,10 @@ public class PlayerMovement : MonoBehaviour
     {
         CanMove = false;
         _rb.gravityScale = 0;
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSecondsRealtime(time);
         CanMove = true;
-        _rb.gravityScale = _originalGravity;
-        _rb.velocity = new Vector2(_rb.velocity.x, Mathf.Min(_rb.velocity.y, _rb.velocity.y / 2));
+        _rb.gravityScale = _originalGravity * _pc.GetPlayerSpeed() * _pc.GetPlayerSpeed();
+        //_rb.velocity = new Vector2(_rb.velocity.x, Mathf.Min(_rb.velocity.y, _rb.velocity.y / 2));
         _blockMoveCoroutine = null;
     }
     private void OnDrawGizmos()

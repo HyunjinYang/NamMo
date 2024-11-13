@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Parrying
-  m_Speed: 4
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2117146195362553355}
@@ -724,7 +724,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DashAttack
+  m_Name: ParryingAttack
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
@@ -1106,7 +1106,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsDashAttacking
+    m_ConditionEvent: IsParryingAttacking
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: IsJumping
@@ -1402,7 +1402,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsDashAttacking
+    m_ConditionEvent: IsParryingAttacking
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: IsJumping
@@ -1568,6 +1568,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: IsDashAttacking
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: IsParryingAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -2247,7 +2253,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsDashAttacking
+    m_ConditionEvent: IsParryingAttacking
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4321661700419967578}
@@ -2692,7 +2698,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsDashAttacking
+    m_ConditionEvent: IsParryingAttacking
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: IsFalling
