@@ -75,6 +75,8 @@ public class GA_Attack : GameAbility
     private void HandleTriggeredObject(GameObject go)
     {
         Debug.Log("Attack Hit");
+        Camera.main.GetComponent<CameraController>().ShakeCamera(0.5f);
+        //Managers.Scene.CurrentScene.ApplyTimeSlow(0.5f, 0.1f);
     }
     IEnumerator CoAttack()
     {

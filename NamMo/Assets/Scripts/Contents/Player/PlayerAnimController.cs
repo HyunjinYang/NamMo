@@ -18,7 +18,7 @@ public class PlayerAnimController : MonoBehaviour
     private bool _isHurting = false;
     private bool _isCharging = false;
     private bool _isStrongAttacking = false;
-    private bool _isDashAttacking = false;
+    private bool _isParryingAttacking = false;
 
     private float _moveDir = 0;
     private int _attackCombo = -1;
@@ -65,8 +65,8 @@ public class PlayerAnimController : MonoBehaviour
             asc.GetAbility(Define.GameplayAbility.GA_StrongAttack).OnAbilityActivated += StrongAttackStart;
             asc.GetAbility(Define.GameplayAbility.GA_StrongAttack).OnAbilityEnded += StrongAttackEnd;
 
-            asc.GetAbility(Define.GameplayAbility.GA_Attack2).OnAbilityActivated += DashAttackStart;
-            asc.GetAbility(Define.GameplayAbility.GA_Attack2).OnAbilityEnded += DashAttackEnd;
+            asc.GetAbility(Define.GameplayAbility.GA_ParryingAttack).OnAbilityActivated += ParryingAttackStart;
+            asc.GetAbility(Define.GameplayAbility.GA_ParryingAttack).OnAbilityEnded += ParryingAttackEnd;
         }
     }
     private void StartJump()
@@ -207,15 +207,15 @@ public class PlayerAnimController : MonoBehaviour
         _isStrongAttacking = false;
         _animator.SetBool("IsStrongAttacking", _isStrongAttacking);
     }
-    private void DashAttackStart()
+    private void ParryingAttackStart()
     {
-        _isDashAttacking = true;
-        _animator.SetBool("IsDashAttacking", _isDashAttacking);
+        _isParryingAttacking = true;
+        _animator.SetBool("IsParryingAttacking", _isParryingAttacking);
     }
-    private void DashAttackEnd()
+    private void ParryingAttackEnd()
     {
-        _isDashAttacking = false;
-        _animator.SetBool("IsDashAttacking", _isDashAttacking);
+        _isParryingAttacking = false;
+        _animator.SetBool("IsParryingAttacking", _isParryingAttacking);
     }
     IEnumerator CoDelayAction(Action action)
     {

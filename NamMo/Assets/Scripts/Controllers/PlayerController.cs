@@ -202,6 +202,32 @@ public partial class PlayerController : MonoBehaviour
         //    }
         //    _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Attack2);
         //}
+        GA_Parrying parryingAbility = _asc.GetAbility(Define.GameplayAbility.GA_Parrying) as GA_Parrying;
+        if (parryingAbility)
+        {
+            if (parryingAbility.IsActivated)
+            {
+                if (context.performed)
+                {
+                    foreach (BaseAttack parriedAttack in parryingAbility.ParriedAttacks)
+                    {
+                        if (parriedAttack == null) continue;
+                        if (parriedAttack as CloseAttack == null) continue;
+                        if (parriedAttack.Attacker == null) continue;
+                        GameObject attacker = parriedAttack.Attacker;
+                        if (attacker.GetComponent<Enemy.Enemy>() == null) continue;
+
+                        GA_ParryingAttack parryingAttackAbility = _asc.GetAbility(Define.GameplayAbility.GA_ParryingAttack) as GA_ParryingAttack;
+                        if (parryingAttackAbility)
+                        {
+                            parryingAttackAbility.TargetEnemy = attacker.GetComponent<Enemy.Enemy>();
+                            _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_ParryingAttack);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
         if (_pm.IsJumping || _pm.IsFalling)
         {
             if (context.performed)

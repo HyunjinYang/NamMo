@@ -146,17 +146,29 @@ public class GA_Block : GameAbility
         }
         else
         {
-            if (_asc.GetPlayerController().GetPlayerMovement().IsFacingRight)
+            if (dir.x > 0.5f)
             {
                 _blockDirection = Define.Direction.Right;
             }
-            else
+            else if (dir.x < -0.5f)
             {
                 _blockDirection = Define.Direction.Left;
+            }
+            else
+            {
+                if (_asc.GetPlayerController().GetPlayerMovement().IsFacingRight)
+                {
+                    _blockDirection = Define.Direction.Right;
+                }
+                else
+                {
+                    _blockDirection = Define.Direction.Left;
+                }
             }
         }
     }
     private int _attackStrength = 1;
+    private List<BaseAttack> _parriedObjects = new List<BaseAttack>();
     private void HandleTriggeredObject(GameObject go)
     {
         if (_isPerfectParryingTiming)
@@ -171,9 +183,13 @@ public class GA_Block : GameAbility
                     if (_reserveParrying == false)
                     {
                         _reserveParrying = true;
-                        StartCoroutine(CoCancelAbility(go));
+                        StartCoroutine(CoActivateParrying(go));
                     }
                     parryingable.Parried(_asc.GetPlayerController().gameObject, null);
+                    if (go.GetComponent<BaseAttack>())
+                    {
+                        _parriedObjects.Add(go.GetComponent<BaseAttack>());
+                    }
                 }
                 else
                 {
@@ -206,7 +222,7 @@ public class GA_Block : GameAbility
         _isPerfectParryingTiming = false;
         _cacluateParryingTimingCoroutine = null;
     }
-    IEnumerator CoCancelAbility(GameObject go)
+    IEnumerator CoActivateParrying(GameObject go)
     {
         float dir = 1;
         if (go.transform.position.x > _asc.GetPlayerController().transform.position.x) dir = -1;
@@ -215,13 +231,21 @@ public class GA_Block : GameAbility
         _asc.TryCancelAbilityByTag(Define.GameplayAbility.GA_Block);
         RefreshCoolTime();
 
-        float knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].knockbackPower;
-        float blockCancelTime = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_attackStrength].bindTime;
-        _asc.GetAbility(Define.GameplayAbility.GA_Parrying).BlockCancelTime = blockCancelTime;
-        Managers.Scene.CurrentScene.Player.GetPlayerMovement().AddForce(new Vector2(dir, 0), knockbackPower, 0.2f);
-        
+        GA_Parrying parryingAbility = _asc.GetAbility(Define.GameplayAbility.GA_Parrying) as GA_Parrying;
+        if (parryingAbility)
+        {
+            parryingAbility.ParriedAttacks.Clear();
+            foreach(BaseAttack parriedAttack in _parriedObjects)
+            {
+                parryingAbility.ParriedAttacks.Add(parriedAttack);
+            }
+            parryingAbility.SetParriedAttackInfo(dir, _attackStrength);
+        }
+
         _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_Parrying);
         _reserveParrying = false;
-        _attackStrength = 1;
+        _attackStrength = 0;
+
+        _parriedObjects.Clear();
     }
 }

@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
     
     [SerializeField] private Camera _camera;
     [SerializeField] private CinemachineVirtualCamera _vCam;
+    [SerializeField] private CinemachineImpulseListener _cinemachineImpulseListener;
+    [SerializeField] private CinemachineImpulseSource _cinemachineImpulseSource;
     [SerializeField] private LockCameraY _lockCamY;
     [SerializeField] private float _yOffset;
     [SerializeField] public Define.CameraMode CameraMode;
@@ -16,6 +18,8 @@ public class CameraController : MonoBehaviour
     private PlayerController _pc;
     private float _targetPosY;
     private float _currPosY;
+
+    private Coroutine _cameraZoomCoroutine = null;
     private void Awake()
     {
         if (_camera == null) _camera = Camera.main;
@@ -42,5 +46,41 @@ public class CameraController : MonoBehaviour
     public void SetCameraOffsetY(float posY)
     {
         _targetPosY = posY;
+    }
+    public void ShakeCamera(float force)
+    {
+        _cinemachineImpulseSource.GenerateImpulseWithForce(force);
+    }
+    public void ZoomCamera()
+    {
+        if (_cameraZoomCoroutine != null)
+        {
+            StopCoroutine(_cameraZoomCoroutine);
+            _vCam.m_Lens.OrthographicSize = Mathf.Min(_vCam.m_Lens.OrthographicSize + 0.3f, 12f);
+        }
+        _cameraZoomCoroutine = StartCoroutine(CoZoomCamera());
+    }
+    IEnumerator CoZoomCamera()
+    {
+        while (true)
+        {
+            if (_vCam.m_Lens.OrthographicSize <= 11f)
+            {
+                _vCam.m_Lens.OrthographicSize = 11f;
+                break;
+            }
+            _vCam.m_Lens.OrthographicSize -= 0.1f;
+            yield return new WaitForSecondsRealtime(0.03f);
+        }
+        while (true)
+        {
+            if (_vCam.m_Lens.OrthographicSize >= 12f)
+            {
+                _vCam.m_Lens.OrthographicSize = 12f;
+                break;
+            }
+            _vCam.m_Lens.OrthographicSize += 0.1f;
+            yield return new WaitForSecondsRealtime(0.03f);
+        }
     }
 }

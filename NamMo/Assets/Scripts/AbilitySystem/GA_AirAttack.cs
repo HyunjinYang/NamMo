@@ -42,6 +42,7 @@ public class GA_AirAttack : GameAbility
     private void HandleTriggeredObject(GameObject go)
     {
         Debug.Log("Attack Hit");
+        Camera.main.GetComponent<CameraController>().ShakeCamera(0.5f);
     }
     IEnumerator CoAirAttack()
     {

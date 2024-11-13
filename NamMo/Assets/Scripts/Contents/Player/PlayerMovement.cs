@@ -452,7 +452,7 @@ public class PlayerMovement : MonoBehaviour
         //_rb.velocity = new Vector2(0, _rb.velocity.y);
         _rb.velocity = Vector2.zero;
         //_rb.AddForce(dir * power, ForceMode2D.Impulse);
-        _rb.velocity = dir * power;
+        _rb.velocity = dir * power * _pc.GetPlayerSpeed();
         CancelAddForceBlockMove();
         _blockMoveCoroutine = StartCoroutine(CoKnockBack(blockMoveTime));
     }
