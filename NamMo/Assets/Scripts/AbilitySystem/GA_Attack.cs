@@ -75,6 +75,8 @@ public class GA_Attack : GameAbility
     private void HandleTriggeredObject(GameObject go)
     {
         Debug.Log("Attack Hit");
+        Camera.main.GetComponent<CameraController>().ShakeCamera(0.5f);
+        //Managers.Scene.CurrentScene.ApplyTimeSlow(0.5f, 0.1f);
     }
     IEnumerator CoAttack()
     {
@@ -90,7 +92,7 @@ public class GA_Attack : GameAbility
         BlockCancelTime = currComboAttackInfo.blockCancelTime;
         ApplyBlockCancelAbility();
 
-        yield return new WaitForSeconds(currComboAttackInfo.attackMoment);
+        yield return new WaitForSecondsRealtime(currComboAttackInfo.attackMoment);
 
         _asc.GetPlayerController().GetAttackArea().SetAttackInfo(_asc.GetPlayerController().gameObject, currComboAttackInfo.attackRate);
         _asc.GetPlayerController().GetAttackArea().SetAttackRange(currComboAttackInfo.attackOffset, currComboAttackInfo.attackRange);
@@ -98,11 +100,9 @@ public class GA_Attack : GameAbility
         //Managers.Sound.Play("Attack");
         _asc.GetPlayerController().GetPlayerSound().PlayAttackSound();
 
-        yield return new WaitForFixedUpdate();
-
         //_asc.GetPlayerController().GetAttackArea().DeActiveAttackArea();
         
-        yield return new WaitForSeconds(currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment);
+        yield return new WaitForSecondsRealtime(currComboAttackInfo.attackTime - currComboAttackInfo.attackMoment);
 
         //_asc.FlushReservedAbility();
 

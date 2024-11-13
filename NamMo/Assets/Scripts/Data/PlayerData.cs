@@ -28,6 +28,7 @@ public class PlayerData : GameData
         Define.GameplayAbility.GA_Charge,
         Define.GameplayAbility.GA_StrongAttack,
         Define.GameplayAbility.GA_Attack2,
+        Define.GameplayAbility.GA_ParryingAttack,
     };
     public int WaveDetectCnt = 4;
     public override void Save()

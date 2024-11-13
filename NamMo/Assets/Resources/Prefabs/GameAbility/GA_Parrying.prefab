@@ -49,6 +49,9 @@ MonoBehaviour:
   _needTags: 
   _blockTags: 
   _cancelAbilities: 
+  _ignoreBlockCancelAbilities: 0d000000
   _coolTime: 0
   CanUse: 0
+  BlockCancelTime: 0
   _parryingTime: 0.35
+  ParriedAttacks: []

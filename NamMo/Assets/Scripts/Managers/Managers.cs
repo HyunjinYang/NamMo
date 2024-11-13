@@ -9,6 +9,7 @@ public class Managers : MonoBehaviour
     static Managers Instance { get { Init(); return s_instance; } } // 유일한 매니저를 갖고온다
 
     #region Contents
+    TimeManager _time = new TimeManager();
 	#endregion
 
 	#region Core
@@ -29,6 +30,7 @@ public class Managers : MonoBehaviour
     public static UIManager UI { get { return Instance._ui; } }
     public static InputManager Input { get { return Instance._input; } }
     public static GameManager Gamemanager { get { return Instance._gameManage; } }
+    public static TimeManager Time { get { return Instance._time; } }
 	#endregion
 
 	void Start()
@@ -58,6 +60,7 @@ public class Managers : MonoBehaviour
             s_instance._input = new InputManager();
             s_instance._input.Init();
             s_instance._sound.Init();
+            s_instance._time.Init();
             //s_instance._gameManage.Init();
         }		
 	}
@@ -68,6 +71,7 @@ public class Managers : MonoBehaviour
         Scene.Clear();
         UI.Clear();
         Pool.Clear();
+        Time.Clear();
     }
     public static IEnumerator CoDelayAction(float time, Action action)
     {

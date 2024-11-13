@@ -20,7 +20,7 @@ public abstract partial class BaseAttack : MonoBehaviour
     protected AttackerType _attackerType;
 
     public Action<GameObject> OnHitted;
-    public GameObject Attakcer { get { return _attacker; } }
+    public GameObject Attacker { get { return _attacker; } }
     public float Damage { get { return _damage; } }
     public int AttackStrength { get { return _attackStrength; } }
     private void Start()
