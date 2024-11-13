@@ -85,12 +85,12 @@ namespace Enemy.Boss.MiniBoss
             _enemyMovement.DirectCheck();
             SceneLinkedSMB<MiniBossEnemy>.Initialise(_animator, this);
             
-            _miniBossDashAttackPattern.Initialise(this);
-            miniBossWaveAttackPattern.Initialise(this);
-            _miniBossMeleeAttackPattern.Initialise(this);
-            _minBossLandAttackPattern.Initialise(this);
-            _miniBossRecoveryPattern.Initialise(this);
-            _miniBossAxeAttackPattern.Initialise(this);
+            _miniBossDashAttackPattern.Initalize(this);
+            miniBossWaveAttackPattern.Initalize(this);
+            _miniBossMeleeAttackPattern.Initalize(this);
+            _minBossLandAttackPattern.Initalize(this);
+            _miniBossRecoveryPattern.Initalize(this);
+            _miniBossAxeAttackPattern.Initalize(this);
             
             EnemyMelAttack1AttackArea.SetAttackInfo(gameObject, 2);
             EnemyMelAttack2AttackArea.SetAttackInfo(gameObject, 2);
@@ -283,18 +283,21 @@ namespace Enemy.Boss.MiniBoss
         public void MelAttackPatternStart()
         {
             _enemyMovement.DirectCheck();
+            CurrentAttackCount = _miniBossMeleeAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
         }
 
         public void AxeAttackPatternStart()
         {
             _enemyMovement.DirectCheck();
+            CurrentAttackCount = _miniBossAxeAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(_miniBossAxeAttackPattern.Pattern());
         }
 
         public void DashAttackPatternStart()
         {
             _enemyMovement.DirectCheck();
+            CurrentAttackCount = _miniBossDashAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(_miniBossDashAttackPattern.Pattern());
         }
 
@@ -306,11 +309,13 @@ namespace Enemy.Boss.MiniBoss
 
         public void WaveAttackPatternStart()
         {
+            CurrentAttackCount = miniBossWaveAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(miniBossWaveAttackPattern.Pattern());
         }
 
         public void LandAttackPatternStart()
         {
+            CurrentAttackCount = _minBossLandAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(_minBossLandAttackPattern.Pattern());
         }
         

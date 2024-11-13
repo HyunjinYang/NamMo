@@ -35,9 +35,20 @@ namespace Enemy
         public Action OnGroggy;
         public Action OnEndGroggy;
         public Action<float> OnWalk;
+        public int CurrentAttackCount;
         
         protected Coroutine _TurmCoroutine;
 
+        [SerializeField] private GameObject _waveDetectEffectPrefab;
+        private GameObject _waveEffect;
+        [SerializeField]private float _scaleChangeTime;
+        [SerializeField] private float _size;
+        [SerializeField] private GameObject _waveGroundEffect;
+        public void ShowWaveVFX()
+        {
+            _waveEffect = Instantiate(_waveDetectEffectPrefab, gameObject.transform.position, Quaternion.identity);
+            _waveEffect.GetComponent<VFXController>().Play(_scaleChangeTime, _size);
+        }
         
         public int ManagedId { get; set; } = -1;
 
@@ -70,7 +81,14 @@ namespace Enemy
 
         public virtual void Behavire(float distance)
         {
-            
+            if (distance <= 5f)
+            {
+                _waveGroundEffect.SetActive(false);
+            }
+            else
+            {
+                _waveGroundEffect.SetActive(true);
+            }
         }
 
         public void PlayerFind(GameObject player)

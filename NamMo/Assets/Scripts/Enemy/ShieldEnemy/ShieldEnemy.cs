@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Enemy.ShieldEnemy.State;
 using UnityEngine;
 
@@ -33,9 +34,11 @@ namespace Enemy.ShieldEnemy
         {
             
         }
-
         public override void Behavire(float distance)
         {
+            base.Behavire(distance);
+            
+            
             _distance = distance;
         }
 

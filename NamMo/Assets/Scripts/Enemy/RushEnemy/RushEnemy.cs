@@ -16,7 +16,7 @@ namespace Enemy.RushEnemy
         public RushEnemyStateMachine _statemachine;
         public EnemyAttackArea EnemyAttackArea;
 
-        public RushEnemyRushAttackPattern _RushAttackPattern;
+        public EnemyAttackPattern<RushEnemy> _RushAttackPattern;
         private Animator _animator;
 
         private Coroutine _currentPattern;
@@ -52,6 +52,8 @@ namespace Enemy.RushEnemy
 
         public override void Behavire(float distance)
         {
+            base.Behavire(distance);
+
             _distance = distance;
         }
 
@@ -96,6 +98,7 @@ namespace Enemy.RushEnemy
             _enemyMovement._isAttack = true;
             _enemyMovement.OnWalk(0f);
             _RushAttackPattern.Initalize(this);
+            CurrentAttackCount = _RushAttackPattern.AttackCount;
             _isAttacking = true;
             _currentPattern = StartCoroutine(_RushAttackPattern.Pattern());
         }

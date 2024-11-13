@@ -75,9 +75,11 @@ namespace Enemy
             _curr.x = Mathf.MoveTowards(_curr.x, _playerposition.position.x, _speed * Time.deltaTime);
             _CharacterSprite.transform.position = _curr;*/
             timer += Time.deltaTime;
-            
-            if(timer >= updateInterval)
-                _agent.SetDestination(_playerposition.position);
+
+            if (timer >= updateInterval)
+            {
+                _agent.SetDestination(_playerposition.position);   
+            }
             DirectCheck();
 
         }
@@ -104,7 +106,6 @@ namespace Enemy
 
         public void DirectCheck()
         {
-            Debug.Log(_agent.velocity.x);
             if (_agent.velocity.x == 0)
                 return;
             

@@ -30,10 +30,10 @@ namespace Enemy.MelEnemy
         [SerializeField] public EnemyAttackArea EnemyAttack1AttackArea;
         [SerializeField] public EnemyAttackArea EnemyAttack2AttackArea;
         [SerializeField] public EnemyAttackArea EnemyAttack3AttackArea;
-        [SerializeField] private List<MelEnemyAttackPattern<MelEnemy>> _patternlist = new List<MelEnemyAttackPattern<MelEnemy>>();
+        [SerializeField] private List<EnemyAttackPattern<MelEnemy>> _patternlist = new List<EnemyAttackPattern<MelEnemy>>();
         
         private Animator _animator;
-        private MelEnemyAttackPattern<MelEnemy> _pattern;
+        private EnemyAttackPattern<MelEnemy> _pattern;
         private Random _rand = new Random();
 
         private Coroutine _attackCoroutine;
@@ -79,6 +79,8 @@ namespace Enemy.MelEnemy
         public override void Behavire(float distance)
         {
             //stateMachine.Update();
+            base.Behavire(distance);
+            
             _distance = distance;
         }
 
@@ -91,7 +93,12 @@ namespace Enemy.MelEnemy
         {
             Destroy(_enemyMovement.gameObject);
         }
-        
+
+        public void SetNavMeshAgentPriority(int p)
+        {
+            GetComponent<NavMeshAgent>().avoidancePriority = p;
+
+        }
         public void Attack()
         {
             _enemyMovement._isAttack = true;
@@ -158,8 +165,9 @@ namespace Enemy.MelEnemy
         {
             var next = _rand.Next(0, 2);
 
-            _pattern = _patternlist[1];
-            _pattern.Initialise(this);
+            _pattern = _patternlist[0];
+            CurrentAttackCount = _pattern.AttackCount;
+            _pattern.Initalize(this);
             _isAttacking = true;
             _enemyMovement.DirectCheck();
             yield return _currentPattern = StartCoroutine(_pattern.Pattern());

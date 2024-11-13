@@ -15,6 +15,8 @@ namespace Enemy.MelEnemy
         {
             Debug.Log("PatrolState");
             _melEnemy.GetComponent<NavMeshAgent>().isStopped = false;
+            
+            //_melEnemy.SetNavMeshAgentPriority(50);
         }
 
         public void Update()

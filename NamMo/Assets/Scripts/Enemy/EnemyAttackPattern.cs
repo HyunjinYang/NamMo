@@ -7,7 +7,7 @@ namespace Enemy
         where TMonoBehaviour : Enemy 
     {
         protected TMonoBehaviour _gameObject;
-
+        public int AttackCount;
         public void Initalize(TMonoBehaviour gameobject)
         {
             _gameObject = gameobject;

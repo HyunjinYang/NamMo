@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy.RushEnemy
 {
-    public class RushEnemyRushAttackPattern: RushEnemyAttackPattern<RushEnemy>
+    public class RushEnemyRushAttackPattern: EnemyAttackPattern<RushEnemy>
     {
         public override IEnumerator Pattern()
         {

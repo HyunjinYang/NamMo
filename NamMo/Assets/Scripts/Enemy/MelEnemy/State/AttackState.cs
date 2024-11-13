@@ -19,6 +19,7 @@ namespace Enemy.MelEnemy
             _MelEnemy.GetComponent<NavMeshAgent>().isStopped = true;
             _MelEnemy.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
             _MelEnemy.Attack();
+            //_MelEnemy.SetNavMeshAgentPriority(51);
             _MelEnemy.GroggyEnter();
         }
 
