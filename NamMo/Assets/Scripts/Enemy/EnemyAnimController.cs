@@ -76,7 +76,6 @@ namespace Enemy
         private void Groggy()
         {
             _enemy.GroggyStetCount();
-            Debug.Log(_enemy.CurrentAttackCount);
             _enemy.CurrentAttackCount--;
             if (_enemy.currentgroggyStet >= _enemy.maxGroggyStet && _enemy.CurrentAttackCount <= 0)
             {
