@@ -55,3 +55,4 @@ MonoBehaviour:
   BlockCancelTime: 0
   _perfectParryingTime: 0.2
   _blockTime: 0.5
+  _waveDetectEffectPrefab: {fileID: 1243250658357058128, guid: 78d6a161a8b7f244d901ba7a9c91b3df, type: 3}

@@ -23,6 +23,7 @@ public class GA_AirAttack : GameAbility
         _airAttackCoroutine = StartCoroutine(CoAirAttack());
         _asc.GetPlayerController().GetAttackArea().OnHitted += HandleTriggeredObject;
 
+        _asc.GetPlayerController().GetPlayerMovement().CanMove = false;
     }
     protected override void CancelAbility()
     {
@@ -38,6 +39,8 @@ public class GA_AirAttack : GameAbility
         base.EndAbility();
         _asc.GetPlayerController().GetAttackArea().OnHitted -= HandleTriggeredObject;
         _airAttackCoroutine = null;
+
+        _asc.GetPlayerController().GetPlayerMovement().CanMove = true;
     }
     private void HandleTriggeredObject(GameObject go)
     {

@@ -41,7 +41,10 @@ public class VFXController : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Managers.Scene.CurrentScene.OnTimeScaleChanged -= SetLifeTime;
+        if (Managers.Scene.CurrentScene)
+        {
+            Managers.Scene.CurrentScene.OnTimeScaleChanged -= SetLifeTime;
+        }
     }
     IEnumerator CoReserveDestroy(float lifeTime)
     {
