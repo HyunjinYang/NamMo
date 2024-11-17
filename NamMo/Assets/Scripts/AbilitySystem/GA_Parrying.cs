@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Enemy.MelEnemy;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class GA_Parrying : GameAbility
     private int _parriedAttackStrength;
 
     public List<BaseAttack> ParriedAttacks = new List<BaseAttack>();
+    [SerializeField] private GameObject _redCirclePrefab;
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
@@ -22,9 +24,20 @@ public class GA_Parrying : GameAbility
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
         _asc.GetPlayerController().GetPlayerSound().PlayParryingSound();
 
-        Managers.Scene.CurrentScene.ApplyTimeSlow(0.5f, 0.5f);
-        //Camera.main.GetComponent<CameraController>().ShakeCamera(1.5f);
-        Camera.main.GetComponent<CameraController>().ZoomCamera();
+        foreach(BaseAttack attack in ParriedAttacks)
+        {
+            if (attack.Attacker == null) continue;
+            if (attack.Attacker.GetComponent<MelEnemy>() == null) continue;
+            if (attack.Attacker.GetComponent<MelEnemy>().stateMachine._CurrentState as GroggyState == null) continue;
+            Managers.Scene.CurrentScene.ApplyTimeSlow(0.5f, 0.5f);
+            //Camera.main.GetComponent<CameraController>().ShakeCamera(1.5f);
+            Camera.main.GetComponent<CameraController>().ZoomCamera();
+
+            GameObject redCircle = Instantiate(_redCirclePrefab, attack.Attacker.transform.position + Vector3.up, Quaternion.identity);
+            redCircle.transform.SetParent(attack.Attacker.transform);
+            Destroy(redCircle, _parryingTime);
+            break;
+        }
 
         float knockbackPower = Managers.Data.EnemyAttackReactDict[Define.GameplayAbility.GA_Parrying].reactValues[_parriedAttackStrength].knockbackPower;
         Managers.Scene.CurrentScene.Player.GetPlayerMovement().AddForce(new Vector2(_dir, 0), knockbackPower, 0.2f);

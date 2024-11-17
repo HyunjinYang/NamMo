@@ -1,3 +1,4 @@
+using Enemy.MelEnemy;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -215,7 +216,9 @@ public partial class PlayerController : MonoBehaviour
                         if (parriedAttack as CloseAttack == null) continue;
                         if (parriedAttack.Attacker == null) continue;
                         GameObject attacker = parriedAttack.Attacker;
-                        if (attacker.GetComponent<Enemy.Enemy>() == null) continue;
+                        if (attacker.GetComponent<MelEnemy>() == null) continue;
+
+                        if (attacker.GetComponent<MelEnemy>().stateMachine._CurrentState as GroggyState == null) continue;
 
                         GA_ParryingAttack parryingAttackAbility = _asc.GetAbility(Define.GameplayAbility.GA_ParryingAttack) as GA_ParryingAttack;
                         if (parryingAttackAbility)
