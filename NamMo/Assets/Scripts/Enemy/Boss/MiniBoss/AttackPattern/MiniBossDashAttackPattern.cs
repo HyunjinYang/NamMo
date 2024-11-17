@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy.Boss.MiniBoss
 {
-    public class MiniBossDashAttackPattern: MiniBossAttackPattern<MiniBossEnemy>
+    public class MiniBossDashAttackPattern: EnemyAttackPattern<MiniBossEnemy>
     {
         public override IEnumerator Pattern()
         {

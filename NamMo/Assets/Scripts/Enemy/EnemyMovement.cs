@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy
 {
@@ -21,29 +22,33 @@ namespace Enemy
         public bool _isGroggy = false;
         private Transform _currentWayPoint;
         private Rigidbody2D _rb;
-        private float _distance = 0.1f;
+        private float _distance = 0.9f;
         public Action OnAttack;
         public Action<float> OnWalk;
         public Transform _playerposition;
         [SerializeField] private int direct = 1;
-
+        private NavMeshAgent _agent;
         public float _speed;
+
+        private float timer;
+        private float updateInterval = 0.6f;
         protected  void Awake()
         {
             Flip();
             _rb = GetComponent<Rigidbody2D>();
             _currentWayPoint = _point1;
+            _agent = _CharacterSprite.GetComponent<NavMeshAgent>();
+            _agent.updateRotation = false;
+            _agent.updateUpAxis = false;
+            _agent.speed = _speed;
+            _agent.SetDestination(_currentWayPoint.position);
         }
         public void Patrol()
         {
             if (!_isWait)
             {
-                Debug.Log("실행중..~!");
-                
                 OnWalk.Invoke(1f);
-                _CharacterSprite.transform.position = Vector2.MoveTowards(_CharacterSprite.transform.position, _currentWayPoint.position,
-                    _speed * Time.deltaTime);
-
+                _agent.isStopped = false;
                 if (Vector2.Distance(_CharacterSprite.transform.position, _currentWayPoint.position) <= _distance)
                 {
                     StartCoroutine(NextMove());
@@ -64,14 +69,24 @@ namespace Enemy
             OnWalk.Invoke(1f);
             if (_playerposition == null)
                 _playerposition = Managers.Scene.CurrentScene.Player.transform;
-            DirectCheck(_CharacterSprite.transform.position.x, _playerposition.position.x);
+            
+            /*
             Vector2 _curr = _CharacterSprite.transform.position;
             _curr.x = Mathf.MoveTowards(_curr.x, _playerposition.position.x, _speed * Time.deltaTime);
-            _CharacterSprite.transform.position = _curr;
+            _CharacterSprite.transform.position = _curr;*/
+            timer += Time.deltaTime;
+
+            if (timer >= updateInterval)
+            {
+                _agent.SetDestination(_playerposition.position);   
+            }
+            DirectCheck();
+
         }
         private IEnumerator NextMove()
         {
             OnWalk.Invoke(0f);
+            _agent.ResetPath();
             _isWait = true;
             yield return new WaitForSeconds(2f);
             if (!_isNextPoint)
@@ -82,18 +97,19 @@ namespace Enemy
             {
                 _currentWayPoint = _point1;
             }
+            _agent.SetDestination(_currentWayPoint.position);
             Flip();
             _isWait = false;
             _isNextPoint = !_isNextPoint;
             
         }
 
-        public void DirectCheck(float x, float targetx)
+        public void DirectCheck()
         {
-            if (x == targetx)
+            if (_agent.velocity.x == 0)
                 return;
             
-            if (x < targetx)
+            if (0 < _agent.velocity.x)
             {
                 if (direct == 1)
                     return;
@@ -113,7 +129,30 @@ namespace Enemy
             }
             
         }
-
+        
+        public void Direct(float x, float targetx)
+        {
+            Debug.Log(direct);
+            if (0 < x)
+            {
+                if (direct == -1)
+                    return;
+                else
+                {
+                    Flip();
+                }
+            }
+            else
+            {
+                if (direct == 1)
+                    return;
+                else
+                {
+                    Flip();
+                }
+            }
+            
+        }
         private void Facing()
         {
             if (direct == 1)

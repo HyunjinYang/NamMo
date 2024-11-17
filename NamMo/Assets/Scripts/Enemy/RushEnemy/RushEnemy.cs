@@ -16,14 +16,13 @@ namespace Enemy.RushEnemy
         public RushEnemyStateMachine _statemachine;
         public EnemyAttackArea EnemyAttackArea;
 
-        public RushEnemyRushAttackPattern _RushAttackPattern;
+        public EnemyAttackPattern<RushEnemy> _RushAttackPattern;
         private Animator _animator;
 
         private Coroutine _currentPattern;
         
         public float _jumpdistance;
         
-        public float _distance;
         public float AttackTime;
         
         protected override void Start()
@@ -53,6 +52,8 @@ namespace Enemy.RushEnemy
 
         public override void Behavire(float distance)
         {
+            base.Behavire(distance);
+
             _distance = distance;
         }
 
@@ -97,6 +98,7 @@ namespace Enemy.RushEnemy
             _enemyMovement._isAttack = true;
             _enemyMovement.OnWalk(0f);
             _RushAttackPattern.Initalize(this);
+            CurrentAttackCount = _RushAttackPattern.AttackCount;
             _isAttacking = true;
             _currentPattern = StartCoroutine(_RushAttackPattern.Pattern());
         }
@@ -151,7 +153,7 @@ namespace Enemy.RushEnemy
 
         public void Direction()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
         }
         public void Dead()
         {

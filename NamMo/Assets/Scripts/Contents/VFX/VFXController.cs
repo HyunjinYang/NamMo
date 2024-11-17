@@ -8,10 +8,12 @@ public class VFXController : MonoBehaviour
 {
     private VisualEffect _vfx;
     private Coroutine _destroyCoroutine = null;
+    [SerializeField] private bool _isGround = false;
     private void Awake()
     {
         _vfx = GetComponent<VisualEffect>();
-        _vfx.Stop();
+        if(!_isGround)
+            _vfx.Stop();
     }
     public void Play(float lifeTime, float size = 1)
     {

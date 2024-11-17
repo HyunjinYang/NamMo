@@ -20,6 +20,7 @@ public class Managers : MonoBehaviour
     SoundManager _sound = new SoundManager();
     UIManager _ui = new UIManager();
     InputManager _input = new InputManager();
+    EffectManager _effect = new EffectManager();
     private GameManager _gameManage = new GameManager();
 
     public static DataManager Data { get { return Instance._data; } }
@@ -31,6 +32,7 @@ public class Managers : MonoBehaviour
     public static InputManager Input { get { return Instance._input; } }
     public static GameManager Gamemanager { get { return Instance._gameManage; } }
     public static TimeManager Time { get { return Instance._time; } }
+    public static EffectManager Effect { get { return Instance._effect; } }
 	#endregion
 
 	void Start()
@@ -61,6 +63,7 @@ public class Managers : MonoBehaviour
             s_instance._input.Init();
             s_instance._sound.Init();
             s_instance._time.Init();
+            s_instance._effect.Init();
             //s_instance._gameManage.Init();
         }		
 	}

@@ -1,5 +1,6 @@
 using Enemy.MelEnemy;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.RushEnemy.State
 {
@@ -15,6 +16,9 @@ namespace Enemy.RushEnemy.State
         public void Enter()
         {
             Debug.Log("RushAttack State");
+            _RushEnemy.GetComponent<NavMeshAgent>().isStopped = true;
+            _RushEnemy.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
+
             _RushEnemy.RushAttack();
             _RushEnemy.GroggyEnter();
         }

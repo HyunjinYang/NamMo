@@ -9,7 +9,6 @@ namespace Enemy
     public class EnemyAttackArea : CloseAttack, IParryingable
     {
         public bool _isHit = false;
-        private bool _blockCheck = false;
         public Action _groggy;
 
         private BoxCollider2D _boxCollider;
@@ -23,7 +22,6 @@ namespace Enemy
 
         public void Parried(GameObject attacker, GameObject target = null)
         {
-            Debug.Log(gameObject.name);
             Enemy enemy = _attacker.GetComponent<Enemy>();
             if(enemy as MiniBossEnemy == null)
             {

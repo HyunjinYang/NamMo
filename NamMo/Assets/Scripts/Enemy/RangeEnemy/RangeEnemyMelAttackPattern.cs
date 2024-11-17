@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class RangeEnemyMelAttackPattern : RangeEnemyAttackPattern<RangedEnemy>
+    public class RangeEnemyMelAttackPattern : EnemyAttackPattern<RangedEnemy>
     {
         public override IEnumerator Pattern()
         {

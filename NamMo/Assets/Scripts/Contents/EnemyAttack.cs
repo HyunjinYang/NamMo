@@ -5,8 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] float _speed;
-    float _damage = 2f;
-    private bool _blockCheck = false;
+    //private bool _blockCheck = false;
     private void Start()
     {
         //Destroy(gameObject, 1.5f);
@@ -56,6 +55,6 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator CoRefreshBlockCheck()
     {
         yield return new WaitForEndOfFrame();
-        _blockCheck = false;
+        //blockCheck = false;
     }
 }

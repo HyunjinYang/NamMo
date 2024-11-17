@@ -1,5 +1,6 @@
 using Enemy.MelEnemy;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.State
 {
@@ -14,7 +15,9 @@ namespace Enemy.State
         
         public void Enter()
         {
-            Debug.Log("RangeEnemy Patrol State");   
+            Debug.Log("RangeEnemy Patrol State"); 
+            _RangedEnemy.GetComponent<NavMeshAgent>().isStopped = false;
+
 
         }
 
@@ -28,7 +31,7 @@ namespace Enemy.State
             
             _RangedEnemy.Tracking();
             
-            if(_RangedEnemy._distance <= 6.5f)
+            if(_RangedEnemy._distance <= 8.5f)
             {
                 _RangedEnemy.stateMachine.TransitionState(_RangedEnemy.stateMachine._RangeAttackState);
             }

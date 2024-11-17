@@ -44,8 +44,6 @@ namespace Enemy.Boss.MiniBoss
         
         private Animator _animator;
         
-        public float _distance;
-        
         private Random _rand = new Random();
 
         public int _isMelAttack;
@@ -84,15 +82,15 @@ namespace Enemy.Boss.MiniBoss
             
             _miniBossStateMachine = new MiniBossStateMachine(this);
             _miniBossStateMachine.Initalizze(_miniBossStateMachine._EntryState);
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             SceneLinkedSMB<MiniBossEnemy>.Initialise(_animator, this);
             
-            _miniBossDashAttackPattern.Initialise(this);
-            miniBossWaveAttackPattern.Initialise(this);
-            _miniBossMeleeAttackPattern.Initialise(this);
-            _minBossLandAttackPattern.Initialise(this);
-            _miniBossRecoveryPattern.Initialise(this);
-            _miniBossAxeAttackPattern.Initialise(this);
+            _miniBossDashAttackPattern.Initalize(this);
+            miniBossWaveAttackPattern.Initalize(this);
+            _miniBossMeleeAttackPattern.Initalize(this);
+            _minBossLandAttackPattern.Initalize(this);
+            _miniBossRecoveryPattern.Initalize(this);
+            _miniBossAxeAttackPattern.Initalize(this);
             
             EnemyMelAttack1AttackArea.SetAttackInfo(gameObject, 2);
             EnemyMelAttack2AttackArea.SetAttackInfo(gameObject, 2);
@@ -284,35 +282,40 @@ namespace Enemy.Boss.MiniBoss
         
         public void MelAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
+            CurrentAttackCount = _miniBossMeleeAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(_miniBossMeleeAttackPattern.Pattern());
         }
 
         public void AxeAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
+            CurrentAttackCount = _miniBossAxeAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(_miniBossAxeAttackPattern.Pattern());
         }
 
         public void DashAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
+            CurrentAttackCount = _miniBossDashAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(_miniBossDashAttackPattern.Pattern());
         }
 
         public void RecoveryPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             _currentPattern = StartCoroutine(_miniBossRecoveryPattern.Pattern());
         }
 
         public void WaveAttackPatternStart()
         {
+            CurrentAttackCount = miniBossWaveAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(miniBossWaveAttackPattern.Pattern());
         }
 
         public void LandAttackPatternStart()
         {
+            CurrentAttackCount = _minBossLandAttackPattern.AttackCount;
             _currentPattern = StartCoroutine(_minBossLandAttackPattern.Pattern());
         }
         
@@ -400,7 +403,7 @@ namespace Enemy.Boss.MiniBoss
 
         public void Direct()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
         }
 
         public void StartIdelTurm()

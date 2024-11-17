@@ -1,5 +1,6 @@
 using Enemy.MelEnemy;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy.State
 {
@@ -19,13 +20,15 @@ namespace Enemy.State
             _RangedEnemy._isAttacking = true;
             _RangedEnemy.MelAttackPatternStart();
             _RangedEnemy.GroggyEnter();
+            _RangedEnemy.GetComponent<NavMeshAgent>().isStopped = true;
+            _RangedEnemy.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
         }
 
         public void Update()
         {
             if (!_RangedEnemy._isAttacking)
             {
-                _RangedEnemy.stateMachine.TransitionState(_RangedEnemy.stateMachine._TurmState);
+                //_RangedEnemy.stateMachine.TransitionState(_RangedEnemy.stateMachine._TurmState);
             }
         }
         public void Exit()

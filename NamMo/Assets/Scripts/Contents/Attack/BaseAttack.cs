@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using BehaviorTree_Enemy;
 using Enemy;
 using UnityEngine;
 
@@ -93,6 +94,12 @@ public abstract partial class BaseAttack : MonoBehaviour
         if (target.GetComponent<Enemy.Enemy>())
         {
             Enemy.Enemy enemy = target.GetComponent<Enemy.Enemy>();
+            enemy.Hit((int)_damage);
+            res = true;
+        }
+        else if (target.GetComponent<TestEnemy>())
+        {
+            TestEnemy enemy = target.GetComponent<TestEnemy>();
             enemy.Hit((int)_damage);
             res = true;
         }

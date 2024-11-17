@@ -20,6 +20,7 @@ public class BaseProjectile : BaseAttack
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         CheckCollision(collision);
     }
     protected virtual void CheckCollision(Collider2D collision)
@@ -31,9 +32,11 @@ public class BaseProjectile : BaseAttack
             return;
         }
         if (collision.gameObject == _attacker) return;
-
+        
         if (_attackerType == AttackerType.Player)
         {
+            Debug.Log(collision.gameObject.name);
+
             TryHit(collision.gameObject);
         }
         else
@@ -63,9 +66,11 @@ public class BaseProjectile : BaseAttack
                 GetComponent<Collider2D>().OverlapCollider(filter, results);
                 foreach (Collider2D c in results)
                 {
+                    Debug.Log(c.gameObject.name);
                     BlockArea blockArea = c.gameObject.GetComponent<BlockArea>();
                     if (blockArea)
                     {
+                        Debug.Log("실햄");
                         _blockedCurrentFrame = true;
                         blockArea.OnBlockAreaTriggerEntered.Invoke(gameObject);
                         break;

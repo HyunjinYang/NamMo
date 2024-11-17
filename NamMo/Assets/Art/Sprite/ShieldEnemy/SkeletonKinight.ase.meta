@@ -1,0 +1,4315 @@
+fileFormatVersion: 2
+guid: 13f58884a768ea846a0147e8ddd9fe5b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: SkeletonKinight_Frame_8
+    originalName: 
+    pivot: {x: 0.52500004, y: -0.4117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 418
+      y: 471
+      width: 40
+      height: 17
+    spriteID: 2e7ee3ce57e8caa47b1f62512e214566
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 418, y: 471}
+  - name: SkeletonKinight_Frame_9
+    originalName: 
+    pivot: {x: 0.58064514, y: -0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 989
+      y: 416
+      width: 31
+      height: 16
+    spriteID: 3babc28fab67a9d49adfa7ce6bff9e09
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 989, y: 416}
+  - name: SkeletonKinight_Frame_10
+    originalName: 
+    pivot: {x: 0.65625, y: -0.3181818}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 378
+      y: 471
+      width: 32
+      height: 22
+    spriteID: 674dd0d6f23ceaa498ac8b2b186f7e85
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 378, y: 471}
+  - name: SkeletonKinight_Frame_11
+    originalName: 
+    pivot: {x: 0.7586207, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 293
+      y: 471
+      width: 29
+      height: 25
+    spriteID: bdb0d48020934514295f9781dc9a9323
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 293, y: 471}
+  - name: SkeletonKinight_Frame_12
+    originalName: 
+    pivot: {x: 0.7241379, y: -0.17857143}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 471
+      width: 29
+      height: 28
+    spriteID: b386f8c98a12c294eb36dfd05b259879
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 256, y: 471}
+  - name: SkeletonKinight_Frame_13
+    originalName: 
+    pivot: {x: 0.6666667, y: -0.15151516}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 221
+      y: 471
+      width: 27
+      height: 33
+    spriteID: 1080a797059ec33469621b7973c12a40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 221, y: 471}
+  - name: SkeletonKinight_Frame_14
+    originalName: 
+    pivot: {x: 0.6296296, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 992
+      y: 362
+      width: 27
+      height: 35
+    spriteID: fbc4922cea542fd4eb2b29dcd2c6cb60
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 992, y: 362}
+  - name: SkeletonKinight_Frame_15
+    originalName: 
+    pivot: {x: 0.6774193, y: -0.22857144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 143
+      y: 471
+      width: 31
+      height: 35
+    spriteID: ff7ef684874a5e845901fec5b3add3b0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 143, y: 471}
+  - name: SkeletonKinight_Frame_16
+    originalName: 
+    pivot: {x: 0.6875, y: -0.23529413}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 471
+      width: 32
+      height: 34
+    spriteID: 51919355b637f3944a2c099348c85f40
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 471}
+  - name: SkeletonKinight_Frame_17
+    originalName: 
+    pivot: {x: 0.6774193, y: -0.22857144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 471
+      width: 31
+      height: 35
+    spriteID: 3eca1e699a218404f8602cb7c0d478a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 182, y: 471}
+  - name: SkeletonKinight_Frame_18
+    originalName: 
+    pivot: {x: 0.7027027, y: -0.18918918}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 54
+      y: 471
+      width: 37
+      height: 37
+    spriteID: efb9a737c8608de43b5b791e76fdc74f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 54, y: 471}
+  - name: SkeletonKinight_Frame_19
+    originalName: 
+    pivot: {x: 0.75609756, y: -0.17777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 577
+      y: 362
+      width: 41
+      height: 45
+    spriteID: 919e6684ad4e7f14297b6469f425bcbb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 577, y: 362}
+  - name: SkeletonKinight_Frame_20
+    originalName: 
+    pivot: {x: 0.73333335, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 827
+      y: 362
+      width: 45
+      height: 40
+    spriteID: d3ead747c6eae664c834f7bffd7bef45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 827, y: 362}
+  - name: SkeletonKinight_Frame_21
+    originalName: 
+    pivot: {x: 0.6226415, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 261
+      width: 53
+      height: 42
+    spriteID: b885d47ccf8837942b054d7c30513192
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 261}
+  - name: SkeletonKinight_Frame_22
+    originalName: 
+    pivot: {x: 0.5964912, y: -0.19512196}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 212
+      width: 57
+      height: 41
+    spriteID: 119b9a5ccdead0942a80013fb270eb2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 212}
+  - name: SkeletonKinight_Frame_23
+    originalName: 
+    pivot: {x: 0.5862069, y: -0.19512196}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 784
+      y: 62
+      width: 58
+      height: 41
+    spriteID: b722314c66a41b54a90603b5e361746e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 784, y: 62}
+  - name: SkeletonKinight_Frame_24
+    originalName: 
+    pivot: {x: 0.5862069, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 134
+      y: 212
+      width: 58
+      height: 40
+    spriteID: 2314b9c3dc578ed4aa23c96904a6370d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 134, y: 212}
+  - name: SkeletonKinight_Frame_25
+    originalName: 
+    pivot: {x: 0.5862069, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 200
+      y: 212
+      width: 58
+      height: 40
+    spriteID: 96a2b9e0f2a927f44aadcc768b294d34
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 200, y: 212}
+  - name: SkeletonKinight_Frame_26
+    originalName: 
+    pivot: {x: 0.60714287, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 197
+      y: 261
+      width: 56
+      height: 39
+    spriteID: b61d5f41319ddd64e9f4fa909a5ef418
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 197, y: 261}
+  - name: SkeletonKinight_Frame_27
+    originalName: 
+    pivot: {x: 0.6181818, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 958
+      y: 212
+      width: 55
+      height: 40
+    spriteID: 6f8fefac0cb0cce4cbfa21a318a63836
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 958, y: 212}
+  - name: SkeletonKinight_Frame_28
+    originalName: 
+    pivot: {x: 0.6415094, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 918
+      y: 261
+      width: 53
+      height: 40
+    spriteID: c4ba2339faa6d17499d174acb81559ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 918, y: 261}
+  - name: SkeletonKinight_Frame_29
+    originalName: 
+    pivot: {x: 0.6346154, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 966
+      y: 166
+      width: 52
+      height: 38
+    spriteID: 6b30a01ffee907f429c0d79436239122
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 966, y: 166}
+  - name: SkeletonKinight_Frame_30
+    originalName: 
+    pivot: {x: 0.6346154, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 679
+      y: 311
+      width: 52
+      height: 39
+    spriteID: 4e019e96ef632e54b963b69e03f26854
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 679, y: 311}
+  - name: SkeletonKinight_Frame_31
+    originalName: 
+    pivot: {x: 0.6296296, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 311
+      width: 54
+      height: 39
+    spriteID: ece1a6f828daa5e47ab796f44b098740
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 123, y: 311}
+  - name: SkeletonKinight_Frame_32
+    originalName: 
+    pivot: {x: 0.6296296, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 185
+      y: 311
+      width: 54
+      height: 39
+    spriteID: 636af416dffa42740a01f17ea65df992
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 185, y: 311}
+  - name: SkeletonKinight_Frame_33
+    originalName: 
+    pivot: {x: 0.6538462, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 310
+      y: 311
+      width: 52
+      height: 40
+    spriteID: 1227afb2e576c5e4aa1f8a1826427dce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 310, y: 311}
+  - name: SkeletonKinight_Frame_34
+    originalName: 
+    pivot: {x: 0.65999997, y: -0.19512196}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 370
+      y: 311
+      width: 50
+      height: 41
+    spriteID: f800b61773390bf4e83009dce334b63e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 370, y: 311}
+  - name: SkeletonKinight_Frame_35
+    originalName: 
+    pivot: {x: 0.64705884, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 468
+      y: 362
+      width: 51
+      height: 37
+    spriteID: 625cc3575a41c934989edfb404417a3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 468, y: 362}
+  - name: SkeletonKinight_Frame_36
+    originalName: 
+    pivot: {x: 0.6346154, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 739
+      y: 311
+      width: 52
+      height: 39
+    spriteID: a36b4b248d8fb6a44b27e2dd821048a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 739, y: 311}
+  - name: SkeletonKinight_Frame_37
+    originalName: 
+    pivot: {x: 0.6779661, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 325
+      y: 261
+      width: 59
+      height: 37
+    spriteID: 51554fef7062a6244b14542cc9acabc9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 325, y: 261}
+  - name: SkeletonKinight_Frame_38
+    originalName: 
+    pivot: {x: 0.6779661, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 392
+      y: 261
+      width: 59
+      height: 37
+    spriteID: 3a90134784a86d749b9bab8c726e1704
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 392, y: 261}
+  - name: SkeletonKinight_Frame_39
+    originalName: 
+    pivot: {x: 0.6935484, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 166
+      width: 62
+      height: 38
+    spriteID: 90f765c3e086c0c428630cf1a01f565e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 166}
+  - name: SkeletonKinight_Frame_40
+    originalName: 
+    pivot: {x: 0.7096774, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 756
+      y: 166
+      width: 62
+      height: 37
+    spriteID: 27be68237f6c4f94092c5c07e4bafc10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 756, y: 166}
+  - name: SkeletonKinight_Frame_41
+    originalName: 
+    pivot: {x: 0.7258064, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 826
+      y: 166
+      width: 62
+      height: 37
+    spriteID: 63aa041be3fbbcd48b8040f41e2a4f1e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 826, y: 166}
+  - name: SkeletonKinight_Frame_42
+    originalName: 
+    pivot: {x: 0.7258064, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 166
+      width: 62
+      height: 38
+    spriteID: f504abda6926e964a979c4211e419aae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 166}
+  - name: SkeletonKinight_Frame_43
+    originalName: 
+    pivot: {x: 0.71875, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 166
+      width: 64
+      height: 36
+    spriteID: bd9222e55500c1144bc012947fbf27a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 166}
+  - name: SkeletonKinight_Frame_44
+    originalName: 
+    pivot: {x: 0.72307694, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 233
+      y: 166
+      width: 65
+      height: 36
+    spriteID: b999a680b0177be468b686f996f49736
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 233, y: 166}
+  - name: SkeletonKinight_Frame_45
+    originalName: 
+    pivot: {x: 0.71428573, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 525
+      y: 166
+      width: 63
+      height: 37
+    spriteID: ab6da9a129bb17d43be03cfc9b13d32b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 525, y: 166}
+  - name: SkeletonKinight_Frame_46
+    originalName: 
+    pivot: {x: 0.7076923, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 711
+      y: 62
+      width: 65
+      height: 37
+    spriteID: 29d90822a66603048be3442163ba4804
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 711, y: 62}
+  - name: SkeletonKinight_Frame_47
+    originalName: 
+    pivot: {x: 0.70149255, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 285
+      y: 62
+      width: 67
+      height: 37
+    spriteID: ea11a4e5ee17072409e5d30011ab0334
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 285, y: 62}
+  - name: SkeletonKinight_Frame_48
+    originalName: 
+    pivot: {x: 0.64, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 856
+      y: 4
+      width: 75
+      height: 36
+    spriteID: 1e22b0444ab105d40b9ce60d4c20fa7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 856, y: 4}
+  - name: SkeletonKinight_Frame_49
+    originalName: 
+    pivot: {x: 0.74242425, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 211
+      y: 62
+      width: 66
+      height: 38
+    spriteID: 3497afd58dea3ad48bd2999980019b52
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 211, y: 62}
+  - name: SkeletonKinight_Frame_50
+    originalName: 
+    pivot: {x: 0.64, y: -0.1627907}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 311
+      width: 50
+      height: 43
+    spriteID: 90ea580186ce7164685b83e6eff09d8e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 311}
+  - name: SkeletonKinight_Frame_51
+    originalName: 
+    pivot: {x: 0.63829786, y: -0.1590909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 362
+      width: 47
+      height: 44
+    spriteID: d2540839692763342aa5b2b61d6ad3bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 362}
+  - name: SkeletonKinight_Frame_52
+    originalName: 
+    pivot: {x: 0.5609756, y: -0.08510639}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 54
+      y: 416
+      width: 41
+      height: 47
+    spriteID: 71edd6897b6c1964397c8dcba6d39a65
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 54, y: 416}
+  - name: SkeletonKinight_Frame_53
+    originalName: 
+    pivot: {x: 0.5714286, y: -0.08510639}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 416
+      width: 42
+      height: 47
+    spriteID: 6b83ad9eae2403d44ab4cc511a7dcd59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 416}
+  - name: SkeletonKinight_Frame_54
+    originalName: 
+    pivot: {x: 0.55, y: -0.08510639}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 416
+      width: 40
+      height: 47
+    spriteID: d4093f69c2c95f749ad3bb197dec40dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 416}
+  - name: SkeletonKinight_Frame_55
+    originalName: 
+    pivot: {x: 0.54347825, y: -0.08695652}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 362
+      width: 46
+      height: 46
+    spriteID: ac277b4cfe61a4646a14dc51bfb8b399
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 362}
+  - name: SkeletonKinight_Frame_56
+    originalName: 
+    pivot: {x: 0.5, y: -0.11363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 527
+      y: 362
+      width: 42
+      height: 44
+    spriteID: 2172e9753caf26441936d4a88d64d606
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 527, y: 362}
+  - name: SkeletonKinight_Frame_57
+    originalName: 
+    pivot: {x: 0.46153846, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 372
+      y: 416
+      width: 39
+      height: 44
+    spriteID: a243a4260f031744d9b44cbf2c6ef694
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 372, y: 416}
+  - name: SkeletonKinight_Frame_58
+    originalName: 
+    pivot: {x: 0.46153846, y: -0.09090909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 419
+      y: 416
+      width: 39
+      height: 44
+    spriteID: fe7507a0b2e2cbe438bb2adbd654c98d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 419, y: 416}
+  - name: SkeletonKinight_Frame_59
+    originalName: 
+    pivot: {x: 0.46153846, y: -0.11627907}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 416
+      width: 39
+      height: 43
+    spriteID: 6a6fd816867c5f943bfc7871a82e3ea5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 416}
+  - name: SkeletonKinight_Frame_60
+    originalName: 
+    pivot: {x: 0.61904764, y: -0.16666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 939
+      y: 4
+      width: 63
+      height: 42
+    spriteID: 7c75e26c5aa2c5e4da9c0a5914de95f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 939, y: 4}
+  - name: SkeletonKinight_Frame_61
+    originalName: 
+    pivot: {x: 0.6666667, y: -0.22857144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 887
+      y: 212
+      width: 63
+      height: 35
+    spriteID: 51ab08c261b24694685e8ab552b09651
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 887, y: 212}
+  - name: SkeletonKinight_Frame_62
+    originalName: 
+    pivot: {x: 0.68852454, y: -0.175}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 360
+      y: 62
+      width: 61
+      height: 40
+    spriteID: 42ffa39d77f4c7f4ea4bf5769b31cdd9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 360, y: 62}
+  - name: SkeletonKinight_Frame_63
+    originalName: 
+    pivot: {x: 0.70000005, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 406
+      y: 212
+      width: 60
+      height: 38
+    spriteID: 0c76f2e688e90d240938ddef4b6edece
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 406, y: 212}
+  - name: SkeletonKinight_Frame_64
+    originalName: 
+    pivot: {x: 0.7118644, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 459
+      y: 261
+      width: 59
+      height: 37
+    spriteID: d46deb847a9165047a81e3d004728b0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 459, y: 261}
+  - name: SkeletonKinight_Frame_65
+    originalName: 
+    pivot: {x: 0.6346154, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 226
+      y: 362
+      width: 52
+      height: 38
+    spriteID: 9068b2bab1c514e4f893495298b74c05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 226, y: 362}
+  - name: SkeletonKinight_Frame_66
+    originalName: 
+    pivot: {x: 0.70212764, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 626
+      y: 362
+      width: 47
+      height: 39
+    spriteID: 2f2594794d3bc5f4380290e0b9db0f67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 626, y: 362}
+  - name: SkeletonKinight_Frame_67
+    originalName: 
+    pivot: {x: 0.6875, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 880
+      y: 362
+      width: 48
+      height: 37
+    spriteID: b7cad5ff0f3080e4ebb9b2df70ce15bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 880, y: 362}
+  - name: SkeletonKinight_Frame_68
+    originalName: 
+    pivot: {x: 0.6875, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 936
+      y: 362
+      width: 48
+      height: 37
+    spriteID: e3e10a7585fb25a4184b0a39a08c7c75
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 936, y: 362}
+  - name: SkeletonKinight_Frame_69
+    originalName: 
+    pivot: {x: 0.6875, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 151
+      y: 416
+      width: 48
+      height: 37
+    spriteID: 26abbd54d4411154fadc3bd7a998a9a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 151, y: 416}
+  - name: SkeletonKinight_Frame_70
+    originalName: 
+    pivot: {x: 0.58181816, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 247
+      y: 311
+      width: 55
+      height: 38
+    spriteID: 30d1b402655476a44a1b4d43e5959cd1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 247, y: 311}
+  - name: SkeletonKinight_Frame_71
+    originalName: 
+    pivot: {x: 0.59999996, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 724
+      y: 261
+      width: 55
+      height: 39
+    spriteID: 1ca7b123f821a0b4f8c6afac0ac10a7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 724, y: 261}
+  - name: SkeletonKinight_Frame_72
+    originalName: 
+    pivot: {x: 0.57894737, y: -0.19512196}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 69
+      y: 212
+      width: 57
+      height: 41
+    spriteID: 8b04871cdcd2d1443ae13ef52adae90e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 69, y: 212}
+  - name: SkeletonKinight_Frame_73
+    originalName: 
+    pivot: {x: 0.6875, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 207
+      y: 416
+      width: 48
+      height: 37
+    spriteID: ce51166864b36d84896829fa8bd7bf86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 207, y: 416}
+  - name: SkeletonKinight_Frame_74
+    originalName: 
+    pivot: {x: 0.6875, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 263
+      y: 416
+      width: 48
+      height: 37
+    spriteID: 46713e711c15ceb4f8b7fc8d82f832de
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 263, y: 416}
+  - name: SkeletonKinight_Frame_75
+    originalName: 
+    pivot: {x: 0.6792453, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 346
+      y: 362
+      width: 53
+      height: 37
+    spriteID: 3f801ce135228734bbddd3d165b98c0f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 346, y: 362}
+  - name: SkeletonKinight_Frame_76
+    originalName: 
+    pivot: {x: 0.6792453, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 407
+      y: 362
+      width: 53
+      height: 37
+    spriteID: 171c7efd4e9ad7e4ea8ce2b63e783609
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 407, y: 362}
+  - name: SkeletonKinight_Frame_77
+    originalName: 
+    pivot: {x: 0.6909091, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 616
+      y: 311
+      width: 55
+      height: 37
+    spriteID: 92dcdbf2928b9ab41938e573161774da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 616, y: 311}
+  - name: SkeletonKinight_Frame_78
+    originalName: 
+    pivot: {x: 0.69491524, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 851
+      y: 261
+      width: 59
+      height: 36
+    spriteID: d3104c657411c984aae1c73797c61438
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 851, y: 261}
+  - name: SkeletonKinight_Frame_79
+    originalName: 
+    pivot: {x: 0.7096774, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 749
+      y: 212
+      width: 62
+      height: 36
+    spriteID: 628d415bd37d9df42b3178f45ef12748
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 749, y: 212}
+  - name: SkeletonKinight_Frame_80
+    originalName: 
+    pivot: {x: 0.71428573, y: -0.22857144}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 126
+      y: 261
+      width: 63
+      height: 35
+    spriteID: bf32560446edf1540853faffb2d5ad61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 126, y: 261}
+  - name: SkeletonKinight_Frame_81
+    originalName: 
+    pivot: {x: 0.7076923, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 306
+      y: 166
+      width: 65
+      height: 36
+    spriteID: 266fbf5815168e042a457ce84242915c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 306, y: 166}
+  - name: SkeletonKinight_Frame_82
+    originalName: 
+    pivot: {x: 0.70491797, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 542
+      y: 212
+      width: 61
+      height: 37
+    spriteID: da02de8d6709d194a832ccf50309f7fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 542, y: 212}
+  - name: SkeletonKinight_Frame_83
+    originalName: 
+    pivot: {x: 0.61403507, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 659
+      y: 261
+      width: 57
+      height: 38
+    spriteID: 71b819c34eb2e9044b2ef186f4e9d8f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 659, y: 261}
+  - name: SkeletonKinight_Frame_84
+    originalName: 
+    pivot: {x: 0.6, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 62
+      width: 65
+      height: 39
+    spriteID: 9c5bf8778578a9c4fae7beada88c9b4f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 62}
+  - name: SkeletonKinight_Frame_85
+    originalName: 
+    pivot: {x: 0.61764705, y: -0.19512196}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 780
+      y: 4
+      width: 68
+      height: 41
+    spriteID: 0077f07611f826f41b118def2b55dd76
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 780, y: 4}
+  - name: SkeletonKinight_Frame_86
+    originalName: 
+    pivot: {x: 0.72131145, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 611
+      y: 212
+      width: 61
+      height: 37
+    spriteID: 856dd254656a3884aa47e3bf3e1f56aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 611, y: 212}
+  - name: SkeletonKinight_Frame_87
+    originalName: 
+    pivot: {x: 0.7258064, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 896
+      y: 166
+      width: 62
+      height: 37
+    spriteID: 1838a03e458a37947a29d2560f46d522
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 896, y: 166}
+  - name: SkeletonKinight_Frame_88
+    originalName: 
+    pivot: {x: 0.70212764, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 681
+      y: 362
+      width: 47
+      height: 39
+    spriteID: 2c4597877ff5df4408db6f4022aa4bab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 681, y: 362}
+  - name: SkeletonKinight_Frame_89
+    originalName: 
+    pivot: {x: 0.6346154, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 286
+      y: 362
+      width: 52
+      height: 38
+    spriteID: 9968a0e6b9998c1438bcbd5cca267165
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 286, y: 362}
+  - name: SkeletonKinight_Frame_90
+    originalName: 
+    pivot: {x: 0.64705884, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 113
+      y: 362
+      width: 51
+      height: 39
+    spriteID: e4722cc3b3d544d4eb6a54626d54270b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 113, y: 362}
+  - name: SkeletonKinight_Frame_91
+    originalName: 
+    pivot: {x: 0.7166667, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 474
+      y: 212
+      width: 60
+      height: 38
+    spriteID: 35edc5cedf4a36b4e82c1656dba9ce06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 474, y: 212}
+  - name: SkeletonKinight_Frame_92
+    originalName: 
+    pivot: {x: 0.72131145, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 680
+      y: 212
+      width: 61
+      height: 37
+    spriteID: 35ce545b39efcfd46b5bd950db029939
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 680, y: 212}
+  - name: SkeletonKinight_Frame_93
+    originalName: 
+    pivot: {x: 0.703125, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 924
+      y: 62
+      width: 64
+      height: 37
+    spriteID: 27de8eabc906b0645864dae3aea3f245
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 924, y: 62}
+  - name: SkeletonKinight_Frame_94
+    originalName: 
+    pivot: {x: 0.703125, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 429
+      y: 62
+      width: 64
+      height: 38
+    spriteID: 7cb28fa70b1186d48a0c25accc4949d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 429, y: 62}
+  - name: SkeletonKinight_Frame_95
+    originalName: 
+    pivot: {x: 0.7076923, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 379
+      y: 166
+      width: 65
+      height: 36
+    spriteID: 63080a633503d1c47a127607b12db49f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 379, y: 166}
+  - name: SkeletonKinight_Frame_96
+    originalName: 
+    pivot: {x: 0.72307694, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 452
+      y: 166
+      width: 65
+      height: 36
+    spriteID: f4d9cc00907e98b47bb70cbfb6cfeafa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 452, y: 166}
+  - name: SkeletonKinight_Frame_97
+    originalName: 
+    pivot: {x: 0.7258064, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 266
+      y: 212
+      width: 62
+      height: 37
+    spriteID: 61a749c105e64f440a36d7cc55a50b18
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 266, y: 212}
+  - name: SkeletonKinight_Frame_98
+    originalName: 
+    pivot: {x: 0.7419355, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 212
+      width: 62
+      height: 37
+    spriteID: f55fba04d9285cd498ab585ec0a204a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 336, y: 212}
+  - name: SkeletonKinight_Frame_99
+    originalName: 
+    pivot: {x: 0.734375, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 121
+      width: 64
+      height: 37
+    spriteID: 5f3922653b192a146893c16d60451f49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 121}
+  - name: SkeletonKinight_Frame_100
+    originalName: 
+    pivot: {x: 0.60784316, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 498
+      y: 311
+      width: 51
+      height: 40
+    spriteID: 9122bbf8444670745900d8a3c21bc3bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 498, y: 311}
+  - name: SkeletonKinight_Frame_101
+    originalName: 
+    pivot: {x: 0.625, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 261
+      y: 261
+      width: 56
+      height: 39
+    spriteID: 9610b0cf3ce25804fb8a85c5233153e1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 261, y: 261}
+  - name: SkeletonKinight_Frame_102
+    originalName: 
+    pivot: {x: 0.5, y: -0.18604653}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 362
+      width: 46
+      height: 43
+    spriteID: 1882b1cfdd288054ea260edb61df1b77
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 172, y: 362}
+  - name: SkeletonKinight_Frame_103
+    originalName: 
+    pivot: {x: 0.46666667, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 319
+      y: 416
+      width: 45
+      height: 39
+    spriteID: 8ab96c50ab6896b4794b5ae3431b86a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 319, y: 416}
+  - name: SkeletonKinight_Frame_104
+    originalName: 
+    pivot: {x: 0.46511626, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 513
+      y: 416
+      width: 43
+      height: 39
+    spriteID: ff3e5735b29e13e44bb1857a72da00a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 513, y: 416}
+  - name: SkeletonKinight_Frame_105
+    originalName: 
+    pivot: {x: 0.47222224, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 983
+      y: 311
+      width: 36
+      height: 38
+    spriteID: e814966e27ca64742b3a769fe79efc42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 983, y: 311}
+  - name: SkeletonKinight_Frame_106
+    originalName: 
+    pivot: {x: 0.24242425, y: -0.17777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 628
+      y: 4
+      width: 66
+      height: 45
+    spriteID: c94b717c00461af4f8b02786f0efc148
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 628, y: 4}
+  - name: SkeletonKinight_Frame_107
+    originalName: 
+    pivot: {x: 0.27419353, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 501
+      y: 62
+      width: 62
+      height: 39
+    spriteID: 114d2703ed4829c43ae5c60ec65159b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 501, y: 62}
+  - name: SkeletonKinight_Frame_108
+    originalName: 
+    pivot: {x: 0.27419353, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 571
+      y: 62
+      width: 62
+      height: 39
+    spriteID: eb1c710ba3b7a334fa6052e98eba518b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 571, y: 62}
+  - name: SkeletonKinight_Frame_109
+    originalName: 
+    pivot: {x: 0.26153848, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 62
+      width: 65
+      height: 39
+    spriteID: c9d22040fb05eac47bcc040c0955e153
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 62}
+  - name: SkeletonKinight_Frame_110
+    originalName: 
+    pivot: {x: 0.21875, y: -0.23529413}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 526
+      y: 261
+      width: 64
+      height: 34
+    spriteID: 266009cb479b1034d82e5e23c4c4d38f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 526, y: 261}
+  - name: SkeletonKinight_Frame_111
+    originalName: 
+    pivot: {x: 0.21212122, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 850
+      y: 62
+      width: 66
+      height: 36
+    spriteID: 309e185aaee4f8845a983a225cbd36a8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 850, y: 62}
+  - name: SkeletonKinight_Frame_112
+    originalName: 
+    pivot: {x: 0.3690476, y: -0.16000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 4
+      width: 84
+      height: 50
+    spriteID: a7632f60223eee64e85d47756c332950
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 4}
+  - name: SkeletonKinight_Frame_113
+    originalName: 
+    pivot: {x: 0.37931034, y: -0.16000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 87
+      height: 50
+    spriteID: c16e983b89d47bf488ab020bee551143
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: SkeletonKinight_Frame_114
+    originalName: 
+    pivot: {x: 0.6226415, y: -0.15686275}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 62
+      width: 53
+      height: 51
+    spriteID: d1c308ff8630506469870a3e5467ded7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 62}
+  - name: SkeletonKinight_Frame_115
+    originalName: 
+    pivot: {x: 0.6612903, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 641
+      y: 62
+      width: 62
+      height: 39
+    spriteID: c8b950e506e71974886aef94c72e4c0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 641, y: 62}
+  - name: SkeletonKinight_Frame_116
+    originalName: 
+    pivot: {x: 0.6346154, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 799
+      y: 311
+      width: 52
+      height: 39
+    spriteID: 17a338d6b07d67443af85ff4af32802d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 799, y: 311}
+  - name: SkeletonKinight_Frame_117
+    originalName: 
+    pivot: {x: 0.60784316, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 557
+      y: 311
+      width: 51
+      height: 40
+    spriteID: 33cdc497092b87748ab337846ed92df0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 557, y: 311}
+  - name: SkeletonKinight_Frame_118
+    originalName: 
+    pivot: {x: 0.59615386, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 859
+      y: 311
+      width: 52
+      height: 39
+    spriteID: 4a9e0dffc24c84b4697cbed593b02678
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 859, y: 311}
+  - name: SkeletonKinight_Frame_119
+    originalName: 
+    pivot: {x: 0.6607143, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 787
+      y: 261
+      width: 56
+      height: 38
+    spriteID: 9f231cbf795ca9841b9290461097e08f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 787, y: 261}
+  - name: SkeletonKinight_Frame_120
+    originalName: 
+    pivot: {x: 0.6833334, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 819
+      y: 212
+      width: 60
+      height: 37
+    spriteID: 5876634c6faa2f349b4f064e0c46cb9a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 819, y: 212}
+  - name: SkeletonKinight_Frame_121
+    originalName: 
+    pivot: {x: 0.6607143, y: -0.22222224}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 919
+      y: 311
+      width: 56
+      height: 36
+    spriteID: bff174a0dd11e9148b5d9a12781988b2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 919, y: 311}
+  - name: SkeletonKinight_Frame_122
+    originalName: 
+    pivot: {x: 0.4857143, y: -0.2162162}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 471
+      width: 35
+      height: 37
+    spriteID: f2c888a0b3f12424eb58c430d185850a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 471}
+  - name: SkeletonKinight_Frame_123
+    originalName: 
+    pivot: {x: 0.22891566, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 276
+      y: 4
+      width: 83
+      height: 40
+    spriteID: fa49592f1873a594ebe445d6dcfa3631
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 276, y: 4}
+  - name: SkeletonKinight_Frame_124
+    originalName: 
+    pivot: {x: 0.2195122, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 367
+      y: 4
+      width: 82
+      height: 39
+    spriteID: 5e20e7106b5d8a6469a48344261c9b3d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 367, y: 4}
+  - name: SkeletonKinight_Frame_125
+    originalName: 
+    pivot: {x: 0.2195122, y: -0.20512822}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 457
+      y: 4
+      width: 82
+      height: 39
+    spriteID: 9b2d80dcaf3f4d840b64f9ada9df276b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 457, y: 4}
+  - name: SkeletonKinight_Frame_126
+    originalName: 
+    pivot: {x: 0.32258064, y: -0.24242425}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 428
+      y: 311
+      width: 62
+      height: 33
+    spriteID: 65ac98d3b70c9c344a703a9619bc16b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 428, y: 311}
+  - name: SkeletonKinight_Frame_127
+    originalName: 
+    pivot: {x: 0.33333334, y: -0.23529413}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 564
+      y: 416
+      width: 48
+      height: 34
+    spriteID: c866ce2d33758a84984880e91d74bd4f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 564, y: 416}
+  - name: SkeletonKinight_Frame_128
+    originalName: 
+    pivot: {x: 0.4848485, y: -0.17948718}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 979
+      y: 261
+      width: 33
+      height: 39
+    spriteID: 4c995c107ce19ab4aa9af9c0fe024977
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 979, y: 261}
+  - name: SkeletonKinight_Frame_129
+    originalName: 
+    pivot: {x: 0.6226415, y: -0.19512196}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 598
+      y: 261
+      width: 53
+      height: 41
+    spriteID: 8e3fe055fccd3934498533909a5705d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 598, y: 261}
+  - name: SkeletonKinight_Frame_130
+    originalName: 
+    pivot: {x: 0.6226415, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 311
+      width: 53
+      height: 40
+    spriteID: d6462621f9099004f86259d366a9f81a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 311}
+  - name: SkeletonKinight_Frame_131
+    originalName: 
+    pivot: {x: 0.6226415, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 261
+      width: 53
+      height: 42
+    spriteID: 65d87d61f7ef7ed41ae9b75a4471789c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 261}
+  - name: SkeletonKinight_Frame_132
+    originalName: 
+    pivot: {x: 0.6571429, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 702
+      y: 4
+      width: 70
+      height: 42
+    spriteID: 9e7b9311784371d4c8d3198055b4b2e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 702, y: 4}
+  - name: SkeletonKinight_Frame_133
+    originalName: 
+    pivot: {x: 0.65753424, y: -0.18604653}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 547
+      y: 4
+      width: 73
+      height: 43
+    spriteID: 8aa37751777508e4891980405a539d5c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 547, y: 4}
+  - name: SkeletonKinight_Frame_134
+    originalName: 
+    pivot: {x: 0.6753247, y: -0.1521739}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 191
+      y: 4
+      width: 77
+      height: 46
+    spriteID: 9583b5b5a7ede2d419a182a898aa4b96
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 191, y: 4}
+  - name: SkeletonKinight_Frame_135
+    originalName: 
+    pivot: {x: 0.675, y: -0.2413793}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 596
+      y: 166
+      width: 80
+      height: 29
+    spriteID: bcc75238a3d4090488b5eb0657000dbc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 596, y: 166}
+  - name: SkeletonKinight_Frame_136
+    originalName: 
+    pivot: {x: 0.67901236, y: -0.2413793}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 166
+      width: 81
+      height: 29
+    spriteID: a6b36fda6601d4147a70bf649803785f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 144, y: 166}
+  - name: SkeletonKinight_Frame_137
+    originalName: 
+    pivot: {x: 0.6506024, y: -0.36363637}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 736
+      y: 362
+      width: 83
+      height: 22
+    spriteID: becbcb13667b1c842b75ae3298fdae01
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 736, y: 362}
+  - name: SkeletonKinight_Frame_138
+    originalName: 
+    pivot: {x: 0.6547619, y: -0.53333336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 897
+      y: 416
+      width: 84
+      height: 15
+    spriteID: 5f9dca8422db21a44b923243a92c1cd6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 897, y: 416}
+  - name: SkeletonKinight_Frame_139
+    originalName: 
+    pivot: {x: 0.6547619, y: -0.47058827}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 805
+      y: 416
+      width: 84
+      height: 17
+    spriteID: c3c540fc2d3d152459a07788e83bde0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 805, y: 416}
+  - name: SkeletonKinight_Frame_140
+    originalName: 
+    pivot: {x: 0.6547619, y: -0.44444448}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 713
+      y: 416
+      width: 84
+      height: 18
+    spriteID: c87d33412cbb29b4392078ff17d6083a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 713, y: 416}
+  - name: SkeletonKinight_Frame_141
+    originalName: 
+    pivot: {x: 0.64705884, y: -0.44444448}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 620
+      y: 416
+      width: 85
+      height: 18
+    spriteID: 5ce7e24f88c1a4a4fbc8cdc50311e850
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 620, y: 416}
+  - name: SkeletonKinight_Frame_142
+    originalName: 
+    pivot: {x: 0.64705884, y: -0.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 620
+      y: 442
+      width: 85
+      height: 12
+    spriteID: d590dd851c6480e458ccac64e96f2252
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 620, y: 442}
+  - name: SkeletonKinight_Frame_143
+    originalName: 
+    pivot: {x: 0.64705884, y: -0.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 713
+      y: 442
+      width: 85
+      height: 12
+    spriteID: 3018ef0192c2741448d68f90bc6f73bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 713, y: 442}
+  - name: SkeletonKinight_Frame_144
+    originalName: 
+    pivot: {x: 0.64705884, y: -0.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 806
+      y: 442
+      width: 85
+      height: 12
+    spriteID: 31efd5b19388e1d43a7c89d86c3af65a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 806, y: 442}
+  - name: SkeletonKinight_Frame_4
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.42105266}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 466
+      y: 471
+      width: 34
+      height: 19
+    spriteID: ae78b48b3fd7c3e49ae9a6ee3dd51566
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 466, y: 471}
+  - name: SkeletonKinight_Frame_5
+    originalName: 
+    pivot: {x: 0.5405406, y: -0.3809524}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 946
+      y: 442
+      width: 37
+      height: 21
+    spriteID: f6abfb5d3892ff9488bb0b5d2feb3ac1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 946, y: 442}
+  - name: SkeletonKinight_Frame_6
+    originalName: 
+    pivot: {x: 0.53846157, y: -0.3809524}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 899
+      y: 442
+      width: 39
+      height: 21
+    spriteID: 03545b7fc04bb954ba2b27c3552b5c8b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 899, y: 442}
+  - name: SkeletonKinight_Frame_7
+    originalName: 
+    pivot: {x: 0.52500004, y: -0.44444448}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 330
+      y: 471
+      width: 40
+      height: 18
+    spriteID: 07c32421f3336cc4c9f0dfb8ccc0440b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 330, y: 471}
+  - name: SkeletonKinight_Frame_1
+    originalName: 
+    pivot: {x: 0.6923077, y: -1.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 378
+      y: 501
+      width: 13
+      height: 5
+    spriteID: 0b183fed5c3aa414b8705bb903175635
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 378, y: 501}
+  - name: SkeletonKinight_Frame_2
+    originalName: 
+    pivot: {x: 0.6923077, y: -2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 293
+      y: 504
+      width: 13
+      height: 4
+    spriteID: 53402f1a74e433a4eb42cb9f9d98da67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 293, y: 504}
+  - name: SkeletonKinight_Frame_3
+    originalName: 
+    pivot: {x: 0.6923077, y: -1.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 991
+      y: 442
+      width: 13
+      height: 5
+    spriteID: 7912d359e079d19488aee7f4b5cbfbec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 991, y: 442}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -2063569677
+    name: SkeletonKinight
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: SkeletonKinight_Frame_8
+      frameIndex: 8
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 7
+        width: 40
+        height: 17
+      spriteId: 2e7ee3ce57e8caa47b1f62512e214566
+    - name: SkeletonKinight_Frame_9
+      frameIndex: 9
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 8
+        width: 31
+        height: 16
+      spriteId: 3babc28fab67a9d49adfa7ce6bff9e09
+    - name: SkeletonKinight_Frame_10
+      frameIndex: 10
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 7
+        width: 32
+        height: 22
+      spriteId: 674dd0d6f23ceaa498ac8b2b186f7e85
+    - name: SkeletonKinight_Frame_11
+      frameIndex: 11
+      additiveSortOrder: 0
+      cellRect:
+        x: 42
+        y: 5
+        width: 29
+        height: 25
+      spriteId: bdb0d48020934514295f9781dc9a9323
+    - name: SkeletonKinight_Frame_12
+      frameIndex: 12
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 5
+        width: 29
+        height: 28
+      spriteId: b386f8c98a12c294eb36dfd05b259879
+    - name: SkeletonKinight_Frame_13
+      frameIndex: 13
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 5
+        width: 27
+        height: 33
+      spriteId: 1080a797059ec33469621b7973c12a40
+    - name: SkeletonKinight_Frame_14
+      frameIndex: 14
+      additiveSortOrder: 0
+      cellRect:
+        x: 47
+        y: 5
+        width: 27
+        height: 35
+      spriteId: fbc4922cea542fd4eb2b29dcd2c6cb60
+    - name: SkeletonKinight_Frame_15
+      frameIndex: 15
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 8
+        width: 31
+        height: 35
+      spriteId: ff7ef684874a5e845901fec5b3add3b0
+    - name: SkeletonKinight_Frame_16
+      frameIndex: 16
+      additiveSortOrder: 0
+      cellRect:
+        x: 42
+        y: 8
+        width: 32
+        height: 34
+      spriteId: 51919355b637f3944a2c099348c85f40
+    - name: SkeletonKinight_Frame_17
+      frameIndex: 17
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 8
+        width: 31
+        height: 35
+      spriteId: 3eca1e699a218404f8602cb7c0d478a9
+    - name: SkeletonKinight_Frame_18
+      frameIndex: 18
+      additiveSortOrder: 0
+      cellRect:
+        x: 38
+        y: 7
+        width: 37
+        height: 37
+      spriteId: efb9a737c8608de43b5b791e76fdc74f
+    - name: SkeletonKinight_Frame_19
+      frameIndex: 19
+      additiveSortOrder: 0
+      cellRect:
+        x: 33
+        y: 8
+        width: 41
+        height: 45
+      spriteId: 919e6684ad4e7f14297b6469f425bcbb
+    - name: SkeletonKinight_Frame_20
+      frameIndex: 20
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 45
+        height: 40
+      spriteId: d3ead747c6eae664c834f7bffd7bef45
+    - name: SkeletonKinight_Frame_21
+      frameIndex: 21
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 53
+        height: 42
+      spriteId: b885d47ccf8837942b054d7c30513192
+    - name: SkeletonKinight_Frame_22
+      frameIndex: 22
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 57
+        height: 41
+      spriteId: 119b9a5ccdead0942a80013fb270eb2b
+    - name: SkeletonKinight_Frame_23
+      frameIndex: 23
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 58
+        height: 41
+      spriteId: b722314c66a41b54a90603b5e361746e
+    - name: SkeletonKinight_Frame_24
+      frameIndex: 24
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 58
+        height: 40
+      spriteId: 2314b9c3dc578ed4aa23c96904a6370d
+    - name: SkeletonKinight_Frame_25
+      frameIndex: 25
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 58
+        height: 40
+      spriteId: 96a2b9e0f2a927f44aadcc768b294d34
+    - name: SkeletonKinight_Frame_26
+      frameIndex: 26
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 56
+        height: 39
+      spriteId: b61d5f41319ddd64e9f4fa909a5ef418
+    - name: SkeletonKinight_Frame_27
+      frameIndex: 27
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 55
+        height: 40
+      spriteId: 6f8fefac0cb0cce4cbfa21a318a63836
+    - name: SkeletonKinight_Frame_28
+      frameIndex: 28
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 53
+        height: 40
+      spriteId: c4ba2339faa6d17499d174acb81559ca
+    - name: SkeletonKinight_Frame_29
+      frameIndex: 29
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 52
+        height: 38
+      spriteId: 6b30a01ffee907f429c0d79436239122
+    - name: SkeletonKinight_Frame_30
+      frameIndex: 30
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 52
+        height: 39
+      spriteId: 4e019e96ef632e54b963b69e03f26854
+    - name: SkeletonKinight_Frame_31
+      frameIndex: 31
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 54
+        height: 39
+      spriteId: ece1a6f828daa5e47ab796f44b098740
+    - name: SkeletonKinight_Frame_32
+      frameIndex: 32
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 54
+        height: 39
+      spriteId: 636af416dffa42740a01f17ea65df992
+    - name: SkeletonKinight_Frame_33
+      frameIndex: 33
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 8
+        width: 52
+        height: 40
+      spriteId: 1227afb2e576c5e4aa1f8a1826427dce
+    - name: SkeletonKinight_Frame_34
+      frameIndex: 34
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 50
+        height: 41
+      spriteId: f800b61773390bf4e83009dce334b63e
+    - name: SkeletonKinight_Frame_35
+      frameIndex: 35
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 51
+        height: 37
+      spriteId: 625cc3575a41c934989edfb404417a3c
+    - name: SkeletonKinight_Frame_36
+      frameIndex: 36
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 52
+        height: 39
+      spriteId: a36b4b248d8fb6a44b27e2dd821048a0
+    - name: SkeletonKinight_Frame_37
+      frameIndex: 37
+      additiveSortOrder: 0
+      cellRect:
+        x: 24
+        y: 8
+        width: 59
+        height: 37
+      spriteId: 51554fef7062a6244b14542cc9acabc9
+    - name: SkeletonKinight_Frame_38
+      frameIndex: 38
+      additiveSortOrder: 0
+      cellRect:
+        x: 24
+        y: 8
+        width: 59
+        height: 37
+      spriteId: 3a90134784a86d749b9bab8c726e1704
+    - name: SkeletonKinight_Frame_39
+      frameIndex: 39
+      additiveSortOrder: 0
+      cellRect:
+        x: 21
+        y: 8
+        width: 62
+        height: 38
+      spriteId: 90f765c3e086c0c428630cf1a01f565e
+    - name: SkeletonKinight_Frame_40
+      frameIndex: 40
+      additiveSortOrder: 0
+      cellRect:
+        x: 20
+        y: 8
+        width: 62
+        height: 37
+      spriteId: 27be68237f6c4f94092c5c07e4bafc10
+    - name: SkeletonKinight_Frame_41
+      frameIndex: 41
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 8
+        width: 62
+        height: 37
+      spriteId: 63aa041be3fbbcd48b8040f41e2a4f1e
+    - name: SkeletonKinight_Frame_42
+      frameIndex: 42
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 8
+        width: 62
+        height: 38
+      spriteId: f504abda6926e964a979c4211e419aae
+    - name: SkeletonKinight_Frame_43
+      frameIndex: 43
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 8
+        width: 64
+        height: 36
+      spriteId: bd9222e55500c1144bc012947fbf27a5
+    - name: SkeletonKinight_Frame_44
+      frameIndex: 44
+      additiveSortOrder: 0
+      cellRect:
+        x: 17
+        y: 8
+        width: 65
+        height: 36
+      spriteId: b999a680b0177be468b686f996f49736
+    - name: SkeletonKinight_Frame_45
+      frameIndex: 45
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 8
+        width: 63
+        height: 37
+      spriteId: ab6da9a129bb17d43be03cfc9b13d32b
+    - name: SkeletonKinight_Frame_46
+      frameIndex: 46
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 8
+        width: 65
+        height: 37
+      spriteId: 29d90822a66603048be3442163ba4804
+    - name: SkeletonKinight_Frame_47
+      frameIndex: 47
+      additiveSortOrder: 0
+      cellRect:
+        x: 17
+        y: 8
+        width: 67
+        height: 37
+      spriteId: ea11a4e5ee17072409e5d30011ab0334
+    - name: SkeletonKinight_Frame_48
+      frameIndex: 48
+      additiveSortOrder: 0
+      cellRect:
+        x: 16
+        y: 8
+        width: 75
+        height: 36
+      spriteId: 1e22b0444ab105d40b9ce60d4c20fa7a
+    - name: SkeletonKinight_Frame_49
+      frameIndex: 49
+      additiveSortOrder: 0
+      cellRect:
+        x: 15
+        y: 8
+        width: 66
+        height: 38
+      spriteId: 3497afd58dea3ad48bd2999980019b52
+    - name: SkeletonKinight_Frame_50
+      frameIndex: 50
+      additiveSortOrder: 0
+      cellRect:
+        x: 32
+        y: 7
+        width: 50
+        height: 43
+      spriteId: 90ea580186ce7164685b83e6eff09d8e
+    - name: SkeletonKinight_Frame_51
+      frameIndex: 51
+      additiveSortOrder: 0
+      cellRect:
+        x: 34
+        y: 7
+        width: 47
+        height: 44
+      spriteId: d2540839692763342aa5b2b61d6ad3bb
+    - name: SkeletonKinight_Frame_52
+      frameIndex: 52
+      additiveSortOrder: 0
+      cellRect:
+        x: 41
+        y: 4
+        width: 41
+        height: 47
+      spriteId: 71edd6897b6c1964397c8dcba6d39a65
+    - name: SkeletonKinight_Frame_53
+      frameIndex: 53
+      additiveSortOrder: 0
+      cellRect:
+        x: 40
+        y: 4
+        width: 42
+        height: 47
+      spriteId: 6b83ad9eae2403d44ab4cc511a7dcd59
+    - name: SkeletonKinight_Frame_54
+      frameIndex: 54
+      additiveSortOrder: 0
+      cellRect:
+        x: 42
+        y: 4
+        width: 40
+        height: 47
+      spriteId: d4093f69c2c95f749ad3bb197dec40dc
+    - name: SkeletonKinight_Frame_55
+      frameIndex: 55
+      additiveSortOrder: 0
+      cellRect:
+        x: 39
+        y: 4
+        width: 46
+        height: 46
+      spriteId: ac277b4cfe61a4646a14dc51bfb8b399
+    - name: SkeletonKinight_Frame_56
+      frameIndex: 56
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 5
+        width: 42
+        height: 44
+      spriteId: 2172e9753caf26441936d4a88d64d606
+    - name: SkeletonKinight_Frame_57
+      frameIndex: 57
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 4
+        width: 39
+        height: 44
+      spriteId: a243a4260f031744d9b44cbf2c6ef694
+    - name: SkeletonKinight_Frame_58
+      frameIndex: 58
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 4
+        width: 39
+        height: 44
+      spriteId: fe7507a0b2e2cbe438bb2adbd654c98d
+    - name: SkeletonKinight_Frame_59
+      frameIndex: 59
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 5
+        width: 39
+        height: 43
+      spriteId: 6a6fd816867c5f943bfc7871a82e3ea5
+    - name: SkeletonKinight_Frame_60
+      frameIndex: 60
+      additiveSortOrder: 0
+      cellRect:
+        x: 25
+        y: 7
+        width: 63
+        height: 42
+      spriteId: 7c75e26c5aa2c5e4da9c0a5914de95f0
+    - name: SkeletonKinight_Frame_61
+      frameIndex: 61
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 8
+        width: 63
+        height: 35
+      spriteId: 51ab08c261b24694685e8ab552b09651
+    - name: SkeletonKinight_Frame_62
+      frameIndex: 62
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 7
+        width: 61
+        height: 40
+      spriteId: 42ffa39d77f4c7f4ea4bf5769b31cdd9
+    - name: SkeletonKinight_Frame_63
+      frameIndex: 63
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 8
+        width: 60
+        height: 38
+      spriteId: 0c76f2e688e90d240938ddef4b6edece
+    - name: SkeletonKinight_Frame_64
+      frameIndex: 64
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 8
+        width: 59
+        height: 37
+      spriteId: d46deb847a9165047a81e3d004728b0d
+    - name: SkeletonKinight_Frame_65
+      frameIndex: 65
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 52
+        height: 38
+      spriteId: 9068b2bab1c514e4f893495298b74c05
+    - name: SkeletonKinight_Frame_66
+      frameIndex: 66
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 47
+        height: 39
+      spriteId: 2f2594794d3bc5f4380290e0b9db0f67
+    - name: SkeletonKinight_Frame_67
+      frameIndex: 67
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 48
+        height: 37
+      spriteId: b7cad5ff0f3080e4ebb9b2df70ce15bd
+    - name: SkeletonKinight_Frame_68
+      frameIndex: 68
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 48
+        height: 37
+      spriteId: e3e10a7585fb25a4184b0a39a08c7c75
+    - name: SkeletonKinight_Frame_69
+      frameIndex: 69
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 48
+        height: 37
+      spriteId: 26abbd54d4411154fadc3bd7a998a9a3
+    - name: SkeletonKinight_Frame_70
+      frameIndex: 70
+      additiveSortOrder: 0
+      cellRect:
+        x: 32
+        y: 8
+        width: 55
+        height: 38
+      spriteId: 30d1b402655476a44a1b4d43e5959cd1
+    - name: SkeletonKinight_Frame_71
+      frameIndex: 71
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 55
+        height: 39
+      spriteId: 1ca7b123f821a0b4f8c6afac0ac10a7f
+    - name: SkeletonKinight_Frame_72
+      frameIndex: 72
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 57
+        height: 41
+      spriteId: 8b04871cdcd2d1443ae13ef52adae90e
+    - name: SkeletonKinight_Frame_73
+      frameIndex: 73
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 48
+        height: 37
+      spriteId: ce51166864b36d84896829fa8bd7bf86
+    - name: SkeletonKinight_Frame_74
+      frameIndex: 74
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 48
+        height: 37
+      spriteId: 46713e711c15ceb4f8b7fc8d82f832de
+    - name: SkeletonKinight_Frame_75
+      frameIndex: 75
+      additiveSortOrder: 0
+      cellRect:
+        x: 28
+        y: 8
+        width: 53
+        height: 37
+      spriteId: 3f801ce135228734bbddd3d165b98c0f
+    - name: SkeletonKinight_Frame_76
+      frameIndex: 76
+      additiveSortOrder: 0
+      cellRect:
+        x: 28
+        y: 8
+        width: 53
+        height: 37
+      spriteId: 171c7efd4e9ad7e4ea8ce2b63e783609
+    - name: SkeletonKinight_Frame_77
+      frameIndex: 77
+      additiveSortOrder: 0
+      cellRect:
+        x: 26
+        y: 8
+        width: 55
+        height: 37
+      spriteId: 92dcdbf2928b9ab41938e573161774da
+    - name: SkeletonKinight_Frame_78
+      frameIndex: 78
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 8
+        width: 59
+        height: 36
+      spriteId: d3104c657411c984aae1c73797c61438
+    - name: SkeletonKinight_Frame_79
+      frameIndex: 79
+      additiveSortOrder: 0
+      cellRect:
+        x: 20
+        y: 8
+        width: 62
+        height: 36
+      spriteId: 628d415bd37d9df42b3178f45ef12748
+    - name: SkeletonKinight_Frame_80
+      frameIndex: 80
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 8
+        width: 63
+        height: 35
+      spriteId: bf32560446edf1540853faffb2d5ad61
+    - name: SkeletonKinight_Frame_81
+      frameIndex: 81
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 8
+        width: 65
+        height: 36
+      spriteId: 266fbf5815168e042a457ce84242915c
+    - name: SkeletonKinight_Frame_82
+      frameIndex: 82
+      additiveSortOrder: 0
+      cellRect:
+        x: 21
+        y: 8
+        width: 61
+        height: 37
+      spriteId: da02de8d6709d194a832ccf50309f7fb
+    - name: SkeletonKinight_Frame_83
+      frameIndex: 83
+      additiveSortOrder: 0
+      cellRect:
+        x: 29
+        y: 8
+        width: 57
+        height: 38
+      spriteId: 71b819c34eb2e9044b2ef186f4e9d8f3
+    - name: SkeletonKinight_Frame_84
+      frameIndex: 84
+      additiveSortOrder: 0
+      cellRect:
+        x: 25
+        y: 8
+        width: 65
+        height: 39
+      spriteId: 9c5bf8778578a9c4fae7beada88c9b4f
+    - name: SkeletonKinight_Frame_85
+      frameIndex: 85
+      additiveSortOrder: 0
+      cellRect:
+        x: 22
+        y: 8
+        width: 68
+        height: 41
+      spriteId: 0077f07611f826f41b118def2b55dd76
+    - name: SkeletonKinight_Frame_86
+      frameIndex: 86
+      additiveSortOrder: 0
+      cellRect:
+        x: 20
+        y: 8
+        width: 61
+        height: 37
+      spriteId: 856dd254656a3884aa47e3bf3e1f56aa
+    - name: SkeletonKinight_Frame_87
+      frameIndex: 87
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 8
+        width: 62
+        height: 37
+      spriteId: 1838a03e458a37947a29d2560f46d522
+    - name: SkeletonKinight_Frame_88
+      frameIndex: 88
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 47
+        height: 39
+      spriteId: 2c4597877ff5df4408db6f4022aa4bab
+    - name: SkeletonKinight_Frame_89
+      frameIndex: 89
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 52
+        height: 38
+      spriteId: 9968a0e6b9998c1438bcbd5cca267165
+    - name: SkeletonKinight_Frame_90
+      frameIndex: 90
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 51
+        height: 39
+      spriteId: e4722cc3b3d544d4eb6a54626d54270b
+    - name: SkeletonKinight_Frame_91
+      frameIndex: 91
+      additiveSortOrder: 0
+      cellRect:
+        x: 21
+        y: 8
+        width: 60
+        height: 38
+      spriteId: 35edc5cedf4a36b4e82c1656dba9ce06
+    - name: SkeletonKinight_Frame_92
+      frameIndex: 92
+      additiveSortOrder: 0
+      cellRect:
+        x: 20
+        y: 8
+        width: 61
+        height: 37
+      spriteId: 35ce545b39efcfd46b5bd950db029939
+    - name: SkeletonKinight_Frame_93
+      frameIndex: 93
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 8
+        width: 64
+        height: 37
+      spriteId: 27de8eabc906b0645864dae3aea3f245
+    - name: SkeletonKinight_Frame_94
+      frameIndex: 94
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 8
+        width: 64
+        height: 38
+      spriteId: 7cb28fa70b1186d48a0c25accc4949d9
+    - name: SkeletonKinight_Frame_95
+      frameIndex: 95
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 8
+        width: 65
+        height: 36
+      spriteId: 63080a633503d1c47a127607b12db49f
+    - name: SkeletonKinight_Frame_96
+      frameIndex: 96
+      additiveSortOrder: 0
+      cellRect:
+        x: 17
+        y: 8
+        width: 65
+        height: 36
+      spriteId: f4d9cc00907e98b47bb70cbfb6cfeafa
+    - name: SkeletonKinight_Frame_97
+      frameIndex: 97
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 8
+        width: 62
+        height: 37
+      spriteId: 61a749c105e64f440a36d7cc55a50b18
+    - name: SkeletonKinight_Frame_98
+      frameIndex: 98
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 8
+        width: 62
+        height: 37
+      spriteId: f55fba04d9285cd498ab585ec0a204a5
+    - name: SkeletonKinight_Frame_99
+      frameIndex: 99
+      additiveSortOrder: 0
+      cellRect:
+        x: 17
+        y: 8
+        width: 64
+        height: 37
+      spriteId: 5f3922653b192a146893c16d60451f49
+    - name: SkeletonKinight_Frame_100
+      frameIndex: 100
+      additiveSortOrder: 0
+      cellRect:
+        x: 33
+        y: 8
+        width: 51
+        height: 40
+      spriteId: 9122bbf8444670745900d8a3c21bc3bb
+    - name: SkeletonKinight_Frame_101
+      frameIndex: 101
+      additiveSortOrder: 0
+      cellRect:
+        x: 29
+        y: 8
+        width: 56
+        height: 39
+      spriteId: 9610b0cf3ce25804fb8a85c5233153e1
+    - name: SkeletonKinight_Frame_102
+      frameIndex: 102
+      additiveSortOrder: 0
+      cellRect:
+        x: 41
+        y: 8
+        width: 46
+        height: 43
+      spriteId: 1882b1cfdd288054ea260edb61df1b77
+    - name: SkeletonKinight_Frame_103
+      frameIndex: 103
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 8
+        width: 45
+        height: 39
+      spriteId: 8ab96c50ab6896b4794b5ae3431b86a6
+    - name: SkeletonKinight_Frame_104
+      frameIndex: 104
+      additiveSortOrder: 0
+      cellRect:
+        x: 44
+        y: 8
+        width: 43
+        height: 39
+      spriteId: ff3e5735b29e13e44bb1857a72da00a8
+    - name: SkeletonKinight_Frame_105
+      frameIndex: 105
+      additiveSortOrder: 0
+      cellRect:
+        x: 47
+        y: 8
+        width: 36
+        height: 38
+      spriteId: e814966e27ca64742b3a769fe79efc42
+    - name: SkeletonKinight_Frame_106
+      frameIndex: 106
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 8
+        width: 66
+        height: 45
+      spriteId: c94b717c00461af4f8b02786f0efc148
+    - name: SkeletonKinight_Frame_107
+      frameIndex: 107
+      additiveSortOrder: 0
+      cellRect:
+        x: 47
+        y: 8
+        width: 62
+        height: 39
+      spriteId: 114d2703ed4829c43ae5c60ec65159b9
+    - name: SkeletonKinight_Frame_108
+      frameIndex: 108
+      additiveSortOrder: 0
+      cellRect:
+        x: 47
+        y: 8
+        width: 62
+        height: 39
+      spriteId: eb1c710ba3b7a334fa6052e98eba518b
+    - name: SkeletonKinight_Frame_109
+      frameIndex: 109
+      additiveSortOrder: 0
+      cellRect:
+        x: 47
+        y: 8
+        width: 65
+        height: 39
+      spriteId: c9d22040fb05eac47bcc040c0955e153
+    - name: SkeletonKinight_Frame_110
+      frameIndex: 110
+      additiveSortOrder: 0
+      cellRect:
+        x: 50
+        y: 8
+        width: 64
+        height: 34
+      spriteId: 266009cb479b1034d82e5e23c4c4d38f
+    - name: SkeletonKinight_Frame_111
+      frameIndex: 111
+      additiveSortOrder: 0
+      cellRect:
+        x: 50
+        y: 8
+        width: 66
+        height: 36
+      spriteId: 309e185aaee4f8845a983a225cbd36a8
+    - name: SkeletonKinight_Frame_112
+      frameIndex: 112
+      additiveSortOrder: 0
+      cellRect:
+        x: 33
+        y: 8
+        width: 84
+        height: 50
+      spriteId: a7632f60223eee64e85d47756c332950
+    - name: SkeletonKinight_Frame_113
+      frameIndex: 113
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 87
+        height: 50
+      spriteId: c16e983b89d47bf488ab020bee551143
+    - name: SkeletonKinight_Frame_114
+      frameIndex: 114
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 53
+        height: 51
+      spriteId: d1c308ff8630506469870a3e5467ded7
+    - name: SkeletonKinight_Frame_115
+      frameIndex: 115
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 8
+        width: 62
+        height: 39
+      spriteId: c8b950e506e71974886aef94c72e4c0c
+    - name: SkeletonKinight_Frame_116
+      frameIndex: 116
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 52
+        height: 39
+      spriteId: 17a338d6b07d67443af85ff4af32802d
+    - name: SkeletonKinight_Frame_117
+      frameIndex: 117
+      additiveSortOrder: 0
+      cellRect:
+        x: 33
+        y: 8
+        width: 51
+        height: 40
+      spriteId: 33cdc497092b87748ab337846ed92df0
+    - name: SkeletonKinight_Frame_118
+      frameIndex: 118
+      additiveSortOrder: 0
+      cellRect:
+        x: 33
+        y: 8
+        width: 52
+        height: 39
+      spriteId: 4a9e0dffc24c84b4697cbed593b02678
+    - name: SkeletonKinight_Frame_119
+      frameIndex: 119
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 8
+        width: 56
+        height: 38
+      spriteId: 9f231cbf795ca9841b9290461097e08f
+    - name: SkeletonKinight_Frame_120
+      frameIndex: 120
+      additiveSortOrder: 0
+      cellRect:
+        x: 23
+        y: 8
+        width: 60
+        height: 37
+      spriteId: 5876634c6faa2f349b4f064e0c46cb9a
+    - name: SkeletonKinight_Frame_121
+      frameIndex: 121
+      additiveSortOrder: 0
+      cellRect:
+        x: 27
+        y: 8
+        width: 56
+        height: 36
+      spriteId: bff174a0dd11e9148b5d9a12781988b2
+    - name: SkeletonKinight_Frame_122
+      frameIndex: 122
+      additiveSortOrder: 0
+      cellRect:
+        x: 47
+        y: 8
+        width: 35
+        height: 37
+      spriteId: f2c888a0b3f12424eb58c430d185850a
+    - name: SkeletonKinight_Frame_123
+      frameIndex: 123
+      additiveSortOrder: 0
+      cellRect:
+        x: 45
+        y: 8
+        width: 83
+        height: 40
+      spriteId: fa49592f1873a594ebe445d6dcfa3631
+    - name: SkeletonKinight_Frame_124
+      frameIndex: 124
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 8
+        width: 82
+        height: 39
+      spriteId: 5e20e7106b5d8a6469a48344261c9b3d
+    - name: SkeletonKinight_Frame_125
+      frameIndex: 125
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 8
+        width: 82
+        height: 39
+      spriteId: 9b2d80dcaf3f4d840b64f9ada9df276b
+    - name: SkeletonKinight_Frame_126
+      frameIndex: 126
+      additiveSortOrder: 0
+      cellRect:
+        x: 44
+        y: 8
+        width: 62
+        height: 33
+      spriteId: 65ac98d3b70c9c344a703a9619bc16b3
+    - name: SkeletonKinight_Frame_127
+      frameIndex: 127
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 8
+        width: 48
+        height: 34
+      spriteId: c866ce2d33758a84984880e91d74bd4f
+    - name: SkeletonKinight_Frame_128
+      frameIndex: 128
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 7
+        width: 33
+        height: 39
+      spriteId: 4c995c107ce19ab4aa9af9c0fe024977
+    - name: SkeletonKinight_Frame_129
+      frameIndex: 129
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 53
+        height: 41
+      spriteId: 8e3fe055fccd3934498533909a5705d6
+    - name: SkeletonKinight_Frame_130
+      frameIndex: 130
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 53
+        height: 40
+      spriteId: d6462621f9099004f86259d366a9f81a
+    - name: SkeletonKinight_Frame_131
+      frameIndex: 131
+      additiveSortOrder: 0
+      cellRect:
+        x: 31
+        y: 8
+        width: 53
+        height: 42
+      spriteId: 65d87d61f7ef7ed41ae9b75a4471789c
+    - name: SkeletonKinight_Frame_132
+      frameIndex: 132
+      additiveSortOrder: 0
+      cellRect:
+        x: 18
+        y: 8
+        width: 70
+        height: 42
+      spriteId: 9e7b9311784371d4c8d3198055b4b2e4
+    - name: SkeletonKinight_Frame_133
+      frameIndex: 133
+      additiveSortOrder: 0
+      cellRect:
+        x: 16
+        y: 8
+        width: 73
+        height: 43
+      spriteId: 8aa37751777508e4891980405a539d5c
+    - name: SkeletonKinight_Frame_134
+      frameIndex: 134
+      additiveSortOrder: 0
+      cellRect:
+        x: 12
+        y: 7
+        width: 77
+        height: 46
+      spriteId: 9583b5b5a7ede2d419a182a898aa4b96
+    - name: SkeletonKinight_Frame_135
+      frameIndex: 135
+      additiveSortOrder: 0
+      cellRect:
+        x: 10
+        y: 7
+        width: 80
+        height: 29
+      spriteId: bcc75238a3d4090488b5eb0657000dbc
+    - name: SkeletonKinight_Frame_136
+      frameIndex: 136
+      additiveSortOrder: 0
+      cellRect:
+        x: 9
+        y: 7
+        width: 81
+        height: 29
+      spriteId: a6b36fda6601d4147a70bf649803785f
+    - name: SkeletonKinight_Frame_137
+      frameIndex: 137
+      additiveSortOrder: 0
+      cellRect:
+        x: 10
+        y: 8
+        width: 83
+        height: 22
+      spriteId: becbcb13667b1c842b75ae3298fdae01
+    - name: SkeletonKinight_Frame_138
+      frameIndex: 138
+      additiveSortOrder: 0
+      cellRect:
+        x: 9
+        y: 8
+        width: 84
+        height: 15
+      spriteId: 5f9dca8422db21a44b923243a92c1cd6
+    - name: SkeletonKinight_Frame_139
+      frameIndex: 139
+      additiveSortOrder: 0
+      cellRect:
+        x: 9
+        y: 8
+        width: 84
+        height: 17
+      spriteId: c3c540fc2d3d152459a07788e83bde0d
+    - name: SkeletonKinight_Frame_140
+      frameIndex: 140
+      additiveSortOrder: 0
+      cellRect:
+        x: 9
+        y: 8
+        width: 84
+        height: 18
+      spriteId: c87d33412cbb29b4392078ff17d6083a
+    - name: SkeletonKinight_Frame_141
+      frameIndex: 141
+      additiveSortOrder: 0
+      cellRect:
+        x: 9
+        y: 8
+        width: 85
+        height: 18
+      spriteId: 5ce7e24f88c1a4a4fbc8cdc50311e850
+    - name: SkeletonKinight_Frame_142
+      frameIndex: 142
+      additiveSortOrder: 0
+      cellRect:
+        x: 9
+        y: 8
+        width: 85
+        height: 12
+      spriteId: d590dd851c6480e458ccac64e96f2252
+    - name: SkeletonKinight_Frame_143
+      frameIndex: 143
+      additiveSortOrder: 0
+      cellRect:
+        x: 9
+        y: 8
+        width: 85
+        height: 12
+      spriteId: 3018ef0192c2741448d68f90bc6f73bd
+    - name: SkeletonKinight_Frame_144
+      frameIndex: 144
+      additiveSortOrder: 0
+      cellRect:
+        x: 9
+        y: 8
+        width: 85
+        height: 12
+      spriteId: 31efd5b19388e1d43a7c89d86c3af65a
+    - name: SkeletonKinight_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 8
+        width: 34
+        height: 19
+      spriteId: ae78b48b3fd7c3e49ae9a6ee3dd51566
+    - name: SkeletonKinight_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 44
+        y: 8
+        width: 37
+        height: 21
+      spriteId: f6abfb5d3892ff9488bb0b5d2feb3ac1
+    - name: SkeletonKinight_Frame_6
+      frameIndex: 6
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 8
+        width: 39
+        height: 21
+      spriteId: 03545b7fc04bb954ba2b27c3552b5c8b
+    - name: SkeletonKinight_Frame_7
+      frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 43
+        y: 8
+        width: 40
+        height: 18
+      spriteId: 07c32421f3336cc4c9f0dfb8ccc0440b
+    - name: SkeletonKinight_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 55
+        y: 8
+        width: 13
+        height: 5
+      spriteId: 0b183fed5c3aa414b8705bb903175635
+    - name: SkeletonKinight_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 55
+        y: 8
+        width: 13
+        height: 4
+      spriteId: 53402f1a74e433a4eb42cb9f9d98da67
+    - name: SkeletonKinight_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 55
+        y: 8
+        width: 13
+        height: 5
+      spriteId: 7912d359e079d19488aee7f4b5cbfbec
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 128, y: 80}
