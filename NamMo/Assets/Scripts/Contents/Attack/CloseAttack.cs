@@ -53,6 +53,7 @@ public class CloseAttack : BaseAttack
     }
     public void Attack()
     {
+        Debug.Log("실행됨");
         Vector2 offset = _offset;
         if (_isAttackRotate == false)
         {

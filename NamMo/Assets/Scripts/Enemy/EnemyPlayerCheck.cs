@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 namespace Enemy
@@ -43,25 +44,40 @@ namespace Enemy
             }
         }
 
-        
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.layer == 3)
+            {
+                _enemy._distance = Int64.MaxValue;
+            }
+        }
+
 
         private void AlertNearbyEnemies()
         {
-            var hitCount = Physics2D.OverlapCircle(transform.position, 10.5f, _CheckObject, ResultObj);
-            isAlert = true;
-            for (var i = 0; i < hitCount; i++)
-            {
-                _hitCollider = ResultObj[i];
-                EnemyPlayerCheck _enemycheck = _hitCollider.GetComponent<EnemyPlayerCheck>();
+            if (isAlert)
+                return;
+            Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(_enemy.gameObject.transform.position, 10.5f, _layerMask);
 
-                if (_enemycheck != null && !_enemycheck.isAlert)
+            Debug.Log(nearbyEnemies.Length);
+            isAlert = true;
+            
+            
+
+            foreach (var enemy in nearbyEnemies)
+            {
+                Enemy _enemys = enemy.GetComponent<Enemy>();
+                if (_enemys != null)
                 {
-                    _enemycheck.FindPlayer();
+                    Debug.Log(_enemys.gameObject.name);
+                    _enemys.PlayerTrackingState();
                 }
-                
             }
-            
-            
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(_enemy.transform.position, 10.5f);
         }
 
         public void FindPlayer()

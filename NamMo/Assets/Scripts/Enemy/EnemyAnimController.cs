@@ -19,11 +19,11 @@ namespace Enemy
             _enemy.OnEndattack += EndAttack;
             _enemy.OnHit += Hit;
             _enemy.OnEndHit += EndHit;
-            _enemy.Dead += Dead;
+            _enemy.DeadEvent += Dead;
             _enemy.OnGroggy += Groggy;
             _enemy.OnEndGroggy += EndGroggy;
             
-            _enemy.GroggyEnter();
+            //_enemy.GroggyEnter();
             _animator = GetComponent<Animator>();
         }
 
@@ -60,7 +60,6 @@ namespace Enemy
         }
         private void Attack()
         {
-            Debug.Log(_animator.gameObject.name);
             _animator.SetBool("IsAttack", true);
         }
 
@@ -77,11 +76,10 @@ namespace Enemy
         private void Groggy()
         {
             _enemy.GroggyStetCount();
-            Debug.Log(_enemy.currentgroggyStet);
-            if (_enemy.currentgroggyStet >= _enemy.maxGroggyStet)
+            _enemy.CurrentAttackCount--;
+            if (_enemy.currentgroggyStet >= _enemy.maxGroggyStet && _enemy.CurrentAttackCount <= 0)
             {
                 _enemy.currentgroggyStet = 0f;
-                Debug.Log(_enemy.currentgroggyStet + " " + _enemy.maxGroggyStet);
                 _animator.SetBool("IsGroggy", true);
             }
         }

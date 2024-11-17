@@ -18,8 +18,8 @@ namespace Enemy
         [SerializeField] private GameObject archr;
         [SerializeField] public EnemyAttackArea _enemyAttackArea;
 
-        [SerializeField] private RangeEnemyAttackPattern<RangedEnemy> _melAttackPattern;
-        [SerializeField] private RangeEnemyAttackPattern<RangedEnemy> _rangeAttackPattern;
+        [SerializeField] private EnemyAttackPattern<RangedEnemy> _melAttackPattern;
+        [SerializeField] private EnemyAttackPattern<RangedEnemy> _rangeAttackPattern;
 
         private Coroutine _currentPattern;
         
@@ -27,7 +27,6 @@ namespace Enemy
         
         public RangeEnemyStateMachine stateMachine;
 
-        public float _distance;
         public float _AttackTime1;
         public float _AttackTime2;
 
@@ -42,12 +41,18 @@ namespace Enemy
 
             stateMachine = new RangeEnemyStateMachine(this);
             stateMachine.Initialize(stateMachine._IdelState);
-            
+
+            _distance = Int64.MaxValue;
             _enemyAttackArea.SetAttackInfo(gameObject, 2);
             
         }
-        
-        public void GroggyEnter()
+
+        private void Update()
+        {
+            stateMachine.Update();
+        }
+
+        public override void GroggyEnter()
         {
             _enemyAttackArea._groggy += Groggy;
         }
@@ -59,7 +64,6 @@ namespace Enemy
 
         public void MelAttackAnim()
         {
-            Debug.Log(gameObject.name);
             Onattack.Invoke();
         }
 
@@ -79,6 +83,8 @@ namespace Enemy
         }
         public override void Behavire(float distance)
         {
+            base.Behavire(distance);
+
             _distance = distance;
             stateMachine.Update();
         }
@@ -87,14 +93,14 @@ namespace Enemy
         public void MelAttack()
         {
             _enemyMovement.OnWalk(0f);
-            _melAttackPattern.Initialise(this);
+            _melAttackPattern.Initalize(this);
             _currentPattern = StartCoroutine(_melAttackPattern.Pattern());
         }
 
         public void RangeAttack()
         {
             _enemyMovement.OnWalk(0f);
-            _rangeAttackPattern.Initialise(this);
+            _rangeAttackPattern.Initalize(this);
             _currentPattern = StartCoroutine(_rangeAttackPattern.Pattern());
         }
 
@@ -120,16 +126,20 @@ namespace Enemy
 
         public void MelAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x, Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             MelAttack();
         }
 
         public void RangeAttackPatternStart()
         {
-            _enemyMovement.DirectCheck(gameObject.transform.position.x,Managers.Scene.CurrentScene.Player.transform.position.x);
+            _enemyMovement.DirectCheck();
             RangeAttack();
         }
 
+        public void Direct()
+        {
+            _enemyMovement.DirectCheck();
+        }
         
 
         public void EndWalk()
@@ -178,7 +188,7 @@ namespace Enemy
         {
             
             yield return new WaitForSeconds(2f);
-            stateMachine.TransitionState(stateMachine._IdelState);
+            stateMachine.TransitionState(stateMachine._PatrolState);
         }
 
     }

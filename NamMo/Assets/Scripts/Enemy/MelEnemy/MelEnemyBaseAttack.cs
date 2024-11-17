@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace Enemy.MelEnemy
 {
-    public class MelEnemyBaseAttack : MelEnemyAttackPattern<MelEnemy>
+    public class MelEnemyBaseAttack : EnemyAttackPattern<MelEnemy>
     {
         public override IEnumerator Pattern()
         {
             _gameObject.Onattack.Invoke();
+            //_gameObject.ShowWaveVFX();
             yield return new WaitForSeconds(_gameObject.Attack1Time1);
             
             if (!_gameObject._isAttacking)

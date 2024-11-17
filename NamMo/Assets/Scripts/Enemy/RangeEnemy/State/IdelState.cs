@@ -15,6 +15,7 @@ namespace Enemy.State
         public void Enter()
         {
             Debug.Log("RangeEnemy Idel State");   
+            
         }
 
         public void Update()
@@ -23,6 +24,8 @@ namespace Enemy.State
             {
                 _RangedEnemy.stateMachine.TransitionState(_RangedEnemy.stateMachine._PatrolState);
             }
+            
+            _RangedEnemy.Patrol();
         }
 
         public void Exit()
