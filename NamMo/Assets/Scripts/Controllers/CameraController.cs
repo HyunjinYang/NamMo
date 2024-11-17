@@ -64,22 +64,22 @@ public class CameraController : MonoBehaviour
     {
         while (true)
         {
-            if (_vCam.m_Lens.OrthographicSize <= 11f)
+            if (_vCam.m_Lens.FieldOfView <= 85f)
             {
-                _vCam.m_Lens.OrthographicSize = 11f;
+                _vCam.m_Lens.FieldOfView = 85f;
                 break;
             }
-            _vCam.m_Lens.OrthographicSize -= 0.1f;
+            _vCam.m_Lens.FieldOfView -= 0.5f;
             yield return new WaitForSecondsRealtime(0.03f);
         }
         while (true)
         {
-            if (_vCam.m_Lens.OrthographicSize >= 12f)
+            if (_vCam.m_Lens.FieldOfView >= 90f)
             {
-                _vCam.m_Lens.OrthographicSize = 12f;
+                _vCam.m_Lens.FieldOfView = 90f;
                 break;
             }
-            _vCam.m_Lens.OrthographicSize += 0.1f;
+            _vCam.m_Lens.FieldOfView += 0.5f;
             yield return new WaitForSecondsRealtime(0.03f);
         }
     }

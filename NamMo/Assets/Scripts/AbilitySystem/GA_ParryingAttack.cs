@@ -1,3 +1,4 @@
+using Enemy.Boss.MiniBoss;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,14 @@ public class GA_ParryingAttack : GameAbility
         yield return new WaitForSecondsRealtime(_attackMoment);
         if (TargetEnemy)
         {
-            TargetEnemy.Hit(1000);
+            if(TargetEnemy as MiniBossEnemy)
+            {
+                TargetEnemy.Hit(1);
+            }
+            else
+            {
+                TargetEnemy.Hit(1000);
+            }
             TargetEnemy = null;
         }
         _asc.GetPlayerController().GetPlayerSound().PlayAttackSound();
