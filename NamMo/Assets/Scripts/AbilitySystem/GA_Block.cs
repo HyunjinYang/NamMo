@@ -8,6 +8,7 @@ public class GA_Block : GameAbility
 {
     [SerializeField] private float _perfectParryingTime;
     [SerializeField] private float _blockTime;
+    [SerializeField] private GameObject _waveDetectEffectPrefab;
     private bool _isPerfectParryingTiming = false;
     private bool _reserveNextCombo = false;
 
@@ -20,6 +21,7 @@ public class GA_Block : GameAbility
     private Define.Direction _blockDirection = Define.Direction.Right;
     private int _canMoveCnt = 0;
     public bool ReserveParrying { get { return _reserveParrying; } }
+
     protected override void Init()
     {
         base.Init();
@@ -190,6 +192,11 @@ public class GA_Block : GameAbility
                     {
                         _parriedObjects.Add(go.GetComponent<BaseAttack>());
                     }
+                    Vector2 point = _asc.GetPlayerController().GetBlockArea().GetComponent<Collider2D>().ClosestPoint(go.transform.position);
+                    GameObject _blockEffect = Instantiate(_waveDetectEffectPrefab, point, Quaternion.identity);
+                    _blockEffect.transform.localScale = Vector3.one * 0.1f;
+                    _blockEffect.GetComponent<Renderer>().sortingOrder = 1;
+                    _blockEffect.GetComponent<VFXController>().Play(0.25f, 0.75f);
                 }
                 else
                 {
