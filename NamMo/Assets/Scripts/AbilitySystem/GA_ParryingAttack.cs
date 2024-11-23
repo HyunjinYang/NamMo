@@ -2,13 +2,14 @@ using Enemy.Boss.MiniBoss;
 using Enemy.MelEnemy;
 using System.Collections;
 using System.Collections.Generic;
+using BehaviorTree_Enemy;
 using UnityEngine;
 
 public class GA_ParryingAttack : GameAbility
 {
     [SerializeField] private float _attackTime;
     [SerializeField] private float _attackMoment;
-    private Enemy.Enemy _targetEnemy = null;
+    private TestEnemy _targetEnemy = null;
     protected override void ActivateAbility()
     {
         base.ActivateAbility();
@@ -29,11 +30,11 @@ public class GA_ParryingAttack : GameAbility
         if (parriedAttack.Attacker == null) return false;
 
         GameObject attacker = parriedAttack.Attacker;
-        // tmp : ÀÏ´Ü ÀÏ¹Ý±ÙÁ¢¸¸, TODO
-        if (attacker.GetComponent<MelEnemy>() == null) return false;
-        if (attacker.GetComponent<MelEnemy>().stateMachine._CurrentState as GroggyState == null) return false;
+        // tmp : ï¿½Ï´ï¿½ ï¿½Ï¹Ý±ï¿½ï¿½ï¿½ï¿½ï¿½, TODO
+        if (attacker.GetComponent<TestEnemy>() == null) return false;
+        if (attacker.GetComponent<TestEnemy>()._EnemyState != Define.EnemyState.Groggy) return false;
 
-        _targetEnemy = attacker.GetComponent<Enemy.Enemy>();
+        _targetEnemy = attacker.GetComponent<TestEnemy>();
         return true;
     }
     IEnumerator CoAttack()
@@ -41,13 +42,13 @@ public class GA_ParryingAttack : GameAbility
         yield return new WaitForSecondsRealtime(_attackMoment);
         if (_targetEnemy)
         {
-            if(_targetEnemy as MiniBossEnemy)
+            if(_targetEnemy as TestEnemy)
             {
-                _targetEnemy.Hit(1);
+                _targetEnemy.Hit(1000);
             }
             else
             {
-                _targetEnemy.Hit(1000);
+                _targetEnemy.Hit(1);
             }
             _targetEnemy = null;
         }

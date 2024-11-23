@@ -48,7 +48,6 @@ public abstract partial class BaseAttack : MonoBehaviour
         _attacker = attacker;
         _damage = damage;
         _attackStrength = attackStrength;
-        Debug.Log(attacker.gameObject.name);
         if (attacker.GetComponent<PlayerController>()) _attackerType = AttackerType.Player;
         else if (attacker.GetComponent<Enemy.Enemy>()) _attackerType = AttackerType.Enemy;
         else if (attacker.GetComponent<TestEnemy>()) _attackerType = AttackerType.TestEnemy;

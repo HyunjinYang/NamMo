@@ -2,6 +2,7 @@ using Enemy.MelEnemy;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BehaviorTree_Enemy;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -214,7 +215,7 @@ public partial class PlayerController : MonoBehaviour
                     {
                         if (parriedAttack.Attacker == null) continue;
 
-                        if (parriedAttack.Attacker.GetComponent<MelEnemy>()/*일단 일반 근접 몬스터만*/)
+                        if (parriedAttack.Attacker.GetComponent<TestEnemy>()/*일단 일반 근접 몬스터만*/)
                         {
                             GA_ParryingAttack parryingAttackAbility = _asc.GetAbility(Define.GameplayAbility.GA_ParryingAttack) as GA_ParryingAttack;
                             if (parryingAttackAbility.CanParryingAttack(parriedAttack) == false) continue;

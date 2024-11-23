@@ -12,6 +12,7 @@ namespace BehaviorTree_Enemy
         private bool isDead;
         public override void OnStart()
         {
+            _enemy._EnemyState = Define.EnemyState.Dead;
             Managers.Effect.PlayOnShot(_DeadParticle, transform);
             DOVirtual.DelayedCall(bleedTime, () =>
             {

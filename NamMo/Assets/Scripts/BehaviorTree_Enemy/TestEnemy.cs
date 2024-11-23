@@ -9,6 +9,8 @@ namespace BehaviorTree_Enemy
         [SerializeField] protected int _hp;
         [SerializeField] protected int maxhp;
         public float _distance;
+
+        public Define.EnemyState _EnemyState;
         public int HP
         {
             get

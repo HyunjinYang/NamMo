@@ -8,7 +8,13 @@ namespace BehaviorTree_Enemy.MiniBoss.Conditional
     {
         public override TaskStatus OnUpdate()
         {
-            return _enemy.CurrentAttackCount == 0 && _enemy.currentgroggyStet >= _enemy.maxGroggyStet ? TaskStatus.Success : TaskStatus.Failure;
+            if (_enemy.CurrentAttackCount == 0 && _enemy.currentgroggyStet >= _enemy.maxGroggyStet)
+            {
+                _enemy._EnemyState = Define.EnemyState.Groggy;
+                return TaskStatus.Success;
+            }
+            else
+                return TaskStatus.Failure;
         }
     }
 }

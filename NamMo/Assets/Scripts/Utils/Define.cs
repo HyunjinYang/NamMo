@@ -144,4 +144,13 @@ public class Define
         Left,
         LeftUp,
     }
+
+    public enum EnemyState
+    {
+        Default,
+        Groggy,
+        Dead,
+        Hit,
+        Attack,
+    }
 }

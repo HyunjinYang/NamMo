@@ -10,8 +10,9 @@ namespace BehaviorTree_Enemy
         public float _GroggyCount;
         public override void OnStart()
         {
+            _enemy._EnemyState = Define.EnemyState.Attack;
             _enemy.SetGroggyCount(_GroggyCount);
-            _EnemyAttackArea.SetAttackInfo(gameObject, 2);
+            _EnemyAttackArea.SetAttackInfo(_enemy.gameObject, 2);
             _EnemyAttackArea._groggy = _enemy.OnGroggy;
             _EnemyAttackArea.Attack();
         }
