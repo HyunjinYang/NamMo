@@ -126,15 +126,6 @@ namespace Enemy.MelEnemy
             _enemyMovement.DirectCheck();
         }
 
-        public void Groggy()
-        {
-            _enemyMovement._isGroggy = true;
-        }
-
-        public void EndGroggy()
-        {
-            _enemyMovement._isGroggy = false;
-        }
 
         public void TransitionGroggy()
         {

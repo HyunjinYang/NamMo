@@ -24,6 +24,8 @@ namespace BehaviorTree_Enemy
                     Managers.Resource.Destroy(projectile);
                 }
             });
+            
+            Camera.main.GetComponent<CameraController>().ShakeCamera(0.5f);
         }
 
         public override TaskStatus OnUpdate()

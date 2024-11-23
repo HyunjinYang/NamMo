@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Enemy.Boss.MiniBoss;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemy
 {
@@ -126,6 +127,7 @@ namespace Enemy
         {
             _enemyMovement._isDead = true;
             DeadEvent.Invoke();
+            gameObject.GetComponent<NavMeshAgent>().ResetPath();
             if (ManagedId != -1)
             {
                 Managers.Data.EnemyData.KillEnemy(Managers.Scene.CurrentScene.SceneType, ManagedId);

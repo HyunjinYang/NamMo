@@ -11,7 +11,7 @@ namespace BehaviorTree_Enemy
         public override void OnStart()
         {
             _enemy.SetGroggyCount(_GroggyCount);
-            _EnemyAttackArea.SetAttackInfo(gameObject.GetComponentInChildren<Animator>().gameObject, 2);
+            _EnemyAttackArea.SetAttackInfo(gameObject, 2);
             _EnemyAttackArea._groggy = _enemy.OnGroggy;
             _EnemyAttackArea.Attack();
         }

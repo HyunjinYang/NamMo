@@ -20,7 +20,6 @@ public class BaseProjectile : BaseAttack
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         CheckCollision(collision);
     }
     protected virtual void CheckCollision(Collider2D collision)

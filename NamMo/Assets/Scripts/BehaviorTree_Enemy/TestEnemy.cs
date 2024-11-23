@@ -24,15 +24,8 @@ namespace BehaviorTree_Enemy
             }
         }
         
-        protected GameObject _player;
-        public Action Onattack;
-        public Action OnEndattack;
-        public Action OnHit;
-        public Action OnEndHit;
         public Action DeadEvent;
         public Action OnGroggy;
-        public Action OnEndGroggy;
-        public Action<float> OnWalk;
         public int CurrentAttackCount;
         
         [SerializeField] private GameObject _waveDetectEffectPrefab;
@@ -40,6 +33,21 @@ namespace BehaviorTree_Enemy
         [SerializeField]private float _scaleChangeTime;
         [SerializeField] private float _size;
         [SerializeField] private GameObject _waveGroundEffect;
+
+        [SerializeField] private bool _isFacing = true;
+        [SerializeField] public bool _isPlayerCheck = false;
+        public bool IsFacingRight
+        {
+            get
+            {
+                return _isFacing;
+            }
+            set
+            {
+                _isFacing = value;
+            }
+        }
+        
         public void ShowWaveVFX()
         {
             _waveEffect = Instantiate(_waveDetectEffectPrefab, gameObject.transform.position, Quaternion.identity);

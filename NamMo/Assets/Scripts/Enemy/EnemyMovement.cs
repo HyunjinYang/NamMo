@@ -19,7 +19,6 @@ namespace Enemy
         public bool _isHit = false;
         public bool _isDead = false;
         public bool _isPatrol = false;
-        public bool _isGroggy = false;
         private Transform _currentWayPoint;
         private Rigidbody2D _rb;
         private float _distance = 0.9f;

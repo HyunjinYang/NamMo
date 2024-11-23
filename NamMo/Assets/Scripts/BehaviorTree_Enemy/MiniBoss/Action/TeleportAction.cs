@@ -15,6 +15,7 @@ namespace BehaviorTree_Enemy.MiniBoss.Conditional
         
         public override void OnStart()
         {
+            hasExit = false;
             _teleportObject.SetActive(true);
             StartTeleport();
         }

@@ -16,6 +16,8 @@ namespace BehaviorTree_Enemy
             _boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
             _animator = gameObject.GetComponentInChildren<Animator>();
             _enemy = gameObject.GetComponent<TestEnemy>();
+            if (_enemy == null)
+                _enemy = gameObject.GetComponentInChildren<TestEnemy>();
         }
     }
 }

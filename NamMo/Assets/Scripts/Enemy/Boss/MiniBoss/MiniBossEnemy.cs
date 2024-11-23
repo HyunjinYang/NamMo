@@ -163,16 +163,6 @@ namespace Enemy.Boss.MiniBoss
 
         #region Animation
         
-        public void Groggy()
-        {
-            _enemyMovement._isGroggy = true;
-        }
-
-        public void EndGroggy()
-        {
-            _enemyMovement._isGroggy = false;
-        }
-        
         public void MelAttack()
         {
             var next = _rand.Next(0, 2);

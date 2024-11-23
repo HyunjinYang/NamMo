@@ -13,7 +13,6 @@ namespace Enemy.MelEnemy
         public void Enter()
         {
             Debug.Log("Groggy State");
-            _MelEnemy.Groggy();
         }
 
         public void Update()
@@ -23,7 +22,7 @@ namespace Enemy.MelEnemy
 
         public void Exit()
         {
-            _MelEnemy.EndGroggy();
+            
         }
     }
 }

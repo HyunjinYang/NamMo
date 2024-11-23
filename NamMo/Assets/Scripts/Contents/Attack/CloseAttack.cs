@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using BehaviorTree_Enemy;
 using UnityEngine;
 
 public class CloseAttack : BaseAttack
@@ -32,6 +33,10 @@ public class CloseAttack : BaseAttack
             // TODO
             _isAttackerFacingRight = _attacker.GetComponent<Enemy.Enemy>().IsFacingRight;
         }
+        else if (_attackerType == AttackerType.TestEnemy)
+        {
+            _isAttackerFacingRight = _attacker.GetComponent<TestEnemy>().IsFacingRight;
+        }
     }
     public void SetAttackShape(AttackShape attackShape) { _attackShape = attackShape; }
     public void SetAttackRange(Vector2 offset, Vector2 size)
@@ -53,7 +58,6 @@ public class CloseAttack : BaseAttack
     }
     public void Attack()
     {
-        Debug.Log("실행됨");
         Vector2 offset = _offset;
         if (_isAttackRotate == false)
         {

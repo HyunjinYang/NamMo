@@ -77,8 +77,9 @@ GameObject:
   - component: {fileID: 6151776520862158515}
   - component: {fileID: 3698495189023396685}
   - component: {fileID: 6934374509396857071}
-  - component: {fileID: 3566315328044413092}
-  m_Layer: 0
+  - component: {fileID: 8884493080985740702}
+  - component: {fileID: 2937056485610220431}
+  m_Layer: 23
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +216,7 @@ MonoBehaviour:
   isTest: 0
   Test: 0
   Attack1Time1: 0.55
-  Attack1Time2: 0.5
+  Attack1Time2: 0.3
   Attack2Time: 0.71
 --- !u!114 &6151776520862158515
 MonoBehaviour:
@@ -263,7 +264,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.9}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.3}
@@ -274,7 +275,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
 --- !u!114 &6934374509396857071
 MonoBehaviour:
@@ -290,7 +291,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _flashColor: {r: 1, g: 1, b: 1, a: 1}
   _flashtime: 0.25
---- !u!195 &3566315328044413092
+--- !u!114 &8884493080985740702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862817832713176380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07479a91d9c348c6a4d907bbbae9c14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _flashtime: 0.25
+--- !u!195 &2937056485610220431
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,7 +317,7 @@ NavMeshAgent:
   m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 52
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -619,7 +634,6 @@ MonoBehaviour:
   _isHit: 0
   _isDead: 0
   _isPatrol: 0
-  _isGroggy: 0
   _playerposition: {fileID: 0}
   direct: 1
   _speed: 3

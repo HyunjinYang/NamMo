@@ -14,8 +14,6 @@ namespace Enemy.Boss.MiniBoss.State
         public void Enter()
         {
             _MiniBossEnemy.StopPattern();
-            _MiniBossEnemy.DeActivateAttackArea();
-            _MiniBossEnemy.Groggy();
         }
 
         public void Update()
@@ -25,7 +23,7 @@ namespace Enemy.Boss.MiniBoss.State
 
         public void Exit()
         {
-            _MiniBossEnemy.EndGroggy();
+            
         }
     }
 }
