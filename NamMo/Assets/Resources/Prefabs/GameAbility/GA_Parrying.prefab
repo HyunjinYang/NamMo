@@ -55,3 +55,4 @@ MonoBehaviour:
   BlockCancelTime: 0
   _parryingTime: 0.35
   ParriedAttacks: []
+  _redCirclePrefab: {fileID: 5919770018021714506, guid: c4a730fae90b1ae42ad3221aa1d11258, type: 3}
