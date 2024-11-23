@@ -20,6 +20,7 @@ public class GA_WaveDetect : GameAbility
     [SerializeField] private GameObject _waveDetectLight;
     [SerializeField] private float _lightRemainingTime;
     [SerializeField] private float _reviseValue;
+    [SerializeField] private float _detectLightIntencity;
 
     [Header("VFX")]
     private GameObject _waveEffect;
@@ -58,6 +59,8 @@ public class GA_WaveDetect : GameAbility
         //_remainUseCnt--;
         if (OnRemainUseCntChanged != null) OnRemainUseCntChanged.Invoke(_remainUseCnt);
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
+
+        GroundMaterialValueChanger.EndFadeOut();
     }
     public override bool CanActivateAbility()
     {
@@ -75,6 +78,8 @@ public class GA_WaveDetect : GameAbility
     {
         base.EndAbility();
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
+
+        GroundMaterialValueChanger.EndFadeOut();
     }
     private void HandleTriggeredWaveObject(GameObject go)
     {
@@ -129,25 +134,35 @@ public class GA_WaveDetect : GameAbility
         if (_turnOffLightCoroutine != null) StopCoroutine(_turnOffLightCoroutine);
         if (_sizeUpWaveCoroutine != null) StopCoroutine(_sizeUpWaveCoroutine);
         ClearInWaveEnemies();
-        _waveDetectLight.GetComponent<Light2D>().intensity = 0.0015f;
+        _waveDetectLight.GetComponent<Light2D>().intensity = _detectLightIntencity;
         _asc.GetPlayerController().GetWaveTrigger().SetRadius(0);
 
         ShowWaveVFX();
 
         _sizeUpWaveCoroutine = StartCoroutine(CoSizeUpWave());
+        GroundMaterialValueChanger.FadeOutDistance = 0f;
         _turnOffLightCoroutine = StartCoroutine(CoTurnOffDetectLight());
     }
     
     IEnumerator CoTurnOffDetectLight()
     {
-        yield return new WaitForSecondsRealtime(_scaleChangeTime + _lightRemainingTime - 2f);
-        for(int i = 0; i < 5; i++)
-        {
-            _waveDetectLight.GetComponent<Light2D>().intensity = 0f;
-            yield return new WaitForSecondsRealtime(0.2f);
-            _waveDetectLight.GetComponent<Light2D>().intensity = 0.0015f;
-            yield return new WaitForSecondsRealtime(0.2f);
-        }
+        yield return new WaitForSecondsRealtime(_scaleChangeTime + _lightRemainingTime);
+        GroundMaterialValueChanger.StartFadeOut();
+        yield return new WaitForSeconds(5f);
+        GroundMaterialValueChanger.EndFadeOut();
+        //float startTime = Time.time;
+        //while (true)
+        //{
+        //    float currTime = Time.time;
+        //    float remainTime = currTime - startTime;
+        //    if (remainTime >= 2f) break;
+
+        //    _waveDetectLight.GetComponent<Light2D>().intensity = (2f - remainTime) * _detectLightIntencity / 2f + 0.001f;
+
+        //    yield return null;
+        //}
+
+        _waveDetectLight.GetComponent<Light2D>().intensity = 0;
         _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
         _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = 0;
         _turnOffLightCoroutine = null;

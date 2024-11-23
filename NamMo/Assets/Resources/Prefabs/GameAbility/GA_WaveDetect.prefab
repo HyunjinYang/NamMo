@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 0.05
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 85e4cc4e0000000019039643
+  m_ApplyToSortingLayers: 85e4cc4e1903964381a69e54
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -229,3 +229,4 @@ MonoBehaviour:
   _waveDetectLight: {fileID: 1489081750304997150}
   _lightRemainingTime: 5
   _reviseValue: 1.2
+  _detectLightIntencity: 0.01
