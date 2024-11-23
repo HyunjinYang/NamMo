@@ -12,8 +12,11 @@ namespace BehaviorTree_Enemy
         
         public override void OnStart()
         {
+            int direction = Managers.Scene.CurrentScene.Player.transform.position.x < transform.position.x ? -1 : 1;
+
             var projectile = Object.Instantiate(_projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
             projectile.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 3);
+            projectile.GetComponent<EnergyProjectile>().Force(direction);
             projectile.GetComponent<BaseProjectile>().OnHitted += ((go) =>
             {
                 if (projectile)
