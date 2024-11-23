@@ -1,3 +1,4 @@
+using Enemy.MelEnemy;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -211,20 +212,21 @@ public partial class PlayerController : MonoBehaviour
                 {
                     foreach (BaseAttack parriedAttack in parryingAbility.ParriedAttacks)
                     {
-                        if (parriedAttack == null) continue;
-                        if (parriedAttack as CloseAttack == null) continue;
                         if (parriedAttack.Attacker == null) continue;
-                        GameObject attacker = parriedAttack.Attacker;
-                        if (attacker.GetComponent<Enemy.Enemy>() == null) continue;
 
-                        GA_ParryingAttack parryingAttackAbility = _asc.GetAbility(Define.GameplayAbility.GA_ParryingAttack) as GA_ParryingAttack;
-                        if (parryingAttackAbility)
+                        if (parriedAttack.Attacker.GetComponent<MelEnemy>()/*일단 일반 근접 몬스터만*/)
                         {
-                            parryingAttackAbility.TargetEnemy = attacker.GetComponent<Enemy.Enemy>();
+                            GA_ParryingAttack parryingAttackAbility = _asc.GetAbility(Define.GameplayAbility.GA_ParryingAttack) as GA_ParryingAttack;
+                            if (parryingAttackAbility.CanParryingAttack(parriedAttack) == false) continue;
                             _asc.TryActivateAbilityByTag(Define.GameplayAbility.GA_ParryingAttack);
                             return;
                         }
+                        else if (false/*TODO : 보스공격일경우*/)
+                        {
+
+                        }
                     }
+                    
                 }
             }
         }
