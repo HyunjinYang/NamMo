@@ -18,12 +18,16 @@ public class GroundMaterialValueChanger : MonoBehaviour
     public static void EndFadeOut()
     {
         _fadeOut = false;
+        Vector2 res = new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
+        FadeOutDistance = - res.y / 4;
     }
     private void Start()
     {
         _mat = GetComponent<Renderer>().material;
         _cam = Camera.main;
         _res = new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
+
+        FadeOutDistance = - _res.y / 4;
     }
     private void Update()
     {
@@ -34,20 +38,20 @@ public class GroundMaterialValueChanger : MonoBehaviour
         //_mat.SetFloat("_PlayerViewRangeDistance", Screen.currentResolution.height / 4);
 
         _mat.SetVector("_Resolution", new Vector2(_res.x, _res.y));
-        //_mat.SetFloat("_PlayerViewRangeDistance", _res.y / 4 + 5);
-        _mat.SetFloat("_PlayerViewRangeDistance", 0);
+        _mat.SetFloat("_PlayerViewRangeDistance", _res.y / 4 + 5);
+        //_mat.SetFloat("_PlayerViewRangeDistance", 0);
 
         if (_fadeOut)
         {
             if (_fadeOutDistanceValueChangedNowFrame == false)
             {
                 _fadeOutDistanceValueChangedNowFrame = true;
-                FadeOutDistance += 5f;
+                FadeOutDistance += 1.2f;
             }
         }
         else
         {
-            FadeOutDistance = 0;
+            FadeOutDistance = -_res.y / 4;
         }
 
         _mat.SetFloat("_FadeOutDistance", FadeOutDistance);

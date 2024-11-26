@@ -61,6 +61,7 @@ public class GA_WaveDetect : GameAbility
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = false;
 
         GroundMaterialValueChanger.EndFadeOut();
+        RefreshLight();
     }
     public override bool CanActivateAbility()
     {
@@ -78,8 +79,6 @@ public class GA_WaveDetect : GameAbility
     {
         base.EndAbility();
         _asc.gameObject.GetComponent<PlayerMovement>().CanMove = true;
-
-        GroundMaterialValueChanger.EndFadeOut();
     }
     private void HandleTriggeredWaveObject(GameObject go)
     {
@@ -118,6 +117,12 @@ public class GA_WaveDetect : GameAbility
                 waveEnemy.InPlayerWaveDetect = false;
             }
         }
+    }
+    private void RefreshLight()
+    {
+        _waveDetectLight.GetComponent<Light2D>().intensity = 0;
+        _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
+        _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = 0;
     }
     IEnumerator CoWaveDetect()
     {
@@ -162,9 +167,7 @@ public class GA_WaveDetect : GameAbility
         //    yield return null;
         //}
 
-        _waveDetectLight.GetComponent<Light2D>().intensity = 0;
-        _waveDetectLight.GetComponent<Light2D>().pointLightInnerRadius = 0;
-        _waveDetectLight.GetComponent<Light2D>().pointLightOuterRadius = 0;
+        RefreshLight();
         _turnOffLightCoroutine = null;
     }
     IEnumerator CoSizeUpWave()
