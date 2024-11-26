@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 0.05
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 85e4cc4e0000000019039643
+  m_ApplyToSortingLayers: 85e4cc4e1903964381a69e54
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -221,11 +221,12 @@ MonoBehaviour:
   _coolTime: 0
   CanUse: 0
   BlockCancelTime: 0
-  _scaleChangeTime: 3
+  _scaleChangeTime: 4
   _detectMoment: 0.5
   _motionTime: 1.5
   _waveDetectEffectPrefab: {fileID: 1243250658357058128, guid: 78d6a161a8b7f244d901ba7a9c91b3df, type: 3}
   _remainUseCnt: 4
   _waveDetectLight: {fileID: 1489081750304997150}
-  _lightRemainingTime: 5
+  _lightRemainingTime: -3.5
   _reviseValue: 1.2
+  _detectLightIntencity: 0.01
