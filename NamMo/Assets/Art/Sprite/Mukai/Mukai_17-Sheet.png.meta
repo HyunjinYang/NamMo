@@ -1,0 +1,576 @@
+fileFormatVersion: 2
+guid: c0b7f85a7f3768947b02113f87b7ffd8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364fc62289cd9914aa985927fc69b154
+      internalID: 2041279530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888bc936b28851f46a6ab16d23377be8
+      internalID: -889990529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9e39b5df9fe314895b652c6622cad0
+      internalID: 1839077693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d949a5787624428468a078b593fa4de9
+      internalID: -1057194439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d02e443e21b6b14991d20deaac887c0
+      internalID: -848893931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a99a6c2b567244f9eb9ce69a49860c
+      internalID: 1234292651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63a3ad1fe90bab4380932882270a74d
+      internalID: 1126119665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8da0c3ab744ba4b988b88032717f0b
+      internalID: 1468401951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148cb6399342208478acfc4cf95144f2
+      internalID: 1651088792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1388deb167a0f540b335ba574869fa4
+      internalID: -431712568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481da433a7229324fa250dd4313a5ee3
+      internalID: -895000682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 745aa9a96b4607a46a9dc0343fa5cacc
+      internalID: -1468385712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c45db1c01921494cbead61fb280705b
+      internalID: 1259528978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 3900
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fad09f96284ceb648b48377183442642
+      internalID: -1544782871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23cc8583f6ddd804b8c071ace51a8c12
+      internalID: -782829572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898e549a945cade4c87323c622984196
+      internalID: 1515599583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99a2aa56e4928a47b2fed9dfb724e9a
+      internalID: 887539342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadf039c7bfe5c045aaf1d1e11b866c7
+      internalID: -429969418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49273c52f96b2bc49a343f0c20792cde
+      internalID: -565614340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 5700
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b3c11632404acd43aa500c3cad9120e
+      internalID: 707890918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mukai_17-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 6
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.07}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b471502eddcc9b944b9e256725ed8330
+      internalID: 1289442836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Mukai_17-Sheet_0: 2041279530
+      Mukai_17-Sheet_1: -889990529
+      Mukai_17-Sheet_10: -895000682
+      Mukai_17-Sheet_11: -1468385712
+      Mukai_17-Sheet_12: 1259528978
+      Mukai_17-Sheet_13: -1544782871
+      Mukai_17-Sheet_14: -782829572
+      Mukai_17-Sheet_15: 1515599583
+      Mukai_17-Sheet_16: 887539342
+      Mukai_17-Sheet_17: -429969418
+      Mukai_17-Sheet_18: -565614340
+      Mukai_17-Sheet_19: 707890918
+      Mukai_17-Sheet_2: 1839077693
+      Mukai_17-Sheet_20: 1289442836
+      Mukai_17-Sheet_3: -1057194439
+      Mukai_17-Sheet_4: -848893931
+      Mukai_17-Sheet_5: 1234292651
+      Mukai_17-Sheet_6: 1126119665
+      Mukai_17-Sheet_7: 1468401951
+      Mukai_17-Sheet_8: 1651088792
+      Mukai_17-Sheet_9: -431712568
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

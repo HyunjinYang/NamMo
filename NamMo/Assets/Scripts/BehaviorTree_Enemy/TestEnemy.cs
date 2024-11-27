@@ -1,5 +1,6 @@
 using System;
 using Enemy;
+using Enemy.MelEnemy;
 using UnityEngine;
 
 namespace BehaviorTree_Enemy
@@ -38,6 +39,8 @@ namespace BehaviorTree_Enemy
 
         [SerializeField] private bool _isFacing = true;
         [SerializeField] public bool _isPlayerCheck = false;
+
+        public EnemySound _EnemySound;
         public bool IsFacingRight
         {
             get
@@ -72,6 +75,7 @@ namespace BehaviorTree_Enemy
         protected virtual void Start()
         {
             OnGroggy = Groggy;
+            _EnemySound = GetComponent<EnemySound>();
         }
         
 

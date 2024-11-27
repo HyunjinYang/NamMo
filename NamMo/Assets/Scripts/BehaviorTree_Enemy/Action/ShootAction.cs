@@ -1,22 +1,16 @@
-using BehaviorDesigner.Runtime.Tasks;
-using Contents.Test;
 using UnityEngine;
 
 namespace BehaviorTree_Enemy
 {
-    public class ShootAction : EnemyAction
+    public class ShootAction: EnemyAction
     {
         public GameObject _projectile;
-        public float _horizionForce;
-        public float _verticalForce;
-        
         public override void OnStart()
         {
             int direction = Managers.Scene.CurrentScene.Player.transform.position.x < transform.position.x ? -1 : 1;
 
-            var projectile = Object.Instantiate(_projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
-            projectile.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 3);
-            projectile.GetComponent<EnergyProjectile>().Force(direction);
+            var projectile = Object.Instantiate(_projectile, new Vector3(_enemy.transform.position.x, _enemy.transform.position.y + 0.5f, _enemy.transform.position.z), transform.rotation);
+            projectile.GetComponent<BaseProjectile>().SetAttackInfo(gameObject, 1f, 1, 4, Managers.Scene.CurrentScene.Player.gameObject);
             projectile.GetComponent<BaseProjectile>().OnHitted += ((go) =>
             {
                 if (projectile)
@@ -24,13 +18,7 @@ namespace BehaviorTree_Enemy
                     Managers.Resource.Destroy(projectile);
                 }
             });
-            
-            Camera.main.GetComponent<CameraController>().ShakeCamera(0.5f);
-        }
 
-        public override TaskStatus OnUpdate()
-        {
-            return TaskStatus.Success;
         }
     }
 }
