@@ -19,13 +19,16 @@ namespace BehaviorTree_Enemy
 
         public override TaskStatus OnUpdate()
         {
-            var scale = transform.localScale;
+            var scale = _enemy.transform.localScale;
             if (_enemy.transform.position.x > _target.position.x && basescale > 0)
             {
+                Debug.Log(_target.gameObject.name);
                 scale.x = -basescale;
             }
             else if (_enemy.transform.position.x < _target.position.x && basescale < 0)
             {
+                Debug.Log(_target.gameObject.name);
+
                 scale.x = -basescale;
             }
 

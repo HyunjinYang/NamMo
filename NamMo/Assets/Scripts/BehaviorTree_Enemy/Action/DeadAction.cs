@@ -13,7 +13,7 @@ namespace BehaviorTree_Enemy
         public override void OnStart()
         {
             _enemy._EnemyState = Define.EnemyState.Dead;
-            Managers.Effect.PlayOnShot(_DeadParticle, transform);
+            //Managers.Effect.PlayOnShot(_DeadParticle, transform);
             DOVirtual.DelayedCall(bleedTime, () =>
             {
                 Camera.main.GetComponent<CameraController>().ShakeCamera(0.5f);
