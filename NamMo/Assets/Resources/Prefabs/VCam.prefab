@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 659971121556418684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.118943, y: -0.01006639, z: -10}
+  m_LocalPosition: {x: -11.678605, y: -0.00299, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -158,9 +158,9 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  far clip plane: 100
+  field of view: 90
+  orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
@@ -246,7 +246,7 @@ MonoBehaviour:
   _cinemachineImpulseListener: {fileID: 6777074222524647822}
   _cinemachineImpulseSource: {fileID: 8388218656581426443}
   _lockCamY: {fileID: 4126410986585037246}
-  _yOffset: 7
+  _yOffset: 6
   CameraMode: 0
 --- !u!114 &9006771560448639071
 MonoBehaviour:
@@ -392,12 +392,12 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 90
     OrthographicSize: 10
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 100
     Dutch: 0
-    ModeOverride: 1
+    ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
