@@ -6,12 +6,17 @@ public class SpriteMaskAnimController : MonoBehaviour
 {
     [Range(0.02f, 0.2f)]
     [SerializeField] private float _spriteChangeTime;
+    [SerializeField] private GameObject _nammo;
     [SerializeField] private SpriteMask _spriteMask;
     [SerializeField] private List<Sprite> _sprites = new List<Sprite>();
     private int _idx = 0;
     private void Start()
     {
         StartCoroutine(CoChangeSpriteShape());
+    }
+    private void Update()
+    {
+        //transform.position = _nammo.transform.position;
     }
     IEnumerator CoChangeSpriteShape()
     {

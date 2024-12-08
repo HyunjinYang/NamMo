@@ -178,6 +178,7 @@ public class AbilitySystemComponent : MonoBehaviour
         GameObject go = Managers.Resource.Instantiate("GameAbility/" + Enum.GetName(typeof(Define.GameplayAbility), tag));
         GameAbility ga = go.GetComponent<GameAbility>();
         go.transform.SetParent(transform);
+        //go.layer = LayerMask.GetMask("Player");
         ga.AbilityTag = tag;
         ga.SetASC(this);
         return ga;
